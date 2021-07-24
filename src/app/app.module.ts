@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
+import { EmailPageComponent } from './pages/email-page/email-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -23,7 +25,9 @@ const firebaseConfig = {
     AppComponent,
     HomepageComponent,
     LoginPageComponent,
-    SignUpPageComponent
+    SignUpPageComponent,
+    EmailPageComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
