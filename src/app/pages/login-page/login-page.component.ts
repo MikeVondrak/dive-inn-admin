@@ -12,7 +12,7 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {}
 
-  loginGoogle() {
+  public loginGoogle() {
     this.authService.googleLogin();
   }
 
