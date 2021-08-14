@@ -1,0 +1,8 @@
+@import '../../scss/utility';
+@import '../../scss/colors';
+
+:host {
+  display: block;
+
+  color: $dive-white;
+}
