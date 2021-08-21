@@ -6,13 +6,16 @@
   min-height: 100vh; // combined with html/body in styles.scss for flexbox 'sticky-footer'
   
   header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    position: relative;
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: space-around;
+    //align-items: center;
     padding: 1rem;
     text-align: center;
+    font-weight: normal;
     img {
+      position: relative;
       width: 100%;
       max-width: 450px;
       @include utility.media-breakpoint-gte(sm) {

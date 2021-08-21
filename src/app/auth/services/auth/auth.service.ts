@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
 
-import { Observable } from 'rxjs';
-import { map, filter, first, tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { map, filter, first, tap, mergeMap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -71,6 +71,28 @@ export class AuthService {
   }
 
   logout() {
-    this.afAuth.signOut();
+    this.afAuth.signOut()
+      .then(() => this.router.navigateByUrl('login'))
+      .catch((err) => this.router.navigateByUrl('login'));
+
+  }
+
+  public getAllowedUser(): Observable<boolean> {
+    return this.uid$.pipe(
+      mergeMap(uid => {
+        const coll = firebase.firestore().collection('allow_users');
+        const docRef = coll.doc(uid);
+        console.log('ALLOW USERS MERGEMAP: ' + uid);
+        return docRef.get();
+      }),
+      map(doc => {
+        console.log('DOC EXISTS: ' + doc.exists);
+        return doc.exists;
+      }),
+      catchError(err => {
+        console.log('ALLOWED USER ERROR: ' + err)
+        return of(false);
+      })
+    );
   }
 }
