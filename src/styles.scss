@@ -1,16 +1,19 @@
-body {
-  background: #E2E4E6;
-  padding-top: 4em;
+@use './app/scss/utility';
+
+* {
+  box-sizing: border-box;
+}
+html, body {
+  padding: 0;
+  margin: 0;
 }
 
-.form-container {
-  background: white;
-  padding: 3.5em;
-  width: 500px;
-  position: fixed;
-  left: 45%;
-  margin-left: -250px;
+body {
+  min-height: 100vh;
+  background: utility.$dive-black;
+  color: utility.$dive-white;
 }
+
 
 button {
   padding: 0.5em;

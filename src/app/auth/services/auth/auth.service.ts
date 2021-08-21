@@ -56,12 +56,8 @@ export class AuthService {
   public loginGoogle(): Promise<firebase.auth.UserCredential> {
     const provider = new firebase.auth.GoogleAuthProvider();
     return this.afAuth.signInWithPopup(provider);
-    
   }
 
-  login(email: string, password: string) {
-    this.afAuth.signInWithEmailAndPassword(email, password);
-  }
   logout() {
     this.afAuth.signOut();
   }

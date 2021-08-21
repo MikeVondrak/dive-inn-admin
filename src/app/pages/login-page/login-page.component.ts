@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
+import { AuthService } from '../../auth/services/auth/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -13,7 +13,7 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {}
 
   public loginGoogle() {
-    this.authService.googleLogin();
+    this.authService.loginGoogle();
   }
 
 }

@@ -37,7 +37,7 @@ export class AdminPageComponent implements OnInit {
       }),
       catchError(err => {
         console.log('ALLOWED USER ERROR: ' + err)
-        return of(err);
+        return of(false);
       })
     );   
 
