@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth/services/guard/auth.guard';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
-import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
-import { EmailPageComponent } from './pages/email-page/email-page.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
-  { path: 'email-login', component: EmailPageComponent },
-  { path: 'signup', component: SignUpPageComponent },
-  { path: 'profile', component: ProfilePageComponent }
+  {
+    path: 'admin',
+    canActivate: [AuthGuard],
+    component: AdminPageComponent,
+  },
 ];
 
 @NgModule({

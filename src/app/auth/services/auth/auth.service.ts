@@ -12,6 +12,7 @@ export class AuthService {
   public authenticated$: Observable<boolean> = this.afAuth.authState.pipe(
     map((authState) => !!authState)
   );
+  public uid$: Observable<string | undefined> = this.afAuth.authState.pipe(map(authState => authState?.uid));
   public user$: Observable<firebase.User | null> = this.afAuth.authState;
 
   token$: Observable<string> = this.afAuth.idTokenResult.pipe(
@@ -23,6 +24,9 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe((authState) => {
       if (authState) {
+        
+        console.log(authState.uid);
+        
         this.afAuth.idTokenResult
           .pipe(
             first(),

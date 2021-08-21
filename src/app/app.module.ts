@@ -4,10 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
-import { EmailPageComponent } from './pages/email-page/email-page.component';
-import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { AngularFireModule } from '@angular/fire';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -24,9 +22,7 @@ const firebaseConfig = {
   declarations: [
     AppComponent,
     LoginPageComponent,
-    SignUpPageComponent,
-    EmailPageComponent,
-    ProfilePageComponent
+    AdminPageComponent,
   ],
   imports: [
     BrowserModule,
