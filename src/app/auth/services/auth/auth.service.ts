@@ -1,6 +1,9 @@
 import { Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
+
 import { Observable } from 'rxjs';
 import { map, filter, first, tap } from 'rxjs/operators';
 
@@ -21,7 +24,10 @@ export class AuthService {
     map((idToken) => idToken ? idToken.token : '')
   );
 
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(
+    private router: Router,
+    private afAuth: AngularFireAuth
+  ) {
     this.afAuth.authState.subscribe((authState) => {
       if (authState) {
         
@@ -53,9 +59,15 @@ export class AuthService {
     });
   }
 
-  public loginGoogle(): Promise<firebase.auth.UserCredential> {
+  public loginGoogle(): void { // Promise<firebase.auth.UserCredential> {
     const provider = new firebase.auth.GoogleAuthProvider();
-    return this.afAuth.signInWithPopup(provider);
+    this.afAuth.signInWithPopup(provider)
+      .then(userCreds => {
+        this.router.navigateByUrl('admin');
+      })
+    .catch(err => {
+      // will error if popup is closed then re-opened, can still proceed
+    });
   }
 
   logout() {
