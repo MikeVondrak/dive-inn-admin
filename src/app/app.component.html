@@ -1,13 +1,12 @@
 <header 
-  [@headerTransitions]="headerAnimationState$ | async"
   [class.logged-in]="isAllowed$ | async"
 >
   <img [@logoTransitions]="headerAnimationState$ | async" src="/assets/images/logoLg.png" />
-  <h1>Dive Inn Admin</h1>
+  <h1 [@headerTransitions]="headerAnimationState$ | async">Dive Inn Admin</h1>
   <button *ngIf="isAuthenticated$ | async"
     (click)="logout()"
   >
-    Sign Out
+    SIGN OUT
   </button>
 </header>
 

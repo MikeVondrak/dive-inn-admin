@@ -12,17 +12,23 @@
     //justify-content: space-around;
     //align-items: center;
     padding: 1rem;
-    text-align: center;
+    //text-align: center;
     font-weight: normal;
     img {
+      display: block;
       position: relative;
       width: 100%;
       max-width: 450px;
       @include utility.media-breakpoint-gte(sm) {
         width: 90%;
       }
+      
     }
     h1 {
+      display: inline-block;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 3rem;
     }
   }

@@ -1,23 +1,29 @@
 import { animation, style, animate, trigger, transition, useAnimation, state, keyframes, group, query } from '@angular/animations';
 
 const notAllowedStyle = style({
-  //width: '100%',
   top: '0',
   left: '50%',
   transform: 'translateX(-50%)',
 });
 const allowedStyle = style({
   top: '0',
-  left: '1rem',
-  transform: 'translateX(-50%)',
-  // width: '120px',
-  //transform: 'translateX(-50%)',
+  left: '0',
+  transform: 'translateX(0%)',
+  width: '220px',
 });
 
 export const headerAnimations = [
   trigger('headerTransitions', [
-    //state('notAllowed', style({})),
-    //state('allowed', style({})),
+    state('notAllowed', style({
+      left: '50%',
+      top: '0px',
+      transform: 'translateX(-50%)'
+    })),
+    state('allowed', style({
+      left: '50%',
+      top: '-200px',
+      transform: 'translateX(0%)'
+    })),
     //transition('void => *', animate('10s ease-in-out')),
     // transition('notAllowed <=> allowed', [
     //   query('img', animate('1s ease-in-out', style({ width: '120px' })))
