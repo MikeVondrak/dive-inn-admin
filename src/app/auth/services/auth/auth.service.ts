@@ -17,7 +17,10 @@ export class AuthService {
   );
   public uid$: Observable<string | undefined> = this.afAuth.authState.pipe(map(authState => authState?.uid));
   public user$: Observable<firebase.User | null> = this.afAuth.authState;
+  public username$: Observable<string> = this.user$.pipe(
+    map((user: firebase.User | null) => user?.displayName ? user.displayName : 'Unknown User'));
 
+    
   token$: Observable<string> = this.afAuth.idTokenResult.pipe(
     filter((authState) => !!authState),
     first(),

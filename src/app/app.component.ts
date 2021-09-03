@@ -17,8 +17,9 @@ export class AppComponent {
   
   public testIsAllowed: boolean = false;
   public testIsAllowed$: Subject<boolean> = new Subject();
-  public headerAnimationState$: Observable<string> = this.testIsAllowed$.pipe(map(isAllowed => isAllowed ? 'allowed' : 'notAllowed'));
-  //public headerAnimationState$: Observable<string> = this.isAllowed$.pipe(map(isAllowed => isAllowed ? 'allowed' : 'notAllowed'));
+  public headerAnimationState$: Observable<string> = this.isAuthenticated$.pipe(map(isAllowed => isAllowed ? 'allowed' : 'notAllowed'));
+
+  public username$: Observable<string> = this.authService.username$;
 
   constructor(private authService: AuthService) {
     this.testIsAllowed$.next(false);
@@ -28,5 +29,7 @@ export class AppComponent {
     // this.authService.logout();
     this.testIsAllowed = !this.testIsAllowed;
     this.testIsAllowed$.next(this.testIsAllowed);
+
+    this.authService.logout();
   }
 }

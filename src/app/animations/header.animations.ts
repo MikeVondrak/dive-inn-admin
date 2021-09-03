@@ -16,14 +16,17 @@ export const headerAnimations = [
   trigger('headerTransitions', [
     state('notAllowed', style({
       left: '50%',
-      top: '0px',
-      transform: 'translateX(-50%)'
+      top: '400px',
+      transform: 'translateX(-50%)',
+      opacity: 1
     })),
     state('allowed', style({
       left: '50%',
-      top: '-200px',
-      transform: 'translateX(0%)'
+      top: '440px',
+      transform: 'translateX(-50%)',
+      opacity: 0
     })),
+    transition('* <=> *', animate('1s ease-in-out'))
     //transition('void => *', animate('10s ease-in-out')),
     // transition('notAllowed <=> allowed', [
     //   query('img', animate('1s ease-in-out', style({ width: '120px' })))

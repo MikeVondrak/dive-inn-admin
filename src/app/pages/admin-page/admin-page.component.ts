@@ -20,9 +20,7 @@ export class AdminPageComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.username$ = this.authService.user$.pipe(
-      map((user: firebase.User | null) => user?.displayName ? user.displayName : 'Unknown User')
-    ); 
+
   }
 
 }

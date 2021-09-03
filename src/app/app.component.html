@@ -3,11 +3,16 @@
 >
   <img [@logoTransitions]="headerAnimationState$ | async" src="/assets/images/logoLg.png" />
   <h1 [@headerTransitions]="headerAnimationState$ | async">Dive Inn Admin</h1>
-  <button *ngIf="isAuthenticated$ | async"
-    (click)="logout()"
-  >
-    SIGN OUT
-  </button>
+  <div class="creds" *ngIf="isAuthenticated$ | async as isAuthenticated">
+    Hello {{ username$ | async }}
+    <button
+      (click)="logout()"
+      class="logout"
+    >
+      SIGN OUT
+    </button>
+  </div>
+
 </header>
 
 <main>
