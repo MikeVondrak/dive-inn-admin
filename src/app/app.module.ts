@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AngularFireModule } from '@angular/fire';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -24,6 +25,7 @@ const firebaseConfig = {
     AppComponent,
     LoginPageComponent,
     AdminPageComponent,
+    MainNavComponent,
   ],
   imports: [
     BrowserModule,

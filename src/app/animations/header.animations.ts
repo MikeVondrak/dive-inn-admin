@@ -4,12 +4,14 @@ const notAllowedStyle = style({
   top: '0',
   left: '50%',
   transform: 'translateX(-50%)',
+  opacity: 1,
 });
 const allowedStyle = style({
-  top: '0',
-  left: '0',
+  top: '1rem',
+  left: '1rem',
   transform: 'translateX(0%)',
   width: '220px',
+  opacity: 0.15,
 });
 
 export const headerAnimations = [

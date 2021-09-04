@@ -1,10 +1,17 @@
 <header 
   [class.logged-in]="isAllowed$ | async"
 >
-  <img [@logoTransitions]="headerAnimationState$ | async" src="/assets/images/logoLg.png" />
+  <img src="/assets/images/logoLg.png" 
+    [@logoTransitions]="headerAnimationState$ | async"    
+  />
+
+  <app-main-nav *ngIf="isAuthenticated$ | async as isAuthenticated"
+  ></app-main-nav>
+
   <h1 [@headerTransitions]="headerAnimationState$ | async">Dive Inn Admin</h1>
-  <div class="creds" *ngIf="isAuthenticated$ | async as isAuthenticated">
-    Hello {{ username$ | async }}
+
+  <div class="creds" *ngIf="isAuthenticated$ | async as isAuthenticated">    
+    {{ username$ | async }}
     <button
       (click)="logout()"
       class="logout"

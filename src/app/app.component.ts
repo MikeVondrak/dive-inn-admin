@@ -15,21 +15,14 @@ export class AppComponent {
   public isAuthenticated$: Observable<boolean> = this.authService.authenticated$;
   public isAllowed$: Observable<boolean> = this.authService.getAllowedUser();
   
-  public testIsAllowed: boolean = false;
-  public testIsAllowed$: Subject<boolean> = new Subject();
   public headerAnimationState$: Observable<string> = this.isAuthenticated$.pipe(map(isAllowed => isAllowed ? 'allowed' : 'notAllowed'));
-
   public username$: Observable<string> = this.authService.username$;
 
   constructor(private authService: AuthService) {
-    this.testIsAllowed$.next(false);
+    
   }
 
   public logout() {
-    // this.authService.logout();
-    this.testIsAllowed = !this.testIsAllowed;
-    this.testIsAllowed$.next(this.testIsAllowed);
-
     this.authService.logout();
   }
 }

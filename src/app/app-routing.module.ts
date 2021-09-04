@@ -12,6 +12,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: AdminPageComponent,
   },
+  { path: 'albums', loadChildren: () => import('./features/flickr-albums/flickr-albums.module').then(m => m.FlickrAlbumsModule) },
 ];
 
 @NgModule({
