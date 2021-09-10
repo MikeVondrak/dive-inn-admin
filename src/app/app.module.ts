@@ -8,17 +8,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AngularFireModule } from '@angular/fire';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAV7hD9iOJD_XMVsd8uU88g63ap-8_r7jI",
-  authDomain: "diveinnadmin.firebaseapp.com",
-  projectId: "diveinnadmin",
-  storageBucket: "diveinnadmin.appspot.com",
-  messagingSenderId: "100135443835",
-  appId: "1:100135443835:web:1ae5f4d17bda5ffa9631de",
-  measurementId: "G-W25N2VK7PZ"
-};
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,7 +20,7 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule
   ],
   providers: [],
