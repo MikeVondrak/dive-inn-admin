@@ -1,0 +1,23 @@
+<div class="photo-set-list-container">
+  <div *ngFor="let photoSet of photoSets$ | async; index as i">
+    <div>
+        {{i + 1}}:
+    </div>
+    <div>
+        {{ photoSet.title._content }}
+    </div>
+    <div>
+        {{photoSet.count_photos}} photos
+    </div>
+    <div>
+        created {{ photoSet.date_create * 1000 | date }}
+    </div>
+    <div>
+      {{ photoSet.id }}
+    </div>
+  </div>
+  <!-- <div *ngIf="(photoSets$ | async)?.length <= 0">
+    No Albums
+  </div> -->
+  <app-photo-set-preview></app-photo-set-preview>  
+</div>
