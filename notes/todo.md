@@ -18,7 +18,7 @@ https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=306d
 
 https://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=306d51374865d4e6fa4b32b0fd5a7998&user_id=193893336@N02&format=json&nojsoncallback=1
 
-https://api.flickr.com/services/rest/?method=flickr.galleries.getListt&api_key=306d51374865d4e6fa4b32b0fd5a7998&user_id=193893336@N02&format=json&nojsoncallback=1
+https://api.flickr.com/services/rest/?method=flickr.galleries.getList&api_key=306d51374865d4e6fa4b32b0fd5a7998&user_id=193893336@N02&format=json&nojsoncallback=1
 
 https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=306d51374865d4e6fa4b32b0fd5a7998&user_id=193893336@N02&photoset_id=72157719812376042&format=json&nojsoncallback=1
 

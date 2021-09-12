@@ -9,6 +9,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { environment } from 'src/environments/environment';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,10 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

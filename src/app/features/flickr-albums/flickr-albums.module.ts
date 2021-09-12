@@ -3,11 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { FlickrAlbumsRoutingModule } from './flickr-albums-routing.module';
 import { FlickrAlbumsComponent } from './flickr-albums.component';
+import { PhotoSetListComponent } from './components/photo-set-list/photo-set-list.component';
+import { PhotoSetPreviewComponent } from './components/photo-set-preview/photo-set-preview.component';
 
 
 @NgModule({
   declarations: [
-    FlickrAlbumsComponent
+    FlickrAlbumsComponent,
+    PhotoSetListComponent,
+    PhotoSetPreviewComponent
   ],
   imports: [
     CommonModule,

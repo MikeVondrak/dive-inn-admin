@@ -1,4 +1,9 @@
 :host {
   display: block;
-  border: 1px solid yellow;
+  // border: 1px solid yellow;
+
+  app-photo-set-list {
+    display: block;
+    width: 50%;
+  }
 }
