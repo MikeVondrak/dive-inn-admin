@@ -1,23 +1,39 @@
 <div class="photo-set-list-container">
-  <div *ngFor="let photoSet of photoSets$ | async; index as i">
+  <table>
+    <thead>
+      <tr>
+        <!-- <th></th> -->
+        <th>Album</th>
+        <th>Photos</th>
+        <th>Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let photoSet of photoSets$ | async; index as i" (click)="albumSelect(photoSet)">
+        <!-- <th>{{ i+1 }}</th> -->
+        <td>{{ photoSet.title._content }}</td>
+        <td>{{ photoSet.count_photos }}</td>
+        <td>{{ photoSet.date_create * 1000 | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- <div *ngFor="let photoSet of photoSets$ | async; index as i">
     <div>
-        {{i + 1}}:
+      {{i + 1}}:
     </div>
     <div>
-        {{ photoSet.title._content }}
+      {{ photoSet.title._content }}
     </div>
     <div>
-        {{photoSet.count_photos}} photos
+      {{photoSet.count_photos}}
     </div>
     <div>
-        created {{ photoSet.date_create * 1000 | date }}
+      {{ photoSet.date_create * 1000 | date }}
     </div>
-    <div>
-      {{ photoSet.id }}
-    </div>
-  </div>
-  <!-- <div *ngIf="(photoSets$ | async)?.length <= 0">
-    No Albums
   </div> -->
-  <app-photo-set-preview></app-photo-set-preview>  
+  <div *ngIf="!(photoSets$ | async)">
+    No Albums
+  </div>
+
 </div>

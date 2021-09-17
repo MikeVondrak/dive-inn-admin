@@ -21,6 +21,7 @@
       left: 1rem;
       width: 100%;
       max-width: 450px;
+      z-index: -1;
       @include utility.media-breakpoint-gte(sm) {
         width: 90%;
       }
@@ -52,6 +53,7 @@
 
   main {
     flex: 1 0 0;
+    padding: 2rem;
   }
 
   footer {

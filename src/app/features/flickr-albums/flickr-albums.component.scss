@@ -1,9 +1,42 @@
+@use '../../scss/utility';
+
 :host {
   display: block;
-  // border: 1px solid yellow;
+  
+  .albums-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    border: 1px solid red;
+
+    > div {
+      border: 1px solid yellow;
+    }
+
+    .albums-list-container {
+      flex: 2;
+    }
+    .album-info-container {
+      flex: 1;
+    }
+  }
+
+  .grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 20% 20% 20% 20%;
+    
+    > div {
+      padding: 0.5rem;
+      background: darkblue;
+      color: white;
+      border-radius: 10px;
+    }
+  }
 
   app-photo-set-list {
     display: block;
-    width: 50%;
+    //width: 50%;
   }
 }

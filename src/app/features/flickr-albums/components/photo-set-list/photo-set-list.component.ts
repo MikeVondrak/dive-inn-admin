@@ -19,4 +19,7 @@ export class PhotoSetListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public albumSelect(album: any) {
+    console.log({ album });
+  }
 }
