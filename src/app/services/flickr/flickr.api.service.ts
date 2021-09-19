@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,21 +22,17 @@ export class FlickrApiService {
 
   constructor(private http: HttpClient) { }
 
-  public getPhotoIDs() {
-    let url = this.urlRoot + 'photosets.getPhotos' + this.apiKey + this.userId + '&photoset_id=' + this.albumId + this.apiArgs;
-    let photosetList = this.http.get<any>(url);
-    // photosetList.subscribe(list => {
-    //   console.log('photoID: ' + list.photoset.photo[0].id);
-    // })
-    return photosetList;
+  public getPhotoIDs(id: string): Observable<any[]> {
+    let url = this.urlRoot + 'photosets.getPhotos' + this.apiKey + this.userId + '&photoset_id=' + id + this.apiArgs;
+    let photoList = this.http.get<any>(url);
+  
+    return photoList.pipe(map(photos => photos.photoset?.photo));
   }
 
   public getPhotoSets() {
     let url = this.urlRoot + 'photosets.getList' + this.apiKey + this.userId + this.apiArgs;
     let photosetList = this.http.get<any>(url);
-    // photosetList.subscribe(list => {
-    //   console.log('title: ' + list.photosets.photoset[0].title._content);
-    // })
+
     return photosetList;
   }
 

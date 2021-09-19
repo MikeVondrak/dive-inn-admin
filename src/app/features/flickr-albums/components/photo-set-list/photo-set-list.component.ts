@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
@@ -10,6 +10,8 @@ import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
 })
 export class PhotoSetListComponent implements OnInit {
 
+  @Output() albumIdSelect = new EventEmitter<string>();
+
   public photoSets$: Observable<any> = this.flickr.getPhotoSets().pipe(map(photoSet => photoSet.photosets.photoset));
 
   constructor(private flickr: FlickrApiService) { 
@@ -20,6 +22,6 @@ export class PhotoSetListComponent implements OnInit {
   }
 
   public albumSelect(album: any) {
-    console.log({ album });
+    this.albumIdSelect.emit(album.id);
   }
 }

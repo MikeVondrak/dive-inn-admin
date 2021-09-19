@@ -32,27 +32,21 @@ export class AuthService {
     private afAuth: AngularFireAuth
   ) {
     this.afAuth.authState.subscribe((authState) => {
-      if (authState) {
-        
-        console.log(authState.uid);
-        
+      if (authState) {                
         this.afAuth.idTokenResult
           .pipe(
             first(),
             tap((token) => {
               if (!!token) {
-                // console.log(token.token);
                 const expires =
                   new Date(token.expirationTime).toLocaleDateString() +
                   ' ' +
                   new Date(token.expirationTime).toLocaleTimeString();
-                console.log(`token expires:`, expires);
               }
             })
           )
           .subscribe((token) => {
             this.authenticated = true;
-            console.log(token);
             localStorage.setItem('accessToken', token ? JSON.stringify(token) : '');
           });
       } else {
@@ -85,11 +79,9 @@ export class AuthService {
       mergeMap(uid => {
         const coll = firebase.firestore().collection('allow_users');
         const docRef = coll.doc(uid);
-        console.log('ALLOW USERS MERGEMAP: ' + uid);
         return docRef.get();
       }),
       map(doc => {
-        console.log('DOC EXISTS: ' + doc.exists);
         return doc.exists;
       }),
       catchError(err => {

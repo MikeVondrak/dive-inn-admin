@@ -2,13 +2,15 @@
 
 <div class="albums-container">
   <div class="albums-list-container">
-    <app-photo-set-list></app-photo-set-list>
+    <app-photo-set-list
+      (albumIdSelect)="albumSelect($event)"
+    ></app-photo-set-list>
   </div>
   <div class="album-info-container">
-    <h2>Album Info</h2>
-    <div>Title</div>
-    <div>Tagline</div>
-    <div>Location</div>
+    <app-photo-set-preview
+      [photoSetId]="photoSetId"
+      [photoSetId$]="selectedPhotoSetId$"
+    ></app-photo-set-preview>
   </div>
 </div>
 
