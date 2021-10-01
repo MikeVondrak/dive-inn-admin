@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { filter, map, publishReplay, refCount, shareReplay, take, tap } from 'rxjs/operators';
+import { PhotoSet, PhotoSetList, PhotoSetListEntry } from './flickr.api.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,20 +21,50 @@ export class FlickrApiService {
 
   private readonly albumId: string = '72157719812376042';
 
+  // caching
+  private photoSetList: Observable<PhotoSetList> | null = null;
+  public photoSets: { id: string, set$: Observable<PhotoSet> }[] = []; // TODO: make a proper type for this
+
+  public photoSetLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public photoSetLoaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(private http: HttpClient) { }
 
-  public getPhotoIDs(id: string): Observable<any[]> {
+  public getPhotoSet(id: string): Observable<PhotoSet | undefined> {
     let url = this.urlRoot + 'photosets.getPhotos' + this.apiKey + this.userId + '&photoset_id=' + id + this.apiArgs;
-    let photoList = this.http.get<any>(url);
-  
-    return photoList.pipe(map(photos => photos.photoset?.photo));
+    
+    const set = this.photoSets.find(set => set.id === id);
+    if (!!set) {
+      return set.set$;
+    }
+
+    this.photoSetLoaded$.next(false);
+    this.photoSetLoading$.next(true);
+    const ret$ = this.http.get<{ photoset: PhotoSet}>(url).pipe(
+      publishReplay(1),
+      refCount(),
+      tap(() => { debugger; this.photoSetLoading$.next(false); this.photoSetLoaded$.next(true); }),
+      map(obj => obj.photoset)
+    );
+
+    this.photoSets.push({ id: id, set$: ret$ });
+
+    return ret$;
   }
 
-  public getPhotoSets() {
+  public getPhotoSets(): Observable<PhotoSetList> {
     let url = this.urlRoot + 'photosets.getList' + this.apiKey + this.userId + this.apiArgs;
-    let photosetList = this.http.get<any>(url);
-
-    return photosetList;
+    
+    if (!this.photoSetList) {
+      let photosetList = this.http.get<{ photosets: PhotoSetList }>(url).pipe(
+        publishReplay(1),
+        refCount(),
+        map(returnVal => returnVal.photosets)
+      );
+      this.photoSetList = photosetList;
+    }
+    
+    return this.photoSetList;
   }
 
 }

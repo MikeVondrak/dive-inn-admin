@@ -17,6 +17,9 @@ div.photo-set-list-container {
       }
     }
     tbody {
+      tr.selected {
+        background-color: utility.$dive-red-dk;
+      }
       th {
       }
       td {
