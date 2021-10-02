@@ -7,8 +7,8 @@ photoSetLoaded$: {{ photoSetLoaded$ | async }}<br>
     Loading...
   </span>
 </div>-->
-<div *ngIf="photoSetLoaded$ | async">
-  <span *ngFor="let photo of photoIds$ | async" style="display: block">
+<div *ngIf="(photoSetLoaded$ | async) && (photoIds$ | async) as photoIds">
+  <div *ngFor="let photo of photoIds">
     {{ photo.title }} {{ photo.id }}
-  </span>
+  </div>
 </div> 

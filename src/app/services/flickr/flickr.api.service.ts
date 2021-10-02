@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, observable, Observable, of, Subject } from 'rxjs';
 import { filter, map, publishReplay, refCount, shareReplay, take, tap } from 'rxjs/operators';
-import { PhotoSet, PhotoSetList, PhotoSetListEntry } from './flickr.api.model';
+import { PhotoSet, PhotoSetList, PhotoSetListEntry, PhotoSize, PhotoSizes } from './flickr.api.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,7 @@ export class FlickrApiService {
   // caching
   private photoSetList: Observable<PhotoSetList> | null = null;
   public photoSets: { id: string, set$: Observable<PhotoSet> }[] = []; // TODO: make a proper type for this
+  public photoSizes: PhotoSize[] = [];
 
   public photoSetLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public photoSetLoaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -65,6 +66,22 @@ export class FlickrApiService {
     }
     
     return this.photoSetList;
+  }
+
+  public getPhotoSizes(photoId: string): Observable<PhotoSizes> {
+    const joiner = '&';
+    let url = this.urlRoot + 'photos.getSizes' + this.apiKey + joiner + photoId + this.apiArgs;
+    //let sizesList: PhotoSize[] = [];
+    return this.http.get<{ sizes: PhotoSizes }>(url).pipe(
+      tap(val => {
+        val.sizes.size.forEach(element => {
+          this.photoSizes.push(element);
+        });
+      }),
+      map(val => {
+        return val.sizes;
+      })
+    );
   }
 
 }
