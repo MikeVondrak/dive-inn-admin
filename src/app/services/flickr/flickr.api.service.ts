@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, observable, Observable, of, Subject } from 'rxjs';
-import { filter, map, publishReplay, refCount, shareReplay, take, tap } from 'rxjs/operators';
+import { BehaviorSubject, concat, observable, Observable, of, Subject } from 'rxjs';
+import { filter, flatMap, map, mergeMap, publishReplay, refCount, shareReplay, switchMap, take, tap } from 'rxjs/operators';
 import { PhotoSet, PhotoSetList, PhotoSetListEntry, PhotoSize, PhotoSizes } from './flickr.api.model';
 
 @Injectable({
@@ -44,7 +44,7 @@ export class FlickrApiService {
     const ret$ = this.http.get<{ photoset: PhotoSet}>(url).pipe(
       publishReplay(1),
       refCount(),
-      tap(() => { debugger; this.photoSetLoading$.next(false); this.photoSetLoaded$.next(true); }),
+      tap(() => { this.photoSetLoading$.next(false); this.photoSetLoaded$.next(true); }),
       map(obj => obj.photoset)
     );
 
@@ -68,20 +68,33 @@ export class FlickrApiService {
     return this.photoSetList;
   }
 
-  public getPhotoSizes(photoId: string): Observable<PhotoSizes> {
+  public getPhotoThumbnailUrl(photoId: string): Observable<string> {
     const joiner = '&';
-    let url = this.urlRoot + 'photos.getSizes' + this.apiKey + joiner + photoId + this.apiArgs;
-    //let sizesList: PhotoSize[] = [];
+    const thumbnailString = 'Thumbnail';
+    let url = this.urlRoot + 'photos.getSizes' + this.apiKey + joiner + 'photo_id=' + photoId + this.apiArgs;
+    
     return this.http.get<{ sizes: PhotoSizes }>(url).pipe(
-      tap(val => {
-        val.sizes.size.forEach(element => {
-          this.photoSizes.push(element);
-        });
-      }),
       map(val => {
-        return val.sizes;
+        return val.sizes?.size?.find(size => size.label === thumbnailString)?.source || '';
       })
     );
+  }
+
+  public getPhotoSetPreviewThumbnailUrls(photoSetId: string): Observable<string[]> {
+    const numberOfThumbs = 5;
+
+    const photoSetPhoto$ = this.getPhotoSet(photoSetId).pipe(
+      filter(photoSet => !!photoSet),
+      map(photoSet => {
+        return photoSet?.photo.slice(0, 5) || [];
+      }));
+    const photoSetPhotoIds$ = photoSetPhoto$.pipe(map(photoSetPhoto => photoSetPhoto.map(photo => photo.id)))
+    
+    // const photoSetPhotoUrls$ = photoSetPhotoIds$.pipe(
+    //   map(stringArray => stringArray.map(s => this.getPhotoThumbnailUrl(s).pipe(map(th => th))))
+    // );
+
+    return photoSetPhotoIds$;
   }
 
 }

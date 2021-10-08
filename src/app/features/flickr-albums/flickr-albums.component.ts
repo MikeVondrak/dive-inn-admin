@@ -16,7 +16,7 @@ export class FlickrAlbumsComponent implements OnInit {
   }
 
   albumSelect(id: string) {
-    console.log("output: " + id);
+    console.log("album select: " + id);
     this.selectedPhotoSetId$.next(id);
   }
 

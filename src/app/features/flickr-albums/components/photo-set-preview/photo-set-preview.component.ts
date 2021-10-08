@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { filter, map, mergeMap, publishReplay, refCount, shareReplay, switchMap, tap } from 'rxjs/operators';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Observable, of, Subject } from 'rxjs';
+import { filter, map, mergeMap, publishReplay, refCount, shareReplay, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PhotoSetPhoto } from 'src/app/services/flickr/flickr.api.model';
 import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
 
@@ -8,9 +8,9 @@ import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
   selector: 'app-photo-set-preview',
   templateUrl: './photo-set-preview.component.html',
   styleUrls: ['./photo-set-preview.component.scss'],
-  
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PhotoSetPreviewComponent implements OnInit {
+export class PhotoSetPreviewComponent implements OnInit, OnDestroy {
 
   @Input() photoSetId$: Observable<string> = of('');
 
@@ -18,15 +18,23 @@ export class PhotoSetPreviewComponent implements OnInit {
   public photoSetLoading$: Observable<boolean> = this.flickr.photoSetLoading$;
   public photoSetLoaded$: Observable<boolean> = this.flickr.photoSetLoaded$;
 
+  public photoSetPreview$: Observable<string[]> = this.flickr.getPhotoSetPreviewThumbnailUrls('72157719812376042');
+
   public photoData: PhotoSetPhoto[] = [];
 
-  constructor(private flickr: FlickrApiService) { }
+  private destroy$: Subject<void> = new Subject();
+
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private flickr: FlickrApiService
+  ) { }
 
   ngOnInit(): void {
     this.photoIds$ = this.photoSetId$.pipe(
       filter(set => !!set),
       switchMap(id => {
         if (!id) {
+          debugger;
           return of([]);
         }
         return this.flickr.getPhotoSet(id).pipe(
@@ -38,13 +46,26 @@ export class PhotoSetPreviewComponent implements OnInit {
       })
     );
 
-    // TODO: manage this subscription (unsubscribe on destroy)
     // Need subscription active before template would subscribe due to ngIf
-    this.photoIds$.subscribe(photoIds => {
+    this.photoIds$.pipe(takeUntil(this.destroy$)).subscribe(photoIds => {
       this.photoData = [...photoIds || []];
-    }
-      
-    )
+    });
+
+    this.flickr.getPhotoThumbnailUrl('51442360645').subscribe(url => {
+      console.log(url);
+    });
+    this.photoSetPreview$.subscribe(psp => {
+      console.log({psp});
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
 }
+function ngOnDestroy() {
+  throw new Error('Function not implemented.');
+}
+

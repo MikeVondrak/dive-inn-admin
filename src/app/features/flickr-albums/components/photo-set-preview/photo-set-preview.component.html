@@ -1,14 +1,9 @@
-photoSetId$: {{ photoSetId$ | async }}<br>
-photoSetLoading$: {{ photoSetLoading$ | async }}<br>
-photoSetLoaded$: {{ photoSetLoaded$ | async }}<br>
-<!-- Photo Ids: {{ (photoIds$ | async)?.length }} -->
-<!-- <div *ngIf="photoSetLoading$ | async">
-  <span>
-    Loading...
-  </span>
-</div>-->
-<div *ngIf="(photoSetLoaded$ | async) && (photoIds$ | async) as photoIds">
-  <div *ngFor="let photo of photoIds">
-    {{ photo.title }} {{ photo.id }}
+<div *ngIf="photoSetLoading$ | async; else PhotoData">
+  Loading...
+</div>
+<ng-template #PhotoData>
+  <div *ngFor="let photo of photoData">
+    {{ photo.id }}
   </div>
-</div> 
+</ng-template>
+
