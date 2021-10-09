@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, concat, observable, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, concat, forkJoin, observable, Observable, of, Subject } from 'rxjs';
 import { filter, flatMap, map, mergeMap, publishReplay, refCount, shareReplay, switchMap, take, tap } from 'rxjs/operators';
 import { PhotoSet, PhotoSetList, PhotoSetListEntry, PhotoSize, PhotoSizes } from './flickr.api.model';
 import { environment } from 'src/environments/environment';
@@ -83,19 +83,29 @@ export class FlickrApiService {
 
   public getPhotoSetPreviewThumbnailUrls(photoSetId: string): Observable<string[]> {
     const numberOfThumbs = 5;
-
     const photoSetPhoto$ = this.getPhotoSet(photoSetId).pipe(
       filter(photoSet => !!photoSet),
       map(photoSet => {
         return photoSet?.photo.slice(0, 5) || [];
       }));
-    const photoSetPhotoIds$ = photoSetPhoto$.pipe(map(photoSetPhoto => photoSetPhoto.map(photo => photo.id)))
+    const photoSetPhotoIds$ = photoSetPhoto$.pipe(map(photoSetPhoto => photoSetPhoto.map(photo => photo.id)));
     
-    // const photoSetPhotoUrls$ = photoSetPhotoIds$.pipe(
-    //   map(stringArray => stringArray.map(s => this.getPhotoThumbnailUrl(s).pipe(map(th => th))))
-    // );
-
-    return photoSetPhotoIds$;
+    const a: Observable<string>[] = [];
+    const photoSetPhotoUrls$: Observable<string[]> = photoSetPhotoIds$.pipe(
+      flatMap(idArray => {
+        idArray.forEach(id => {
+          const thumbUrl = this.getPhotoThumbnailUrl(id);
+          a.push(thumbUrl);
+        });
+        const fj: Observable<string[]> = forkJoin(a);
+        this.photoSetLoaded$.next(true);
+        this.photoSetLoading$.next(false);
+        return fj;
+      })
+    );
+    this.photoSetLoaded$.next(false);
+    this.photoSetLoading$.next(true);
+    return photoSetPhotoUrls$;
   }
 
 }

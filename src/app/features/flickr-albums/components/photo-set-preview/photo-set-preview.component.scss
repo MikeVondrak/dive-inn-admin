@@ -1,1 +1,12 @@
 @use '../../../../scss/utility';
+
+:host {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  div {
+    img {
+    }
+  }
+}

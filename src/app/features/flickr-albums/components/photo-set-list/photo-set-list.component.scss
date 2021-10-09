@@ -12,13 +12,13 @@ div.photo-set-list-container {
       th {
         padding: 0.25rem;
         margin-bottom: 0.25rem;
-        background: utility.$dive-gray-dk;
+        background: utility.$dive-red-dk;
         text-align: left;
       }
     }
     tbody {
       tr.selected {
-        background-color: utility.$dive-red-dk;
+        background-color: utility.$dive-gray-dk;
       }
       th {
       }

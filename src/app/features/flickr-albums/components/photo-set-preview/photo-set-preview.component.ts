@@ -8,7 +8,7 @@ import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
   selector: 'app-photo-set-preview',
   templateUrl: './photo-set-preview.component.html',
   styleUrls: ['./photo-set-preview.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhotoSetPreviewComponent implements OnInit, OnDestroy {
 
@@ -18,9 +18,12 @@ export class PhotoSetPreviewComponent implements OnInit, OnDestroy {
   public photoSetLoading$: Observable<boolean> = this.flickr.photoSetLoading$;
   public photoSetLoaded$: Observable<boolean> = this.flickr.photoSetLoaded$;
 
-  public photoSetPreview$: Observable<string[]> = this.flickr.getPhotoSetPreviewThumbnailUrls('72157719812376042');
+  //public photoSetPreview$: Observable<string[]> = of([]); // this.flickr.getPhotoSetPreviewThumbnailUrls('72157719812376042');
+
+  public photoSetThumbnailUrls$: Observable<string[]> | undefined;
 
   public photoData: PhotoSetPhoto[] = [];
+  public photoUrls: string[] = [];
 
   private destroy$: Subject<void> = new Subject();
 
@@ -46,16 +49,20 @@ export class PhotoSetPreviewComponent implements OnInit, OnDestroy {
       })
     );
 
+    this.photoSetThumbnailUrls$ = this.photoSetId$.pipe(
+      filter(photoSetId => !!photoSetId),
+      switchMap(photoSetId => {
+        console.log('THUMBNAILS: ' + photoSetId);
+        return this.flickr.getPhotoSetPreviewThumbnailUrls(photoSetId);
+      })
+    );
+
     // Need subscription active before template would subscribe due to ngIf
     this.photoIds$.pipe(takeUntil(this.destroy$)).subscribe(photoIds => {
       this.photoData = [...photoIds || []];
     });
-
-    this.flickr.getPhotoThumbnailUrl('51442360645').subscribe(url => {
-      console.log(url);
-    });
-    this.photoSetPreview$.subscribe(psp => {
-      console.log({psp});
+    this.photoSetThumbnailUrls$.pipe(takeUntil(this.destroy$)).subscribe(urls => {
+      this.photoUrls = [...urls || []];
     })
   }
 

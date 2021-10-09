@@ -2,8 +2,9 @@
   Loading...
 </div>
 <ng-template #PhotoData>
-  <div *ngFor="let photo of photoData">
-    {{ photo.id }}
+  <div *ngFor="let url of photoUrls">
+    <img [src]="url">
   </div>
 </ng-template>
-
+<!-- Id: {{ photoSetId$ | async }}
+Urls: {{ photoSetThumbnailUrls$ | async }} -->
