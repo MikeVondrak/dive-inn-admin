@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, of, ReplaySubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-flickr-albums',
@@ -8,7 +8,6 @@ import { Observable, of, Subject } from 'rxjs';
 })
 export class FlickrAlbumsComponent implements OnInit {
 
-  public photoSetId: string = '';
   public selectedPhotoSetId$: Subject<string> = new Subject();
 
   constructor() { }
@@ -17,8 +16,7 @@ export class FlickrAlbumsComponent implements OnInit {
   }
 
   albumSelect(id: string) {
-    console.log("output: " + id);
-    this.photoSetId = id;
+    console.log("album select: " + id);
     this.selectedPhotoSetId$.next(id);
   }
 

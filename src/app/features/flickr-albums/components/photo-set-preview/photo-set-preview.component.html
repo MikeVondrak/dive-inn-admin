@@ -1,12 +1,9 @@
-photoSetId$: {{ photoSetId$ | async }}<br>
-Photo Ids:
-<span *ngFor="let photo of photoIds$ | async" style="display: block">
-  {{ photo.title }} {{ photo.id }}
-</span>
-<br><br>
-Photo Ids Static:
-<span *ngIf="photoIdsStatic$ | async as photoIds">
-  <span *ngFor="let photo of photoIds" style="display: block">
-    {{ photo.title }} {{ photo.id }}
-  </span>
-</span>
+<div *ngIf="photoSetLoading$ | async; else PhotoData">
+  Loading...
+</div>
+<ng-template #PhotoData>
+  <div *ngFor="let photo of photoData">
+    {{ photo.id }}
+  </div>
+</ng-template>
+

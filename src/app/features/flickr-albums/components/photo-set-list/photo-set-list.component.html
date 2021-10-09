@@ -9,9 +9,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let photoSet of photoSets; index as i" (click)="albumSelect(photoSet)">
+        <tr *ngFor="let photoSet of photoSets || []; index as i" 
+          (click)="albumSelect(photoSet)"
+          [class.selected]="selectedSetId === photoSet.id"
+        >
           <td>{{ photoSet.title._content }}</td>
-          <td>{{ photoSet.count_photos }}</td>
+          <td>{{ photoSet.photos }}</td>
           <td>{{ photoSet.date_create * 1000 | date }}</td>
         </tr>
       </tbody>

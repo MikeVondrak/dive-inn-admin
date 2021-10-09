@@ -1,5 +1,5 @@
-0. Get Flickr API key
-0. Figure out how to store safely in project
+0. Get Flickr API key - DONE
+0. Figure out how to store safely in project - DONE
 0. Shape of example data - Flickr album?
 0. Determine UI for Albums page
 0. Setup GraphQL
