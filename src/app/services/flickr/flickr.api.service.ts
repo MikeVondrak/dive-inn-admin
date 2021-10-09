@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class FlickrApiService {
 
   private urlApiId: string = ''; // NEED TO TYPE/ENUM - photosets: getList, getPhotos; photos: getSizes 
 
-  private readonly apiKey: string = '&api_key=306d51374865d4e6fa4b32b0fd5a7998'; // NEED TO GET FROM ENV
-  private readonly userId: string = '&user_id=193893336@N02';
+  private readonly apiKey: string = `&api_key=${environment.flickrConfig.key}`;
+  private readonly userId: string = `&user_id=${environment.flickrConfig.user}`;
   private readonly apiArgs: string = '&format=json&nojsoncallback=1';
 
   private readonly albumId: string = '72157719812376042';
