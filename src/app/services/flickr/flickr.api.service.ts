@@ -25,7 +25,7 @@ export class FlickrApiService {
   // caching
   private photoSetList: Observable<PhotoSetList> | null = null;
   public photoSets: { id: string, set$: Observable<PhotoSet> }[] = []; // TODO: make a proper type for this
-  public photoSizes: PhotoSize[] = [];
+  public photoSizes: Map<string, PhotoSizes> = new Map<string, PhotoSizes>(); // PhotoSizes[] = [];
 
   public photoSetLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public photoSetLoaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -37,9 +37,10 @@ export class FlickrApiService {
     
     const set = this.photoSets.find(set => set.id === id);
     if (!!set) {
+      console.log('CACHED PHOTOSET');
       return set.set$;
     }
-
+    console.log('LOADING PHOTOSET');
     this.photoSetLoaded$.next(false);
     this.photoSetLoading$.next(true);
     const ret$ = this.http.get<{ photoset: PhotoSet}>(url).pipe(
@@ -74,8 +75,15 @@ export class FlickrApiService {
     const thumbnailString = 'Thumbnail';
     let url = this.urlRoot + 'photos.getSizes' + this.apiKey + joiner + 'photo_id=' + photoId + this.apiArgs;
     
+    if (this.photoSizes.has(photoId)) {
+      console.log('CACHED PHOTO SIZE: ' + photoId);
+      const sizes = this.photoSizes.get(photoId);
+      return of(sizes?.size?.find(s => s.label === thumbnailString)?.source || '');
+    }
+
     return this.http.get<{ sizes: PhotoSizes }>(url).pipe(
       map(val => {
+        this.photoSizes.set(photoId, val.sizes);
         return val.sizes?.size?.find(size => size.label === thumbnailString)?.source || '';
       })
     );

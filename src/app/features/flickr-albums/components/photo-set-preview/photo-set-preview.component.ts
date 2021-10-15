@@ -24,7 +24,11 @@ export class PhotoSetPreviewComponent implements OnInit, OnDestroy {
 
   public photoData: PhotoSetPhoto[] = [];
   public photoUrls: string[] = [];
+  public imgThumbnailsLoaded: boolean = false;
+  public showLoading: boolean = true;
+  public showFlag: boolean = false;
 
+  private imgThumbnailCount: number = 0;
   private destroy$: Subject<void> = new Subject();
 
   constructor(
@@ -33,6 +37,7 @@ export class PhotoSetPreviewComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.photoUrls = [];
     this.photoIds$ = this.photoSetId$.pipe(
       filter(set => !!set),
       switchMap(id => {
@@ -52,6 +57,7 @@ export class PhotoSetPreviewComponent implements OnInit, OnDestroy {
     this.photoSetThumbnailUrls$ = this.photoSetId$.pipe(
       filter(photoSetId => !!photoSetId),
       switchMap(photoSetId => {
+        this.showFlag = false;
         console.log('THUMBNAILS: ' + photoSetId);
         return this.flickr.getPhotoSetPreviewThumbnailUrls(photoSetId);
       })
@@ -63,7 +69,12 @@ export class PhotoSetPreviewComponent implements OnInit, OnDestroy {
     });
     this.photoSetThumbnailUrls$.pipe(takeUntil(this.destroy$)).subscribe(urls => {
       this.photoUrls = [...urls || []];
-    })
+      this.showFlag = true;
+    });
+
+    this.photoSetLoading$.pipe(takeUntil(this.destroy$)).subscribe(loading => {
+      this.showLoading = loading && this.imgThumbnailsLoaded;
+    });
   }
 
   ngOnDestroy(): void {
@@ -71,8 +82,18 @@ export class PhotoSetPreviewComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-}
-function ngOnDestroy() {
-  throw new Error('Function not implemented.');
+  public imgLoaded(url: any) {
+    console.log('IMG LOADED: ' + this.imgThumbnailCount + ' url: ' + url);
+    this.imgThumbnailCount++;
+    if (this.imgThumbnailCount === this.photoUrls.length) {
+      console.log('RESETTING' + ' url: ' + url);
+      this.imgThumbnailsLoaded = true;
+      this.imgThumbnailCount = 0;
+    }
+  }
+
+  public imgComplete(url: string) {
+    console.log('IMG COMPLETE' + ' url: ' + url);
+  }
 }
 

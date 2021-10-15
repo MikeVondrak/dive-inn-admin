@@ -1,10 +1,16 @@
-<div *ngIf="photoSetLoading$ | async; else PhotoData">
+<!-- Set loading: {{ photoSetLoading$ | async }}<br>
+Thumbs loading: {{ imgThumbnailsLoaded }}<br>
+Urls: {{ photoUrls?.length }}<br>
+{{ showFlag }} -->
+
+<div *ngIf="showLoading">
   Loading...
 </div>
-<ng-template #PhotoData>
-  <div *ngFor="let url of photoUrls">
-    <img [src]="url">
-  </div>
-</ng-template>
-<!-- Id: {{ photoSetId$ | async }}
-Urls: {{ photoSetThumbnailUrls$ | async }} -->
+
+<div *ngFor="let url of photoUrls">
+  <!-- <div [hidden]="!showLoading">Image Loading...</div> -->
+  <img [hidden]="!showFlag" [src]="url" (load)="imgLoaded(url)">
+</div>
+<!-- <ng-template #PhotoData>
+  
+</ng-template> -->

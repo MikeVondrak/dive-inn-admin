@@ -5,8 +5,12 @@
   flex-direction: row;
   justify-content: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
   div {
     img {
+      width: 100px;
+      height: 75px;
+      background-color: utility.$dive-black;
     }
   }
 }
