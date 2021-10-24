@@ -11,7 +11,7 @@
     "./packages/public-client"
   ],
   "scripts": {
-    "ws_go": "npm run start --workspaces",
+    "go": "npm run go --workspaces",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
