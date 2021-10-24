@@ -4,10 +4,11 @@
   "author": "Mike Vondrak & Rick Haag",
   "license": "MIT",
   "engines": {
-    "npm": "7.13.0"
+    "npm": "8.1.0"
   },
   "workspaces": [
-    "./packages/*"
+    "./packages/admin-client",
+    "./packages/public-client"
   ],
   "scripts": {
     "ws_go": "npm run start --workspaces",
