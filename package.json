@@ -11,11 +11,15 @@
     "./packages/public-client"
   ],
   "scripts": {
-    "go": "npm run go --workspaces",
+    "go": "concurrently \"npm run go -w ./packages/admin-client\" \"npm run go -w ./packages/public-client\"",
+    "wsup": "npm i && npm i -ws",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
+  },
+  "dependencies": {
+    "concurrently": "^6.3.0"
   }
 }
