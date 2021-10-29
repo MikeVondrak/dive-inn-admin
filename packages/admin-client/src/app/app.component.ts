@@ -19,7 +19,7 @@ export class AppComponent {
   public username$: Observable<string> = this.authService.username$;
 
   constructor(private authService: AuthService) {
-    
+    console.log('App start');
   }
 
   public logout() {
