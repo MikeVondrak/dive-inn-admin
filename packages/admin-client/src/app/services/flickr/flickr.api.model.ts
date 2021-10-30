@@ -1,4 +1,5 @@
 export interface PhotoSizes {
+  //id: number,
   canblog: boolean,
   canprint: boolean,
   candownload: boolean
@@ -6,6 +7,7 @@ export interface PhotoSizes {
 }
 
 export interface PhotoSize {
+  //id: number,
   label: string,
   source: string,
   width?: string,
