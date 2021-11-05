@@ -11,7 +11,8 @@
     "./packages/public-client"
   ],
   "scripts": {
-    "go": "concurrently \"npm run go -w ./packages/admin-client\" \"npm run go -w ./packages/public-client\"",
+    "go": "concurrently \"npm run start -w ./packages/admin-client\" \"npm run start -w ./packages/public-client\"",
+    "goadmin": "npm run start -w ./packages/admin-client",
     "wsup": "npm i && npm i -ws",
     "ng": "ng",
     "start": "ng serve",
