@@ -21,6 +21,7 @@
     "test": "ng test"
   },
   "dependencies": {
-    "concurrently": "^6.3.0"
+    "concurrently": "^6.3.0",
+    "react": "^17.0.2"
   }
 }

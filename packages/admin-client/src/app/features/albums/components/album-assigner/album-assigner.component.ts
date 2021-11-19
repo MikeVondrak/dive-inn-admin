@@ -53,6 +53,7 @@ export class AlbumAssignerComponent implements OnInit {
             title
             description
           }
+          modified @client #local-only dirty flag
         }
       }
     `;

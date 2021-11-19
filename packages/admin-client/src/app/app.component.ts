@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ApolloCache, ApolloClientOptions } from '@apollo/client';
+import { ApolloCache, ApolloClient, ApolloClientOptions, InMemoryCache, InMemoryCacheConfig } from '@apollo/client';
 import { Apollo, gql, QueryRef } from 'apollo-angular';
 import { Observable, of, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { headerAnimations } from './animations/header.animations';
 import { AuthService } from './auth/services/auth/auth.service';
 
@@ -19,12 +20,32 @@ export class AppComponent implements OnInit {
   
   public headerAnimationState$: Observable<string> = this.isAuthenticated$.pipe(map(isAllowed => isAllowed ? 'allowed' : 'notAllowed'));
   public username$: Observable<string> = this.authService.username$;
-
   
   constructor(
     private authService: AuthService,
   ) {
     console.log('App start');
+    console.log('Creating Apollo Cache...');
+    const cacheOptions: InMemoryCacheConfig = {
+      typePolicies: {
+        album_location: {
+          fields: {
+            modified: {
+              read(_, { variables }) {
+                return true // TODO: need actual value here
+              }
+            }
+          }
+        }
+      }
+    }
+    const cache = new InMemoryCache(cacheOptions);
+    const options = {
+      uri: environment.apolloConfig.APOLLO_KEY,
+      cache
+    }
+    const client = new ApolloClient(options);
+    
   }
 
   ngOnInit() {
