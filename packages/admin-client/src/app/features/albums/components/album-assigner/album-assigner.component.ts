@@ -43,17 +43,19 @@ export class AlbumAssignerComponent implements OnInit {
     private flickrService: FlickrApiService,
   ) { 
     const queryObject = gql`
-      query GetAlbumsByLocation {        
+      query GetAlbumsByLocation {
         album_location {
+          __typename
           id
           name
           description
           albums {
+            __typename
             flickr_photo_set_id
             title
             description
           }
-          modified @client #local-only dirty flag
+          modyfied @client
         }
       }
     `;

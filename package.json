@@ -21,7 +21,11 @@
     "test": "ng test"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.6",
     "concurrently": "^6.3.0",
     "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "hasura-cli": "^2.0.9"
   }
 }

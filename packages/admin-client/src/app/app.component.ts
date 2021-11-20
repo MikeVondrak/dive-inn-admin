@@ -28,21 +28,32 @@ export class AppComponent implements OnInit {
     console.log('Creating Apollo Cache...');
     const cacheOptions: InMemoryCacheConfig = {
       typePolicies: {
+        // Query: {
+        //   fields: {
+        //     album_location: {
+        //       merge: true
+        //     }
+        //   }
+        // },
         album_location: {
           fields: {
-            modified: {
-              read(_, { variables }) {
-                return true // TODO: need actual value here
+            modyfied: {
+              read(existing, { readField }) {
+                return true
               }
             }
           }
         }
       }
     }
+    const typeDefs = gql`
+      directive @client on FIELD
+    `;
     const cache = new InMemoryCache(cacheOptions);
-    const options = {
+    const options: ApolloClientOptions<any> = {
       uri: environment.apolloConfig.APOLLO_KEY,
-      cache
+      cache,
+      //typeDefs
     }
     const client = new ApolloClient(options);
     

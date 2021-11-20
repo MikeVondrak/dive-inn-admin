@@ -46,3 +46,4 @@ Thumbs.db
 
 # environment files
 /src/environments/**
+apollo.config.js

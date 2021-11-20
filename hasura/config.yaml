@@ -1,0 +1,7 @@
+version: 3
+endpoint: https://concrete-hookworm-64.hasura.app
+admin_secret: DiveInnHasAGqlSecret
+metadata_directory: metadata
+actions:
+  kind: synchronous
+  handler_webhook_baseurl: http://localhost:3000
