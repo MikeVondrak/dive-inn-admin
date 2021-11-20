@@ -25,38 +25,6 @@ export class AppComponent implements OnInit {
     private authService: AuthService,
   ) {
     console.log('App start');
-    console.log('Creating Apollo Cache...');
-    const cacheOptions: InMemoryCacheConfig = {
-      typePolicies: {
-        // Query: {
-        //   fields: {
-        //     album_location: {
-        //       merge: true
-        //     }
-        //   }
-        // },
-        album_location: {
-          fields: {
-            modyfied: {
-              read(existing, { readField }) {
-                return true
-              }
-            }
-          }
-        }
-      }
-    }
-    const typeDefs = gql`
-      directive @client on FIELD
-    `;
-    const cache = new InMemoryCache(cacheOptions);
-    const options: ApolloClientOptions<any> = {
-      uri: environment.apolloConfig.APOLLO_KEY,
-      cache,
-      //typeDefs
-    }
-    const client = new ApolloClient(options);
-    
   }
 
   ngOnInit() {

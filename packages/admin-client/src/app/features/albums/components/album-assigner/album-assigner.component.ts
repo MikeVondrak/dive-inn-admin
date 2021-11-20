@@ -55,7 +55,7 @@ export class AlbumAssignerComponent implements OnInit {
             title
             description
           }
-          modyfied @client
+          modified @client
         }
       }
     `;

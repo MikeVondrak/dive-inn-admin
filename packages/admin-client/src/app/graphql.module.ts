@@ -1,7 +1,8 @@
-import {NgModule} from '@angular/core';
-import {APOLLO_OPTIONS} from 'apollo-angular';
-import {ApolloClientOptions, InMemoryCache} from '@apollo/client/core';
-import {HttpLink} from 'apollo-angular/http';
+import { NgModule } from '@angular/core';
+import { APOLLO_OPTIONS } from 'apollo-angular';
+import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
+//import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpLink } from 'apollo-angular/http';
 import { environment } from 'src/environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 
@@ -16,7 +17,19 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
       uri,
       headers,
     }),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      typePolicies: {
+        album_location: {
+          fields: {
+            modified: {
+              read: (existing, {}) => {
+                return true;
+              }
+            }
+          }
+        }
+      }
+    }),
   };
 }
 
