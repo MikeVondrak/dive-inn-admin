@@ -22,7 +22,7 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
         album_location: {
           fields: {
             modified: {
-              read: (existing, {}) => {
+              read() {
                 return true;
               }
             }

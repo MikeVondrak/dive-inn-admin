@@ -40,6 +40,10 @@ yarn-error.log
 testem.log
 /typings
 
+# Contain Hasura GQL secret
+apollo.config.js
+codegen.yml
+
 # System Files
 .DS_Store
 Thumbs.db

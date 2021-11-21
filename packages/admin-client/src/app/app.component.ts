@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApolloCache, ApolloClient, ApolloClientOptions, InMemoryCache, InMemoryCacheConfig } from '@apollo/client';
-import { Apollo, gql, QueryRef } from 'apollo-angular';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 import { headerAnimations } from './animations/header.animations';
 import { AuthService } from './auth/services/auth/auth.service';
 
