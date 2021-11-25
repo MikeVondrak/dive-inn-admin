@@ -24,6 +24,7 @@
   "dependencies": {
     "apollo-cache-inmemory": "^1.6.6",
     "concurrently": "^6.3.0",
+    "npm": "^8.1.4",
     "react": "^17.0.2"
   },
   "devDependencies": {

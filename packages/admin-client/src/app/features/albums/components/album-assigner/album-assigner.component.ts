@@ -16,7 +16,8 @@ export type AlbumByLocation = {
   id: number,
   name: string,
   description: string,
-  albums: Album[]
+  albums: Album[],
+  modified: boolean,
 }
 
 export type AlbumByLocationResponse = {
