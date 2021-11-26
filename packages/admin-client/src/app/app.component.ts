@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { headerAnimations } from './animations/header.animations';
 import { AuthService } from './auth/services/auth/auth.service';
+import { dataModifiedVar } from './graphql.module';
 
 @Component({
   selector: 'app-root',
@@ -30,5 +31,10 @@ export class AppComponent implements OnInit {
 
   public logout() {
     this.authService.logout();
+  }
+
+  public save() {
+    localStorage.setItem('dataModified', 'false');
+    dataModifiedVar(false);
   }
 }

@@ -3,6 +3,7 @@ import { ApolloQueryResult } from '@apollo/client';
 import { Apollo, gql, QueryRef } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { dataModifiedVar } from 'src/app/graphql.module';
 import { PhotoSetListEntry } from 'src/app/services/flickr/flickr.api.model';
 import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
 
@@ -73,4 +74,8 @@ export class AlbumAssignerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public photoSetChanged() {
+    localStorage.setItem('dataModified', 'true');
+    dataModifiedVar(true);
+  }
 }

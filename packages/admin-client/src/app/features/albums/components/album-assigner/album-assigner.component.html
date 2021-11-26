@@ -1,27 +1,17 @@
-<!-- <div *ngFor="let location of locationList$ | async">
-  {{location.id}} {{location.name}} {{location.description}}
-
-  <select [ngModel]="location.albums[0]?.flickr_photo_set_id?.toString()">
-    <option [value]="null" disabled selected hidden>Choose an album</option>
-    <option *ngFor="let photoSet of photoSets$ | async" [value]="photoSet.id">
-      {{photoSet.title._content}} - {{photoSet.id}}
-    </option>
-  </select>
-</div> -->
-
 <div *ngIf="(locationList$ | async) as albumByLocation; else loadingText">
   <table>
     <thead>
       <tr>
         <th>Location</th>
         <th>Album</th>
+        <th>Modified</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let location of albumByLocation; index as i">
         <td>{{ location.description }}</td>
         <td>
-          <select [ngModel]="location.albums[0]?.flickr_photo_set_id?.toString()">
+          <select [ngModel]="location.albums[0]?.flickr_photo_set_id?.toString()" (change)="photoSetChanged()">
             <option [value]="null" disabled selected hidden>Choose an album</option>
             <option *ngFor="let photoSet of photoSets$ | async" [value]="photoSet.id">
               {{photoSet.title._content}}
