@@ -74,8 +74,40 @@ export class AlbumAssignerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public photoSetChanged() {
+  public photoSetChanged(photoSetId: string, location: AlbumByLocation) {
     localStorage.setItem('dataModified', 'true');
     dataModifiedVar(true);
+    
+    // convert PhotoSet into Album
+    const newAlbum: Album = {
+      flickr_photo_set_id: parseInt(photoSetId),
+      title: '?????',
+      description: '+++++++'
+    };
+
+    const mutationObject = gql`
+      mutation SetLocationAlbum($location: AlbumByLocation!, $album: Album!) {
+        setAlbum(location: $location, album: $album) {
+          location
+        }
+      }
+    `;
+
+    console.log('APOLLO MUTATE ATTEMPT: ', {location}, {newAlbum});
+
+    this.apolloService.mutate({ mutation: mutationObject, variables: { location, album: newAlbum }}).subscribe(
+      (data) => { console.log('APOLLO MUTATE: ', {data}); },
+      (err) => { console.error(err); }
+    );
+
+    // TODO - need mutation to update either album on AlbumByLocation or whole AlbumByLocation?
+
+    // can't modify location since it's coming from an observable(?)
+    // location.modified = true;
+    // if (location.albums.length > 0) {
+    //   location.albums = [];
+    // }
+    // location.albums.push(newAlbum);
+    
   }
 }

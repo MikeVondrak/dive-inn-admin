@@ -11,7 +11,7 @@
       <tr *ngFor="let location of albumByLocation; index as i">
         <td>{{ location.description }}</td>
         <td>
-          <select [ngModel]="location.albums[0]?.flickr_photo_set_id?.toString()" (change)="photoSetChanged()">
+          <select [ngModel]="location.albums[0]?.flickr_photo_set_id?.toString()" (ngModelChange)="photoSetChanged($event, location)">
             <option [value]="null" disabled selected hidden>Choose an album</option>
             <option *ngFor="let photoSet of photoSets$ | async" [value]="photoSet.id">
               {{photoSet.title._content}}
