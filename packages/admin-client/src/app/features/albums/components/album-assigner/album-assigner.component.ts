@@ -8,7 +8,8 @@ import { PhotoSetListEntry } from 'src/app/services/flickr/flickr.api.model';
 import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
 
 export type Album = {
-  flickr_photo_set_id: number,
+  id: string,
+  flickr_photo_set_id: string,
   title: string,
   description: string,
 }
@@ -53,6 +54,7 @@ export class AlbumAssignerComponent implements OnInit {
           description
           albums {
             __typename
+            id
             flickr_photo_set_id
             title
             description
@@ -77,28 +79,42 @@ export class AlbumAssignerComponent implements OnInit {
   public photoSetChanged(photoSetId: string, location: AlbumByLocation) {
     localStorage.setItem('dataModified', 'true');
     dataModifiedVar(true);
+
+    const locationAlbum = location.albums?.[0];
+    // get flickr PhotoSet via ID
     
-    // convert PhotoSet into Album
-    const newAlbum: Album = {
-      flickr_photo_set_id: parseInt(photoSetId),
-      title: '?????',
-      description: '+++++++'
-    };
+    this.photoSets$.pipe(map(photoSetListEntries => {
+      return photoSetListEntries.find(entry => entry.id === photoSetId)
+    })).subscribe(flickrPhotoSet => {
+      // convert PhotoSet into Album
+      const newAlbum: Album = {
+        id: locationAlbum?.id,
+        flickr_photo_set_id: photoSetId,
+        title: flickrPhotoSet?.title?._content || 'No Flickr Data',
+        description: flickrPhotoSet?.description?._content || 'No Flickr Data',
+      };
 
-    const mutationObject = gql`
-      mutation SetLocationAlbum($location: AlbumByLocation!, $album: Album!) {
-        setAlbum(location: $location, album: $album) {
-          location
+      const mutationObject = gql`
+        mutation SetLocationAlbum($albumId: Int!, $locationId: Int!) {
+          update_album_by_pk(pk_columns: {id: $albumId}, _set: {album_location_id: $locationId}) {
+            id
+            flickr_photo_set_id
+          }
         }
-      }
-    `;
+      `;
 
-    console.log('APOLLO MUTATE ATTEMPT: ', {location}, {newAlbum});
+      console.log('APOLLO MUTATE ATTEMPT: ', {location}, {newAlbum});
 
-    this.apolloService.mutate({ mutation: mutationObject, variables: { location, album: newAlbum }}).subscribe(
-      (data) => { console.log('APOLLO MUTATE: ', {data}); },
-      (err) => { console.error(err); }
-    );
+      this.apolloService.mutate({ mutation: mutationObject, variables: { locationId: location.id, albumId: newAlbum.flickr_photo_set_id }}).subscribe(
+        (data) => { 
+          console.log('APOLLO MUTATE: ', {data});
+          
+        },
+        (err) => { console.error(err); }
+      );
+    });
+    
+    
 
     // TODO - need mutation to update either album on AlbumByLocation or whole AlbumByLocation?
 
