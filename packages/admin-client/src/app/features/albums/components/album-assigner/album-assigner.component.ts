@@ -8,7 +8,7 @@ import { PhotoSetListEntry } from 'src/app/services/flickr/flickr.api.model';
 import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
 
 export type Album = {
-  id: string,
+  id?: number,
   flickr_photo_set_id: string,
   title: string,
   description: string,
@@ -75,37 +75,40 @@ export class AlbumAssignerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
   public photoSetChanged(photoSetId: string, location: AlbumByLocation) {
     localStorage.setItem('dataModified', 'true');
     dataModifiedVar(true);
 
+    //debugger;
     const locationAlbum = location.albums?.[0];
     // get flickr PhotoSet via ID
     
     this.photoSets$.pipe(map(photoSetListEntries => {
       return photoSetListEntries.find(entry => entry.id === photoSetId)
     })).subscribe(flickrPhotoSet => {
+
       // convert PhotoSet into Album
       const newAlbum: Album = {
-        id: locationAlbum?.id,
+        id: 6,
         flickr_photo_set_id: photoSetId,
         title: flickrPhotoSet?.title?._content || 'No Flickr Data',
         description: flickrPhotoSet?.description?._content || 'No Flickr Data',
       };
 
       const mutationObject = gql`
-        mutation SetLocationAlbum($albumId: Int!, $locationId: Int!) {
+        mutation SetLocationAlbum($locationId: Int!, $albumId: Int!) {
           update_album_by_pk(pk_columns: {id: $albumId}, _set: {album_location_id: $locationId}) {
             id
             flickr_photo_set_id
+            album_location_id
           }
         }
       `;
 
       console.log('APOLLO MUTATE ATTEMPT: ', {location}, {newAlbum});
 
-      this.apolloService.mutate({ mutation: mutationObject, variables: { locationId: location.id, albumId: newAlbum.flickr_photo_set_id }}).subscribe(
+      this.apolloService.mutate({ mutation: mutationObject, variables: { locationId: location.id, albumId: newAlbum.id }}).subscribe(
         (data) => { 
           console.log('APOLLO MUTATE: ', {data});
           
