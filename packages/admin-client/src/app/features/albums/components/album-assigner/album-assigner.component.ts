@@ -9,9 +9,11 @@ import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
 
 export type Album = {
   id?: number,
+  album_location_id: number,
   flickr_photo_set_id: string,
   title: string,
   description: string,
+  flickr_photo_set_id_num: number,
 }
 
 export type AlbumByLocation = {
@@ -90,15 +92,28 @@ export class AlbumAssignerComponent implements OnInit {
 
       // convert PhotoSet into Album
       const newAlbum: Album = {
-        id: 6,
+        id: locationAlbum?.id,
+        album_location_id: locationAlbum?.id || 0,
         flickr_photo_set_id: photoSetId,
+        flickr_photo_set_id_num: 0,
         title: flickrPhotoSet?.title?._content || 'No Flickr Data',
         description: flickrPhotoSet?.description?._content || 'No Flickr Data',
       };
 
+      // const mutationObject = gql`
+      //   mutation SetLocationAlbum($albumId: Int!, $flickrPhotoSetId: String!) {
+      //     update_album_by_pk(pk_columns: {id: $albumId}, _set: {flickr_photo_set_id: $flickrPhotoSetId}) {
+      //       id
+      //       flickr_photo_set_id
+      //       album_location_id
+      //     }
+      //   }
+      // `;
+      const input = {}; // &#R%&*$R%*@#$*(&@&*$@$&*@$*&@*$&*)
+
       const mutationObject = gql`
-        mutation SetLocationAlbum($locationId: Int!, $albumId: Int!) {
-          update_album_by_pk(pk_columns: {id: $albumId}, _set: {album_location_id: $locationId}) {
+        mutation SetLocationAlbum($input: album_insert_input!) {
+          insert_album_one(object: $input, on_conflict: { constraint: album_pkey, update_columns: flickr_photo_set_id }) {
             id
             flickr_photo_set_id
             album_location_id
@@ -108,7 +123,7 @@ export class AlbumAssignerComponent implements OnInit {
 
       console.log('APOLLO MUTATE ATTEMPT: ', {location}, {newAlbum});
 
-      this.apolloService.mutate({ mutation: mutationObject, variables: { locationId: location.id, albumId: newAlbum.id }}).subscribe(
+      this.apolloService.mutate({ mutation: mutationObject, variables: { input: newAlbum }}).subscribe(
         (data) => { 
           console.log('APOLLO MUTATE: ', {data});
           
