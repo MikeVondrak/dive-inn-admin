@@ -93,7 +93,7 @@ export class AlbumAssignerComponent implements OnInit {
       // convert PhotoSet into Album
       const newAlbum: Album = {
         id: locationAlbum?.id,
-        album_location_id: locationAlbum?.id || 0,
+        album_location_id: location.id || -1,
         flickr_photo_set_id: photoSetId,
         flickr_photo_set_id_num: 0,
         title: flickrPhotoSet?.title?._content || 'No Flickr Data',
@@ -113,7 +113,7 @@ export class AlbumAssignerComponent implements OnInit {
 
       const mutationObject = gql`
         mutation SetLocationAlbum($input: album_insert_input!) {
-          insert_album_one(object: $input, on_conflict: { constraint: album_pkey, update_columns: flickr_photo_set_id }) {
+          insert_album_one(object: $input, on_conflict: { constraint: album_pkey, update_columns: [title, description, flickr_photo_set_id] }) {
             id
             flickr_photo_set_id
             album_location_id

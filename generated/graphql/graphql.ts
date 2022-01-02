@@ -84,12 +84,48 @@ export type String_Comparison_Exp = {
  */
 export type Album = {
   __typename?: 'album';
+  /** An array relationship */
+  album_location_album: Array<Album_Location>;
+  /** An aggregate relationship */
+  album_location_album_aggregate: Album_Location_Aggregate;
   album_location_id: Scalars['Int'];
   description: Scalars['String'];
   flickr_photo_set_id?: Maybe<Scalars['String']>;
   flickr_photo_set_id_num: Scalars['float8'];
   id: Scalars['Int'];
   title: Scalars['String'];
+};
+
+
+/**
+ * Flickr photo set and Dive Inn public site location
+ *
+ *
+ * columns and relationships of "album"
+ *
+ */
+export type AlbumAlbum_Location_AlbumArgs = {
+  distinct_on?: InputMaybe<Array<Album_Location_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Album_Location_Order_By>>;
+  where?: InputMaybe<Album_Location_Bool_Exp>;
+};
+
+
+/**
+ * Flickr photo set and Dive Inn public site location
+ *
+ *
+ * columns and relationships of "album"
+ *
+ */
+export type AlbumAlbum_Location_Album_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Album_Location_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Album_Location_Order_By>>;
+  where?: InputMaybe<Album_Location_Bool_Exp>;
 };
 
 /** aggregated selection of "album" */
@@ -164,6 +200,7 @@ export type Album_Bool_Exp = {
   _and?: InputMaybe<Array<Album_Bool_Exp>>;
   _not?: InputMaybe<Album_Bool_Exp>;
   _or?: InputMaybe<Array<Album_Bool_Exp>>;
+  album_location_album?: InputMaybe<Album_Location_Bool_Exp>;
   album_location_id?: InputMaybe<Int_Comparison_Exp>;
   description?: InputMaybe<String_Comparison_Exp>;
   flickr_photo_set_id?: InputMaybe<String_Comparison_Exp>;
@@ -187,6 +224,7 @@ export type Album_Inc_Input = {
 
 /** input type for inserting data into table "album" */
 export type Album_Insert_Input = {
+  album_location_album?: InputMaybe<Album_Location_Arr_Rel_Insert_Input>;
   album_location_id?: InputMaybe<Scalars['Int']>;
   description?: InputMaybe<Scalars['String']>;
   flickr_photo_set_id?: InputMaybe<Scalars['String']>;
@@ -276,10 +314,37 @@ export type Album_Location_Aggregate_FieldsCountArgs = {
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
+/** order by aggregate values of table "album_location" */
+export type Album_Location_Aggregate_Order_By = {
+  avg?: InputMaybe<Album_Location_Avg_Order_By>;
+  count?: InputMaybe<Order_By>;
+  max?: InputMaybe<Album_Location_Max_Order_By>;
+  min?: InputMaybe<Album_Location_Min_Order_By>;
+  stddev?: InputMaybe<Album_Location_Stddev_Order_By>;
+  stddev_pop?: InputMaybe<Album_Location_Stddev_Pop_Order_By>;
+  stddev_samp?: InputMaybe<Album_Location_Stddev_Samp_Order_By>;
+  sum?: InputMaybe<Album_Location_Sum_Order_By>;
+  var_pop?: InputMaybe<Album_Location_Var_Pop_Order_By>;
+  var_samp?: InputMaybe<Album_Location_Var_Samp_Order_By>;
+  variance?: InputMaybe<Album_Location_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "album_location" */
+export type Album_Location_Arr_Rel_Insert_Input = {
+  data: Array<Album_Location_Insert_Input>;
+  /** on conflict condition */
+  on_conflict?: InputMaybe<Album_Location_On_Conflict>;
+};
+
 /** aggregate avg on columns */
 export type Album_Location_Avg_Fields = {
   __typename?: 'album_location_avg_fields';
   id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "album_location" */
+export type Album_Location_Avg_Order_By = {
+  id?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "album_location". All fields are combined with a logical 'AND'. */
@@ -320,12 +385,26 @@ export type Album_Location_Max_Fields = {
   name?: Maybe<Scalars['String']>;
 };
 
+/** order by max() on columns of table "album_location" */
+export type Album_Location_Max_Order_By = {
+  description?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
+};
+
 /** aggregate min on columns */
 export type Album_Location_Min_Fields = {
   __typename?: 'album_location_min_fields';
   description?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "album_location" */
+export type Album_Location_Min_Order_By = {
+  description?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  name?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "album_location" */
@@ -380,10 +459,20 @@ export type Album_Location_Stddev_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by stddev() on columns of table "album_location" */
+export type Album_Location_Stddev_Order_By = {
+  id?: InputMaybe<Order_By>;
+};
+
 /** aggregate stddev_pop on columns */
 export type Album_Location_Stddev_Pop_Fields = {
   __typename?: 'album_location_stddev_pop_fields';
   id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "album_location" */
+export type Album_Location_Stddev_Pop_Order_By = {
+  id?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -392,10 +481,20 @@ export type Album_Location_Stddev_Samp_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by stddev_samp() on columns of table "album_location" */
+export type Album_Location_Stddev_Samp_Order_By = {
+  id?: InputMaybe<Order_By>;
+};
+
 /** aggregate sum on columns */
 export type Album_Location_Sum_Fields = {
   __typename?: 'album_location_sum_fields';
   id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "album_location" */
+export type Album_Location_Sum_Order_By = {
+  id?: InputMaybe<Order_By>;
 };
 
 /** update columns of table "album_location" */
@@ -414,16 +513,31 @@ export type Album_Location_Var_Pop_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by var_pop() on columns of table "album_location" */
+export type Album_Location_Var_Pop_Order_By = {
+  id?: InputMaybe<Order_By>;
+};
+
 /** aggregate var_samp on columns */
 export type Album_Location_Var_Samp_Fields = {
   __typename?: 'album_location_var_samp_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by var_samp() on columns of table "album_location" */
+export type Album_Location_Var_Samp_Order_By = {
+  id?: InputMaybe<Order_By>;
+};
+
 /** aggregate variance on columns */
 export type Album_Location_Variance_Fields = {
   __typename?: 'album_location_variance_fields';
   id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "album_location" */
+export type Album_Location_Variance_Order_By = {
+  id?: InputMaybe<Order_By>;
 };
 
 /** aggregate max on columns */
@@ -486,6 +600,7 @@ export type Album_On_Conflict = {
 
 /** Ordering options when selecting data from "album". */
 export type Album_Order_By = {
+  album_location_album_aggregate?: InputMaybe<Album_Location_Aggregate_Order_By>;
   album_location_id?: InputMaybe<Order_By>;
   description?: InputMaybe<Order_By>;
   flickr_photo_set_id?: InputMaybe<Order_By>;
