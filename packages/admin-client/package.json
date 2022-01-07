@@ -31,8 +31,8 @@
   "devDependencies": {
     "@angular-devkit/architect": "^0.1202.11",
     "@angular-devkit/build-angular": "^13.1.2",
-    "@angular-devkit/core": "^13.0.3",
-    "@angular/cli": "^13.0.3",
+    "@angular-devkit/core": "^13.1.2",
+    "@angular/cli": "^13.1.2",
     "@angular/compiler-cli": "~13.1.1",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
