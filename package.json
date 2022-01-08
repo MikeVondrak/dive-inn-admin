@@ -20,7 +20,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "gql_generate": "graphql-codegen --config codegen.yml"
+    "gql_generate": "graphql-codegen --config codegen.yml",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "apollo-cache-inmemory": "^1.6.6",
@@ -29,13 +31,19 @@
     "react": "^17.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.7",
     "@graphql-codegen/cli": "^1.9.0",
     "@graphql-codegen/fragment-matcher": "3.2.0",
     "@graphql-codegen/introspection": "2.1.0",
     "@graphql-codegen/typescript": "2.4.1",
     "@graphql-codegen/typescript-apollo-angular": "3.3.1",
     "@graphql-codegen/typescript-operations": "2.2.1",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/react": "^6.4.9",
     "apollo-client": "^2.6.10",
+    "babel-loader": "^8.2.3",
     "hasura-cli": "^2.0.9"
   }
 }
