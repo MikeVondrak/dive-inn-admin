@@ -1,7 +1,11 @@
-@use 'colors';
-@use 'font-faces';
-@use 'typography';
-@use 'controls';
+@use './shared/scss/colors';
+@use './shared/scss/font-faces';
+@use './shared/scss/typography';
+@use './shared/scss/controls';
+// @use '../../../../shared/scss/colors';
+// @use '../../../../shared/scss/font-faces';
+// @use '../../../../shared/scss/typography';
+// @use '../../../../shared/scss/controls';
 
 @forward 'colors'; // recreate colors in this file so consumers only need to import 'utility'
 @forward 'font-faces';
