@@ -31,9 +31,8 @@ export default {
       declarations: [AlbumAssignerComponent],
       imports: [CommonModule, BrowserAnimationsModule, ApolloTestingModule, HttpClientTestingModule],
       providers: [
-        { provide: Apollo, useClass: ApolloTestingController },
+        //{ provide: Apollo, useClass: ApolloTestingController },
         { provide: FlickrApiService, useClass: FlickrApiServiceMock },
-        { provide: HttpClient, useValue: {} }
       ],
 
     }),
