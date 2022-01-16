@@ -25,8 +25,8 @@ DefaultState.args = {
   albumTitle: 'Title',
   albumDescription: 'Description',
   albumImageUrls: [
-    '../../../../../assets/logoLg.png',
-    '/assets/logoLg.png',
-    '/logoLg.png',
+    '../../../../../assets/images/logoLg.png',
+    '/assets/images/logoLg.png',
+    '/images/logoLg.png',
   ]
 };
