@@ -1,0 +1,8 @@
+<div class="album-display-container">
+  <div>{{ albumTitle }}</div>
+  <div>{{ albumDescription }}</div>
+  <div class="album-display-container-images">
+    <div *ngFor="let url of albumImageUrls">
+      <img [src]="url"/>
+    </div>
+</div>
