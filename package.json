@@ -14,6 +14,7 @@
     "go": "concurrently \"npm run start -w ./packages/admin-client\" \"npm run start -w ./packages/public-client\"",
     "goadmin": "npm run start -w ./packages/admin-client",
     "gopublic": "npm run start -w ./packages/public-client",
+    "storybook": "concurrently \"cd packages/admin-client && npm run storybook\" \"cd packages/public-client && npm run storybook\"",
     "wsup": "npm i && npm i -ws",
     "ng": "ng",
     "start": "ng serve",

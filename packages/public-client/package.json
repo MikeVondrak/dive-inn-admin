@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "storybook": "npm run docs:json && start-storybook -p 6006 -s ./src/assets/",
+    "storybook": "npm run docs:json && start-storybook -p 6009 -s /src/assets",
     "build-storybook": "npm run docs:json && build-storybook"
   },
   "private": true,

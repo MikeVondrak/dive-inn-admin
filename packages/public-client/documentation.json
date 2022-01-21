@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "AlbumDisplayComponent",
-            "id": "component-AlbumDisplayComponent-75e5231494f19acbc8a3d3c5806c96417f685b02651c645e2a75efb90e71154ad6d65ef5cadc8aef1bdc92a30be69a7f655f6a8a472ce8454a76b2b261765332",
+            "id": "component-AlbumDisplayComponent-75cc0ce9af82d079c7208178a2a80280576057f35f64cfb6915fcf3e9210b2a1995bdd6f90fd86aa3a1a7009823deeab156b044ba59b00fdb8e5a49ef727fc99",
             "file": "src/app/components/shared/album-display/album-display.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -75,7 +75,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-album-display',\r\n  templateUrl: './album-display.component.html',\r\n  styleUrls: ['./album-display.component.scss']\r\n})\r\nexport class AlbumDisplayComponent implements OnInit {\r\n\r\n  @Input() albumTitle: string = '';\r\n  @Input() albumDescription: string = '';\r\n  @Input() albumImageUrls: string[] = []; \r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-album-display',\n  templateUrl: './album-display.component.html',\n  styleUrls: ['./album-display.component.scss']\n})\nexport class AlbumDisplayComponent implements OnInit {\n\n  @Input() albumTitle: string = '';\n  @Input() albumDescription: string = '';\n  @Input() albumImageUrls: string[] = []; \n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -95,11 +95,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"album-display-container\">\r\n  <div>{{ albumTitle }}</div>\r\n  <div>{{ albumDescription }}</div>\r\n  <div class=\"album-display-container-images\">\r\n    <div *ngFor=\"let url of albumImageUrls\">\r\n      <img [src]=\"url\"/>\r\n    </div>\r\n</div>"
+            "templateData": "<div class=\"album-display-container\">\n  <div>{{ albumTitle }}</div>\n  <div>{{ albumDescription }}</div>\n  <div class=\"album-display-container-images\">\n    <div *ngFor=\"let url of albumImageUrls\">\n      <img [src]=\"url\"/>\n    </div>\n</div>"
         },
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-92962ac20af28340fc161c5ca3d1cbb1c75dcd9748eaa53cb48affb9c7836b6cb01cf35771fae0b3810be667ed7e8077a9c7baf94f81c0d5de404318bb61c525",
+            "id": "component-AppComponent-7df4a2405caddaad6f1d08a3df9c3013ae8eb8219af4b59a14da045867839a7fdd06ebf69899c8da9062c7781e47af1086cfe87efecd56b9c70ec1f8ef413104",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -137,7 +137,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss']\r\n})\r\nexport class AppComponent {\r\n  title = 'dive-inn-public';\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'dive-inn-public';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -146,11 +146,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "\r\n<header>header</header>\r\n<main>\r\n  <router-outlet></router-outlet>\r\n</main>\r\n<footer>footer</footer>"
+            "templateData": "\n<header>header</header>\n<main>\n  <router-outlet></router-outlet>\n</main>\n<footer>footer</footer>"
         },
         {
             "name": "HomeComponent",
-            "id": "component-HomeComponent-2fa2a334b4b04e2dc8249b724e1d5ebd2683ce062dd82bbe48694ecc7d49b2b1ac5038b094148d32cc3c3ef3d89c75ea8c4c10bdc205d1e45a391e7066e7c78f",
+            "id": "component-HomeComponent-6a1f8a3ca6cc7eed44a0ba506eea3ed24de8cb2e45fd2a9ae3207035c43fdd5c56e6bdff9da407ef8884933b065c19fb967d30a5c40fd8a3472ca2eec39123cd",
             "file": "src/app/components/pages/home/home.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -188,7 +188,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-home',\r\n  templateUrl: './home.component.html',\r\n  styleUrls: ['./home.component.scss']\r\n})\r\nexport class HomeComponent implements OnInit {\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html',\n  styleUrls: ['./home.component.scss']\n})\nexport class HomeComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -208,11 +208,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>home works!</p>\r\n<a routerLink=\"/inside\">Inside Page</a>"
+            "templateData": "<p>home works!</p>\n<a routerLink=\"/inside\">Inside Page</a>"
         },
         {
             "name": "InsideComponent",
-            "id": "component-InsideComponent-e6578b9ee4124629431ae7dc0e7742b133f808667635cf8d1e1ea1dff9cec4b2d9f39e706fa945f63a7f8e4965e0e32a8017e5c25448db794f4ce2c1527f539e",
+            "id": "component-InsideComponent-a6a019b4a2785030da7f0ba67184c1f6a2af971a45f09f1b324e6017c53715e2371471a98e9968a51f976d4e262b748e175481ab653b97430a387eea9a0517fc",
             "file": "src/app/components/pages/inside/inside.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -233,7 +233,7 @@
             "propertiesClass": [
                 {
                     "name": "albumImageUrls",
-                    "defaultValue": "[\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n  ]",
+                    "defaultValue": "[\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string[]",
@@ -264,7 +264,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-inside',\r\n  templateUrl: './inside.component.html',\r\n  styleUrls: ['./inside.component.scss']\r\n})\r\nexport class InsideComponent implements OnInit {\r\n  public albumImageUrls: string[] = [\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n  ];\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-inside',\n  templateUrl: './inside.component.html',\n  styleUrls: ['./inside.component.scss']\n})\nexport class InsideComponent implements OnInit {\n  public albumImageUrls: string[] = [\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n  ];\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -284,19 +284,19 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<h1>What's Inside</h1>\r\n<a routerLink=\"/home\">Home Page</a>\r\n\r\n<app-album-display\r\n  albumTitle=\"Test Title\"\r\n  albumDescription=\"Test Description\"\r\n  [albumImageUrls]=\"albumImageUrls\"\r\n></app-album-display>"
+            "templateData": "<h1>What's Inside</h1>\n<a routerLink=\"/home\">Home Page</a>\n\n<app-album-display\n  albumTitle=\"Test Title\"\n  albumDescription=\"Test Description\"\n  [albumImageUrls]=\"albumImageUrls\"\n></app-album-display>"
         }
     ],
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-7c6ff201ccbfc8cf0ec6d03aeb8df250b94d3030080753e0e61569f36500ad0544ee02283a2348cba28ed78edf422b6b2805d9382e867acf2f4f4ac98fa50e53",
+            "id": "module-AppModule-1ba44a2e0cc9684bf0928b16057580e5a522924a1300ab56b321b8c834a209a25077e2e6b238930ade57509f4e06ea1fc062033fabf16569d4118eb3e0bbc3b7",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { HomeComponent } from './components/pages/home/home.component';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    HomeComponent,\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    AppRoutingModule\r\n  ],\r\n  providers: [],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { HomeComponent } from './components/pages/home/home.component';\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    HomeComponent,\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -341,13 +341,13 @@
         },
         {
             "name": "AppRoutingModule",
-            "id": "module-AppRoutingModule-83424f7346963a7f788b05ca0df4160e82c47846fe0922c74b47ef57d2f402e632526252433362a9544b9d16ff0bb2be9ca04be49aacca26ff4e10cefc35dba5",
+            "id": "module-AppRoutingModule-f2f4a373c1bd5b34e18b4b176c1b5e32f022646618e4cc72d6b34ebfdee8abac301c9aa8e3778e1397213713c7b1a25ee935cbcdf2f4b5987f6424a24aa13886",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app-routing.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { RouterModule, Routes } from '@angular/router';\r\nimport { HomeComponent } from './components/pages/home/home.component';\r\n\r\nconst routes: Routes = [\r\n  { path: 'home', component: HomeComponent },\r\n  { \r\n    path: 'inside',     \r\n    loadChildren: () => \"import('./components/pages/inside/inside.module').then((module) => module.InsideModule)\"\r\n  },\r\n  { path: '', redirectTo: '/home', pathMatch: 'full' },\r\n  { path: '**', redirectTo: '/home' }\r\n];\r\n\r\n\r\n@NgModule({\r\n  imports: [RouterModule.forRoot(routes)],\r\n  exports: [RouterModule]\r\n})\r\nexport class AppRoutingModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\nimport { HomeComponent } from './components/pages/home/home.component';\n\nconst routes: Routes = [\n  { path: 'home', component: HomeComponent },\n  { \n    path: 'inside',     \n    loadChildren: () => \"import('./components/pages/inside/inside.module').then((module) => module.InsideModule)\"\n  },\n  { path: '', redirectTo: '/home', pathMatch: 'full' },\n  { path: '**', redirectTo: '/home' }\n];\n\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule]\n})\nexport class AppRoutingModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -377,13 +377,13 @@
         },
         {
             "name": "InsideModule",
-            "id": "module-InsideModule-c3095a03313d37a5ab235f3c6906324e71929f62f6d405b27292d55fb01625b91d36f59ff8f24cc4363355acb53e476ae99334ab17d62b82e2a26111fc9284cb",
+            "id": "module-InsideModule-f8419b569b1f6e2a121d047a6c0dd1b9cb9b07f99409d6f64c0b30c819c86a82a04fb4bb3006129ec90a98a7b7fadd05489ebec6a0fc9f6caf093cb10e472371",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/components/pages/inside/inside.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { InsideRoutingModule } from './inside.routing.module';\r\nimport { InsideComponent } from './inside.component';\r\nimport { SharedComponentsModule } from '../../shared/shared-components.module';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    InsideComponent,\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    InsideRoutingModule,\r\n    SharedComponentsModule,\r\n  ],\r\n  exports: [\r\n    InsideComponent,\r\n  ]\r\n})\r\nexport class InsideModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { InsideRoutingModule } from './inside.routing.module';\nimport { InsideComponent } from './inside.component';\nimport { SharedComponentsModule } from '../../shared/shared-components.module';\n\n@NgModule({\n  declarations: [\n    InsideComponent,\n  ],\n  imports: [\n    CommonModule,\n    InsideRoutingModule,\n    SharedComponentsModule,\n  ],\n  exports: [\n    InsideComponent,\n  ]\n})\nexport class InsideModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -530,21 +530,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
+                "file": "src/environments/environment.prod.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\r\n  production: false\r\n}"
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\r\n  production: true\r\n}"
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "require",
@@ -613,18 +613,6 @@
                     "defaultValue": "(args: AlbumDisplayComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
-            "src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\r\n  production: false\r\n}"
-                }
-            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -634,7 +622,19 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
-                    "defaultValue": "{\r\n  production: true\r\n}"
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ]
         },

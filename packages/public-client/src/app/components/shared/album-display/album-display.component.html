@@ -1,8 +1,29 @@
 <div class="album-display-container">
-  <div>{{ albumTitle }}</div>
-  <div>{{ albumDescription }}</div>
+  <div class="album-display-container-info">
+    <div>{{ albumTitle }}</div>
+    <div>{{ albumDescription }}</div>
+  </div>
+
   <div class="album-display-container-images">
     <div *ngFor="let url of albumImageUrls">
       <img [src]="url"/>
     </div>
+  </div>
+
+</div>
+
+
+<div class="test-divs">
+  <div class="info">
+    <div>Title</div>
+    <div>Description</div>
+  </div>
+  <div class="images">
+    <img src="/assets/images/logoLg.png">
+    <img src="/assets/images/logoLg.png">
+    <img src="/assets/images/logoLg.png">
+    <img src="/assets/images/logoLg.png">
+    <img src="/assets/images/logoLg.png">
+    <img src="/assets/images/logoLg.png">
+  </div>
 </div>

@@ -23,10 +23,16 @@ const Template: Story<AlbumDisplayComponent> = (args: AlbumDisplayComponent) => 
 export const DefaultState = Template.bind({});
 DefaultState.args = {
   albumTitle: 'Title',
-  albumDescription: 'Description',
+  albumDescription: 'super super super long Description Description Description',
   albumImageUrls: [
-    '../../../../../assets/images/logoLg.png',
     '/assets/images/logoLg.png',
-    '/images/logoLg.png',
+    '/assets/images/logoLg.png',
+    '/assets/images/logoLg.png',
+    '/assets/images/logoLg.png',
+    '/assets/images/logoLg.png',
+    '/assets/images/logoLg.png',
+    '/assets/images/logoLg.png',
+    '/assets/images/logoLg.png',
+    '/assets/images/logoLg.png',
   ]
 };

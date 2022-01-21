@@ -1,0 +1,51 @@
+:host {
+  .album-display-container {
+    display: flex;
+    flex-direction: row;
+
+    &-info {
+      flex: 0 0 30%;
+    }
+    &-images {
+      flex: 0 1 auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+
+
+
+
+
+  img {
+    max-width: 100px;
+  }
+
+  > div {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid red;
+
+    > div {
+      border: 1px solid blue;
+    }
+    > span {
+      border: 1px solid green;
+    }
+  }
+
+
+  .test-divs {
+    display: flex;
+    flex-direction: row;
+    > div {    
+      width: 50%;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
