@@ -7,3 +7,12 @@ html {
 html, body {
     margin: 0;
 }
+
+button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+    background-color: shared-imports.$dive-yellow;
+  }
+}

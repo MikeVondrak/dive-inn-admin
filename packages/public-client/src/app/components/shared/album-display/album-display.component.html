@@ -1,29 +1,19 @@
-<div class="album-display-container">
-  <div class="album-display-container-info">
-    <div>{{ albumTitle }}</div>
-    <div>{{ albumDescription }}</div>
+<div class="album-display">
+
+  <div class="album-display-images">
+    <img *ngFor="let url of imageUrls" [src]="url"/>
   </div>
 
-  <div class="album-display-container-images">
-    <div *ngFor="let url of albumImageUrls">
-      <img [src]="url"/>
-    </div>
+  <button class="album-display-nav prev">&lt;</button>
+  <button class="album-display-nav next">&gt;</button>
+
+  <div class="album-display-pill-box">
+    <button *ngFor="let url of imageUrls"
+    ></button>
   </div>
-
-</div>
-
-
-<div class="test-divs">
-  <div class="info">
-    <div>Title</div>
-    <div>Description</div>
-  </div>
-  <div class="images">
-    <img src="/assets/images/logoLg.png">
-    <img src="/assets/images/logoLg.png">
-    <img src="/assets/images/logoLg.png">
-    <img src="/assets/images/logoLg.png">
-    <img src="/assets/images/logoLg.png">
-    <img src="/assets/images/logoLg.png">
+  
+  <div *ngIf="showInfo" class="album-display-info">
+    <div>{{ title }}</div>
+    <div>{{ description }}</div>
   </div>
 </div>

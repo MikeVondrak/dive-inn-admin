@@ -7,9 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AlbumDisplayComponent implements OnInit {
 
-  @Input() albumTitle: string = '';
-  @Input() albumDescription: string = '';
-  @Input() albumImageUrls: string[] = []; 
+  @Input() showInfo: boolean = false;
+  @Input() title: string = '';
+  @Input() description: string = '';
+  @Input() imageUrls: string[] = []; 
 
   constructor() { }
 
