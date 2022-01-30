@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { componentWrapperDecorator, moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { AlbumDisplayComponent } from './album-display.component';
+import { ImageDisplayComponent } from '../image-display/image-display.component';
 
 
 export default {
@@ -11,16 +12,16 @@ export default {
     title: 'Test Title',
     description: 'Test Description',
     imageUrls: [
-      '/assets/images/logoLg.png',
-      '/assets/images/logoLg.png',
-      '/assets/images/logoLg.png',
-      '/assets/images/logoLg.png',
-      '/assets/images/logoLg.png',
+      '/assets/images/test1.jpg',
+      '/assets/images/test2.JPG',
+      '/assets/images/test6.png',
+      '/assets/images/test4.jpg',
+      '/assets/images/test5.gif',
     ]
   },
   decorators: [
     moduleMetadata({
-      declarations: [AlbumDisplayComponent],
+      declarations: [AlbumDisplayComponent, ImageDisplayComponent],
       imports: [CommonModule, BrowserAnimationsModule],
     }),
     componentWrapperDecorator(story => `<div style="border: 1px solid gray; height: 600px; width: 800px;">${story}</div>`),

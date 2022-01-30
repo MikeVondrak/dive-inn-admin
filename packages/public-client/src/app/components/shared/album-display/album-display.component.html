@@ -1,7 +1,9 @@
 <div class="album-display">
 
   <div class="album-display-images">
-    <img *ngFor="let url of imageUrls" [src]="url"/>
+    <app-image-display *ngFor="let url of imageUrls"
+      [imageUrl]="url"
+    ></app-image-display>
   </div>
 
   <button class="album-display-nav prev">&lt;</button>
