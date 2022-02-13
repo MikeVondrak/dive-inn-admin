@@ -1,6 +1,39 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "AlbumDisplayImagePosition",
+            "id": "interface-AlbumDisplayImagePosition-c852fa577a500fa907432b08bd42fd2d7bc3e5a7303c27e1d3f967b8a8178deb5cbbdee594f816d9989713d1baa33fed1c5bf6f8fb6d56b97b272da682448cca",
+            "file": "src/app/models/album-display.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface AlbumDisplayImagePosition {\r\n  x: number,\r\n  y: number,\r\n}",
+            "properties": [
+                {
+                    "name": "x",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "y",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        }
+    ],
     "injectables": [],
     "guards": [],
     "interceptors": [],
@@ -9,7 +42,7 @@
     "components": [
         {
             "name": "AlbumDisplayComponent",
-            "id": "component-AlbumDisplayComponent-e2864c14bcd5d3c24582ddfd73072cb5988f8aeac1749f6c15f9abfac3269010e5892f37eff9adf4e08c6ad11e753fbccac632fef466a79af488877f2f7e5e15",
+            "id": "component-AlbumDisplayComponent-4df1fcad228a1b16d60b73881455f5e70be370951ca9371eda8d551eb61703cd82a3f97ed9c5a6deeb1bbac1c5e5b7860b278e687525cb574f2f56a7b0f0200c",
             "file": "src/app/components/shared/album-display/album-display.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -31,7 +64,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 12,
                     "type": "string",
                     "decorators": []
                 },
@@ -40,7 +73,7 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "string[]",
                     "decorators": []
                 },
@@ -49,7 +82,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 9,
+                    "line": 10,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -58,21 +91,67 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 11,
                     "type": "string",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "positions",
+                    "defaultValue": "[\n    { x: 800, y: 0 },\n    { x: -800, y: 0 },\n    { x: 0, y: 600 },\n    { x: 0, y: -600 },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "AlbumDisplayImagePosition[]",
+                    "optional": false,
+                    "description": "<p>Instead of using the image position array and getting into ElementRef and nativeElement\nuse css classes for each position and remove the class to transition it into the frame</p>\n",
+                    "line": 20,
+                    "rawdescription": "\n\nInstead of using the image position array and getting into ElementRef and nativeElement\nuse css classes for each position and remove the class to transition it into the frame\n",
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
             "methodsClass": [
+                {
+                    "name": "getImagePosition",
+                    "args": [
+                        {
+                            "name": "index",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "AlbumDisplayImagePosition",
+                    "typeParameters": [],
+                    "line": 32,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "index",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 16,
+                    "line": 29,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -84,7 +163,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-album-display',\n  templateUrl: './album-display.component.html',\n  styleUrls: ['./album-display.component.scss']\n})\nexport class AlbumDisplayComponent implements OnInit {\n  @Input() showInfo: boolean = false;\n  @Input() title: string = '';\n  @Input() description: string = '';\n  @Input() imageUrls: string[] = []; \n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\nimport { AlbumDisplayImagePosition } from 'src/app/models/album-display.model';\n@Component({\n  selector: 'app-album-display',\n  templateUrl: './album-display.component.html',\n  styleUrls: ['./album-display.component.scss']\n})\nexport class AlbumDisplayComponent implements OnInit {\n  @Input() showInfo: boolean = false;\n  @Input() title: string = '';\n  @Input() description: string = '';\n  @Input() imageUrls: string[] = []; \n\n\n  /**\n   * Instead of using the image position array and getting into ElementRef and nativeElement\n   * use css classes for each position and remove the class to transition it into the frame\n   */\n  private positions: AlbumDisplayImagePosition[] = [\n    { x: 800, y: 0 },\n    { x: -800, y: 0 },\n    { x: 0, y: 600 },\n    { x: 0, y: -600 },\n  ];\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  public getImagePosition(index: number): AlbumDisplayImagePosition {\n    const imgPosIdx = index % this.positions.length;\n    return this.positions[imgPosIdx];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -99,7 +178,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 12
+                "line": 25
             },
             "implements": [
                 "OnInit"
@@ -717,21 +796,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.prod.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "Landscape",
@@ -850,18 +929,6 @@
                     "defaultValue": "Template.bind({})"
                 }
             ],
-            "src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
-                }
-            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -872,6 +939,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ],
             "src/app/components/shared/image-display/image-display.componet.stories.ts": [
@@ -1003,8 +1082,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "AlbumDisplayComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coveragePercent": 11,
+                "coverageCount": "1/9",
                 "status": "low"
             },
             {
@@ -1074,6 +1153,15 @@
                 "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/models/album-display.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "AlbumDisplayImagePosition",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {

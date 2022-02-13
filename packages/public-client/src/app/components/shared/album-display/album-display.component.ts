@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable, Subject, timer } from 'rxjs';
+import { take, takeUntil } from 'rxjs/operators';
 
 import { AlbumDisplayImagePosition } from 'src/app/models/album-display.model';
+
 @Component({
   selector: 'app-album-display',
   templateUrl: './album-display.component.html',
@@ -10,8 +13,16 @@ export class AlbumDisplayComponent implements OnInit {
   @Input() showInfo: boolean = false;
   @Input() title: string = '';
   @Input() description: string = '';
-  @Input() imageUrls: string[] = []; 
+  @Input() imageUrls: string[] = [];
 
+  public inFrame = false;
+  public activeImage = 0;
+
+  private readonly imgTransitionTime = 5000;
+
+  private imgTimer$: Observable<number> = timer(this.imgTransitionTime, this.imgTransitionTime);
+  private pauseTimer$: Observable<number> = timer(this.imgTransitionTime, this.imgTransitionTime);
+  private killImgTimer$: Subject<void> = new Subject<void>();
 
   /**
    * Instead of using the image position array and getting into ElementRef and nativeElement
@@ -27,10 +38,56 @@ export class AlbumDisplayComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // TODO set up unsubscribe
+    this.subscribeToImageTimer();
   }
 
   public getImagePosition(index: number): AlbumDisplayImagePosition {
     const imgPosIdx = index % this.positions.length;
     return this.positions[imgPosIdx];
+  }
+
+  public prevClicked() {
+    this.userInteracted();
+    this.decrementActiveImage();
+  }
+
+  public nextClicked() {
+    this.userInteracted();
+    this.incrementActiveImage();
+  }
+
+  public pillClicked(idx: number) {
+    this.userInteracted();
+    this.activeImage = idx;
+  }
+
+  private userInteracted() {
+    this.killImgTimer$.next();
+
+    this.pauseTimer$.pipe(take(1), takeUntil(this.killImgTimer$)).subscribe(tick => {
+      this.subscribeToImageTimer();
+    })
+  }
+
+  private incrementActiveImage() {
+    if (this.activeImage < this.imageUrls.length - 1) {
+      this.activeImage++;
+    } else {
+      this.activeImage = 0;
+    }
+  }
+  private decrementActiveImage() {
+    if (this.activeImage > 0) {
+      this.activeImage--;
+    } else {
+      this.activeImage = this.imageUrls.length - 1;
+    }
+  }
+
+  private subscribeToImageTimer() {
+    this.imgTimer$.pipe(takeUntil(this.killImgTimer$)).subscribe(tick => {
+      this.incrementActiveImage();
+    })
   }
 }
