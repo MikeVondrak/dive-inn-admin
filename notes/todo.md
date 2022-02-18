@@ -1,3 +1,11 @@
+2/17/22
+- Store images that will be for-sure used in the site in /assets, will not be configurable from admin site initially
+- 
+
+
+
+
+----------------------
 0. Get Flickr API key - DONE
 0. Figure out how to store safely in project - DONE
 0. Shape of example data - Flickr album?

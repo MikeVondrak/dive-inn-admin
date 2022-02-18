@@ -42,7 +42,7 @@
     "components": [
         {
             "name": "AlbumDisplayComponent",
-            "id": "component-AlbumDisplayComponent-4df1fcad228a1b16d60b73881455f5e70be370951ca9371eda8d551eb61703cd82a3f97ed9c5a6deeb1bbac1c5e5b7860b278e687525cb574f2f56a7b0f0200c",
+            "id": "component-AlbumDisplayComponent-75b3c8a4b88fb0897c9798760ffbf5f8ff9e56361181bc6da50817e1680186211882ff8cbf96273b321e7e33f71825c218baadb413f7fa6e8f6ee733e975e974",
             "file": "src/app/components/shared/album-display/album-display.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -64,7 +64,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 15,
                     "type": "string",
                     "decorators": []
                 },
@@ -73,7 +73,7 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 16,
                     "type": "string[]",
                     "decorators": []
                 },
@@ -82,7 +82,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 13,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -91,7 +91,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 14,
                     "type": "string",
                     "decorators": []
                 }
@@ -99,14 +99,93 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "activeImage",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "imgTimer$",
+                    "defaultValue": "timer(this.imgTransitionTime, this.imgTransitionTime)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<number>",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "imgTransitionTime",
+                    "defaultValue": "5000",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
+                    "modifierKind": [
+                        121,
+                        144
+                    ]
+                },
+                {
+                    "name": "inFrame",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "killImgTimer$",
+                    "defaultValue": "new Subject<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 25,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "pauseTimer$",
+                    "defaultValue": "timer(this.imgTransitionTime, this.imgTransitionTime)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<number>",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
                     "name": "positions",
-                    "defaultValue": "[\n    { x: 800, y: 0 },\n    { x: -800, y: 0 },\n    { x: 0, y: 600 },\n    { x: 0, y: -600 },\n  ]",
+                    "defaultValue": "[\r\n    { x: 800, y: 0 },\r\n    { x: -800, y: 0 },\r\n    { x: 0, y: 600 },\r\n    { x: 0, y: -600 },\r\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "AlbumDisplayImagePosition[]",
                     "optional": false,
                     "description": "<p>Instead of using the image position array and getting into ElementRef and nativeElement\nuse css classes for each position and remove the class to transition it into the frame</p>\n",
-                    "line": 20,
+                    "line": 31,
                     "rawdescription": "\n\nInstead of using the image position array and getting into ElementRef and nativeElement\nuse css classes for each position and remove the class to transition it into the frame\n",
                     "modifierKind": [
                         121
@@ -114,6 +193,19 @@
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "decrementActiveImage",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 80,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
                 {
                     "name": "getImagePosition",
                     "args": [
@@ -127,7 +219,7 @@
                     "optional": false,
                     "returnType": "AlbumDisplayImagePosition",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 45,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -146,14 +238,110 @@
                     ]
                 },
                 {
+                    "name": "incrementActiveImage",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 73,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "nextClicked",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 55,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 29,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "pillClicked",
+                    "args": [
+                        {
+                            "name": "idx",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 60,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "idx",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "prevClicked",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 50,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "subscribeToImageTimer",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 88,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "userInteracted",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 65,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        121
+                    ]
                 }
             ],
             "deprecated": false,
@@ -163,11 +351,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\nimport { AlbumDisplayImagePosition } from 'src/app/models/album-display.model';\n@Component({\n  selector: 'app-album-display',\n  templateUrl: './album-display.component.html',\n  styleUrls: ['./album-display.component.scss']\n})\nexport class AlbumDisplayComponent implements OnInit {\n  @Input() showInfo: boolean = false;\n  @Input() title: string = '';\n  @Input() description: string = '';\n  @Input() imageUrls: string[] = []; \n\n\n  /**\n   * Instead of using the image position array and getting into ElementRef and nativeElement\n   * use css classes for each position and remove the class to transition it into the frame\n   */\n  private positions: AlbumDisplayImagePosition[] = [\n    { x: 800, y: 0 },\n    { x: -800, y: 0 },\n    { x: 0, y: 600 },\n    { x: 0, y: -600 },\n  ];\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  public getImagePosition(index: number): AlbumDisplayImagePosition {\n    const imgPosIdx = index % this.positions.length;\n    return this.positions[imgPosIdx];\n  }\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\r\nimport { Observable, Subject, timer } from 'rxjs';\r\nimport { take, takeUntil } from 'rxjs/operators';\r\n\r\nimport { AlbumDisplayImagePosition } from 'src/app/models/album-display.model';\r\n\r\n@Component({\r\n  selector: 'app-album-display',\r\n  templateUrl: './album-display.component.html',\r\n  styleUrls: ['./album-display.component.scss']\r\n})\r\nexport class AlbumDisplayComponent implements OnInit {\r\n  @Input() showInfo: boolean = false;\r\n  @Input() title: string = '';\r\n  @Input() description: string = '';\r\n  @Input() imageUrls: string[] = [];\r\n\r\n  public inFrame = false;\r\n  public activeImage = 0;\r\n\r\n  private readonly imgTransitionTime = 5000;\r\n\r\n  private imgTimer$: Observable<number> = timer(this.imgTransitionTime, this.imgTransitionTime);\r\n  private pauseTimer$: Observable<number> = timer(this.imgTransitionTime, this.imgTransitionTime);\r\n  private killImgTimer$ = new Subject<void>();\r\n\r\n  /**\r\n   * Instead of using the image position array and getting into ElementRef and nativeElement\r\n   * use css classes for each position and remove the class to transition it into the frame\r\n   */\r\n  private positions: AlbumDisplayImagePosition[] = [\r\n    { x: 800, y: 0 },\r\n    { x: -800, y: 0 },\r\n    { x: 0, y: 600 },\r\n    { x: 0, y: -600 },\r\n  ];\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n    // TODO set up unsubscribe\r\n    this.subscribeToImageTimer();\r\n  }\r\n\r\n  public getImagePosition(index: number): AlbumDisplayImagePosition {\r\n    const imgPosIdx = index % this.positions.length;\r\n    return this.positions[imgPosIdx];\r\n  }\r\n\r\n  public prevClicked() {\r\n    this.userInteracted();\r\n    this.decrementActiveImage();\r\n  }\r\n\r\n  public nextClicked() {\r\n    this.userInteracted();\r\n    this.incrementActiveImage();\r\n  }\r\n\r\n  public pillClicked(idx: number) {\r\n    this.userInteracted();\r\n    this.activeImage = idx;\r\n  }\r\n\r\n  private userInteracted() {\r\n    this.killImgTimer$.next();\r\n\r\n    this.pauseTimer$.pipe(take(1), takeUntil(this.killImgTimer$)).subscribe(tick => {\r\n      this.subscribeToImageTimer();\r\n    })\r\n  }\r\n\r\n  private incrementActiveImage() {\r\n    if (this.activeImage < this.imageUrls.length - 1) {\r\n      this.activeImage++;\r\n    } else {\r\n      this.activeImage = 0;\r\n    }\r\n  }\r\n  private decrementActiveImage() {\r\n    if (this.activeImage > 0) {\r\n      this.activeImage--;\r\n    } else {\r\n      this.activeImage = this.imageUrls.length - 1;\r\n    }\r\n  }\r\n\r\n  private subscribeToImageTimer() {\r\n    this.imgTimer$.pipe(takeUntil(this.killImgTimer$)).subscribe(tick => {\r\n      this.incrementActiveImage();\r\n    })\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use '../../scss/utility';\r\n\r\n:host {\r\n  display: block;  \r\n  width: 100%;\r\n  height: 100%;\r\n  background: rgba(255, 0, 0, 0.2);\r\n  .album-display {\r\n    position: relative;\r\n    overflow: hidden;\r\n    background: rgba(0, 0, 255, 0.2);\r\n    height: 100%;\r\n\r\n    border: 2px solid #0f0;\r\n\r\n    &-images {\r\n      position: absolute;\r\n      top: 0; bottom: 0; left: 0; right: 0;\r\n      display: flex;\r\n      flex-direction: row;\r\n      flex-wrap: nowrap;      \r\n      background: #000;\r\n\r\n      &-frame {\r\n        display: inline-block;\r\n        white-space: nowrap;\r\n        img {\r\n          //width: 100%;\r\n          //height: auto;\r\n          // height: 100%;\r\n          //min-width: 100%;\r\n          max-width: 800px;\r\n          //max-height: 600px;\r\n        }\r\n      }      \r\n    }\r\n    &-nav {      \r\n      position: absolute;\r\n      top: 50%;\r\n      transform: translateY(-50%);\r\n      width: 2rem;\r\n      height: 2rem;\r\n      margin: 0;\r\n      padding: 0;\r\n      border: 2px solid utility.$dive-red;\r\n      border-radius: 50%;\r\n      font-size: 2rem;\r\n      font-weight: bold;\r\n      line-height: 0;\r\n      color: utility.$dive-red;\r\n      background-color: transparent;\r\n      box-shadow: 0px 0px 6px 0px #fff;\r\n      text-shadow: 0px 0px 4px #000;\r\n      &:hover {\r\n        background-color: rgba(255,255,255,0.5);\r\n      }\r\n\r\n      &.prev {\r\n        left: 1rem;\r\n        padding-right: 0.2rem;\r\n      }\r\n      &.next {\r\n        right: 1rem;\r\n        padding-left: 0.2rem;\r\n      }\r\n    }\r\n    &-pill-box {\r\n      position: absolute;\r\n      bottom: 0.75rem;\r\n      right: 50%;\r\n      transform: translateX(50%);\r\n      display: flex;\r\n      gap: 0.15rem;\r\n      \r\n      button {\r\n        width: 1.25rem;\r\n        height: 0.75rem;\r\n        border: 2px solid utility.$dive-gray-dk;\r\n        border-radius: 8px;\r\n        background-color: utility.$dive-red;\r\n        box-shadow: 0px 0px 6px 0px #fff;\r\n        &:disabled {\r\n          background-color: utility.$dive-white;\r\n        }\r\n      }\r\n    }\r\n    &-info {\r\n      position: absolute;\r\n      top: 0rem; left: 0rem;\r\n      padding: 1rem;\r\n      border-radius: 0 0 1rem 0;\r\n      background-color: rgba(255,255,255,0.45);\r\n      text-shadow: 1px 1px 2px #000;\r\n      text-align: center;\r\n    }\r\n\r\n  }\r\n}",
+                    "data": "@use '../../scss/utility';\r\n\r\n:host {\r\n  display: block;  \r\n  width: 100%;\r\n  height: 100%;\r\n  \r\n  background: blue;\r\n  \r\n  .album-display {\r\n    position: relative;\r\n    overflow: hidden;\r\n    height: 100%;\r\n\r\n    background: utility.$dive-gray-dk;\r\n\r\n    &-images {\r\n      position: relative;      \r\n      //display: flex;\r\n      //flex-direction: row;\r\n      //flex-wrap: nowrap;\r\n      background: magenta;\r\n\r\n      app-image-display {\r\n        position: absolute;\r\n        top: 0; bottom: 0; left: 0; right: 0;        \r\n        transform: translate(0, 0);\r\n        transition: transform 0.75s ease;\r\n        &.top {\r\n          transform: translate(0, -600px);\r\n        }\r\n        &.bottom {\r\n          transform: translate(0, 600px);\r\n        }\r\n        &.left {\r\n          transform: translate(-800px, 0);\r\n        }\r\n        &.right {\r\n          transform: translate(800px, 0);\r\n        }\r\n      }\r\n\r\n      // &-frame {\r\n      //   display: inline-block;\r\n      //   white-space: nowrap;\r\n      //   img {\r\n      //     //width: 100%;\r\n      //     //height: auto;\r\n      //     // height: 100%;\r\n      //     //min-width: 100%;\r\n      //     max-width: 800px;\r\n      //     //max-height: 600px;\r\n      //   }\r\n      // }      \r\n    }\r\n    &-nav {      \r\n      position: absolute;\r\n      top: 50%;\r\n      transform: translateY(-50%);\r\n      width: 2rem;\r\n      height: 2rem;\r\n      margin: 0;\r\n      padding: 0;\r\n      border: 2px solid utility.$dive-red;\r\n      border-radius: 50%;\r\n      font-size: 2rem;\r\n      font-weight: bold;\r\n      line-height: 0;\r\n      color: utility.$dive-red;\r\n      background-color: transparent;\r\n      box-shadow: 0px 0px 6px 0px #fff;\r\n      text-shadow: 0px 0px 4px #000;\r\n      &:hover {\r\n        background-color: rgba(255,255,255,0.5);\r\n      }\r\n\r\n      &.prev {\r\n        left: 1rem;\r\n        padding-right: 0.2rem;\r\n      }\r\n      &.next {\r\n        right: 1rem;\r\n        padding-left: 0.2rem;\r\n      }\r\n    }\r\n    &-pill-box {\r\n      position: absolute;\r\n      bottom: 0.75rem;\r\n      right: 50%;\r\n      transform: translateX(50%);\r\n      display: flex;\r\n      gap: 0.15rem;\r\n      \r\n      button {\r\n        width: 1.25rem;\r\n        height: 0.75rem;\r\n        border: 2px solid utility.$dive-gray-dk;\r\n        border-radius: 8px;\r\n        background-color: utility.$dive-red;\r\n        box-shadow: 0px 0px 6px 0px #fff;\r\n        &.activePill {\r\n          background-color: utility.$dive-white;\r\n        }\r\n        &:disabled {\r\n          background-color: utility.$dive-gray-dk;\r\n        }\r\n      }\r\n    }\r\n    &-info {\r\n      position: absolute;\r\n      top: 0rem; left: 0rem;\r\n      padding: 1rem;\r\n      border-radius: 0 0 1rem 0;\r\n      background-color: rgba(255,255,255,0.45);\r\n      text-shadow: 1px 1px 2px #000;\r\n      text-align: center;\r\n    }\r\n\r\n  }\r\n}",
                     "styleUrl": "./album-display.component.scss"
                 }
             ],
@@ -178,16 +366,16 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 25
+                "line": 36
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"album-display\">\n\n  <div class=\"album-display-images\">\n    <app-image-display *ngFor=\"let url of imageUrls\"\n      [imageUrl]=\"url\"\n    ></app-image-display>\n  </div>\n\n  <button class=\"album-display-nav prev\">&lt;</button>\n  <button class=\"album-display-nav next\">&gt;</button>\n\n  <div class=\"album-display-pill-box\">\n    <button *ngFor=\"let url of imageUrls\"\n    ></button>\n  </div>\n  \n  <div *ngIf=\"showInfo\" class=\"album-display-info\">\n    <div>{{ title }}</div>\n    <div>{{ description }}</div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"album-display\">\r\n\r\n  <div class=\"album-display-images\">\r\n    <app-image-display *ngFor=\"let url of imageUrls; index as idx\"\r\n      [class.top]=\"idx % 4 === 0 && idx % 5 !== activeImage\"\r\n      [class.right]=\"idx % 4 === 1 && idx % 5 !== activeImage\"\r\n      [class.bottom]=\"idx % 4 === 2 && idx % 5 !== activeImage\"\r\n      [class.left]=\"idx % 4 === 3 && idx % 5 !== activeImage\"\r\n      [imageUrl]=\"url\"\r\n    ></app-image-display>\r\n  </div>\r\n\r\n  <button (click)=\"prevClicked()\" class=\"album-display-nav prev\">&lt;</button>\r\n  <button (click)=\"nextClicked()\" class=\"album-display-nav next\">&gt;</button>\r\n\r\n  <div class=\"album-display-pill-box\">\r\n    <button *ngFor=\"let url of imageUrls; index as idx\"\r\n      [class.activePill]=\"idx === activeImage\"\r\n      (click)=\"pillClicked(idx)\"\r\n    ></button>\r\n  </div>\r\n  \r\n  <div *ngIf=\"showInfo\" class=\"album-display-info\">\r\n    <div>{{ title }}</div>\r\n    <div>{{ description }}</div>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-7df4a2405caddaad6f1d08a3df9c3013ae8eb8219af4b59a14da045867839a7fdd06ebf69899c8da9062c7781e47af1086cfe87efecd56b9c70ec1f8ef413104",
+            "id": "component-AppComponent-92962ac20af28340fc161c5ca3d1cbb1c75dcd9748eaa53cb48affb9c7836b6cb01cf35771fae0b3810be667ed7e8077a9c7baf94f81c0d5de404318bb61c525",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -225,7 +413,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'dive-inn-public';\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss']\r\n})\r\nexport class AppComponent {\r\n  title = 'dive-inn-public';\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -234,11 +422,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "\n<header>header</header>\n<main>\n  <router-outlet></router-outlet>\n</main>\n<footer>footer</footer>"
+            "templateData": "\r\n<header>header</header>\r\n<main>\r\n  <router-outlet></router-outlet>\r\n</main>\r\n<footer>footer</footer>"
         },
         {
             "name": "HomeComponent",
-            "id": "component-HomeComponent-6a1f8a3ca6cc7eed44a0ba506eea3ed24de8cb2e45fd2a9ae3207035c43fdd5c56e6bdff9da407ef8884933b065c19fb967d30a5c40fd8a3472ca2eec39123cd",
+            "id": "component-HomeComponent-2fa2a334b4b04e2dc8249b724e1d5ebd2683ce062dd82bbe48694ecc7d49b2b1ac5038b094148d32cc3c3ef3d89c75ea8c4c10bdc205d1e45a391e7066e7c78f",
             "file": "src/app/components/pages/home/home.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -276,11 +464,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html',\n  styleUrls: ['./home.component.scss']\n})\nexport class HomeComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-home',\r\n  templateUrl: './home.component.html',\r\n  styleUrls: ['./home.component.scss']\r\n})\r\nexport class HomeComponent implements OnInit {\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@use '../../scss/utility';",
                     "styleUrl": "./home.component.scss"
                 }
             ],
@@ -296,11 +484,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>home works!</p>\n<a routerLink=\"/inside\">Inside Page</a>"
+            "templateData": "<p>home works!</p>\r\n<a routerLink=\"/inside\">Inside Page</a>"
         },
         {
             "name": "ImageDisplayComponent",
-            "id": "component-ImageDisplayComponent-c128e79c7b0fcab64ccc8d0c6d7fa2cccbca426c654c9ca337028482a2cda7b56c7b63377308f2ebb4a8fb030b9d69b930160bffb47903ff0bccd0502331274b",
+            "id": "component-ImageDisplayComponent-3108583f535c4e4c97c718d50721631053454619789011b858b2f5dcf7fcba91cd27e893512efb6a9461319927443b1f61c2bb0844c35c02910874a6a9f6e277",
             "file": "src/app/components/shared/image-display/image-display.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -418,7 +606,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 27,
+                    "line": 26,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -438,7 +626,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 36,
+                    "line": 34,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -450,11 +638,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ElementRef, AfterViewInit, OnInit, ViewChild, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-image-display',\n  templateUrl: './image-display.component.html',\n  styleUrls: ['./image-display.component.scss']\n})\nexport class ImageDisplayComponent implements OnInit, AfterViewInit {\n  @ViewChild('image') imageRef!: ElementRef;\n\n  @Input() imageUrl: string = '';\n\n  public width: number = 0;\n  public height: number = 0;\n  public isPortrait: boolean = false;\n  \n  public toBottom: boolean = false;\n\n  private readonly aspectRatio = 4.0/3.0;\n\n  constructor() {}\n\n  ngOnInit(): void {\n    console.log('ONINIT', this.imageRef);    \n  }\n\n  ngAfterViewInit() {\n    console.log('AFTERINIT', this.imageRef);\n    setTimeout(() => {\n      this.width = this.imageRef.nativeElement.clientWidth;\n      this.height = this.imageRef.nativeElement.clientHeight;\n      this.isPortrait = (this.width / this.height) > this.aspectRatio;\n    }, 0);\n  }\n\n  testPan() {\n    this.toBottom = !this.toBottom;\n  }\n\n}\n",
+            "sourceCode": "import { Component, ElementRef, AfterViewInit, OnInit, ViewChild, Input } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-image-display',\r\n  templateUrl: './image-display.component.html',\r\n  styleUrls: ['./image-display.component.scss']\r\n})\r\nexport class ImageDisplayComponent implements OnInit, AfterViewInit {\r\n  @ViewChild('image') imageRef!: ElementRef;\r\n\r\n  @Input() imageUrl: string = '';\r\n\r\n  public width: number = 0;\r\n  public height: number = 0;\r\n  public isPortrait: boolean = false;\r\n  \r\n  public toBottom: boolean = false;\r\n\r\n  private readonly aspectRatio = 4.0/3.0;\r\n\r\n  constructor() {}\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n  ngAfterViewInit() {\r\n    setTimeout(() => {\r\n      this.width = this.imageRef.nativeElement.clientWidth;\r\n      this.height = this.imageRef.nativeElement.clientHeight;\r\n      this.isPortrait = (this.width / this.height) > this.aspectRatio;\r\n    }, 0);\r\n  }\r\n\r\n  testPan() {\r\n    this.toBottom = !this.toBottom;\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".frame {\r\n    width: 800px;\r\n    height: 600px;\r\n    overflow: hidden;\r\n\r\n  img {\r\n    width: 100%;  \r\n    height: 100%; \r\n    object-fit: cover;\r\n    object-position: 0% 0%;\r\n    transition: object-position 1s ease-in-out;\r\n\r\n    &.pan-bottom {\r\n      object-position: 100% 100%;\r\n    }\r\n  }\r\n}",
+                    "data": ":host {\r\n  display: block;\r\n\r\n  .frame {\r\n      width: 800px;\r\n      height: 600px;\r\n      overflow: hidden;\r\n\r\n    img {\r\n      width: 100%;  \r\n      height: 100%; \r\n      object-fit: cover;\r\n      object-position: 0% 0%;\r\n      transition: object-position 1s ease-in-out;\r\n\r\n      &.pan-bottom {\r\n        object-position: 100% 100%;\r\n      }\r\n    }\r\n  }\r\n}",
                     "styleUrl": "./image-display.component.scss"
                 }
             ],
@@ -471,11 +659,11 @@
                 "OnInit",
                 "AfterViewInit"
             ],
-            "templateData": "<div class=\"frame\" (click)=\"testPan()\">\n  <img #image\n    [src]=\"imageUrl\"\n    [class.pan-bottom]=\"toBottom\"\n  />\n</div>"
+            "templateData": "<div class=\"frame\" (click)=\"testPan()\">\r\n  <img #image\r\n    [src]=\"imageUrl\"\r\n    [class.pan-bottom]=\"toBottom\"\r\n  />\r\n</div>"
         },
         {
             "name": "InsideComponent",
-            "id": "component-InsideComponent-a6a019b4a2785030da7f0ba67184c1f6a2af971a45f09f1b324e6017c53715e2371471a98e9968a51f976d4e262b748e175481ab653b97430a387eea9a0517fc",
+            "id": "component-InsideComponent-e6578b9ee4124629431ae7dc0e7742b133f808667635cf8d1e1ea1dff9cec4b2d9f39e706fa945f63a7f8e4965e0e32a8017e5c25448db794f4ce2c1527f539e",
             "file": "src/app/components/pages/inside/inside.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -496,7 +684,7 @@
             "propertiesClass": [
                 {
                     "name": "albumImageUrls",
-                    "defaultValue": "[\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n  ]",
+                    "defaultValue": "[\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n  ]",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string[]",
@@ -527,11 +715,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-inside',\n  templateUrl: './inside.component.html',\n  styleUrls: ['./inside.component.scss']\n})\nexport class InsideComponent implements OnInit {\n  public albumImageUrls: string[] = [\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n    '/assets/images/logoLg.png',\n  ];\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-inside',\r\n  templateUrl: './inside.component.html',\r\n  styleUrls: ['./inside.component.scss']\r\n})\r\nexport class InsideComponent implements OnInit {\r\n  public albumImageUrls: string[] = [\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n    '/assets/images/logoLg.png',\r\n  ];\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@use '../../scss/utility';\r\n\r\n:host {\r\n  app-album-display {\r\n    width: 800px;\r\n    height: 600px;\r\n  }\r\n}",
                     "styleUrl": "./inside.component.scss"
                 }
             ],
@@ -547,19 +735,19 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<h1>What's Inside</h1>\n<a routerLink=\"/home\">Home Page</a>\n\n<app-album-display\n  albumTitle=\"Test Title\"\n  albumDescription=\"Test Description\"\n  [albumImageUrls]=\"albumImageUrls\"\n></app-album-display>"
+            "templateData": "<h1>What's Inside</h1>\r\n<a routerLink=\"/home\">Home Page</a>\r\n\r\n<app-album-display\r\n  title=\"Test Title\"\r\n  description=\"Test Description\"\r\n  [imageUrls]=\"albumImageUrls\"\r\n></app-album-display>"
         }
     ],
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-1ba44a2e0cc9684bf0928b16057580e5a522924a1300ab56b321b8c834a209a25077e2e6b238930ade57509f4e06ea1fc062033fabf16569d4118eb3e0bbc3b7",
+            "id": "module-AppModule-7c6ff201ccbfc8cf0ec6d03aeb8df250b94d3030080753e0e61569f36500ad0544ee02283a2348cba28ed78edf422b6b2805d9382e867acf2f4f4ac98fa50e53",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { HomeComponent } from './components/pages/home/home.component';\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    HomeComponent,\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { HomeComponent } from './components/pages/home/home.component';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    HomeComponent,\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    AppRoutingModule\r\n  ],\r\n  providers: [],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -604,13 +792,13 @@
         },
         {
             "name": "AppRoutingModule",
-            "id": "module-AppRoutingModule-f2f4a373c1bd5b34e18b4b176c1b5e32f022646618e4cc72d6b34ebfdee8abac301c9aa8e3778e1397213713c7b1a25ee935cbcdf2f4b5987f6424a24aa13886",
+            "id": "module-AppRoutingModule-83424f7346963a7f788b05ca0df4160e82c47846fe0922c74b47ef57d2f402e632526252433362a9544b9d16ff0bb2be9ca04be49aacca26ff4e10cefc35dba5",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app-routing.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\nimport { HomeComponent } from './components/pages/home/home.component';\n\nconst routes: Routes = [\n  { path: 'home', component: HomeComponent },\n  { \n    path: 'inside',     \n    loadChildren: () => \"import('./components/pages/inside/inside.module').then((module) => module.InsideModule)\"\n  },\n  { path: '', redirectTo: '/home', pathMatch: 'full' },\n  { path: '**', redirectTo: '/home' }\n];\n\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule]\n})\nexport class AppRoutingModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { RouterModule, Routes } from '@angular/router';\r\nimport { HomeComponent } from './components/pages/home/home.component';\r\n\r\nconst routes: Routes = [\r\n  { path: 'home', component: HomeComponent },\r\n  { \r\n    path: 'inside',     \r\n    loadChildren: () => \"import('./components/pages/inside/inside.module').then((module) => module.InsideModule)\"\r\n  },\r\n  { path: '', redirectTo: '/home', pathMatch: 'full' },\r\n  { path: '**', redirectTo: '/home' }\r\n];\r\n\r\n\r\n@NgModule({\r\n  imports: [RouterModule.forRoot(routes)],\r\n  exports: [RouterModule]\r\n})\r\nexport class AppRoutingModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -640,13 +828,13 @@
         },
         {
             "name": "InsideModule",
-            "id": "module-InsideModule-f8419b569b1f6e2a121d047a6c0dd1b9cb9b07f99409d6f64c0b30c819c86a82a04fb4bb3006129ec90a98a7b7fadd05489ebec6a0fc9f6caf093cb10e472371",
+            "id": "module-InsideModule-c3095a03313d37a5ab235f3c6906324e71929f62f6d405b27292d55fb01625b91d36f59ff8f24cc4363355acb53e476ae99334ab17d62b82e2a26111fc9284cb",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/components/pages/inside/inside.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { InsideRoutingModule } from './inside.routing.module';\nimport { InsideComponent } from './inside.component';\nimport { SharedComponentsModule } from '../../shared/shared-components.module';\n\n@NgModule({\n  declarations: [\n    InsideComponent,\n  ],\n  imports: [\n    CommonModule,\n    InsideRoutingModule,\n    SharedComponentsModule,\n  ],\n  exports: [\n    InsideComponent,\n  ]\n})\nexport class InsideModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { InsideRoutingModule } from './inside.routing.module';\r\nimport { InsideComponent } from './inside.component';\r\nimport { SharedComponentsModule } from '../../shared/shared-components.module';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    InsideComponent,\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    InsideRoutingModule,\r\n    SharedComponentsModule,\r\n  ],\r\n  exports: [\r\n    InsideComponent,\r\n  ]\r\n})\r\nexport class InsideModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -724,13 +912,13 @@
         },
         {
             "name": "SharedComponentsModule",
-            "id": "module-SharedComponentsModule-7743d414b7d8d8799a9e532ba15d830ed83984368cbbbdc1fa96b7106927d15f4455459b64a2eebc48ff804ecd5b29c915df4bb701806470ec3e8ec31b7024a1",
+            "id": "module-SharedComponentsModule-cebf5bf57f99497d137d6f69beb85d7ae23629401fb68d6ab5e27946ce68df40e9a88ea236b30567a60c1d7b177c4f5197c11c715e6367721e7b7cdf9430703d",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/components/shared/shared-components.module.ts",
             "methods": [],
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AlbumDisplayComponent } from './album-display/album-display.component';\nimport { ImageDisplayComponent } from './image-display/image-display.component';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AlbumDisplayComponent,\r\n    ImageDisplayComponent,\r\n  ],\r\n  imports: [\r\n    CommonModule\r\n  ],\r\n  providers: [],\r\n  exports: [\r\n    AlbumDisplayComponent,\r\n  ]  \r\n})\r\nexport class SharedComponentsModule { }\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AlbumDisplayComponent } from './album-display/album-display.component';\r\nimport { ImageDisplayComponent } from './image-display/image-display.component';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AlbumDisplayComponent,\r\n    ImageDisplayComponent,\r\n  ],\r\n  imports: [\r\n    CommonModule\r\n  ],\r\n  providers: [],\r\n  exports: [\r\n    AlbumDisplayComponent,\r\n  ]  \r\n})\r\nexport class SharedComponentsModule { }\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -800,7 +988,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "defaultValue": "{\r\n  production: true\r\n}"
             },
             {
                 "name": "environment",
@@ -810,7 +998,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\n  production: false\n}"
+                "defaultValue": "{\r\n  production: false\r\n}"
             },
             {
                 "name": "Landscape",
@@ -938,7 +1126,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
+                    "defaultValue": "{\r\n  production: true\r\n}"
                 }
             ],
             "src/environments/environment.ts": [
@@ -950,7 +1138,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
+                    "defaultValue": "{\r\n  production: false\r\n}"
                 }
             ],
             "src/app/components/shared/image-display/image-display.componet.stories.ts": [
@@ -1082,8 +1270,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "AlbumDisplayComponent",
-                "coveragePercent": 11,
-                "coverageCount": "1/9",
+                "coveragePercent": 4,
+                "coverageCount": "1/22",
                 "status": "low"
             },
             {

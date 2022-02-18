@@ -1,0 +1,8 @@
+@use '../../scss/utility';
+
+:host {
+  app-album-display {
+    width: 800px;
+    height: 600px;
+  }
+}

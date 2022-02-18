@@ -17,7 +17,21 @@ export default {
       '/assets/images/test6.png',
       '/assets/images/test4.jpg',
       '/assets/images/test5.gif',
-    ]
+    ],
+
+  },
+  argTypes: {
+    positions: {
+      name: 'positions',
+      control: {
+        type: 'array'
+      }
+    },
+    imgTimer$: {
+      control: {
+        type: 'object'
+      }
+    }
   },
   decorators: [
     moduleMetadata({

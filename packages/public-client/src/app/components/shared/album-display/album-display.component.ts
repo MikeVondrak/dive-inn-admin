@@ -22,7 +22,7 @@ export class AlbumDisplayComponent implements OnInit {
 
   private imgTimer$: Observable<number> = timer(this.imgTransitionTime, this.imgTransitionTime);
   private pauseTimer$: Observable<number> = timer(this.imgTransitionTime, this.imgTransitionTime);
-  private killImgTimer$: Subject<void> = new Subject<void>();
+  private killImgTimer$ = new Subject<void>();
 
   /**
    * Instead of using the image position array and getting into ElementRef and nativeElement

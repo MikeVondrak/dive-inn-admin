@@ -21,11 +21,9 @@ export class ImageDisplayComponent implements OnInit, AfterViewInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log('ONINIT', this.imageRef);    
   }
 
   ngAfterViewInit() {
-    console.log('AFTERINIT', this.imageRef);
     setTimeout(() => {
       this.width = this.imageRef.nativeElement.clientWidth;
       this.height = this.imageRef.nativeElement.clientHeight;
