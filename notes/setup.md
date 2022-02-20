@@ -17,3 +17,4 @@ Install
   - CORS
   - bodyParser - deprecated, use express.json
 * GraphQL
+

@@ -2014,13 +2014,13 @@ export type Subscription_RootPhoto_Sizes_Photo_Size_Array_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-export type GetAlbumsByLocationQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAlbumsByLocationRootQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAlbumsByLocationQuery = { __typename?: 'query_root', album_location: Array<{ __typename: 'album_location', id: number, name: string, description: string, modified?: boolean | null | undefined, albums: Array<{ __typename: 'album', flickr_photo_set_id?: string | null | undefined, title: string, description: string }> }> };
+export type GetAlbumsByLocationRootQuery = { __typename?: 'query_root', album_location: Array<{ __typename: 'album_location', id: number, name: string, description: string, modified?: boolean | null | undefined, albums: Array<{ __typename: 'album', flickr_photo_set_id?: string | null | undefined, title: string, description: string }> }> };
 
-export const GetAlbumsByLocationDocument = gql`
-    query GetAlbumsByLocation {
+export const GetAlbumsByLocationRootDocument = gql`
+    query GetAlbumsByLocationRoot {
   album_location {
     __typename
     id
@@ -2040,8 +2040,8 @@ export const GetAlbumsByLocationDocument = gql`
   @Injectable({
     providedIn: 'root'
   })
-  export class GetAlbumsByLocationGQL extends Apollo.Query<GetAlbumsByLocationQuery, GetAlbumsByLocationQueryVariables> {
-    document = GetAlbumsByLocationDocument;
+  export class GetAlbumsByLocationRootGQL extends Apollo.Query<GetAlbumsByLocationRootQuery, GetAlbumsByLocationRootQueryVariables> {
+    document = GetAlbumsByLocationRootDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);
