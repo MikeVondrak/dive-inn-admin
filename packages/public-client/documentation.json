@@ -1033,21 +1033,21 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/shared/album-display/album-display.componet.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<AlbumDisplayComponent>",
-                "defaultValue": "(args: AlbumDisplayComponent) => ({\r\n  props: args,\r\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/app/components/shared/image-display/image-display.componet.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<ImageDisplayComponent>",
                 "defaultValue": "(args: ImageDisplayComponent) => ({\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/shared/album-display/album-display.componet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<AlbumDisplayComponent>",
+                "defaultValue": "(args: AlbumDisplayComponent) => ({\r\n  props: {...args},\r\n})"
             },
             {
                 "name": "WithInfo",
@@ -1104,7 +1104,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story<AlbumDisplayComponent>",
-                    "defaultValue": "(args: AlbumDisplayComponent) => ({\r\n  props: args,\r\n})"
+                    "defaultValue": "(args: AlbumDisplayComponent) => ({\r\n  props: {...args},\r\n})"
                 },
                 {
                     "name": "WithInfo",

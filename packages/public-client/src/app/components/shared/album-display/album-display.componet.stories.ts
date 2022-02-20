@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Observable, Subject, timer } from 'rxjs';
 import { componentWrapperDecorator, moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 import { AlbumDisplayComponent } from './album-display.component';
@@ -18,7 +19,8 @@ export default {
       '/assets/images/test4.jpg',
       '/assets/images/test5.gif',
     ],
-
+    killImgTimer$: new Subject<void>(),
+    pauseTimer$: timer(5000,5000),
   },
   argTypes: {
     positions: {
@@ -27,10 +29,8 @@ export default {
         type: 'array'
       }
     },
-    imgTimer$: {
-      control: {
-        type: 'object'
-      }
+    killImgTimer$: {
+      control: false,
     }
   },
   decorators: [
@@ -46,7 +46,7 @@ export default {
 
 
 const Template: Story<AlbumDisplayComponent> = (args: AlbumDisplayComponent) => ({
-  props: args,
+  props: {...args},
 });
 
 export const Default = Template.bind({});
