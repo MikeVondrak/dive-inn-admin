@@ -2014,13 +2014,18 @@ export type Subscription_RootPhoto_Sizes_Photo_Size_Array_By_PkArgs = {
   id: Scalars['Int'];
 };
 
-export type GetAlbumsByLocationRootQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAlbumsByLocationQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAlbumsByLocationRootQuery = { __typename?: 'query_root', album_location: Array<{ __typename: 'album_location', id: number, name: string, description: string, modified?: boolean | null | undefined, albums: Array<{ __typename: 'album', flickr_photo_set_id?: string | null | undefined, title: string, description: string }> }> };
+export type GetAlbumsByLocationQuery = { __typename?: 'query_root', album_location: Array<{ __typename: 'album_location', id: number, name: string, description: string, modified?: boolean | null | undefined, albums: Array<{ __typename: 'album', flickr_photo_set_id?: string | null | undefined, title: string, description: string }> }> };
 
-export const GetAlbumsByLocationRootDocument = gql`
-    query GetAlbumsByLocationRoot {
+export type GetAlbumsByLocation2QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAlbumsByLocation2Query = { __typename?: 'query_root', album_location: Array<{ __typename: 'album_location', id: number, name: string, description: string, modified?: boolean | null | undefined, albums: Array<{ __typename: 'album', flickr_photo_set_id?: string | null | undefined, title: string, description: string }> }> };
+
+export const GetAlbumsByLocationDocument = gql`
+    query GetAlbumsByLocation {
   album_location {
     __typename
     id
@@ -2040,8 +2045,36 @@ export const GetAlbumsByLocationRootDocument = gql`
   @Injectable({
     providedIn: 'root'
   })
-  export class GetAlbumsByLocationRootGQL extends Apollo.Query<GetAlbumsByLocationRootQuery, GetAlbumsByLocationRootQueryVariables> {
-    document = GetAlbumsByLocationRootDocument;
+  export class GetAlbumsByLocationGQL extends Apollo.Query<GetAlbumsByLocationQuery, GetAlbumsByLocationQueryVariables> {
+    document = GetAlbumsByLocationDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const GetAlbumsByLocation2Document = gql`
+    query GetAlbumsByLocation2 {
+  album_location {
+    __typename
+    id
+    name
+    description
+    albums {
+      __typename
+      flickr_photo_set_id
+      title
+      description
+    }
+    modified @client
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class GetAlbumsByLocation2GQL extends Apollo.Query<GetAlbumsByLocation2Query, GetAlbumsByLocation2QueryVariables> {
+    document = GetAlbumsByLocation2Document;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);

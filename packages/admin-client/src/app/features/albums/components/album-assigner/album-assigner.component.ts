@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { dataModifiedVar } from 'src/app/graphql.module';
 import { PhotoSetListEntry } from 'src/app/services/flickr/flickr.api.model';
 import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
+import { GetAlbumsByLocationGQL } from '../../../../../../../../generated/graphql/graphql';
 
 export type Album = {
   id?: number,
@@ -47,6 +48,9 @@ export class AlbumAssignerComponent implements OnInit {
     private apolloService: Apollo,
     private flickrService: FlickrApiService,
   ) { 
+
+    //const query: GetAlbumsByLocationGQL = new GetAlbumsByLocationGQL();
+
     const queryObject = gql`
       query GetAlbums {
         album_location {
