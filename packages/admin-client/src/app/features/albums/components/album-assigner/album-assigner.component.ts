@@ -6,29 +6,29 @@ import { map } from 'rxjs/operators';
 import { dataModifiedVar } from 'src/app/graphql.module';
 import { PhotoSetListEntry } from 'src/app/services/flickr/flickr.api.model';
 import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
-import { GetAlbumsByLocationGQL } from '../../../../../../../../generated/graphql/graphql';
+import { GetAlbumsByLocationQuery, GetAlbumsByLocationGQL } from '../../../../../../../../generated/graphql/graphql';
 
-export type Album = {
-  id?: number,
-  album_location_id: number,
-  flickr_photo_set_id: string,
-  title: string,
-  description: string,
-  flickr_photo_set_id_num: number,
-}
+// export type Album = {
+//   id?: number,
+//   album_location_id: number,
+//   flickr_photo_set_id: string,
+//   title: string,
+//   description: string,
+//   flickr_photo_set_id_num: number,
+// }
 
-export type AlbumByLocation = {
-  id: number,
-  name: string,
-  description: string,
-  albums: Album[],
-  modified: boolean,
-}
+// export type AlbumByLocation = {
+//   id: number,
+//   name: string,
+//   description: string,
+//   albums: Album[],
+//   modified: boolean,
+// }
 
-export type AlbumByLocationResponse = {
-  album_location: AlbumByLocation[],
-}
-export type AlbumByLocationVariables = {};
+// export type AlbumByLocationResponse = {
+//   album_location: AlbumByLocation[],
+// }
+// export type AlbumByLocationVariables = {};
 
 @Component({
   selector: 'app-album-assigner',
@@ -37,9 +37,21 @@ export type AlbumByLocationVariables = {};
 })
 export class AlbumAssignerComponent implements OnInit {
 
-  private queryRef: QueryRef<AlbumByLocationResponse, AlbumByLocationVariables>;
+  //private queryRef: QueryRef<AlbumByLocationResponse, AlbumByLocationVariables>;
 
-  public locationList$: Observable<AlbumByLocation[]>;
+  public locationList$: Observable<{
+    __typename: "album_location";
+    id: number;
+    name: string;
+    description: string;
+    modified?: boolean | null | undefined;
+    albums: {
+        __typename: "album";
+        flickr_photo_set_id?: string | null | undefined;
+        title: string;
+        description: string;
+    }[];
+  }[]>;
   public photoSets$: Observable<PhotoSetListEntry[]> = this.flickrService.getPhotoSets().pipe(map(photoSetList => photoSetList.photoset));
 
   //public model = "72157719812376050";
@@ -47,42 +59,47 @@ export class AlbumAssignerComponent implements OnInit {
   constructor(
     private apolloService: Apollo,
     private flickrService: FlickrApiService,
+    private getAlbumsByLocationGql: GetAlbumsByLocationGQL,
   ) { 
 
-    //const query: GetAlbumsByLocationGQL = new GetAlbumsByLocationGQL();
+    this.locationList$ = this.getAlbumsByLocationGql.fetch().pipe(map(getAlbumsByLocationQuery => {
+      return getAlbumsByLocationQuery.data.album_location;
+    }));
 
-    const queryObject = gql`
-      query GetAlbums {
-        album_location {
-          __typename
-          id
-          name
-          description
-          albums {
-            __typename
-            id
-            flickr_photo_set_id
-            title
-            description
-          }
-          modified @client
-        }
-      }
-    `;
+    this.locationList$ = this.getAlbumsByLocationGql.watch().valueChanges.pipe(map(respose => respose.data.album_location));
 
-    this.queryRef = this.apolloService.watchQuery<AlbumByLocationResponse, AlbumByLocationVariables>({
-      query: queryObject,
-      variables: {}
-    });
+    // const queryObject = gql`
+    //   query GetAlbums {
+    //     album_location {
+    //       __typename
+    //       id
+    //       name
+    //       description
+    //       albums {
+    //         __typename
+    //         id
+    //         flickr_photo_set_id
+    //         title
+    //         description
+    //       }
+    //       modified @client
+    //     }
+    //   }
+    // `;
 
-    this.locationList$ = this.queryRef.valueChanges.pipe(map(respose => respose.data.album_location));
-    this.queryRef.valueChanges.subscribe(value => console.log('APOLLO: ', {value}));
+    // this.queryRef = this.apolloService.watchQuery<AlbumByLocationResponse, AlbumByLocationVariables>({
+    //   query: queryObject,
+    //   variables: {}
+    // });
+
+    //this.locationList$ = this.queryRef.valueChanges.pipe(map(respose => respose.data.album_location));
+    //this.queryRef.valueChanges.subscribe(value => console.log('APOLLO: ', {value}));
   }
 
   ngOnInit(): void {
   }
   
-  public photoSetChanged(photoSetId: string, location: AlbumByLocation) {
+  public photoSetChanged(photoSetId: string, location: any) {
     localStorage.setItem('dataModified', 'true');
     dataModifiedVar(true);
 
@@ -95,7 +112,7 @@ export class AlbumAssignerComponent implements OnInit {
     })).subscribe(flickrPhotoSet => {
 
       // convert PhotoSet into Album
-      const newAlbum: Album = {
+      const newAlbum = {
         id: locationAlbum?.id,
         album_location_id: location.id || -1,
         flickr_photo_set_id: photoSetId,
