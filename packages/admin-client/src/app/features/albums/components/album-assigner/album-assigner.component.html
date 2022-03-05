@@ -8,7 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let location of albumByLocation; index as i">
+      <tr *ngFor="let location of albumByLocation.album_location; index as i">
         <td>{{ location.description }}</td>
         <td>
           <select [ngModel]="location.albums[0]?.flickr_photo_set_id?.toString()" (ngModelChange)="photoSetChanged($event, location)">

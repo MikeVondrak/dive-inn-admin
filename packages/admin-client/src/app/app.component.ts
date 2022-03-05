@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { headerAnimations } from './animations/header.animations';
 import { AuthService } from './auth/services/auth/auth.service';
 import { dataModifiedVar } from './graphql.module';
+import dotenv from 'dotenv';
 
 @Component({
   selector: 'app-root',
@@ -22,11 +23,11 @@ export class AppComponent implements OnInit {
   constructor(
     private authService: AuthService,
   ) {
-    console.log('App start');
+    dotenv.config();
+    console.log('App start, env: ' + process.env);
   }
 
   ngOnInit() {
-
   }
 
   public logout() {

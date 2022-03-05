@@ -176,7 +176,7 @@ export type Album_Aggregate_Order_By = {
 /** input type for inserting array relation for remote table "album" */
 export type Album_Arr_Rel_Insert_Input = {
   data: Array<Album_Insert_Input>;
-  /** on conflict condition */
+  /** upsert condition */
   on_conflict?: InputMaybe<Album_On_Conflict>;
 };
 
@@ -332,7 +332,7 @@ export type Album_Location_Aggregate_Order_By = {
 /** input type for inserting array relation for remote table "album_location" */
 export type Album_Location_Arr_Rel_Insert_Input = {
   data: Array<Album_Location_Insert_Input>;
-  /** on conflict condition */
+  /** upsert condition */
   on_conflict?: InputMaybe<Album_Location_On_Conflict>;
 };
 
@@ -416,7 +416,7 @@ export type Album_Location_Mutation_Response = {
   returning: Array<Album_Location>;
 };
 
-/** on conflict condition type for table "album_location" */
+/** on_conflict condition type for table "album_location" */
 export type Album_Location_On_Conflict = {
   constraint: Album_Location_Constraint;
   update_columns?: Array<Album_Location_Update_Column>;
@@ -591,7 +591,7 @@ export type Album_Mutation_Response = {
   returning: Array<Album>;
 };
 
-/** on conflict condition type for table "album" */
+/** on_conflict condition type for table "album" */
 export type Album_On_Conflict = {
   constraint: Album_Constraint;
   update_columns?: Array<Album_Update_Column>;
@@ -1185,7 +1185,7 @@ export type Photo_Size_Mutation_Response = {
   returning: Array<Photo_Size>;
 };
 
-/** on conflict condition type for table "photo_size" */
+/** on_conflict condition type for table "photo_size" */
 export type Photo_Size_On_Conflict = {
   constraint: Photo_Size_Constraint;
   update_columns?: Array<Photo_Size_Update_Column>;
@@ -1400,7 +1400,7 @@ export type Photo_Sizes_Mutation_Response = {
   returning: Array<Photo_Sizes>;
 };
 
-/** on conflict condition type for table "photo_sizes" */
+/** on_conflict condition type for table "photo_sizes" */
 export type Photo_Sizes_On_Conflict = {
   constraint: Photo_Sizes_Constraint;
   update_columns?: Array<Photo_Sizes_Update_Column>;
@@ -1523,7 +1523,7 @@ export type Photo_Sizes_Photo_Size_Array_Mutation_Response = {
   returning: Array<Photo_Sizes_Photo_Size_Array>;
 };
 
-/** on conflict condition type for table "photo_sizes_photo_size_array" */
+/** on_conflict condition type for table "photo_sizes_photo_size_array" */
 export type Photo_Sizes_Photo_Size_Array_On_Conflict = {
   constraint: Photo_Sizes_Photo_Size_Array_Constraint;
   update_columns?: Array<Photo_Sizes_Photo_Size_Array_Update_Column>;

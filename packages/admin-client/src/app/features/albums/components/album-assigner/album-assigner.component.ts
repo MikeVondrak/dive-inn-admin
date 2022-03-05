@@ -39,19 +39,7 @@ export class AlbumAssignerComponent implements OnInit {
 
   //private queryRef: QueryRef<AlbumByLocationResponse, AlbumByLocationVariables>;
 
-  public locationList$: Observable<{
-    __typename: "album_location";
-    id: number;
-    name: string;
-    description: string;
-    modified?: boolean | null | undefined;
-    albums: {
-        __typename: "album";
-        flickr_photo_set_id?: string | null | undefined;
-        title: string;
-        description: string;
-    }[];
-  }[]>;
+  public locationList$: Observable<GetAlbumsByLocationQuery>;
   public photoSets$: Observable<PhotoSetListEntry[]> = this.flickrService.getPhotoSets().pipe(map(photoSetList => photoSetList.photoset));
 
   //public model = "72157719812376050";
@@ -62,11 +50,7 @@ export class AlbumAssignerComponent implements OnInit {
     private getAlbumsByLocationGql: GetAlbumsByLocationGQL,
   ) { 
 
-    this.locationList$ = this.getAlbumsByLocationGql.fetch().pipe(map(getAlbumsByLocationQuery => {
-      return getAlbumsByLocationQuery.data.album_location;
-    }));
-
-    this.locationList$ = this.getAlbumsByLocationGql.watch().valueChanges.pipe(map(respose => respose.data.album_location));
+    this.locationList$ = this.getAlbumsByLocationGql.fetch().pipe(map(getAlbumsByLocationQuery => getAlbumsByLocationQuery.data));
 
     // const queryObject = gql`
     //   query GetAlbums {
