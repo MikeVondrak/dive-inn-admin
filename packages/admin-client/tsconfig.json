@@ -20,8 +20,11 @@
       "dom",
       "esnext.asynciterable"
     ],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
   },
+  "include": [
+    "../../generated/graphql/**/*"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
