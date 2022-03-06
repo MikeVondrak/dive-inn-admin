@@ -5,6 +5,7 @@ import { AlbumsRoutingModule } from './albums-routing.module';
 import { AlbumsComponent } from './albums.component';
 import { AlbumAssignerComponent } from './components/album-assigner/album-assigner.component';
 import { FormsModule } from '@angular/forms';
+import { ApolloModule } from 'apollo-angular';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    AlbumsRoutingModule
+    AlbumsRoutingModule,
+    ApolloModule,
   ]
 })
 export class AlbumsModule { }

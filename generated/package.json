@@ -1,0 +1,12 @@
+{
+  "name": "dive-inn-admin",
+  "version": "0.0.0",
+  "scripts": {
+    "gql": "graphql-codegen --config '../codegen.yml'"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/core": "^13.2.5",
+    "apollo-angular": "^3.0.0"
+  }
+}
