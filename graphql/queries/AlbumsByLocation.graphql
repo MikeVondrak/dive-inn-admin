@@ -1,5 +1,5 @@
-query GetAlbumsByLocation {
-  album_location {
+query GetAlbumsByLocation {  
+  album_location @NgModule(module: "../generated.module#GeneratedModule") {
     __typename
     id
     name

@@ -10,8 +10,9 @@ documents:
 generates:
   ./generated/graphql/graphql.ts:
     config:
-      serviceProvidedInRoot: false
-      serviceProvidedIn: ../generated.module#GeneratedModule
+      #serviceProvidedInRoot: false
+      #serviceProvidedIn: ../generated.module#GeneratedModule
+      #serviceName: GeneratedModule
     schema: ./graphql/schema/client-schema.graphql
     plugins:
       - "typescript"

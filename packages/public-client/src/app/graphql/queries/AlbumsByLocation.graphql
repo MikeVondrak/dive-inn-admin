@@ -1,5 +1,5 @@
 query GetAlbumsByLocationPublicClient {
-  album_location {
+  album_location @NgModule(module: "../generated.module#GeneratedModule") {
     __typename
     id
     name
