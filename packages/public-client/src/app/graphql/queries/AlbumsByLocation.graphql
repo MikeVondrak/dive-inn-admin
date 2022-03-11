@@ -1,4 +1,4 @@
-query GetAlbumsByLocation2 {
+query GetAlbumsByLocationPublicClient {
   album_location {
     __typename
     id

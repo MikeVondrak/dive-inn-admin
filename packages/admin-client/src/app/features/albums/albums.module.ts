@@ -7,6 +7,8 @@ import { AlbumAssignerComponent } from './components/album-assigner/album-assign
 import { FormsModule } from '@angular/forms';
 import { ApolloModule } from 'apollo-angular';
 
+import { GeneratedModule } from '../../../../../../generated/generated.module';
+
 @NgModule({
   declarations: [
     AlbumsComponent,
@@ -17,6 +19,7 @@ import { ApolloModule } from 'apollo-angular';
     FormsModule,
     AlbumsRoutingModule,
     ApolloModule,
+    GeneratedModule,
   ]
 })
 export class AlbumsModule { }

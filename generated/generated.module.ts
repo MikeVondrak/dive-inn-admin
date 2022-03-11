@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  declarations: [
-    
-  ],
+  declarations: [],
   imports: [],
   providers: [],  
 })
-export class GeneratedAssetsModule { }
+export class GeneratedModule { }

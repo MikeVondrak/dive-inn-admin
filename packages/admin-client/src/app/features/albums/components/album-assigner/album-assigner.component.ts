@@ -51,26 +51,9 @@ export class AlbumAssignerComponent implements OnInit {
   ) { 
 
     this.locationList$ = this.getAlbumsByLocationGql.fetch().pipe(map(getAlbumsByLocationQuery => getAlbumsByLocationQuery.data));
+    //this.locationList$ = this.getAlbumsByLocationGql.document.watch()
 
-    // const queryObject = gql`
-    //   query GetAlbums {
-    //     album_location {
-    //       __typename
-    //       id
-    //       name
-    //       description
-    //       albums {
-    //         __typename
-    //         id
-    //         flickr_photo_set_id
-    //         title
-    //         description
-    //       }
-    //       modified @client
-    //     }
-    //   }
-    // `;
-
+    
     // this.queryRef = this.apolloService.watchQuery<AlbumByLocationResponse, AlbumByLocationVariables>({
     //   query: queryObject,
     //   variables: {}
