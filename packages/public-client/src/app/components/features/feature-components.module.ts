@@ -10,6 +10,9 @@ import { TopicSectionComponent } from './topic-section/topic-section.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    TopicSectionComponent
   ]
 })
 export class FeatureComponentsModule { }
