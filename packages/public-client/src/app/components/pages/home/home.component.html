@@ -1,31 +1,36 @@
-<div class="header">
-    <img src="../../../../assets/images/logoLg.png">
-    <div class="nav"></div>
-    <div class="boat-cam">boat cam</div>
-</div>
-<div class="intro">
-    <p>Cleanest bar in Denver</p>
-    <img src="../../../../assets/images/street-night.jpg">
-</div>
-<div class="contact">
-    <div class="address">
-        <p>ADDRESS</p>
-        <p>{{ footerAddress }}</p>
-    </div>
-    <div class="hours">
-        <p>HOURS</p>
-        <div *ngFor="let days of contactHours">{{ days }}</div>
-    </div>
-    <div class="phone">
-        <p>PHONE</p>
-        <p>{{ footerPhone }}</p>
-    </div>
-</div>
-<app-topic-section
-></app-topic-section>
-<app-topic-section
-></app-topic-section>
-<div class="footer">
+<header>
+  <img src="../../../../assets/images/logoLg.png">
+  <nav></nav>
+  <div class="boat-cam"><span>boat cam</span></div>
+</header>
+
+<main>
+  <div class="intro">
+      <p>Cleanest bar in Denver</p>
+      <img src="../../../../assets/images/street-night.jpg">
+  </div>
+  <div class="contact">
+      <div class="address">
+          <p>ADDRESS</p>
+          <p>{{ footerAddress }}</p>
+      </div>
+      <div class="hours">
+          <p>HOURS</p>
+          <div *ngFor="let days of contactHours">{{ days }}</div>
+      </div>
+      <div class="phone">
+          <p>PHONE</p>
+          <p>{{ footerPhone }}</p>
+      </div>
+  </div>
+  <app-topic-section
+  ></app-topic-section>
+  <app-topic-section
+  ></app-topic-section>
+</main>
+
+
+<footer>
   <p>{{footerAddress}} | {{footerPhone}}</p>
   <div class="social-links-container">
     <img src="/assets/images/social/facebook.png" />
@@ -35,4 +40,4 @@
     <img src="/assets/images/social/twitter.png" />
   </div>
   <div class="navigation"></div>
-</div>
+</footer>

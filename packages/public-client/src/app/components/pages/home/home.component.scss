@@ -1,1 +1,32 @@
+@use 'sass:math';
 @use '../../scss/utility';
+
+header {
+    position: relative;
+    img {
+        width: 15vw;
+    }
+    
+    nav {
+        background-color: utility.$dive-gray-dk;
+    }
+    $boat-cam-size: 15vw;
+    @include utility.media-breakpoint-gte(sm) {
+      $boat-cam-size: 10vw;
+    }
+    .boat-cam {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 1vw;
+        top: 1vw;
+        background-color: utility.$dive-black;
+        color: utility.$dive-white;
+        width: $boat-cam-size;
+        height: $boat-cam-size;
+        border-radius: math.div($boat-cam-size, 2);
+        font-size: math.div($boat-cam-size, 4);
+        text-align: center;
+    }
+}
