@@ -2,11 +2,15 @@
   display: block;
 
   .mouse-facer-container {
+    background: magenta;
     width: 100%;
     height: 50vw;
-    background-image: url("/assets/images/home/dive-inn-exterior.jpg");
-    background-size: cover;
-    background-position: 0% 40%;
+    //overflow: hidden;
 
+    .mouse-facer-content {
+      background-image: url("/assets/images/home/dive-inn-exterior.jpg");
+      background-size: cover;
+      background-position: 0% 40%;
+    }
   }
 }

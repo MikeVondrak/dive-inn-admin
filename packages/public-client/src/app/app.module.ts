@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +8,7 @@ import { FeatureComponentsModule } from './components/features/feature-component
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { SharedComponentsModule } from './components/shared/shared-components.module';
+import { DirectivesModule } from './directives/directives.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +16,10 @@ import { SharedComponentsModule } from './components/shared/shared-components.mo
     HomeComponent,
   ],
   imports: [
-    //CommonModule,
     BrowserModule,
     AppRoutingModule,
     GraphQLModule,
+    DirectivesModule,
     FeatureComponentsModule,
     SharedComponentsModule,
   ],

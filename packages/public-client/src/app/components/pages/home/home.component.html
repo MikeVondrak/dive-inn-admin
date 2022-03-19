@@ -8,30 +8,32 @@
   
   <app-mouse-facer
     imgSrc="../../../../assets/images/home/dive-inn-exterior.jpg"
-  ></app-mouse-facer>
+  >
+  
+    <div class="intro">
+        <p>Cleanest bar in Denver</p>
+        <img src="../../../../assets/images/street-night.jpg">
+    </div>
+    <div class="contact">
+        <div class="address">
+            <p>ADDRESS</p>
+            <p>{{ footerAddress }}</p>
+        </div>
+        <div class="hours">
+            <p>HOURS</p>
+            <div *ngFor="let days of contactHours">{{ days }}</div>
+        </div>
+        <div class="phone">
+            <p>PHONE</p>
+            <p>{{ footerPhone }}</p>
+        </div>
+    </div>
+    <app-topic-section
+    ></app-topic-section>
+    <app-topic-section
+    ></app-topic-section>
 
-  <div class="intro">
-      <p>Cleanest bar in Denver</p>
-      <img src="../../../../assets/images/street-night.jpg">
-  </div>
-  <div class="contact">
-      <div class="address">
-          <p>ADDRESS</p>
-          <p>{{ footerAddress }}</p>
-      </div>
-      <div class="hours">
-          <p>HOURS</p>
-          <div *ngFor="let days of contactHours">{{ days }}</div>
-      </div>
-      <div class="phone">
-          <p>PHONE</p>
-          <p>{{ footerPhone }}</p>
-      </div>
-  </div>
-  <app-topic-section
-  ></app-topic-section>
-  <app-topic-section
-  ></app-topic-section>
+  </app-mouse-facer>
 </main>
 
 
