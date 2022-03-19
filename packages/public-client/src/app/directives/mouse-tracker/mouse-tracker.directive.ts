@@ -11,7 +11,7 @@ export class MouseTrackerDirective {
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   private mouseMove(event: MouseEvent) {    
-    const transformAmount = 50; // % 3d rotation
+    const transformAmount = 5; // % 3d rotation
     
     const mouseX = event.x;
     const mouseY = event.y;
@@ -30,7 +30,7 @@ export class MouseTrackerDirective {
     console.log({dX}, {dY}, {tX}, {tY});
 
     //const styleStr = `rotateX(${tY}deg) rotateY(${axisY * tX}deg)`; //, ${tY}deg, 0deg)`
-    const styleStr = `rotateX(${tY}deg)`; //, ${tY}deg, 0deg)`
+    const styleStr = `rotateX(${-tY}deg) rotateY(${tX}deg) scale(1.05)`;
     //const styleStr = `rotate3d(${axisX * tX}, ${axisY * tY}, 0, ${transformAmount}deg)`;
     console.log({styleStr});
     this.renderer.setStyle(this.el.nativeElement, 'transformStyle', 'preserve-3d');
