@@ -1,12 +1,15 @@
-import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer2, OnInit, OnDestroy } from '@angular/core';
+import { fromEvent, Subscription } from 'rxjs';
+import { tap, throttleTime } from 'rxjs/operators';
 
 @Directive({
   selector: '[appMouseTracker]'
 })
-export class MouseTrackerDirective {
+export class MouseTrackerDirective implements OnInit, OnDestroy {
+  
+  //@HostListener('mousemove', ['$event']) mouseTracker(event: MouseEvent): void { this.mouseMove(event); }
 
-  //@HostListener('mousemove', ['event']) mouseMoveListener = this.mouseMove;
-  @HostListener('mousemove', ['$event']) mouseTracker(event: MouseEvent): void { this.mouseMove(event); }
+  private mousemoveSub?: Subscription;
 
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
@@ -29,14 +32,22 @@ export class MouseTrackerDirective {
 
     //console.log({dX}, {dY}, {tX}, {tY});
 
-    //const styleStr = `rotateX(${tY}deg) rotateY(${axisY * tX}deg)`; //, ${tY}deg, 0deg)`
     const styleStr = `rotateX(${-tY}deg) rotateY(${tX}deg) scale(1.05)`;
-    //const styleStr = `rotate3d(${axisX * tX}, ${axisY * tY}, 0, ${transformAmount}deg)`;
-    //console.log({styleStr});
     this.renderer.setStyle(this.el.nativeElement, 'transformStyle', 'preserve-3d');
     this.renderer.setStyle(this.el.nativeElement, 'transform', styleStr);
     //this.renderer.setStyle(this.el.nativeElement, 'border',  '1px solid magenta');
     this.renderer.setStyle(this.el.nativeElement, 'perspective', '1000px');
     this.renderer.setStyle(this.el.nativeElement, 'height', '100%');
+  }
+
+  ngOnInit() {
+    this.mousemoveSub = fromEvent<MouseEvent>(window, 'mousemove').pipe(
+      throttleTime(100),
+      tap((event: MouseEvent) => this.mouseMove(event)),
+    ).subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.mousemoveSub?.unsubscribe();
   }
 }
