@@ -2,18 +2,24 @@
 @use '../../scss/utility';
 
 header {
-    position: relative;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 1;
     img {
         width: 15vw;
+        position: absolute;
     }
     
     nav {
-        background-color: utility.$dive-gray-dk;
+        display: flex;
+        font-size: 1.25vw;
+        background-color: rgba(0,0,0,0.75);
+        color: utility.$dive-white;
+        padding: 0 17vw;
     }
     $boat-cam-size: 15vw;
-    @include utility.media-breakpoint-gte(sm) {
-      $boat-cam-size: 10vw;
-    }
+    
     .boat-cam {
         display: flex;
         justify-content: center;
@@ -28,5 +34,22 @@ header {
         border-radius: math.div($boat-cam-size, 2);
         font-size: math.div($boat-cam-size, 4);
         text-align: center;
+    }
+}
+
+.contact {
+    display: flex;
+    flex-flow: nowrap;
+    justify-content: space-around;
+    padding: 0 10vw;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    
+    .navigation {
+        display: flex;
+        flex-direction: row;
     }
 }
