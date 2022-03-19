@@ -31,8 +31,8 @@ export class MouseTrackerDirective {
 
     //const styleStr = `rotateX(${tY}deg) rotateY(${axisY * tX}deg)`; //, ${tY}deg, 0deg)`
     const styleStr = `rotateX(${-tY}deg) rotateY(${tX}deg) scale(1.05)`;
-    ////const styleStr = `rotate3d(${axisX * tX}, ${axisY * tY}, 0, ${transformAmount}deg)`;
-    console.log({styleStr});
+    //const styleStr = `rotate3d(${axisX * tX}, ${axisY * tY}, 0, ${transformAmount}deg)`;
+    //console.log({styleStr});
     this.renderer.setStyle(this.el.nativeElement, 'transformStyle', 'preserve-3d');
     this.renderer.setStyle(this.el.nativeElement, 'transform', styleStr);
     //this.renderer.setStyle(this.el.nativeElement, 'border',  '1px solid magenta');
