@@ -1,55 +1,108 @@
 @use 'sass:math';
 @use '../../scss/utility';
 
-header {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    z-index: 1;
-    img {
-        width: 15vw;
-        position: absolute;
-    }
-    
-    nav {
-        display: flex;
-        font-size: 1.25vw;
-        background-color: rgba(0,0,0,0.75);
-        color: utility.$dive-white;
-        padding: 0 17vw;
-    }
-    $boat-cam-size: 15vw;
-    
-    .boat-cam {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        right: 1vw;
-        top: 1vw;
-        background-color: utility.$dive-black;
-        color: utility.$dive-white;
-        width: $boat-cam-size;
-        height: $boat-cam-size;
-        border-radius: math.div($boat-cam-size, 2);
-        font-size: math.div($boat-cam-size, 4);
-        text-align: center;
-    }
-}
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 
-.contact {
-    display: flex;
-    flex-flow: nowrap;
-    justify-content: space-around;
-    padding: 0 10vw;
-}
+  header {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 1;
+      img {
+          width: 15vw;
+          position: absolute;
+      }
+      
+      nav {
+          display: flex;
+          font-size: 1.25vw;
+          background-color: rgba(0,0,0,0.75);
+          color: utility.$dive-white;
+          padding: 0 17vw;
 
-footer {
-    display: flex;
-    flex-direction: column;
-    
-    .navigation {
-        display: flex;
-        flex-direction: row;
+          ul {
+            display: flex;
+            margin: 0;
+            list-style-type: none;
+
+            li {
+              padding: 0.5rem 1rem;
+
+            }
+          }
+      }
+      $boat-cam-size: 15vw;
+      
+      .boat-cam {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          right: 1vw;
+          top: 1vw;
+          background-color: utility.$dive-black;
+          color: utility.$dive-white;
+          width: $boat-cam-size;
+          height: $boat-cam-size;
+          border-radius: math.div($boat-cam-size, 2);
+          font-size: math.div($boat-cam-size, 4);
+          text-align: center;
+      }
+  }
+
+  main {
+    flex: 1;
+
+    .intro-section {
+      position: relative;
+      padding-top: 2rem;
+
+      app-mouse-facer {
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;      
+      }
+
+      &-content {
+        position: relative;
+
+        h1.title {
+          position: relative;
+          margin-top: 0;
+          padding: 120px 0 400px 4vw;
+          font-size: 3rem;
+          color: utility.$dive-white;
+          text-shadow: 2px 2px 12px utility.$dive-black, -2px -2px 12px utility.$dive-black;
+          
+          span {
+            margin: 0 1.25rem;
+          }
+        }
+
+        .contact {
+          display: flex;
+          flex-flow: nowrap;
+          justify-content: space-around;
+          padding: 0 10vw 1vw 10vw;
+          background-color: rgba(0,0,0,0.75);
+          color: utility.$dive-white;
+        }
+      }
     }
+  }
+
+  footer {
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(200,40,20, 0.7);//utility.$dive-red; //rgba(0,0,0,0.75);
+      color: utility.$dive-white;
+      
+      .navigation {
+          display: flex;
+          flex-direction: row;
+      }
+  }
 }

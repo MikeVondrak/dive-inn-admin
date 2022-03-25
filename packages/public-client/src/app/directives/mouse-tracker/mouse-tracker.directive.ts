@@ -32,7 +32,7 @@ export class MouseTrackerDirective implements OnInit, OnDestroy {
 
     //console.log({dX}, {dY}, {tX}, {tY});
 
-    const styleStr = `rotateX(${-tY}deg) rotateY(${tX}deg) scale(1.05)`;
+    const styleStr = `rotateX(${-tY}deg) rotateY(${tX}deg) scale(1.15)`;
     this.renderer.setStyle(this.el.nativeElement, 'transformStyle', 'preserve-3d');
     this.renderer.setStyle(this.el.nativeElement, 'transform', styleStr);
     //this.renderer.setStyle(this.el.nativeElement, 'border',  '1px solid magenta');
