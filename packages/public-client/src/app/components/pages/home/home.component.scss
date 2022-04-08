@@ -19,7 +19,7 @@
       nav {
           display: flex;
           font-size: 1.25vw;
-          background-color: rgba(0,0,0,0.75);
+          background-color: utility.$dive-black; //rgba(0,0,0,0.75);
           color: utility.$dive-white;
           padding: 0 17vw;
 
@@ -58,7 +58,7 @@
 
     .intro-section {
       position: relative;
-      padding-top: 2rem;
+      //padding-top: 2rem;
 
       app-mouse-facer {
         position: absolute;
@@ -67,26 +67,34 @@
 
       &-content {
         position: relative;
-
-        h1.title {
-          position: relative;
-          margin-top: 0;
-          padding: 120px 0 400px 4vw;
-          font-size: 3rem;
-          color: utility.$dive-white;
-          text-shadow: 2px 2px 12px utility.$dive-black, -2px -2px 12px utility.$dive-black;
-          
-          span {
-            margin: 0 1.25rem;
+        .intro {
+          height: 50vw;
+          h1.title {
+            position: relative;
+            margin-top: 0;
+            padding: 0 0 0 4vw;
+            font-size: 4vw;
+            @include utility.media-breakpoint-gte(sm) {
+              font-size: 3vw;
+            }
+            color: utility.$dive-white;
+            text-shadow: 2px 2px 12px utility.$dive-black, -2px -2px 12px utility.$dive-black;
+            
+            span {
+              margin: 0 1.25rem;
+            }
           }
         }
-
         .contact {
+          position: absolute;
+          top: 50vw; left: 0;
+          width: 100%;
           display: flex;
-          flex-flow: nowrap;
           justify-content: space-around;
-          padding: 0 10vw 1vw 10vw;
-          background-color: rgba(0,0,0,0.75);
+          flex-flow: nowrap;
+          //margin-top: 10vw;
+          padding: 0 10vw 1rem 10vw;
+          background-color: utility.$dive-red;// rgba(0,0,0,0.75);
           color: utility.$dive-white;
         }
       }

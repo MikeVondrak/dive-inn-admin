@@ -20,9 +20,16 @@ export class TopicSectionComponent implements OnInit {
     switch (this.sectionName) {
       case 'MENU':
         this.sectionNote = 'A little note about the type of food';
-        this.sectionImgUrl = '../../../../assets/images/specials/Bud Light (Draft).jpg';
+        this.sectionImgUrl = '../../../../assets/images/specials/Dive Inn (Draft).jpg';
         this.sectionButton = 'VIEW';
         this.orientation = 'left';
+        break;
+      case 'BOOKINGS':
+        this.sectionNote = 'Set up your event with us';
+        this.sectionImgUrl = '../../../../assets/images/inside/Interiors_233.jpg';
+        this.sectionButton = 'BOOK';
+        this.orientation = 'right';
+        break;
     }
     
   }
