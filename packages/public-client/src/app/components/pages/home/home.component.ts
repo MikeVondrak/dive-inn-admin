@@ -10,13 +10,17 @@ import { takeUntil } from 'rxjs/operators';
 export class HomeComponent implements OnInit, OnDestroy {
 
   public showLogo: boolean = false;
-  public footerAddress: string = '1380 South Broadway';
+  public footerAddress: string[] = ['1380 S Broadway', 'Denver 80210'];
   public footerPhone: string = '720-242-6157';
-  public contactHours: string[] = ['M-W 10AM-1AM', 'TH-F 11AM-1AM', 'SA-SU 12PM-1AM'];
+  public contactHours: string[] = ['Open EVERY Day', '11AM - 2AM'];
+  public navMenuItems: string[] = ['Home', 'Menu', 'Events', 'Bookings', 'About Us', 'Work With Us', 'Dive Shop'];
+
+  public numWaves = [1, 1, 1, 1, 1, 1, 1, 1]; // number of waves per contact section
 
   // @HostListener('window:scroll', ['$event']) onScroll(event: Event) {
   //   console.log('SCROLL EVENT', (event.target as Element).scrollTop);
   // }
+
   private destroy$ = new Subject<void>();
 
 

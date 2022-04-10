@@ -3,13 +3,7 @@
   <img [ngClass]="{'showLogo': showLogo}" src="../../../../assets/images/logoLg.png">
   <nav>
     <ul>
-      <li>Home</li>
-      <li>Menu</li>
-      <li>Events</li>
-      <li>Bookings</li>
-      <li>ABOUT US</li>
-      <li>WORK WITH US</li>
-      <li>DIVE SHOP</li>
+      <li *ngFor="let item of navMenuItems">{{item}}</li>
     </ul>
   </nav>
   <div class="boat-cam"><span>boat cam</span></div>
@@ -17,7 +11,9 @@
 
 <main>
   <div class="intro-section">
+    
     <app-mouse-facer imgSrc="../../../../assets/images/home/dive-inn-exterior.jpg"></app-mouse-facer>
+    
     <div class="intro-section-content">
       <div class="intro">
         <h1 class="title">
@@ -28,19 +24,24 @@
           <!-- &#8226; -->
         </h1>
       </div>
-      <div class="contact">
-        <div class="address">
-          <p>ADDRESS</p>
-          <p>{{ footerAddress }}</p>
-        </div>
-        <div class="hours">
-          <p>HOURS</p>
-          <div *ngFor="let days of contactHours">{{ days }}</div>
-        </div>
-        <div class="phone">
-          <p>PHONE</p>
-          <p>{{ footerPhone }}</p>
-        </div>
+      <div class="contact-container">
+        <div class="contact-content">
+          <div class="address">
+            <h2>Address</h2>
+            <p *ngFor="let address of footerAddress">{{ address }}</p>
+          </div>
+          <div class="hours">
+            <h2>Hours</h2>
+            <p *ngFor="let days of contactHours">{{ days }}</p>
+          </div>
+          <div class="phone">
+            <h2>Phone</h2>
+            <p>{{ footerPhone }}</p><!-- TODO: add tel link to number -->
+          </div>
+        </div>        
+      </div>
+      <div class="waves-separator">
+        <div *ngFor="let wave of numWaves"></div>
       </div>
       <div class="blurb">
         <!-- <img> --><span>***</span>

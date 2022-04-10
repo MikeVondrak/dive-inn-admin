@@ -1,30 +1,37 @@
 @use 'sass:math';
 @use '../../scss/utility';
 
+$headerColor: utility.$dive-gray-dk2;
+
 :host {
   display: flex;
   flex-direction: column;
   height: 100vh;
 
   header {
+    z-index: 4;
     position: sticky;
     top: 0;
-    left: 0;
+    left: 0rem;
     width: 100%;
-    z-index: 1;
+    box-shadow: 0px 4px 4px utility.$dive-black;    
 
     img {
       z-index: 2;
       width: 15vw;
       position: absolute;
-      top: -13rem;
-      left: 1rem;
-      //display: none;
+      top: -11vw;
+      left: 0rem;
+      padding: 1rem;
+      $t1: 20%;
+      $t2: 44%;
+      background-image: linear-gradient(163deg, utility.$dive-black 0%, utility.$dive-black $t1, $headerColor ($t1 + 0.5%), $headerColor $t2, utility.$dive-black $t2 + 0.3%, utility.$dive-black $t2 + 0.8%, transparent $t2 + 1.2%);
+      border-bottom-right-radius: 50%;
 
       transition: top 0.65s ease;
 
       &.showLogo {
-        top: 1rem;
+        top: 0rem;
         //display: inline-flex;
         // transform: display(inline-flex);
         // transition: all 1s;
@@ -32,14 +39,15 @@
     }
 
     nav {
-      display: flex;
       font-size: 1.25vw;
-      background-color: utility.$dive-black; //rgba(0,0,0,0.75);
+      background-color: $headerColor; //rgba(0,0,0,0.75);
       color: utility.$dive-white;
-      padding: 0 17vw;
-
+      
       ul {
         display: flex;
+        justify-content: center;
+        gap: 1em;
+        padding: 0.25rem 0;
         margin: 0;
         list-style-type: none;
 
@@ -53,6 +61,8 @@
     $boat-cam-size: 15vw;
 
     .boat-cam {
+      z-index: 5;
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -76,7 +86,6 @@
 
     .intro-section {
       position: relative;
-      //padding-top: 2rem;
 
       app-mouse-facer {
         position: absolute;
@@ -100,9 +109,9 @@
             z-index: 0;
             display: inline-block;
             position: relative;
-            top: 5vw;
-            right: -3rem;
-            transform: translate(-50%);
+            top: 9vw;
+            right: -3vw;
+            transform: translate(-50%) skew(350deg, 346deg) rotate(0deg);;
             //max-width: 40vw;
             margin: 0;
             //padding: 0 0 0 4vw;
@@ -138,19 +147,101 @@
           }          
         } // end intro
 
-        .contact {
-          //position: absolute;
-          top: 50vw;
-          left: 0;
-          width: 100%;
-          display: flex;
-          justify-content: space-around;
-          flex-flow: nowrap;
-          //margin-top: 10vw;
-          padding: 0 10vw 1rem 10vw;
-          background-color: utility.$dive-red; // rgba(0,0,0,0.75);
-          color: utility.$dive-white;
+        .contact-container {
+          z-index: 1;
+          width: 100%;   
+          padding: 1rem 1rem 1rem;
+          @include utility.media-breakpoint-gte(sm) {
+            padding: 1rem 10vw 2rem;
+          }
+          background-color: utility.$dive-red;
+          background-image: linear-gradient(0deg, utility.$dive-red 0%, utility.$dive-red 98%, utility.$dive-black 100%);
+
+          .contact-content {
+            $headerFontSize: 2.2vw;
+            $largeInfoFontSize: 2.2vw;
+            $smallInfoFontSize: 1.5vw;
+
+            top: 50vw;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            flex-flow: wrap;            
+            color: utility.$dive-white;
+            //border-bottom-left-radius: 50%;
+            //border-bottom-right-radius: 50%;
+            //border-radius: 50%;
+            text-align: center;
+            text-shadow: 2px 2px 2px utility.$dive-black;
+
+            > div {            
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: center;
+              padding: 0 1rem;            
+              //border-bottom-left-radius: 42%;
+              //border-bottom-right-radius: 42%;
+              //border-radius: 50%;            
+              h2 {
+                margin: 0;
+                padding-top: 0.5rem;
+                font-size: 1rem;
+                font-weight: normal;
+                @include utility.media-breakpoint-gte(sm) {
+                  font-size: $headerFontSize;
+                }
+                //text-transform: uppercase;              
+              }
+              p {
+                margin: 0;
+                font-size: $smallInfoFontSize;
+                &:last-child {
+                  font-size: $smallInfoFontSize;
+                  @include utility.media-breakpoint-gte(sm) {
+                    font-size: $largeInfoFontSize;
+                  }
+                //font-weight: bold;
+                }
+              }
+              &.address {
+                p {
+                  font-size: $largeInfoFontSize;
+                  //font-weight: bold;
+                }
+                p:last-child {
+                  font-size: $smallInfoFontSize;
+                  font-weight: normal;
+                }
+              }
+              &.hours {
+                //padding-bottom: 1rem;
+              }
+              &.phone {
+                p:last-child {
+                  padding-top: 1rem;
+                }
+              }
+              
+            }            
+          } // end contact-content          
         } // end contact
+
+        .waves-separator {
+          position: relative;
+          z-index: 0;
+          display: flex;
+          width: 100%;
+          margin-top: -2rem;
+          > div {
+            position: relative;
+            flex: 1;
+            min-height: 4rem;
+            border-radius: 0 0 50% 50%;
+            background-color: utility.$dive-red;
+          }
+        }
 
         .blurb {
           display: flex;
