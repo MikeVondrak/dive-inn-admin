@@ -7,51 +7,69 @@
   height: 100vh;
 
   header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+
+    img {
+      z-index: 2;
+      width: 15vw;
       position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      z-index: 1;
-      img {
-          width: 15vw;
-          position: absolute;
-      }
-      
-      nav {
-          display: flex;
-          font-size: 1.25vw;
-          background-color: utility.$dive-black; //rgba(0,0,0,0.75);
-          color: utility.$dive-white;
-          padding: 0 17vw;
+      top: -13rem;
+      left: 1rem;
+      //display: none;
 
-          ul {
-            display: flex;
-            margin: 0;
-            list-style-type: none;
+      transition: top 0.65s ease;
 
-            li {
-              padding: 0.5rem 1rem;
+      &.showLogo {
+        top: 1rem;
+        //display: inline-flex;
+        // transform: display(inline-flex);
+        // transition: all 1s;
+      }
+    }
 
-            }
-          }
+    nav {
+      display: flex;
+      font-size: 1.25vw;
+      background-color: utility.$dive-black; //rgba(0,0,0,0.75);
+      color: utility.$dive-white;
+      padding: 0 17vw;
+
+      ul {
+        display: flex;
+        margin: 0;
+        list-style-type: none;
+
+        li {
+          padding: 0.5rem 1rem;
+
+        }
       }
-      $boat-cam-size: 15vw;
-      
-      .boat-cam {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: absolute;
-          right: 1vw;
-          top: 1vw;
-          background-color: utility.$dive-black;
-          color: utility.$dive-white;
-          width: $boat-cam-size;
-          height: $boat-cam-size;
-          border-radius: math.div($boat-cam-size, 2);
-          font-size: math.div($boat-cam-size, 4);
-          text-align: center;
-      }
+    }
+
+    $boat-cam-size: 15vw;
+
+    .boat-cam {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 1vw;
+      top: 1vw;
+      background-color: utility.$dive-black;
+      color: utility.$dive-white;
+      width: $boat-cam-size;
+      height: $boat-cam-size;
+      border-radius: math.div($boat-cam-size, 2);
+      font-size: math.div($boat-cam-size, 4);
+      text-align: center;
+    }
   }
+
+  // end header
 
   main {
     flex: 1;
@@ -62,55 +80,134 @@
 
       app-mouse-facer {
         position: absolute;
-        top: 0; bottom: 0; left: 0; right: 0;      
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
       }
 
       &-content {
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
         .intro {
           height: 50vw;
+
           h1.title {
+            z-index: 0;
+            display: inline-block;
             position: relative;
-            margin-top: 0;
-            padding: 0 0 0 4vw;
+            top: 5vw;
+            right: -3rem;
+            transform: translate(-50%);
+            //max-width: 40vw;
+            margin: 0;
+            //padding: 0 0 0 4vw;
+            text-align: right;
+            
             font-size: 4vw;
             @include utility.media-breakpoint-gte(sm) {
-              font-size: 3vw;
+              font-size: 3.5vw;
             }
-            color: utility.$dive-white;
-            text-shadow: 2px 2px 12px utility.$dive-black, -2px -2px 12px utility.$dive-black;
-            
+            $textOutlineWidth: 6px;
+            $textColor: utility.$dive-black;
+            $textOutlineColor: utility.$dive-red;
+            $textOutline2Color: utility.$dive-white;
+                        
+            color: $textColor;
+            -webkit-text-stroke: 0.05em $textOutlineColor;
+            // text-shadow: 3px 3px 0 utility.$dive-red,
+            //   $textOutlineWidth $textOutlineWidth 0px $textOutlineColor,
+            //   $textOutlineWidth (-$textOutlineWidth) 0px $textOutlineColor,
+            //   -$textOutlineWidth $textOutlineWidth 0px $textOutlineColor,
+            //   -$textOutlineWidth (-$textOutlineWidth) 0px $textOutlineColor;
+            &:after {
+              position: absolute;
+              content: "Local Events Live Sports Bar Games";
+              -webkit-text-stroke: 0.2em $textOutline2Color;
+              top: 0; right: 0rem;
+              z-index: -1;
+            }
+
             span {
-              margin: 0 1.25rem;
+              //margin: 0 1.25rem;
             }
-          }
-        }
+          }          
+        } // end intro
+
         .contact {
-          position: absolute;
-          top: 50vw; left: 0;
+          //position: absolute;
+          top: 50vw;
+          left: 0;
           width: 100%;
           display: flex;
           justify-content: space-around;
           flex-flow: nowrap;
           //margin-top: 10vw;
           padding: 0 10vw 1rem 10vw;
-          background-color: utility.$dive-red;// rgba(0,0,0,0.75);
+          background-color: utility.$dive-red; // rgba(0,0,0,0.75);
           color: utility.$dive-white;
+        } // end contact
+
+        .blurb {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 2rem;
+          text-align: center;
+          @include utility.media-breakpoint-gte(md) {
+            padding: 4rem;
+          }
+          img, span {
+            display: block;            
+          }
+          p {
+            max-width: 50%;
+            font-size: 1.5rem;
+            line-height: 1.75;
+          }
         }
+      }
+    }
+
+    app-topic-section {
+      z-index: 0;
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      width: 100vw;
+
+      @include utility.media-breakpoint-gte(sm) {
+        width: 80vw;
+      }
+
+      @include utility.media-breakpoint-gte(lg) {
+        width: 75vw;
+      }
+
+      @include utility.media-breakpoint-gte(ws) {
+        width: 70vw;
       }
     }
   }
 
+  // end main
+
   footer {
-      z-index: 1;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(200, 40, 20, 0.7); //utility.$dive-red; //rgba(0,0,0,0.75);
+    color: utility.$dive-white;
+
+    .navigation {
       display: flex;
-      flex-direction: column;
-      background-color: rgba(200,40,20, 0.7);//utility.$dive-red; //rgba(0,0,0,0.75);
-      color: utility.$dive-white;
-      
-      .navigation {
-          display: flex;
-          flex-direction: row;
-      }
+      flex-direction: row;
+    }
   }
+
+  // end footer
 }

@@ -1,5 +1,6 @@
+<div>
 <header>
-  <img src="../../../../assets/images/logoLg.png">
+  <img [ngClass]="{'showLogo': showLogo}" src="../../../../assets/images/logoLg.png">
   <nav>
     <ul>
       <li>Home</li>
@@ -15,13 +16,17 @@
 </header>
 
 <main>
-
   <div class="intro-section">
     <app-mouse-facer imgSrc="../../../../assets/images/home/dive-inn-exterior.jpg"></app-mouse-facer>
     <div class="intro-section-content">
       <div class="intro">
-        <h1 class="title"><span>Dive Bar</span>&#8226;<span>Sports Bar</span>&#8226;<span>Games Bar</span></h1>
-        <!-- <img src="../../../../assets/images/street-night.jpg"> -->
+        <h1 class="title">
+          <span>Local Events</span><br>
+          <span>Live Sports</span><br>
+          <span>Bar Games</span><br>
+          <!-- &#8226; -->
+          <!-- &#8226; -->
+        </h1>
       </div>
       <div class="contact">
         <div class="address">
@@ -37,14 +42,18 @@
           <p>{{ footerPhone }}</p>
         </div>
       </div>
-      <app-topic-section sectionName="MENU"></app-topic-section>
-      <app-topic-section sectionName="BOOKINGS"></app-topic-section>
+      <div class="blurb">
+        <!-- <img> --><span>***</span>
+        <p>
+          Something about the Dive Inn that makes it unique and interesting. Probably should have text that is about this long?
+        </p>
+      </div>
     </div>
   </div>
 
-  <div class="food-section">
-    <h2>Food</h2>
-  </div>
+  <app-topic-section sectionName="MENU"></app-topic-section>
+  <app-topic-section sectionName="BOOKINGS"></app-topic-section>
+  
 </main>
 
 
@@ -66,3 +75,4 @@
     </ul>
   </div>
 </footer>
+</div>

@@ -19,11 +19,12 @@
   }
   
   .section-img {
-    position: absolute;
+    //position: absolute;
     //width: 100vw;
 
     img {
-      width: 100%;
+      //width: 100%;
+      max-width: 26vw;
     }
   }
 
