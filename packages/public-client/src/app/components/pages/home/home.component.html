@@ -19,11 +19,14 @@
         <h1 class="title">
           <span>Local Events</span><br>
           <span>Live Sports</span><br>
-          <span>and Games</span><br>
+          <span>Table Games</span><br>
           <!-- &#8226; -->
           <!-- &#8226; -->
         </h1>
       </div>
+      <!-- <div class="contact-rounded-top">
+        <div></div><div></div><div></div>
+      </div> -->
       <div class="contact-container">
         <div class="contact-content">
           <div class="address">
@@ -35,8 +38,9 @@
             <p *ngFor="let days of contactHours">{{ days }}</p>
           </div>
           <div class="phone">
-            <h2>Phone</h2>
+            <h2>Contact</h2>
             <p>{{ footerPhone }}</p><!-- TODO: add tel link to number -->
+            <p>contact@diveinndenver.com</p>
           </div>
         </div>        
       </div>
@@ -46,8 +50,9 @@
       <div class="blurb">
         <ng-container *ngTemplateOutlet="AnchorSvg"></ng-container>
         <p>
-          <!-- Something about the Dive Inn that makes it unique and interesting. Probably should have text that is about this long? -->
-          Denver's favorite dive bar since 2012, with two patios, specials every day, and unique local events. Come Dive Inn!
+          <!-- unique local events? -->
+          Denver's favorite dive bar since 2012, with specials every day, two patios & exclusive local events. Grab your friends and
+          <span>Dive Inn</span>
         </p>
         <div class="diver">
           <ng-container *ngTemplateOutlet="DiverSvg"></ng-container>

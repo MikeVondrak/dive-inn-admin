@@ -1,7 +1,7 @@
 @use 'sass:math';
 @use '../../scss/utility';
 
-$headerColor: utility.$dive-gray-dk2;
+$headerColor: utility.$dive-gray-dk3;
 
 :host {
   display: flex;
@@ -123,25 +123,7 @@ $headerColor: utility.$dive-gray-dk2;
             @include utility.media-breakpoint-gte(sm) {
               font-size: 3.5vw;
             }
-            $textOutlineWidth: 6px;
-            $textColor: utility.$dive-black;
-            $textOutlineColor: utility.$dive-red;
-            $textOutline2Color: utility.$dive-white;
-                        
-            color: $textColor;
-            -webkit-text-stroke: 0.05em $textOutlineColor;
-            // text-shadow: 3px 3px 0 utility.$dive-red,
-            //   $textOutlineWidth $textOutlineWidth 0px $textOutlineColor,
-            //   $textOutlineWidth (-$textOutlineWidth) 0px $textOutlineColor,
-            //   -$textOutlineWidth $textOutlineWidth 0px $textOutlineColor,
-            //   -$textOutlineWidth (-$textOutlineWidth) 0px $textOutlineColor;
-            &:after {
-              position: absolute;
-              content: "Local Events Live Sports and Games";
-              -webkit-text-stroke: 0.2em $textOutline2Color;
-              top: 0; right: 0rem;
-              z-index: -1;
-            }
+            @include utility.text-double-outline('Local Events Live Sports Table Games');
 
             span {
               //margin: 0 1.25rem;
@@ -149,6 +131,18 @@ $headerColor: utility.$dive-gray-dk2;
           }          
         } // end intro
 
+        .contact-rounded-top {
+          height: 6rem;
+          width: 100%;
+          display: flex;
+          margin-top: -1rem;
+          > div {
+            flex: 1;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            background-color: utility.$dive-red;
+          }
+        }
         .contact-container {
           z-index: 1;
           // display: flex;
@@ -156,14 +150,15 @@ $headerColor: utility.$dive-gray-dk2;
           // justify-content: space-around;
           width: 100%;
           height: 16vw;
-          padding: 2vw 0rem 18vw;
-          @include utility.media-breakpoint-gte(sm) {
-            padding: 2vw 0vw 16.5vw;
+          padding: 2vw 5vw 18vw;
+          @include utility.media-breakpoint-gte(md) {
+            padding: 2vw 10vw 16.5vw;            
           }
           background-color: utility.$dive-red;
           background-image: linear-gradient(0deg, utility.$dive-red 0%, utility.$dive-red 99%, utility.$dive-black 100%);
 
           .contact-content {
+            //margin: -3vw;
             $headerFontSize: 2.2vw;
             $largeInfoFontSize: 2.2vw;
             $smallInfoFontSize: 1.5vw;
@@ -172,7 +167,7 @@ $headerColor: utility.$dive-gray-dk2;
             left: 0;
             display: flex;
             justify-content: center;
-            flex-flow: wrap;            
+            flex-flow: wrap;
             color: utility.$dive-white;
             //border-bottom-left-radius: 50%;
             //border-bottom-right-radius: 50%;
@@ -225,8 +220,11 @@ $headerColor: utility.$dive-gray-dk2;
                 //padding-bottom: 1rem;
               }
               &.phone {
+                p {
+                  font-size: $largeInfoFontSize;
+                }
                 p:last-child {
-                  padding-top: 1rem;
+                  font-size: 1.3vw;
                 }
               }
               
@@ -280,10 +278,11 @@ $headerColor: utility.$dive-gray-dk2;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding-bottom: 8vw;
             //top: 10vw;
             //left: 10vw;
             svg {
-              width: 60vw;
+              width: 90vw;
               g path {
                 fill: utility.$dive-gray-dk3;
               }
@@ -305,6 +304,16 @@ $headerColor: utility.$dive-gray-dk2;
               font-size: 2.75vw;
             }
             line-height: 1.75;
+
+            span {
+              display: block;
+              font-family: 'Bevan', serif;
+              @include utility.text-double-outline('Dive Inn');
+              font-size: 3.8vw;
+              line-height: 1.6;
+              //font-weight: bold;
+              //color: utility.$dive-red;
+            }
           }
         }
       }
