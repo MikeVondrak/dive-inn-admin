@@ -306,13 +306,15 @@ $headerColor: utility.$dive-gray-dk3;
             line-height: 1.75;
 
             span {
-              display: block;
-              font-family: 'Bevan', serif;
-              @include utility.text-double-outline('Dive Inn');
-              font-size: 3.8vw;
-              line-height: 1.6;
-              //font-weight: bold;
-              //color: utility.$dive-red;
+              &.titleFont {
+                display: block;
+                font-family: 'Bevan', serif;
+                @include utility.text-double-outline('Dive Inn');
+                font-size: 3.8vw;
+                line-height: 1.6;
+                //font-weight: bold;
+                //color: utility.$dive-red;
+              }
             }
           }
         }
