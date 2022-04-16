@@ -1,3 +1,43 @@
+General:
+**1. Host somewhere - use fishbone sub-domain?
+
+Public-Client:
+4/14/2022
+1. Header nav - style it and remove whichever items to make the menu smaller for mobile sizes
+  - selected state / how to indicate which page we're on?
+    - hiding the current page link
+    - "caret" indicator on active link
+  - configurable list of which items dis/appear 1st, 2nd etc
+
+  - hamburger menu - collapse all items at some small breakpoint?
+
+2. Logo - too small at mobile sizes, balance between breakpoints - DONE
+  - scroll trigger is too low for mobile sizes
+    - check OnScreenDirective??
+
+3. Boat Cam - remove for now or rough styling?
+
+4. Title - check into letter rotation ability
+  - make the title text configurable
+    - and have it apply to the CSS
+      - CSS variables
+
+4a. Add Westword award icon / tagline somwhere
+  - other awards / press stuff / social media?
+
+5. Contact section - style for top border? Filligree?
+  - remove waves and turn into ribbon?
+
+6. Blurb - include links for e.g. "#1 neighborhood bar", "every day"? Color?
+
+7. Topic section - polish and decide on final styles
+
+8. Footer - polish and decide on final styles
+  - social media sprite
+
 Future Enhancements
 * remove the switch from topic-section.component.ts and make it inputs
   * refactor to where we can load topic-sections arbitrarily from JSON
+
+--------------------------------------------
+Admin-Client:
