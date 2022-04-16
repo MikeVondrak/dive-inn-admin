@@ -1,4 +1,5 @@
-<div class="section" [ngClass]="{'reverse': orientation == 'right'}">
+<div class="section"
+  [ngClass]="{'menu': sectionName === 'MENU', 'booking': sectionName === 'BOOKINGS', 'reverse': orientation == 'right'}">
   <div class="section-text">
     <div class="section-label">
       {{ sectionName }}
@@ -13,6 +14,7 @@
     </div>
   </div>
   <div class="section-img">
-    <img [src]=sectionImgUrl>  
+    <!-- <img [src]=sectionImgUrl> -->
+    <div class="section-img-bg"></div>
   </div>
 </div>

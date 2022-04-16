@@ -25,12 +25,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
 
   constructor() { 
-    fromEvent(window, 'scroll').pipe(takeUntil(this.destroy$)).subscribe((event: Event) => {
-      console.log('-----', document?.scrollingElement?.scrollTop + ' - ' + this.showLogo);
+    fromEvent(window, 'scroll').pipe(takeUntil(this.destroy$)).subscribe((event: Event) => {      
       if (document?.scrollingElement?.scrollTop) {
         if (document?.scrollingElement?.scrollTop > 250) {
           this.showLogo = true;
-          console.log(this.showLogo);
         } else {
           this.showLogo = false;
         }

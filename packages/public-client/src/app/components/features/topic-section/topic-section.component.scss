@@ -1,9 +1,39 @@
 @use '../../scss/utility';
 
+$horizontalGap: 0.75rem;
+
 .section {
   display: flex;
   justify-content: space-between;
   //padding: 0 7vw;
+
+  &.menu {
+    // margin-bottom: 2rem;
+    .section-text {
+      border-bottom: 1px solid utility.$dive-red-dk;
+      border-right: 1px solid utility.$dive-red-dk;
+      margin: 0 $horizontalGap 0  0;
+    }
+    .section-img {
+        background-image: url('../../../../assets/images/specials/Dive Inn (Draft).jpg');
+        background-size: 110%;
+        background-position: 0% 60%;      
+    }
+  }
+
+  &.booking {
+    .section-text {
+      border-top: 1px solid utility.$dive-red-dk;
+      border-left: 1px solid utility.$dive-red-dk;
+    }
+    .section-img {
+      background-image: url('../../../../assets/images/inside/Interiors_233.jpg');
+      background-size: 100%;
+      // background-position: 0% 60%;
+    }
+  }
+  
+
 
   &.reverse {
     flex-direction: row-reverse;
@@ -12,6 +42,7 @@
   .section-text {
     z-index: 1;
     display: flex;
+    margin: 0rem 0 0 $horizontalGap;
     padding: 8vw;
     justify-content: space-around;
     flex-direction: column;
@@ -20,11 +51,17 @@
   
   .section-img {
     //position: absolute;
-    //width: 100vw;
+    width: 100%;
 
     img {
       //width: 100%;
-      max-width: 26vw;
+      //max-width: 26vw;
+    }
+    &-bg {
+      width: 100%;
+      height: 100%;
+      //background-repeat: no-repeat;
+      
     }
   }
 

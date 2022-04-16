@@ -31,6 +31,7 @@ Public-Client:
 6. Blurb - include links for e.g. "#1 neighborhood bar", "every day"? Color?
 
 7. Topic section - polish and decide on final styles
+  - refactor code / css to be able to experiment w/styles easier
 
 8. Footer - polish and decide on final styles
   - social media sprite
