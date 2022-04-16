@@ -15,7 +15,7 @@
   &:after {
     position: absolute;
     content: $text;
-    -webkit-text-stroke: 0.2em $colorOutline2;
+    -webkit-text-stroke: 0.15em $colorOutline2;
     top: 0; right: 0rem; bottom: 0; left: 0;
     z-index: -1;
   }

@@ -175,17 +175,35 @@ $headerColor: utility.$dive-gray-dk3;
             text-align: center;
             text-shadow: 2px 2px 2px utility.$dive-black;
 
-            > div {            
+            > div {           
+              position: relative;
               flex: 1;
               display: flex;
               flex-direction: column;
               justify-content: flex-start;
               align-items: center;
-              padding: 0 1rem;            
-              //border-bottom-left-radius: 42%;
-              //border-bottom-right-radius: 42%;
-              //border-radius: 50%;            
+              padding: 6.5rem 1rem 0;
+
+              $imgSize: 5vw;
+              img, svg {
+                z-index: 0;
+                position: absolute;
+                //bottom: -3rem;
+                left: 50%;
+                transform: translateX(-50%);
+                //left: 4.5vw;
+                top: 0rem;
+                width: $imgSize;
+                height: $imgSize;
+
+                path {
+                  // fill: utility.$dive-red-dk;
+                  fill: utility.$dive-black;
+                }
+              }
               h2 {
+                position: relative;
+                z-index: 1;
                 margin: 0;
                 padding-top: 0.5rem;
                 font-size: 1rem;
@@ -196,6 +214,8 @@ $headerColor: utility.$dive-gray-dk3;
                 //text-transform: uppercase;              
               }
               p {
+                position: relative;
+                z-index: 1;
                 margin: 0;
                 font-size: $smallInfoFontSize;
                 &:last-child {
@@ -300,20 +320,20 @@ $headerColor: utility.$dive-gray-dk3;
             max-width: 80vw;
             font-size: 3vw;
             @include utility.media-breakpoint-gte(sm) {
-              max-width: 60vw;
+              max-width: 64vw;
               font-size: 2.75vw;
             }
             line-height: 1.75;
 
             span {
+              color: utility.$dive-yellow;            
+
               &.titleFont {
                 display: block;
                 font-family: 'Bevan', serif;
                 @include utility.text-double-outline('Dive Inn');
                 font-size: 3.8vw;
                 line-height: 1.6;
-                //font-weight: bold;
-                //color: utility.$dive-red;
               }
             }
           }
