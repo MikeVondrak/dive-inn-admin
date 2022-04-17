@@ -6,7 +6,6 @@ $headerColor: utility.$dive-gray-dk3;
 :host {
   display: flex;
   flex-direction: column;
-  height: 100vh;
 
   header {
     z-index: 4;
@@ -141,28 +140,28 @@ $headerColor: utility.$dive-gray-dk3;
           }          
         } // end intro
 
-        .contact-rounded-top {
-          height: 6rem;
-          width: 100%;
-          display: flex;
-          margin-top: -1rem;
-          > div {
-            flex: 1;
-            border-top-left-radius: 50%;
-            border-top-right-radius: 50%;
-            background-color: utility.$dive-red;
-          }
-        }
+        // .contact-rounded-top {
+        //   height: 6rem;
+        //   width: 100%;
+        //   display: flex;
+        //   margin-top: -1rem;
+        //   > div {
+        //     flex: 1;
+        //     border-top-left-radius: 50%;
+        //     border-top-right-radius: 50%;
+        //     background-color: utility.$dive-red;
+        //   }
+        // }
         .contact-container {
           z-index: 1;
           // display: flex;
           // align-items: center;
           // justify-content: space-around;
           width: 100%;
-          height: 16vw;
+          height: 20vw;
           padding: 2vw 5vw 18vw;
           @include utility.media-breakpoint-gte(md) {
-            padding: 2vw 10vw 16.5vw;            
+            padding: 2.5vw 10vw 19vw;            
           }
           background-color: utility.$dive-red;
           background-image: linear-gradient(0deg, utility.$dive-red 0%, utility.$dive-red 99%, utility.$dive-black 100%);
@@ -207,7 +206,7 @@ $headerColor: utility.$dive-gray-dk3;
                 height: $imgSize;
 
                 path {
-                  // fill: utility.$dive-red-dk;
+                  //fill: utility.$dive-red-dk;
                   fill: utility.$dive-black;
                 }
               }
@@ -335,6 +334,10 @@ $headerColor: utility.$dive-gray-dk3;
             }
             line-height: 1.75;
 
+            &:first-of-type {
+              margin: 4vw 0 0;
+            }
+
             span {
               color: utility.$dive-yellow;
               //text-decoration: underline;
@@ -386,26 +389,33 @@ $headerColor: utility.$dive-gray-dk3;
         // }
       }
       
+      $lineColor: utility.$dive-red-dk;
       $verticalGap: 0.75rem;
       .divider {
         position: relative;
         //width: 80%;
         margin: $verticalGap auto;
         //top: -1rem;
-        height: $verticalGap;
-        border-top: 1px solid utility.$dive-red-dk;
-        border-bottom: 1px solid utility.$dive-red-dk;
+        //height: $verticalGap;
+        border-top: 1px solid $lineColor;
+        //border-bottom: 1px solid $lineColor;
+      }
+    } // end sections-container
+
+    .bottom-separator {
+      svg {
+        display: block;
+        width: 10vw;
+        margin: 2vw auto 4vw;
       }
     }
-  }
-
-  // end main
+  } // end main
 
   footer {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    background-color: rgba(200, 40, 20, 0.7); //utility.$dive-red; //rgba(0,0,0,0.75);
+    background-color: utility.$dive-red;
     color: utility.$dive-white;
 
     .navigation {

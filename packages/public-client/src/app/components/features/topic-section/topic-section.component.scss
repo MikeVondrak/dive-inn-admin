@@ -1,5 +1,6 @@
 @use '../../scss/utility';
 
+$lineColor: utility.$dive-red-dk;
 $horizontalGap: 0.75rem;
 
 .section {
@@ -10,26 +11,46 @@ $horizontalGap: 0.75rem;
   &.menu {
     // margin-bottom: 2rem;
     .section-text {
-      border-bottom: 1px solid utility.$dive-red-dk;
-      border-right: 1px solid utility.$dive-red-dk;
+      border-top: none;
+      border-right: none;
+      border-bottom: 1px solid $lineColor;
+      border-right: 1px solid $lineColor;
       margin: 0 $horizontalGap 0  0;
+
+      > div {
+        margin: $horizontalGap;
+        padding: 8vw;
+        border-bottom: 1px solid $lineColor;
+        border-right: 1px solid $lineColor;
+      }
     }
     .section-img {
         background-image: url('../../../../assets/images/specials/Dive Inn (Draft).jpg');
         background-size: 110%;
-        background-position: 0% 60%;      
+        background-position: 0% 60%;
+        border-bottom: 1px solid $lineColor;
+        border-left: 1px solid $lineColor;
     }
   }
 
   &.booking {
     .section-text {
-      border-top: 1px solid utility.$dive-red-dk;
-      border-left: 1px solid utility.$dive-red-dk;
+      margin: 0 0 0 $horizontalGap;
+      border-top: 1px solid $lineColor;
+      border-left: 1px solid $lineColor;
+      > div {
+        margin: $horizontalGap;
+        padding: 8vw;
+        border-top: 1px solid utility.$dive-red-dk;
+        border-left: 1px solid utility.$dive-red-dk;
+      }
     }
     .section-img {
       background-image: url('../../../../assets/images/inside/Interiors_233.jpg');
       background-size: 100%;
-      // background-position: 0% 60%;
+      background-position: 0% 40%;
+      border-top: 1px solid $lineColor;
+      border-right: 1px solid $lineColor;
     }
   }
   
@@ -41,9 +62,7 @@ $horizontalGap: 0.75rem;
 
   .section-text {
     z-index: 1;
-    display: flex;
-    margin: 0rem 0 0 $horizontalGap;
-    padding: 8vw;
+    display: flex;    
     justify-content: space-around;
     flex-direction: column;
     background-image: linear-gradient(90deg, utility.$dive-black 0%, utility.$dive-black 70%, transparent 100%);

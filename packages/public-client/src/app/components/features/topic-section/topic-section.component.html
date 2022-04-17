@@ -1,16 +1,18 @@
 <div class="section"
   [ngClass]="{'menu': sectionName === 'MENU', 'booking': sectionName === 'BOOKINGS', 'reverse': orientation == 'right'}">
   <div class="section-text">
-    <div class="section-label">
-      {{ sectionName }}
-    </div>
-    <div class="section-blurb">
-      {{ sectionNote }}
-    </div>
-    <div class="section-button">
-      <button>
-        {{ sectionButton }}
-      </button>
+    <div>
+      <div class="section-label">
+        {{ sectionName }}
+      </div>
+      <div class="section-blurb">
+        {{ sectionNote }}
+      </div>
+      <div class="section-button">
+        <button>
+          {{ sectionButton }}
+        </button>
+      </div>
     </div>
   </div>
   <div class="section-img">
