@@ -452,10 +452,10 @@ $verticalGap: 0.75rem;
 
     .anchor-separator-bottom {
       display: block;
-      width: 5vw;
-      margin: 2vw auto 6vw;
+      width: 25vw;
+      margin: 6vw auto;
       @include utility.media-breakpoint-gte(sm) {
-        width: 4.5vw;
+        width: 45vw;
       }            
       g path {              
         fill: utility.$dive-red;
