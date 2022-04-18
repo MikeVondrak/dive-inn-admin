@@ -2,6 +2,8 @@
 @use '../../scss/utility';
 
 $headerColor: utility.$dive-gray-dk3;
+$lineColor: utility.$dive-red;
+$verticalGap: 0.75rem;
 
 :host {
   display: flex;
@@ -104,6 +106,15 @@ $headerColor: utility.$dive-gray-dk3;
         bottom: 0;
         left: 0;
         right: 0;
+        height: 50vw;
+
+        ::ng-deep {
+          .mouse-facer-container {
+            .mouse-facer-content {
+              background-image: url("/assets/images/home/dive-inn-exterior.jpg");
+            }
+          }
+        }
       }
 
       &-content {
@@ -268,7 +279,7 @@ $headerColor: utility.$dive-gray-dk3;
           display: flex;
           height: $waveSize;
           width: 100%;
-          margin-top: -($waveSize - 0.02vw);
+          margin-top: -($waveSize - 0.05vw);
           background-image: url('/assets/images/wave.svg');
           // > div {
           //   position: relative;
@@ -301,13 +312,13 @@ $headerColor: utility.$dive-gray-dk3;
             }            
           }  
           .diver {
-            z-index: -1;
+            z-index: 0;
             position: absolute;
             top: 0; bottom: 0; left: 0; right: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-bottom: 8vw;
+            padding-bottom: 4vw;
             //top: 10vw;
             //left: 10vw;
             svg {
@@ -326,6 +337,7 @@ $headerColor: utility.$dive-gray-dk3;
           //   }            
           // }
           p {
+            z-index: 1;
             max-width: 80vw;
             font-size: 3vw;
             @include utility.media-breakpoint-gte(sm) {
@@ -356,9 +368,22 @@ $headerColor: utility.$dive-gray-dk3;
         }
       }
     }
-
+    .blurb-separator-bottom {      
+      svg {
+        display: block;
+        width: 40vw;
+        margin: 0 auto 0vw;
+        path, circle, rect, ellipse {
+          fill: $lineColor;
+          //stroke: $lineColor;
+        }
+      }
+    }
     .sections-container {
-      margin: 2rem auto 6rem;
+      margin: $verticalGap auto 6vw;
+      padding: $verticalGap 0;
+      border-top: 1px solid $lineColor;
+      //border-bottom: 1px solid $lineColor;
       @include utility.media-breakpoint-gte(sm) {
         width: 80vw;
       }
@@ -370,6 +395,28 @@ $headerColor: utility.$dive-gray-dk3;
       @include utility.media-breakpoint-gte(ws) {
         width: 70vw;
       }
+
+      .sections-separator-top {
+        height: $verticalGap + 0.1rem;
+        margin: 0 0 $verticalGap;
+        border-top: 1px solid $lineColor;
+        border-bottom: 1px solid $lineColor;
+      }
+      .sections-separator-bottom {
+        height: $verticalGap + 0.1rem;
+        margin: $verticalGap 0;
+        border-top: 1px solid $lineColor;
+        border-bottom: 1px solid $lineColor;
+        div {
+          height: $verticalGap + 0.1rem;
+          margin: $verticalGap $verticalGap;
+          
+          //border-top: 1px solid $lineColor;
+          //border-top: none;
+          border-bottom: 1px solid $lineColor;
+        }
+      }
+
       app-topic-section {
         z-index: 0;
         position: relative;
@@ -388,9 +435,7 @@ $headerColor: utility.$dive-gray-dk3;
         //   width: 70vw;
         // }
       }
-      
-      $lineColor: utility.$dive-red-dk;
-      $verticalGap: 0.75rem;
+
       .divider {
         position: relative;
         //width: 80%;
@@ -402,11 +447,51 @@ $headerColor: utility.$dive-gray-dk3;
       }
     } // end sections-container
 
+    .anchor-separator-bottom {
+      display: block;
+      width: 5vw;
+      margin: 2vw auto 6vw;
+      @include utility.media-breakpoint-gte(sm) {
+        width: 4.5vw;
+      }            
+      g path {              
+        fill: utility.$dive-red;
+      }      
+    }
+
+    app-mouse-facer.dive-shop, app-mouse-facer.main-room {
+      height: 40vw;
+      overflow: hidden;
+      border-top: 1px solid $lineColor;
+      border-bottom: 1px solid $lineColor;
+      ::ng-deep {
+        .mouse-facer-container {
+          .mouse-facer-content {
+            background-image: url("/assets/images/inside/Interiors_290.jpg");
+            background-position: 0% 75%;
+          }
+        }
+      }
+    }
+    app-mouse-facer.main-room {
+      ::ng-deep {
+        .mouse-facer-container {
+          .mouse-facer-content {
+            background-image: url("/assets/images/inside/Interiors_251.jpg");
+            background-position: 0% 50%;
+          }
+        }
+      }
+    }
+
     .bottom-separator {
       svg {
         display: block;
         width: 10vw;
         margin: 2vw auto 4vw;
+        path {
+          fill: utility.$dive-gray-dk2;
+        }
       }
     }
   } // end main
@@ -416,6 +501,8 @@ $headerColor: utility.$dive-gray-dk3;
     display: flex;
     flex-direction: column;
     background-color: utility.$dive-red;
+    background-image: linear-gradient(0deg, utility.$dive-black 0%, utility.$dive-red 1%, utility.$dive-red 99%, utility.$dive-black 100%);
+    box-shadow: 0px -2px 4px utility.$dive-black;
     color: utility.$dive-white;
 
     .navigation {

@@ -1,33 +1,62 @@
 @use '../../scss/utility';
 
-$lineColor: utility.$dive-red-dk;
+$lineColor: utility.$dive-red;
 $horizontalGap: 0.75rem;
+$sectionHeight: 24vw;
+
+// .filigree {
+//   width: 55vw;
+//   height: 4vw;
+
+//   background-image: url('../../../../assets/images/filigree.svg');
+//   background-size: 100% 100%;
+//   background-repeat: no-repeat;
+// }
+.filigree-bg {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  svg {    
+    display: inline-block;
+    position: relative;
+    height: 11rem;
+    top: 1.5rem;
+    path {
+      stroke: utility.$dive-red;
+    }
+  }
+}
 
 .section {
   display: flex;
   justify-content: space-between;
-  //padding: 0 7vw;
+  min-height: $sectionHeight;
 
   &.menu {
     // margin-bottom: 2rem;
     .section-text {
-      border-top: none;
-      border-right: none;
+      border-top: 1px solid $lineColor;
       border-bottom: 1px solid $lineColor;
       border-right: 1px solid $lineColor;
       margin: 0 $horizontalGap 0  0;
 
       > div {
         margin: $horizontalGap;
-        padding: 8vw;
+        //padding: 8vw;
+        border-top: 1px solid $lineColor;
         border-bottom: 1px solid $lineColor;
-        border-right: 1px solid $lineColor;
+        border-right: 1px solid $lineColor;        
+      }
+      .section-label {      
+        //@include utility.text-double-outline('Specials');
       }
     }
     .section-img {
-        background-image: url('../../../../assets/images/specials/Dive Inn (Draft).jpg');
-        background-size: 110%;
-        background-position: 0% 60%;
+        background-image: url('../../../../assets/images/home/DiveInnDraft.jpg');
+        background-size: cover;
+        background-position: center right;
+        border-top: 1px solid $lineColor;
         border-bottom: 1px solid $lineColor;
         border-left: 1px solid $lineColor;
     }
@@ -37,19 +66,24 @@ $horizontalGap: 0.75rem;
     .section-text {
       margin: 0 0 0 $horizontalGap;
       border-top: 1px solid $lineColor;
-      border-left: 1px solid $lineColor;
+      border-bottom: 1px solid $lineColor;
+      border-left: 1px solid $lineColor;      
       > div {
         margin: $horizontalGap;
-        padding: 8vw;
-        border-top: 1px solid utility.$dive-red-dk;
-        border-left: 1px solid utility.$dive-red-dk;
+        border-top: 1px solid $lineColor;
+        border-bottom: 1px solid $lineColor;
+        border-left: 1px solid $lineColor;
+      }
+      .section-label {      
+        //@include utility.text-double-outline('Charters');
       }
     }
     .section-img {
       background-image: url('../../../../assets/images/inside/Interiors_233.jpg');
-      background-size: 100%;
+      background-size: cover;
       background-position: 0% 40%;
       border-top: 1px solid $lineColor;
+      border-bottom: 1px solid $lineColor;
       border-right: 1px solid $lineColor;
     }
   }
@@ -62,15 +96,48 @@ $horizontalGap: 0.75rem;
 
   .section-text {
     z-index: 1;
-    display: flex;    
-    justify-content: space-around;
-    flex-direction: column;
-    background-image: linear-gradient(90deg, utility.$dive-black 0%, utility.$dive-black 70%, transparent 100%);
+    //background-image: linear-gradient(90deg, utility.$dive-black 0%, utility.$dive-black 70%, transparent 100%);        
+    > div {
+      min-height: $sectionHeight;
+      min-width: $sectionHeight;
+      display: flex;      
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1vw;
+
+      .section-label {
+        //text-transform: uppercase;
+        margin: 0 0 0rem;
+        font-size: 3.4vw;
+        font-family: 'Righteous', cursive;
+        &::after {
+          -webkit-text-stroke: 8px utility.$dive-white;
+        }
+      }
+      .section-blurb {
+        font-size: 2vw;
+        text-align: center;
+      }
+    }
   }
   
   .section-img {
     //position: absolute;
     width: 100%;
+
+    .filigree-bg {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      svg {    
+        //position: absolute;
+        height: 11rem;
+        path {
+          stroke: utility.$dive-red;
+        }
+      }
+    }
 
     img {
       //width: 100%;
@@ -81,6 +148,11 @@ $horizontalGap: 0.75rem;
       height: 100%;
       //background-repeat: no-repeat;
       
+    }
+    svg {
+      path {
+        stroke: utility.$dive-red-dk;
+      }
     }
   }
 

@@ -1,5 +1,5 @@
 General:
-**1. Host somewhere - use fishbone sub-domain?
+**1. Host somewhere - use fishbone sub-domain? - DONE test.fishbonedigital.io
 
 Public-Client:
 4/14/2022
@@ -12,6 +12,7 @@ Public-Client:
   - hamburger menu - collapse all items at some small breakpoint?
 
 2. Logo - too small at mobile sizes, balance between breakpoints - DONE
+  - in Chrome (check FF etc), gets fuzzy after scaling down at mobile sizes (could just keep the logo a fixed size for mobile)
   - scroll trigger is too low for mobile sizes
     - check OnScreenDirective??
 

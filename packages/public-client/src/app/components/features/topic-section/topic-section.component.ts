@@ -10,6 +10,7 @@ export class TopicSectionComponent implements OnInit {
   @Input() sectionName: string = '';
 
   public orientation: string = '';
+  public sectionTitle: string = '';
   sectionNote: string = '';
   sectionImgUrl: string = '';
   sectionButton: string = '';
@@ -19,15 +20,17 @@ export class TopicSectionComponent implements OnInit {
   ngOnInit(): void {
     switch (this.sectionName) {
       case 'MENU':
-        this.sectionNote = 'A little note about the type of food';
-        this.sectionImgUrl = '../../../../assets/images/specials/Dive Inn (Draft).jpg';
-        this.sectionButton = 'VIEW';
+        this.sectionTitle = 'Specials';
+        this.sectionNote = '365 days a year';
+        this.sectionImgUrl = '../../../../assets/images/home/DiveInnDraft.jpg';
+        this.sectionButton = 'View';
         this.orientation = 'left';
         break;
       case 'BOOKINGS':
-        this.sectionNote = 'Set up your event with us';
+        this.sectionTitle = 'Charters';
+        this.sectionNote = 'Reserve your next private event with us';
         this.sectionImgUrl = '../../../../assets/images/inside/Interiors_233.jpg';
-        this.sectionButton = 'BOOK';
+        this.sectionButton = 'Book Now';
         this.orientation = 'right';
         break;
     }
