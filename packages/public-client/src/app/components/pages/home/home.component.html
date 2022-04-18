@@ -91,34 +91,57 @@
   <ng-container *ngTemplateOutlet="AnchorSvg"></ng-container>
 </div>
 
-<app-mouse-facer class="main-room" imgSrc="../../../../assets/images/inside/Interiors_251.jpg"></app-mouse-facer>
+<div class="mouse-facer-container">
+  <app-mouse-facer class="main-room" imgSrc="../../../../assets/images/inside/Interiors_251.jpg"></app-mouse-facer>
+  <div class="info main">
+    <div>
+      <h2>Charters</h2>
+      <p>Reserve the boat or a room for your private party</p>
+    </div>
+  </div>
+</div>
 
 <div class="bottom-separator">
   <ng-container *ngTemplateOutlet="CompassSvg"></ng-container>
 </div>
 
-<app-mouse-facer class="dive-shop" imgSrc="../../../../assets/images/inside/Interiors_290.jpg"></app-mouse-facer>
+<div class="mouse-facer-container">
+  <app-mouse-facer class="dive-shop" imgSrc="../../../../assets/images/inside/Interiors_290.jpg"></app-mouse-facer>
+  <div class="info shop">
+    <div>
+      <h2>Dive Shop</h2>
+      <p>Exclusive shirts, hats, hoodies & more</p>
+    </div>
+  </div>
+</div>
 
 </main>
 
 
 <footer>
-<p>{{footerAddress}} | {{footerPhone}}</p>
-<!-- <div class="social-links-container">
-  <img src="/assets/images/social/facebook.png" />
-  <img src="/assets/images/social/instagram.png" />
-  <img src="/assets/images/social/yelp.png" />
-  <img src="/assets/images/social/trip-advisor.png" />
-  <img src="/assets/images/social/twitter.png" />
-</div> -->
-<div class="navigation">
-  <ul>
+  <!-- <div class="social-links-container">
+    <img src="/assets/images/social/facebook.png" />
+    <img src="/assets/images/social/instagram.png" />
+    <img src="/assets/images/social/yelp.png" />
+    <img src="/assets/images/social/trip-advisor.png" />
+    <img src="/assets/images/social/twitter.png" />
+  </div> -->
+
+  <p>{{footerAddress[0]}}<span class="spacer">|</span>{{footerPhone}}</p>
+  
+  <ul class="navigation">
     <li>Contact Us</li>
+    <li class="spacer">|</li>
     <li>News</li>
+    <li class="spacer">|</li>
     <li>PADI Club</li>
+    <li class="spacer">|</li>
     <li>Sightings</li>
   </ul>
-</div>
+  
+  <div class="social-icons">
+    <img src="assets/images/social-sprite.png" />
+  </div>
 </footer>
 
 

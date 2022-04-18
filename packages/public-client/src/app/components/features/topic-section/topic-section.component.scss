@@ -104,10 +104,11 @@ $sectionHeight: 24vw;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 1vw;
+      padding: 2vw;
 
       .section-label {
         //text-transform: uppercase;
+        color: utility.$dive-yellow;
         margin: 0 0 0rem;
         font-size: 3.4vw;
         font-family: 'Righteous', cursive;

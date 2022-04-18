@@ -21,14 +21,14 @@ export class TopicSectionComponent implements OnInit {
     switch (this.sectionName) {
       case 'MENU':
         this.sectionTitle = 'Specials';
-        this.sectionNote = '365 days a year';
+        this.sectionNote = 'Daily, weekly & seasonal specials, 365 days a year';
         this.sectionImgUrl = '../../../../assets/images/home/DiveInnDraft.jpg';
         this.sectionButton = 'View';
         this.orientation = 'left';
         break;
       case 'BOOKINGS':
-        this.sectionTitle = 'Charters';
-        this.sectionNote = 'Reserve your next private event with us';
+        this.sectionTitle = 'Events';
+        this.sectionNote = 'Live music, sports, games & festivities';
         this.sectionImgUrl = '../../../../assets/images/inside/Interiors_233.jpg';
         this.sectionButton = 'Book Now';
         this.orientation = 'right';
