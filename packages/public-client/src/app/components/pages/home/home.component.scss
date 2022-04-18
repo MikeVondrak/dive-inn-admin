@@ -407,7 +407,7 @@ $verticalGap: 0.75rem;
       }
       .sections-separator-bottom {
         height: $verticalGap + 0.1rem;
-        margin: $verticalGap 0;
+        margin: $verticalGap 0 6vw;
         border-top: 1px solid $lineColor;
         border-bottom: 1px solid $lineColor;
         div {
@@ -417,6 +417,15 @@ $verticalGap: 0.75rem;
           //border-top: 1px solid $lineColor;
           //border-top: none;
           border-bottom: 1px solid $lineColor;
+        }
+
+        svg {
+          display: block;
+          height: 3vw;
+          margin: 1vw;
+          path {
+            fill: $lineColor;
+          }
         }
       }
 
@@ -568,7 +577,7 @@ $verticalGap: 0.75rem;
         .mouse-facer-container {
           .mouse-facer-content {
             background-image: url("/assets/images/inside/Interiors_290.jpg");
-            background-position: 0% 75%;
+            background-position: 0% 38%;
           }
         }
       }
