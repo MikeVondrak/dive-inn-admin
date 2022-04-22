@@ -3,6 +3,8 @@ General:
 
 Public-Client:
 4/14/2022
+0. Custom directive that checks screen width against breakpoints
+
 1. Header nav - style it and remove whichever items to make the menu smaller for mobile sizes
   - selected state / how to indicate which page we're on?
     - hiding the current page link
@@ -16,7 +18,7 @@ Public-Client:
   - scroll trigger is too low for mobile sizes
     - check OnScreenDirective??
 
-3. Boat Cam - remove for now or rough styling?
+3. Boat Cam - remove for now or rough styling? - Removed for now DONE
 
 4. Title - check into letter rotation ability
   - make the title text configurable

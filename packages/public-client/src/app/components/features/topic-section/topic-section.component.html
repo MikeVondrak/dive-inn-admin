@@ -5,10 +5,13 @@
 </div> -->
 <div class="section"
   [ngClass]="{'menu': sectionName === 'MENU', 'booking': sectionName === 'BOOKINGS', 'reverse': orientation == 'right'}">
-  <div class="section-text">
+  <div class="section-text">    
     <div>
+      <img class="click-icon" src="assets/images/click.svg" />
       <h2 class="section-label">
-        {{ sectionTitle }}
+        <span>
+          {{ sectionTitle }}
+        </span>
       </h2>
       <p class="section-blurb">
         {{ sectionNote }}

@@ -1,6 +1,5 @@
 @use '../../scss/utility';
 
-$lineColor: utility.$dive-red;
 $horizontalGap: 0.75rem;
 $sectionHeight: 24vw;
 
@@ -36,17 +35,19 @@ $sectionHeight: 24vw;
   &.menu {
     // margin-bottom: 2rem;
     .section-text {
-      border-top: 1px solid $lineColor;
-      border-bottom: 1px solid $lineColor;
-      border-right: 1px solid $lineColor;
+      border-top: 1px solid utility.$line-colors;
+      border-bottom: 1px solid utility.$line-colors;
+      border-right: 1px solid utility.$line-colors;
       margin: 0 $horizontalGap 0  0;
 
       > div {
         margin: $horizontalGap;
         //padding: 8vw;
-        border-top: 1px solid $lineColor;
-        border-bottom: 1px solid $lineColor;
-        border-right: 1px solid $lineColor;        
+        border-top: 1px solid utility.$line-colors;
+        border-bottom: 1px solid utility.$line-colors;
+        border-right: 1px solid utility.$line-colors;        
+
+        //background-color: utility.$dive-red;
       }
       .section-label {      
         //@include utility.text-double-outline('Specials');
@@ -56,23 +57,28 @@ $sectionHeight: 24vw;
         background-image: url('../../../../assets/images/home/DiveInnDraft.jpg');
         background-size: cover;
         background-position: center right;
-        border-top: 1px solid $lineColor;
-        border-bottom: 1px solid $lineColor;
-        border-left: 1px solid $lineColor;
+        border-top: 1px solid utility.$line-colors;
+        border-bottom: 1px solid utility.$line-colors;
+        border-left: 1px solid utility.$line-colors;
     }
   }
 
   &.booking {
     .section-text {
       margin: 0 0 0 $horizontalGap;
-      border-top: 1px solid $lineColor;
-      border-bottom: 1px solid $lineColor;
-      border-left: 1px solid $lineColor;      
+      border-top: 1px solid utility.$line-colors;
+      border-bottom: 1px solid utility.$line-colors;
+      border-left: 1px solid utility.$line-colors;      
       > div {
         margin: $horizontalGap;
-        border-top: 1px solid $lineColor;
-        border-bottom: 1px solid $lineColor;
-        border-left: 1px solid $lineColor;
+        border-top: 1px solid utility.$line-colors;
+        border-bottom: 1px solid utility.$line-colors;
+        border-left: 1px solid utility.$line-colors;
+
+        .click-icon {
+          left: 2rem;
+          right: unset;
+        }
       }
       .section-label {      
         //@include utility.text-double-outline('Charters');
@@ -82,9 +88,9 @@ $sectionHeight: 24vw;
       background-image: url('../../../../assets/images/inside/Interiors_233.jpg');
       background-size: cover;
       background-position: 0% 40%;
-      border-top: 1px solid $lineColor;
-      border-bottom: 1px solid $lineColor;
-      border-right: 1px solid $lineColor;
+      border-top: 1px solid utility.$line-colors;
+      border-bottom: 1px solid utility.$line-colors;
+      border-right: 1px solid utility.$line-colors;
     }
   }
   
@@ -95,6 +101,8 @@ $sectionHeight: 24vw;
   }
 
   .section-text {
+    position: relative;
+    text-shadow: 2px 2px 2px #000;
     z-index: 1;
     //background-image: linear-gradient(90deg, utility.$dive-black 0%, utility.$dive-black 70%, transparent 100%);        
     > div {
@@ -106,9 +114,31 @@ $sectionHeight: 24vw;
       align-items: center;
       padding: 2vw;
 
+      .click-icon {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        width: 2vw;
+        
+      }
+
       .section-label {
         //text-transform: uppercase;
+        //width: 100%;
+        padding: 0.5rem 2rem;
+        
+        //border: 5px solid utility.$dive-green;
+        background: utility.$dive-green;
+        border-radius: 8px;
         color: utility.$dive-yellow;
+        transform: skew(-20deg) rotateZ(-10deg);
+        
+        span {
+          display: block;
+          transform: skew(20deg) rotateZ(0deg);
+          font-style: italic;
+        }
+
         margin: 0 0 0rem;
         font-size: 3.4vw;
         font-family: 'Righteous', cursive;
@@ -119,6 +149,9 @@ $sectionHeight: 24vw;
       .section-blurb {
         font-size: 2vw;
         text-align: center;
+        transform: skew(-20deg) rotate(-12deg);
+        padding: 0 2vw;
+        //font-style: italic;
       }
     }
   }

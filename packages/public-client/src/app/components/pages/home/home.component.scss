@@ -2,7 +2,6 @@
 @use '../../scss/utility';
 
 $headerColor: utility.$dive-gray-dk3;
-$lineColor: utility.$dive-red;
 $verticalGap: 0.75rem;
 
 :host {
@@ -377,16 +376,16 @@ $verticalGap: 0.75rem;
         }
         margin: 0 auto 0vw;
         path, circle, rect, ellipse {
-          fill: $lineColor;
-          //stroke: $lineColor;
+          fill: utility.$line-colors;
+          //stroke: utility.$line-colors;
         }
       }
     }
     .sections-container {
       margin: $verticalGap auto 6vw;
       padding: $verticalGap 0;
-      border-top: 1px solid $lineColor;
-      //border-bottom: 1px solid $lineColor;
+      border-top: 1px solid utility.$line-colors;
+      //border-bottom: 1px solid utility.$line-colors;
       @include utility.media-breakpoint-gte(sm) {
         width: 80vw;
       }
@@ -402,21 +401,21 @@ $verticalGap: 0.75rem;
       .sections-separator-top {
         height: $verticalGap + 0.1rem;
         margin: 0 0 $verticalGap;
-        border-top: 1px solid $lineColor;
-        border-bottom: 1px solid $lineColor;
+        border-top: 1px solid utility.$line-colors;
+        border-bottom: 1px solid utility.$line-colors;
       }
       .sections-separator-bottom {
         height: $verticalGap + 0.1rem;
         margin: $verticalGap 0 6vw;
-        border-top: 1px solid $lineColor;
-        border-bottom: 1px solid $lineColor;
+        border-top: 1px solid utility.$line-colors;
+        border-bottom: 1px solid utility.$line-colors;
         div {
           height: $verticalGap + 0.1rem;
           margin: $verticalGap $verticalGap;
           
-          //border-top: 1px solid $lineColor;
+          //border-top: 1px solid utility.$line-colors;
           //border-top: none;
-          border-bottom: 1px solid $lineColor;
+          border-bottom: 1px solid utility.$line-colors;
         }
 
         svg {
@@ -424,7 +423,7 @@ $verticalGap: 0.75rem;
           height: 3vw;
           margin: 1vw;
           path {
-            fill: $lineColor;
+            fill: utility.$line-colors;
           }
         }
       }
@@ -454,8 +453,8 @@ $verticalGap: 0.75rem;
         margin: $verticalGap auto;
         //top: -1rem;
         //height: $verticalGap;
-        border-top: 1px solid $lineColor;
-        //border-bottom: 1px solid $lineColor;
+        border-top: 1px solid utility.$line-colors;
+        //border-bottom: 1px solid utility.$line-colors;
       }
     } // end sections-container
 
@@ -571,8 +570,8 @@ $verticalGap: 0.75rem;
       position: relative;
       height: 40vw;
       overflow: hidden;
-      border-top: 1px solid $lineColor;
-      border-bottom: 1px solid $lineColor;
+      border-top: 1px solid utility.$line-colors;
+      border-bottom: 1px solid utility.$line-colors;
       ::ng-deep {
         .mouse-facer-container {
           .mouse-facer-content {
