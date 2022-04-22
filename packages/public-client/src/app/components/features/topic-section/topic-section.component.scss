@@ -76,8 +76,16 @@ $sectionHeight: 24vw;
         border-left: 1px solid utility.$line-colors;
 
         .click-icon {
-          left: 2rem;
+          left: 2vw;
           right: unset;
+          top: 6.5vw;
+          bottom: unset;
+          svg {
+            path {
+              fill: utility.$dive-red;
+              stroke: utility.$dive-black;
+            }
+          }
         }
       }
       .section-label {      
@@ -96,11 +104,20 @@ $sectionHeight: 24vw;
   
 
 
+  $bgSplit1: 17.5%;
+  $bgSplit: 82%;
   &.reverse {
     flex-direction: row-reverse;
+
+    .section-text {
+      > div {
+        //background-image: linear-gradient(-11deg, utility.$dive-red-dk, $bgSplit1, utility.$dive-red $bgSplit1 + 15%, utility.$dive-red $bgSplit, utility.$dive-black $bgSplit + 0.5%);
+      }
+    }
   }
 
   .section-text {
+    flex: 2;
     position: relative;
     text-shadow: 2px 2px 2px #000;
     z-index: 1;
@@ -113,19 +130,31 @@ $sectionHeight: 24vw;
       justify-content: center;
       align-items: center;
       padding: 2vw;
+      
+      //background-image: radial-gradient(at 15%, transparent 70%, utility.$dive-red 71%);
+      //background-image: linear-gradient(-11deg, utility.$dive-red-dk, $bgSplit1, utility.$dive-red $bgSplit1 + 15%, utility.$dive-red $bgSplit, utility.$dive-black $bgSplit + 0.5%);
+      background-image: linear-gradient(-11deg, utility.$dive-red, utility.$dive-red $bgSplit1, transparent $bgSplit1 + 0.5%, transparent $bgSplit, utility.$dive-red $bgSplit + 0.5%);
+      //background-image: linear-gradient(-11deg, utility.$dive-red $bgSplit, utility.$dive-black $bgSplit + 1%);
+      //background-position: left top;
 
       .click-icon {
         position: absolute;
-        top: 2rem;
-        right: 2rem;
-        width: 2vw;
-        
+        bottom: 6.5vw;
+        right: 2vw;
+        width: 1.25vw;
+        svg {
+          path {
+            stroke-width: 8px;
+            stroke: utility.$dive-red;
+            fill: utility.$dive-black;
+          }
+        }
       }
 
       .section-label {
         //text-transform: uppercase;
         //width: 100%;
-        padding: 0.5rem 2rem;
+        padding: 0 0 0.5rem 0rem;
         
         //border: 5px solid utility.$dive-green;
         background: utility.$dive-green;
@@ -150,6 +179,7 @@ $sectionHeight: 24vw;
         font-size: 2vw;
         text-align: center;
         transform: skew(-20deg) rotate(-12deg);
+        margin: 0.5rem 0;
         padding: 0 2vw;
         //font-style: italic;
       }
@@ -157,6 +187,7 @@ $sectionHeight: 24vw;
   }
   
   .section-img {
+    flex: 3;
     //position: absolute;
     width: 100%;
 

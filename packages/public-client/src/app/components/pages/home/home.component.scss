@@ -168,10 +168,10 @@ $verticalGap: 0.75rem;
           // align-items: center;
           // justify-content: space-around;
           width: 100%;
-          height: 20vw;
-          padding: 2vw 5vw 18vw;
+          //height: 20vw;
+          padding: 2vw 5vw 2vw;
           @include utility.media-breakpoint-gte(md) {
-            padding: 2.5vw 10vw 19vw;            
+            padding: 4vw 10vw 10vw;            
           }
           background-color: utility.$dive-red;
           background-image: linear-gradient(0deg, utility.$dive-red 0%, utility.$dive-red 99%, utility.$dive-black 100%);
@@ -187,6 +187,7 @@ $verticalGap: 0.75rem;
             display: flex;
             justify-content: center;
             flex-flow: wrap;
+            padding-top: 1vw;
             color: utility.$dive-white;
             //border-bottom-left-radius: 50%;
             //border-bottom-right-radius: 50%;
@@ -194,14 +195,27 @@ $verticalGap: 0.75rem;
             text-align: center;
             text-shadow: 2px 2px 2px utility.$dive-black;
 
-            > div {           
+            $contactOffset: 8vw;
+            > div {
               position: relative;
               flex: 1;
               display: flex;
               flex-direction: column;
               justify-content: flex-start;
               align-items: center;
-              padding: 6.5vw 1rem 0;
+              padding: calc($contactOffset - 0.75vw) 1rem 0;
+              cursor: pointer;
+
+              > div {
+                box-shadow: 1px 1px 4px 0px #000;
+                padding: 6.5vw 1.5rem 1.5rem;
+                margin-top: -$contactOffset;
+                border-radius: 1rem;
+                transition: box-shadow 0.2s ease;
+                &:hover {
+                  box-shadow: 2px 2px 8px 0px #000;
+                }
+              }
 
               $imgSize: 5vw;
               img, svg {
@@ -270,24 +284,6 @@ $verticalGap: 0.75rem;
             }            
           } // end contact-content          
         } // end contact
-
-        $waveSize: 4vw;
-        .waves-separator {
-          position: relative;
-          z-index: 1;
-          display: flex;
-          height: $waveSize;
-          width: 100%;
-          margin-top: -($waveSize - 0.05vw);
-          background-image: url('/assets/images/wave.svg');
-          // > div {
-          //   position: relative;
-          //   flex: 1;
-          //   min-height: 4rem;
-          //   border-radius: 0 0 50% 50%;
-          //   background-color: utility.$dive-red;
-          // }
-        }
 
         .blurb {
           position: relative;
@@ -484,13 +480,14 @@ $verticalGap: 0.75rem;
           justify-content: center;
           align-items: center;
           background-color: rgba(0,0,0, 0.75);
-          border-radius: 50%;
+          //border-radius: 50%;
           transform: skew(-10deg) rotateZ(-5deg);
           position: relative;
-          top: 3vw;
-          left: 45vw;
+          top: 6vw;
+          left: 15vw;
           padding: 1.5rem 2rem;
-          width: 35vw;
+          max-width: 35vw;          
+
           > * {
             display: inline-block;
             transform: skew(10deg) rotateZ(5deg);
@@ -499,7 +496,7 @@ $verticalGap: 0.75rem;
         h2 {                    
           font-size: 3vw;
           margin: 0;
-          right: -12vw;
+          right: -16vw;
           position: relative;
           padding-bottom: 0.5rem;
           line-height: 1;
@@ -507,11 +504,11 @@ $verticalGap: 0.75rem;
         p {
           font-size: 2vw;
           margin: 0;
-          padding: 0 2rem 2rem;
+          padding: 0 2rem 1rem;
           line-height: 1.25;
-          text-align: center;
+          text-align: left;
         }
-        $overrideStroke: 14px;
+        $overrideStroke: 8px;
         &.shop {
           > div {
             left: 15vw;
@@ -529,8 +526,9 @@ $verticalGap: 0.75rem;
           }
           p {
             position: relative;
-            left: 2vw;
-            top: 0.25vw
+            text-align: right;
+            //left: 2vw;
+            //top: 0.25vw
           }
         }
         &.main {
@@ -559,6 +557,7 @@ $verticalGap: 0.75rem;
           }
           p {
             position: relative;
+            text-align: right;
             left: 6vw;
             top: 0.5vw;
           }
@@ -575,6 +574,7 @@ $verticalGap: 0.75rem;
       ::ng-deep {
         .mouse-facer-container {
           .mouse-facer-content {
+            // bookings / charters / private parties
             background-image: url("/assets/images/inside/Interiors_290.jpg");
             background-position: 0% 38%;
           }
@@ -625,22 +625,41 @@ $verticalGap: 0.75rem;
     }
   } // end main
 
+  $waveSize: 3vw;
+  .waves-separator {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    height: $waveSize;
+    width: 100%;
+    top: -($waveSize - 0.1vw);
+    background-image: url('/assets/images/wave.svg');
+    &.footer {
+      height: 2vw;
+      top: 1px;
+      background-image: url('/assets/images/wave-red.svg');
+    }
+  }
   footer {
     z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 1rem 0;
+    padding: 1.5vw 0 2vw;
     background-color: utility.$dive-red;
     $t1: 50%;
-    background-image: linear-gradient(0deg, utility.$dive-black $t1, utility.$dive-red ($t1 + 1%), utility.$dive-red 99%, utility.$dive-black 100%);
-    box-shadow: 0px -2px 4px utility.$dive-black;
+    //background-image: linear-gradient(0deg, utility.$dive-black $t1, utility.$dive-red ($t1 + 1%), utility.$dive-red 99%, utility.$dive-black 100%);
+    //box-shadow: 0px -2px 4px utility.$dive-black;
     color: utility.$dive-white;
     text-shadow: 1px 1px 3px #000;
     p {
-      padding: 0;
+      padding: 0 0 0.5rem;
       margin: 0;
+      //color: utility.$dive-black;
+      //font-weight: bold;
+      font-size: 1.75rem;
+      //text-shadow: none;
     }
     ul.navigation {
       display: flex;
@@ -651,13 +670,46 @@ $verticalGap: 0.75rem;
     }
     .spacer {
       padding: 0 0.5rem;
+      color: utility.$dive-black;
     }
 
+    $iconSize: 32px;
     .social-icons {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1rem 0;
+      //margin-bottom: 1rem;
+      padding: 1rem 1rem;
+      background-color: utility.$dive-black;
+      border-radius: 2rem;
+
+      > div {
+        width: $iconSize;
+        height: $iconSize;
+        margin: 0 0.5rem;
+        background-image: url('/assets/images/social-sprite.png');
+      }
+
+      // don't name like ".facebook" as it can be filtered by ad blockers
+      .gurgleplus {}
+      .faceburk {
+        background-position: -($iconSize * 1) 0;
+      }
+      .instakilo {
+        background-position: -($iconSize * 6) 0;
+      }
+      .twatter {
+        background-position: -($iconSize * 4) 0;
+      }
+      .needletrest {
+        background-position: -($iconSize * 5) 0;
+      }
+      .tripsitter {
+        background-position: -($iconSize * 7) 0;
+      }
+      .yalp {
+        background-position: -($iconSize * 2) 0;
+      }
     }
   }
 

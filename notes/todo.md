@@ -12,6 +12,8 @@ Public-Client:
   - configurable list of which items dis/appear 1st, 2nd etc
 
   - hamburger menu - collapse all items at some small breakpoint?
+  - social icons in top left corner?
+    - what about mobile?
 
 2. Logo - too small at mobile sizes, balance between breakpoints - DONE
   - in Chrome (check FF etc), gets fuzzy after scaling down at mobile sizes (could just keep the logo a fixed size for mobile)
@@ -30,6 +32,11 @@ Public-Client:
 
 5. Contact section - style for top border? Filligree?
   - remove waves and turn into ribbon?
+  - animations for icons
+    - map marker wobble
+    - time card flip to show open/closed sign
+    - "draw" at sign?
+  - CODE IS UGLY NEEDS REFACTORING
 
 6. Blurb - include links for e.g. "#1 neighborhood bar", "every day"? Color?
 

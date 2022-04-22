@@ -29,28 +29,34 @@
     <div class="contact-container">
       <div class="contact-content">
         <div class="address">
-          <!-- <img src="assets/images/Map-Marker.svg"> -->
-          <ng-container *ngTemplateOutlet="MapMarker2Svg"></ng-container>
-          <!-- <h2>Address</h2> -->
-          <p *ngFor="let address of footerAddress">{{ address }}</p>
+          <div>
+            <!-- <img src="assets/images/Map-Marker.svg"> -->
+            <ng-container *ngTemplateOutlet="MapMarker2Svg"></ng-container>
+            <!-- <h2>Address</h2> -->          
+            <p *ngFor="let address of footerAddress">{{ address }}</p>
+          </div>
         </div>
         <div class="hours">
-          <!-- <img src="assets/images/Clock.svg"> -->
-          <ng-container *ngTemplateOutlet="ClockSvg"></ng-container>
-          <!-- <h2>Hours</h2> -->
-          <p *ngFor="let days of contactHours">{{ days }}</p>
+          <div>
+            <!-- <img src="assets/images/Clock.svg"> -->
+            <ng-container *ngTemplateOutlet="ClockSvg"></ng-container>
+            <!-- <h2>Hours</h2> -->
+            <p *ngFor="let days of contactHours">{{ days }}</p>
+          </div>
         </div>
         <div class="phone">
-          <!-- <img src="assets/images/Www-Globe.svg"> -->
-          <ng-container *ngTemplateOutlet="AtSignSvg"></ng-container>
-          <!-- <h2>Contact</h2> -->
-          <p>{{ footerPhone }}</p><!-- TODO: add tel link to number -->
-          <p>contact@diveinndenver</p>
+          <div>
+            <!-- <img src="assets/images/Www-Globe.svg"> -->
+            <ng-container *ngTemplateOutlet="AtSignSvg"></ng-container>
+            <!-- <h2>Contact</h2> -->
+            <p>{{ footerPhone }}</p><!-- TODO: add tel link to number -->
+            <p>contact@diveinndenver</p>
+          </div>
         </div>
       </div>        
     </div>
     <div class="waves-separator">
-      <div *ngFor="let wave of numWaves"></div>
+      <!-- <div *ngFor="let wave of numWaves"></div> -->
     </div>
     <div class="blurb">
       <ng-container *ngTemplateOutlet="AnchorSvg"></ng-container>
@@ -58,9 +64,21 @@
         <!-- unique local events? -->
         <!-- Denver's favorite dive bar since... -->
         <!-- Denver's <span>#1 neighborhood bar</span> since 2012, with specials <span>every day</span>, three patios & <span>exclusive events</span>. -->
-        Denver's <span>#1 neighborhood bar</span> since 2012, with <span>specials</span> every day, all your favorite <span>games</span>, exclusive <span>events</span> & private <span>parties</span>.
+        Denver's 
+        <a href="javascript:void(0)">#1 neighborhood bar</a>
+        since 2012, with
+        <a href="javascript:void(0)">specials</a>
+        every day, all your favorite
+        <a href="javascript:void(0)">games</a>, 
+        exclusive 
+        <a href="javascript:void(0)">events</a>
+        & private 
+        <a href="javascript:void(0)">parties</a>.
       </p>
-      <p>Grab your <span>friends</span> and...
+      <p
+        >Grab your
+        <a href="javascript:void(0)">friends</a> 
+        and...
         <span class="titleFont">Dive Inn</span>
       </p>
       <div class="diver">
@@ -133,12 +151,38 @@
 
 </main>
 
-
+<div class="waves-separator footer">
+  <!-- <div *ngFor="let wave of numWaves"></div> -->
+</div>
 <footer>
+  <div class="social-icons">
+    <!-- <img src="assets/images/social-sprite.png" /> -->
+    <div class="faceburk"></div>
+    <div class="instakilo"></div>
+    <div class="twatter"></div>
+    <div class="needletrest"></div>
+    <div class="tripsitter"></div>
+    <div class="yalp"></div>
+  </div>
+
   <p>{{footerAddress[0]}}<span class="spacer">|</span>{{footerPhone}}</p>
   
   <ul class="navigation">
-    <li>Contact Us</li>
+    <li>Home</li>
+    <li class="spacer">|</li>
+    <li>Specials</li>
+    <li class="spacer">|</li>
+    <li>Events</li>
+    <li class="spacer">|</li>
+    <li>Private Parties</li>
+    <li class="spacer">|</li>
+    <li>About Us</li>
+    <li class="spacer">|</li>
+    <li>Partnerships</li>
+    <li class="spacer">|</li>
+    <li>Jobs</li>
+    <li class="spacer">|</li>
+    <li>Dive Shop</li>
     <li class="spacer">|</li>
     <li>News</li>
     <li class="spacer">|</li>
@@ -146,14 +190,14 @@
     <li class="spacer">|</li>
     <li>Sightings</li>
   </ul>
-  
-  <div class="social-icons">
-    <img src="assets/images/social-sprite.png" />
-  </div>
 </footer>
 
 
-<!-- SVGs -->
+
+
+<!------------------------------------- SVGs ---------------------------------------->
+
+
 <ng-template #AnchorSvg>  
   <svg width="100%" height="100%" viewBox="0 0 103 116" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
       <g>
