@@ -4,6 +4,11 @@
 $horizontalGap: 0.75rem;
 $sectionHeight: 24vw;
 
+$min: 7.0;
+$max: 8.0;
+$rand: random(); // default is 1-100
+$randomNum: $min + floor($rand * (($max - $min) + 1));
+
 // .filigree {
 //   width: 55vw;
 //   height: 4vw;
@@ -76,6 +81,11 @@ $sectionHeight: 24vw;
         border-bottom: 1px solid utility.$line-colors;
         border-left: 1px solid utility.$line-colors;
 
+        &::after {
+          background-image: linear-gradient(71deg, transparent 19%, rgba(255,255,255,0.08) 30.59%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0.08) 40.31%, transparent 40.51%);
+          animation: shine-to-right $randomNum+s ease-in-out forwards infinite;
+        }
+
         .click-icon {
           left: 2vw;
           right: unset;
@@ -125,15 +135,31 @@ $sectionHeight: 24vw;
     
     $tx: 100%;
     $ty: 0%;
-    @keyframes shine {
+    $scale: 100%;
+    @keyframes shine-to-left {
       0% {
-        transform: translate($tx, -$ty) scale(150%);
+        transform: translate($tx, -$ty) scale($scale);
       }
       10% {
-        transform: translate(-$tx, $ty) scale(150%);
+        transform: translate(-$tx, $ty) scale($scale);
       }
       100% {
-        transform: translate(-$tx, $ty) scale(150%);
+        transform: translate(-$tx, $ty) scale($scale);
+      }   
+    }
+    @keyframes shine-to-right {
+      0% {
+        transform: translate(-$tx, -$ty) scale($scale);
+      }
+      10% {
+        transform: translate($tx, $ty) scale($scale);
+      }
+      99% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translate($tx, $ty) scale(100%);
       }   
     }
     > div {
@@ -152,28 +178,26 @@ $sectionHeight: 24vw;
       radial-gradient(rgba(255,255,255,0.09) 30%, transparent 70%);      
       //background-image: linear-gradient(-11deg, utility.$dive-red $bgSplit, utility.$dive-black $bgSplit + 1%);
       //background-position: left top;
-      overflow: hidden;
-
-
-      $min: 7.0;
-      $max: 8.0;
-      $rand: random(); // default is 1-100
-      $randomNum: $min + floor($rand * (($max - $min) + 1));
+      overflow: hidden;      
 
       &::after {
         content: '';
         position: absolute;
         top: 0; left: 0; bottom: 0; right: 0;
-        background-image: linear-gradient(71deg, transparent 35%, rgba(255,255,255,0.08) 39.59%, rgba(255,255,255,0.25) 40%, rgba(255,255,255,0.08) 41.31%, transparent 65.51%);
+        background-image: linear-gradient(71deg, transparent 39%, rgba(255,255,255,0.08) 39.59%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0.08) 41.31%, transparent 65.51%);
         background-repeat: no-repeat;
         background-position: top left;
         transform: translate(-100%, 0%);
-        //opacity: 0;
         //transition: transform 0.5s ease;
-        animation: shine $randomNum+s ease-in-out forwards infinite;
+        animation: shine-to-left $randomNum+s ease-in-out forwards infinite;        
       }
 
       &:hover {
+        cursor: pointer;
+        .section-label {
+          text-shadow: 0px 0px 5px utility.$dive-yellow;
+        }
+
         &::after {
           //opacity: 1;
           //transform: translate(100%, 10%);
