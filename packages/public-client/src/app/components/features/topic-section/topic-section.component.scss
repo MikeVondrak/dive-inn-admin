@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use '../../scss/utility';
 
 $horizontalGap: 0.75rem;
@@ -121,8 +122,22 @@ $sectionHeight: 24vw;
     position: relative;
     text-shadow: 2px 2px 2px #000;
     z-index: 1;
-    //background-image: linear-gradient(90deg, utility.$dive-black 0%, utility.$dive-black 70%, transparent 100%);        
+    
+    $tx: 100%;
+    $ty: 0%;
+    @keyframes shine {
+      0% {
+        transform: translate($tx, -$ty) scale(150%);
+      }
+      10% {
+        transform: translate(-$tx, $ty) scale(150%);
+      }
+      100% {
+        transform: translate(-$tx, $ty) scale(150%);
+      }   
+    }
     > div {
+      position: relative;
       min-height: $sectionHeight;
       min-width: $sectionHeight;
       display: flex;      
@@ -133,9 +148,37 @@ $sectionHeight: 24vw;
       
       //background-image: radial-gradient(at 15%, transparent 70%, utility.$dive-red 71%);
       //background-image: linear-gradient(-11deg, utility.$dive-red-dk, $bgSplit1, utility.$dive-red $bgSplit1 + 15%, utility.$dive-red $bgSplit, utility.$dive-black $bgSplit + 0.5%);
-      background-image: linear-gradient(-11deg, utility.$dive-red, utility.$dive-red $bgSplit1, transparent $bgSplit1 + 0.5%, transparent $bgSplit, utility.$dive-red $bgSplit + 0.5%);
+      background-image: linear-gradient(-11deg, utility.$dive-red, utility.$dive-red $bgSplit1, transparent $bgSplit1 + 0.5%, transparent $bgSplit, utility.$dive-red $bgSplit + 0.5%),
+      radial-gradient(rgba(255,255,255,0.09) 30%, transparent 70%);      
       //background-image: linear-gradient(-11deg, utility.$dive-red $bgSplit, utility.$dive-black $bgSplit + 1%);
       //background-position: left top;
+      overflow: hidden;
+
+
+      $min: 7.0;
+      $max: 8.0;
+      $rand: random(); // default is 1-100
+      $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background-image: linear-gradient(71deg, transparent 35%, rgba(255,255,255,0.08) 39.59%, rgba(255,255,255,0.25) 40%, rgba(255,255,255,0.08) 41.31%, transparent 65.51%);
+        background-repeat: no-repeat;
+        background-position: top left;
+        transform: translate(-100%, 0%);
+        //opacity: 0;
+        //transition: transform 0.5s ease;
+        animation: shine $randomNum+s ease-in-out forwards infinite;
+      }
+
+      &:hover {
+        &::after {
+          //opacity: 1;
+          //transform: translate(100%, 10%);
+        }
+      }
 
       .click-icon {
         position: absolute;
@@ -151,16 +194,14 @@ $sectionHeight: 24vw;
         }
       }
 
-      .section-label {
-        //text-transform: uppercase;
-        //width: 100%;
+      .section-label {        
         padding: 0 0 0.5rem 0rem;
         
         //border: 5px solid utility.$dive-green;
         background: utility.$dive-green;
         border-radius: 8px;
         color: utility.$dive-yellow;
-        transform: skew(-20deg) rotateZ(-10deg);
+        transform: skew(-20deg) rotateZ(-14deg);
         
         span {
           display: block;
@@ -178,7 +219,7 @@ $sectionHeight: 24vw;
       .section-blurb {
         font-size: 2vw;
         text-align: center;
-        transform: skew(-20deg) rotate(-12deg);
+        transform: skew(-20deg) rotate(-14deg);
         margin: 0.5rem 0;
         padding: 0 2vw;
         //font-style: italic;
