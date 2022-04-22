@@ -69,6 +69,8 @@ $randomNum: $min + floor($rand * (($max - $min) + 1));
     }
   }
 
+  $clickIconSpacing: 1vw;
+
   &.booking {
     .section-text {
       margin: 0 0 0 $horizontalGap;
@@ -87,16 +89,16 @@ $randomNum: $min + floor($rand * (($max - $min) + 1));
         }
 
         .click-icon {
-          left: 2vw;
+          left: $clickIconSpacing;
           right: unset;
-          top: 6.5vw;
+          top: $clickIconSpacing;
           bottom: unset;
-          svg {
-            path {
-              fill: utility.$dive-red;
-              stroke: utility.$dive-black;
-            }
-          }
+          // svg {
+          //   path {
+          //     fill: utility.$dive-red;
+          //     stroke: utility.$dive-black;
+          //   }
+          // }
         }
       }
       .section-label {      
@@ -188,14 +190,27 @@ $randomNum: $min + floor($rand * (($max - $min) + 1));
         background-repeat: no-repeat;
         background-position: top left;
         transform: translate(-100%, 0%);
-        //transition: transform 0.5s ease;
         animation: shine-to-left $randomNum+s ease-in-out forwards infinite;        
       }
 
-      &:hover {
+      &:hover, &:focus {
         cursor: pointer;
+
+        .click-icon {
+          svg {
+            path {              
+              fill: utility.$dive-black;
+              stroke: utility.$dive-red;
+              stroke-width: 2px;
+            }
+          }
+        }
+
         .section-label {
           text-shadow: 0px 0px 5px utility.$dive-yellow;
+          //-webkit-text-stroke: yellow 1px; //lighten(utility.$dive-yellow, 70%) 1px;
+          -webkit-text-stroke: yellow 1px;
+          //-webkit-text-stroke-color: #f00;
         }
 
         &::after {
@@ -206,20 +221,25 @@ $randomNum: $min + floor($rand * (($max - $min) + 1));
 
       .click-icon {
         position: absolute;
-        bottom: 6.5vw;
-        right: 2vw;
-        width: 1.25vw;
+        bottom: $clickIconSpacing;
+        right: $clickIconSpacing;
+        width: 1.25vw;        
         svg {
           path {
+            transition: all 0.25s ease-in-out;
             stroke-width: 8px;
-            stroke: utility.$dive-red;
-            fill: utility.$dive-black;
+            stroke: utility.$dive-black;
+            fill: utility.$dive-red;
           }
         }
       }
 
       .section-label {        
         padding: 0 0 0.5rem 0rem;
+
+        transition: -webkit-text-stroke 0.25s ease;
+        -webkit-text-stroke: #0ff 1px;
+        -webkit-text-stroke-color: utility.$dive-yellow;
         
         //border: 5px solid utility.$dive-green;
         background: utility.$dive-green;
