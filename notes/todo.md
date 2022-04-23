@@ -2,6 +2,12 @@ Next Steps:
   1. Host somewhere - use fishbone sub-domain? - DONE test.fishbonedigital.io
   2. Refactor into components and do cleanup
   3. Mobile views
+  4. Script for deploying (server) - DONE
+  5. Fix flashing pink bg on mouse-facer using OS X, iOS, Linux
+  6. Final design polishing
+  *. Funny intro, "5 attempts / 10 years / 1000 hours / We present..." -> old geocities looking page & kazoo reveal -> just kidding -> site
+    - cookie to only play once
+Target date: 5/4/2020
 
 
 Public-Client:

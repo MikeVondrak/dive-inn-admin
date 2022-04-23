@@ -4,10 +4,10 @@
 $horizontalGap: 0.75rem;
 $sectionHeight: 24vw;
 
-$min: 7.0;
-$max: 8.0;
+$min: 4.0;
+$max: 6.0;
 $rand: random(); // default is 1-100
-$randomNum: $min + floor($rand * (($max - $min) + 1));
+$randomNum: 6; // $min + floor($rand * (($max - $min) + 1));
 
 // .filigree {
 //   width: 55vw;
