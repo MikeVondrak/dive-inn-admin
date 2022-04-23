@@ -7,6 +7,7 @@ Next Steps:
     - Contact section
     - Specials / Events
     - Charters or other banner sections?
+    - About Us / Contact Us / Work With Us
     - Footer
   3. Mobile views
   4. Script for deploying (server) - DONE
