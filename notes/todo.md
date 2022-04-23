@@ -1,5 +1,8 @@
-General:
-**1. Host somewhere - use fishbone sub-domain? - DONE test.fishbonedigital.io
+Next Steps:
+  1. Host somewhere - use fishbone sub-domain? - DONE test.fishbonedigital.io
+  2. Refactor into components and do cleanup
+  3. Mobile views
+
 
 Public-Client:
 4/14/2022
@@ -45,6 +48,8 @@ Public-Client:
 
 8. Footer - polish and decide on final styles
   - social media sprite
+
+9. Mobile views / cleanup
 
 Future Enhancements
 * remove the switch from topic-section.component.ts and make it inputs

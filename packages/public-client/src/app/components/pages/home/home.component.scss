@@ -400,24 +400,88 @@ $verticalGap: 0.75rem;
         border-top: 1px solid utility.$line-colors;
         border-bottom: 1px solid utility.$line-colors;
       }
+      $w1: 26vw;
+      $w2: 10vw;
+      $w3: 3vw;
       .sections-separator-bottom {
-        height: $verticalGap + 0.1rem;
+        display: flex;
+        // height: $verticalGap + 0.1rem;
         margin: $verticalGap 0 6vw;
         border-top: 1px solid utility.$line-colors;
-        border-bottom: 1px solid utility.$line-colors;
-        div {
-          height: $verticalGap + 0.1rem;
-          margin: $verticalGap $verticalGap;
-          
-          //border-top: 1px solid utility.$line-colors;
-          //border-top: none;
-          border-bottom: 1px solid utility.$line-colors;
+        //border-bottom: 1px solid utility.$line-colors;        
+
+        > :last-child {
+          align-items: flex-start;         
+          div {
+            width: 100%;            
+            &:nth-of-type(1) {
+              margin: 0 0 0 0.5rem;
+              max-width: $w1;
+            }
+            &:nth-of-type(2) {
+              margin: 0 0 0 1rem;
+              max-width: $w2;
+            }
+            &:nth-of-type(3) {
+              margin: 0 0 0 0.5rem;
+              max-width: $w3;
+            }
+            &::after {
+              left: 0;
+            }
+          }
+        }
+
+        > * {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          flex: 1;
+        }
+
+        div {                    
+
+          div {
+            position: relative;
+            width: 100%;
+            height: $verticalGap + 0.1rem;
+            margin-top: 0;
+            border-bottom: 1px solid utility.$line-colors;
+
+            &::after {
+              content: '';
+              position: absolute;
+              right: 0;
+              bottom: -0.125rem;
+              width: 0.25rem;
+              height: 0.25rem;
+              background-color: utility.$line-colors;
+              border-radius: 50%;
+            }
+
+            &:nth-of-type(1) {
+              margin: 0 0.5rem 0 0;
+              max-width: $w1;
+            }
+            &:nth-of-type(2) {
+              margin: 0 1rem 0 0;
+              max-width: $w2;
+            }
+            &:nth-of-type(3) {
+              margin: 0 0.5rem 0 0;
+              max-width: $w3;
+            }
+          }          
         }
 
         svg {
           display: block;
-          height: 3vw;
-          margin: 1vw;
+          flex: 0 auto;
+          height: 3rem; //4vw;
+          width: 3rem; //4vw;
+          max-width: 3rem;
+          max-height: 3rem;
+          margin-top: 0.25rem;
           path {
             fill: utility.$line-colors;
           }
@@ -476,42 +540,44 @@ $verticalGap: 0.75rem;
         // justify-content: center;
         // align-items: center;
         > div {
-          display: inline-block;
+          display: inline-flex;
+          flex-direction: column;
           justify-content: center;
-          align-items: center;
+          align-items: flex-start;
           background-color: rgba(0,0,0, 0.75);
           //border-radius: 50%;
           transform: skew(-10deg) rotateZ(-5deg);
           position: relative;
           top: 6vw;
           left: 15vw;
-          padding: 1.5rem 2rem;
+          padding: 1.5vw 2vw;
           max-width: 35vw;          
 
-          > * {
-            display: inline-block;
-            transform: skew(10deg) rotateZ(5deg);
-          }
+          // > * {
+          //   display: inline-block;
+          //   transform: skew(10deg) rotateZ(5deg);
+          // }
         }
         h2 {                    
           font-size: 3vw;
-          margin: 0;
-          right: -16vw;
+          margin: 1rem 1rem 0.5rem; //0.5rem;
+          //right: -16vw;
           position: relative;
-          padding-bottom: 0.5rem;
+
           line-height: 1;
         }
         p {
           font-size: 2vw;
           margin: 0;
-          padding: 0 2rem 1rem;
+          padding: 0 1rem 1rem;
           line-height: 1.25;
           text-align: left;
         }
-        $overrideStroke: 8px;
+        $overrideStroke: 0.8vw;
         &.shop {
+
           > div {
-            left: 15vw;
+            left: 10vw;            
             transform: skew(30deg) rotateZ(5deg);
             > * {
               transform: skew(-30deg) rotateZ(-5deg);
@@ -519,7 +585,8 @@ $verticalGap: 0.75rem;
           }
           h2 {
             @include utility.text-double-outline('Dive Shop');
-            left: 4vw;
+            //left: 4vw;
+            right: unset;
             &::after {
               -webkit-text-stroke: $overrideStroke utility.$dive-white;
             }
@@ -532,7 +599,7 @@ $verticalGap: 0.75rem;
           }
         }
         &.main {
-          h2 {            
+          h2 {
             @include utility.text-double-outline('Charters');
             &::after {
               -webkit-text-stroke: $overrideStroke utility.$dive-white;
@@ -541,6 +608,8 @@ $verticalGap: 0.75rem;
         }
         &.patios {
           > div {
+            display: inline-flex;
+            flex-direction: column;
             left: 15vw;
             top: 20vw;
             transform: skew(30deg) rotateZ(5deg);
@@ -549,7 +618,7 @@ $verticalGap: 0.75rem;
             }
           }
           h2 {
-            left: 4vw;
+            left: 0;
             @include utility.text-double-outline('Wide Open');
             &::after {
               -webkit-text-stroke: $overrideStroke utility.$dive-white;
@@ -558,7 +627,7 @@ $verticalGap: 0.75rem;
           p {
             position: relative;
             text-align: right;
-            left: 6vw;
+            //left: 6vw;
             top: 0.5vw;
           }
         }
@@ -664,9 +733,15 @@ $verticalGap: 0.75rem;
     ul.navigation {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
       list-style-type: none;
       margin: 0;
       padding: 0;
+
+      li {
+        margin: 0 0 0.5rem;
+      }
     }
     .spacer {
       padding: 0 0.5rem;
