@@ -1,6 +1,13 @@
 Next Steps:
   1. Host somewhere - use fishbone sub-domain? - DONE test.fishbonedigital.io
   2. Refactor into components and do cleanup
+  2a. Functionality / other pages for:
+    - Logo (scroll to top / return to homepage)
+    - Main nav in header (or hide entirely?)
+    - Contact section
+    - Specials / Events
+    - Charters or other banner sections?
+    - Footer
   3. Mobile views
   4. Script for deploying (server) - DONE
   5. Fix flashing pink bg on mouse-facer using OS X, iOS, Linux
