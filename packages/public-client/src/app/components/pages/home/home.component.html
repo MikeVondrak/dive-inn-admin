@@ -28,31 +28,16 @@
     </div> -->
     <div class="contact-container">
       <div class="contact-content">
-        <div class="address">
-          <div>
-            <!-- <img src="assets/images/Map-Marker.svg"> -->
-            <ng-container *ngTemplateOutlet="MapMarker2Svg"></ng-container>
-            <!-- <h2>Address</h2> -->          
-            <p *ngFor="let address of footerAddress">{{ address }}</p>
-          </div>
-        </div>
-        <div class="hours">
-          <div>
-            <!-- <img src="assets/images/Clock.svg"> -->
-            <ng-container *ngTemplateOutlet="ClockSvg"></ng-container>
-            <!-- <h2>Hours</h2> -->
-            <p *ngFor="let days of contactHours">{{ days }}</p>
-          </div>
-        </div>
-        <div class="phone">
-          <div>
-            <!-- <img src="assets/images/Www-Globe.svg"> -->
-            <ng-container *ngTemplateOutlet="AtSignSvg"></ng-container>
-            <!-- <h2>Contact</h2> -->
-            <p>{{ footerPhone }}</p><!-- TODO: add tel link to number -->
-            <p>contact@diveinndenver</p>
-          </div>
-        </div>
+        <app-icon-card class="address"
+          [config]="contactCardConfig[0]"
+        ></app-icon-card>
+        {{ contactCardConfig[0]}}
+        <app-icon-card class="hours"
+          [config]="contactCardConfig[1]"
+        ></app-icon-card>
+        <app-icon-card class="contact"
+          [config]="contactCardConfig[2]"
+        ></app-icon-card>
       </div>        
     </div>
     <div class="waves-separator">

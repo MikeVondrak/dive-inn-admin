@@ -1,0 +1,28 @@
+@use '../../scss/utility';
+
+%FlexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+}
+
+:host {
+  display: block;
+  padding: 2vw;
+
+  border-radius: 1rem;
+  box-shadow: 1px 1px 4px 0px utility.$dive-black;
+
+  .icon-container {
+    @extend %FlexCenter;
+    
+    svg {
+      max-width: 4vw;
+    }
+  }
+
+  .text-space {
+    @extend %FlexCenter;
+    flex-direction: column;
+  }
+}

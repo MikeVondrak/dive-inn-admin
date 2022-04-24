@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { IconCardConfig, IconCardImages, IconCardTextSizes } from '../../shared/models/icon-card.model';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,47 @@ export class HomeComponent implements OnInit, OnDestroy {
   public footerPhone: string = '720-242-6157';
   public contactHours: string[] = ['Open EVERY Day', '11AM - 2AM'];
   public navMenuItems: string[] = ['Home', 'Menu', 'Events', 'Bookings', 'About Us', 'Work With Us', 'Dive Shop'];
+  public contactCardConfig: IconCardConfig[] = [
+    {
+      iconCardImage: IconCardImages.MAP_MARKER,
+      textLines: [
+        {
+          uiLabel: this.footerAddress[0], 
+          size: IconCardTextSizes.LARGE,
+        },
+        {
+          uiLabel: this.footerAddress[1], 
+          size: IconCardTextSizes.SMALL,
+        },
+      ]
+    },
+    {
+      iconCardImage: IconCardImages.CLOCK, 
+      textLines: [
+        {
+          uiLabel: this.contactHours[0], 
+          size: IconCardTextSizes.SMALL,
+        },
+        {
+          uiLabel: this.contactHours[1], 
+          size: IconCardTextSizes.LARGE,
+        },
+      ]
+    },
+    {
+      iconCardImage: IconCardImages.AT_SIGN, 
+      textLines: [
+        {
+          uiLabel: this.footerPhone, 
+          size: IconCardTextSizes.LARGE,
+        },
+        {
+          uiLabel: 'contact@diveinndenver', 
+          size: IconCardTextSizes.SMALL,
+        },
+      ]
+    }
+  ];
 
   public numWaves = [1, 1, 1, 1, 1, 1, 1, 1]; // number of waves per contact section
 
