@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { SharedComponentsModule } from './components/shared/shared-components.module';
 import { DirectivesModule } from './directives/directives.module';
+import { PagesModule } from './components/pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DirectivesModule } from './directives/directives.module';
     DirectivesModule,
     FeatureComponentsModule,
     SharedComponentsModule,
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

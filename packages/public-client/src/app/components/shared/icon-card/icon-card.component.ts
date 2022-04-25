@@ -12,8 +12,8 @@ export class IconCardComponent implements OnInit {
   
   // template access niceities
   public iconCardImage: IconCardImages = this.config?.iconCardImage;
-  public IconCardImagesEnum = IconCardImages;
-  public IconCardTextSizesEnum = IconCardTextSizes;
+  public get IconCardImagesEnum() { return IconCardImages }; // NOTE: have to use getter for Storybook to work easily
+  public get IconCardTextSizesEnum() { return IconCardTextSizes };
 
   constructor() { }
 

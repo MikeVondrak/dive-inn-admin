@@ -132,46 +132,11 @@
 <div class="waves-separator footer">
   <!-- <div *ngFor="let wave of numWaves"></div> -->
 </div>
-<footer>
-  <div class="social-icons">
-    <!-- <img src="assets/images/social-sprite.png" /> -->
-    <div class="faceburk"></div>
-    <div class="instakilo"></div>
-    <div class="twatter"></div>
-    <div class="needletrest"></div>
-    <div class="tripsitter"></div>
-    <div class="yalp"></div>
-  </div>
 
-  <p>{{footerAddress[0]}}<span class="spacer">|</span>{{footerPhone}}</p>
-  
-  <ul class="navigation">
-    <li>Home</li>
-    <li class="spacer">|</li>
-    <li>Specials</li>
-    <li class="spacer">|</li>
-    <li>Events</li>
-    <li class="spacer">|</li>
-    <li>Private Parties</li>
-    <li class="spacer">|</li>
-    <li>About Us</li>
-    <li class="spacer">|</li>
-    <li>Partnerships</li>
-    <li class="spacer">|</li>
-    <li>Jobs</li>
-    <li class="spacer">|</li>
-    <li>Dive Shop</li>
-    <li class="spacer">|</li>
-    <li>News</li>
-    <li class="spacer">|</li>
-    <li>PADI Club</li>
-    <li class="spacer">|</li>
-    <li>Sightings</li>
-  </ul>
-</footer>
-
-
-
+<app-site-footer
+  [address]="footerAddress[0]"
+  [phone]="footerPhone"
+></app-site-footer>
 
 <!------------------------------------- SVGs ---------------------------------------->
 
