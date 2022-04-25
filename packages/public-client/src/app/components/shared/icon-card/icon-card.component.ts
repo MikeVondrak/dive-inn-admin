@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IconCardConfig, iconCardConfigDefault, IconCardImages } from '../models/icon-card.model';
+import { IconCardConfig, iconCardConfigDefault, IconCardImages, IconCardTextSizes } from '../models/icon-card.model';
 
 @Component({
   selector: 'app-icon-card',
@@ -13,6 +13,7 @@ export class IconCardComponent implements OnInit {
   // template access niceities
   public iconCardImage: IconCardImages = this.config?.iconCardImage;
   public IconCardImagesEnum = IconCardImages;
+  public IconCardTextSizesEnum = IconCardTextSizes;
 
   constructor() { }
 

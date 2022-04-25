@@ -51,9 +51,12 @@ Public-Client:
   - remove waves and turn into ribbon?
   - animations for icons
     - map marker wobble
-    - time card flip to show open/closed sign
     - "draw" at sign?
-  - CODE IS UGLY NEEDS REFACTORING
+    - spin clock hands
+  - time card flip to show open/closed sign
+  - address flip to show map/directions links
+  - at sign flip to show tel/email links
+  - CODE IS UGLY NEEDS REFACTORING - DONE
 
 6. Blurb - include links for e.g. "#1 neighborhood bar", "every day"? Color?
 

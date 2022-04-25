@@ -1,4 +1,6 @@
-<div class="icon-container">
+<div *ngIf="!!config"
+  class="icon-container"
+>
   <div [ngSwitch]="iconCardImage">
     <ng-container *ngSwitchCase="IconCardImagesEnum.MAP_MARKER">
       <ng-container *ngTemplateOutlet="MapMarker2Svg"></ng-container>
@@ -11,18 +13,20 @@
     </ng-container>
   </div>
 </div>
-<div class="text-space">
-  <div *ngFor="let text of config.textLines">
+<div class="text-container">
+  <div *ngFor="let text of config.textLines"
+    [class.small]="text.size === IconCardTextSizesEnum.SMALL"
+    [class.large]="text.size === IconCardTextSizesEnum.LARGE"
+  >
     {{ text.uiLabel }}
   </div>
-
 </div>
 
 
 <!----------------------------------------------------------------------------->
 
 <ng-template #MapMarker2Svg>
-  <svg width="100%" height="100%" viewBox="-0 0 121 263" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+  <svg width="100%" height="100%" viewBox="-0 0 121 163" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <path d="M73.622,130.671C74.358,129.756 75.061,128.888 75.72,128.085L86.544,128.085L125.949,161.727L-10.981,161.755L28.424,128.113L38.271,128.085C38.958,128.914 39.668,129.78 40.393,130.671L32.5,130.699L8.017,156.033L108.083,156.027L81.858,130.671L73.622,130.671Z"/>
     <path d="M33.217,113.824C23.898,101.518 15.168,88.985 8.703,75.615L8.7,75.612C6.56,70.048 5.421,64.001 5.421,57.69C5.421,29.3 28.47,6.251 56.86,6.251C85.25,6.251 108.299,29.3 108.299,57.69C108.299,63.998 107.161,70.043 105.022,75.606L105.022,75.606C99.303,89.468 90.271,102.073 80.551,114.41L80.214,114.84C73.131,123.88 65.688,132.777 58.94,141.936L56.86,144.92L55.297,142.678C48.266,133.192 40.795,123.867 33.661,114.41L33.217,113.824ZM56.86,31.971C71.055,31.971 82.579,43.495 82.579,57.69C82.579,71.885 71.055,83.41 56.86,83.41C42.665,83.41 31.14,71.885 31.14,57.69C31.14,43.495 42.665,31.971 56.86,31.971Z"/>
 </svg>

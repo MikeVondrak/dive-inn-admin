@@ -18,27 +18,13 @@
       <h1 class="title">
         <span>Local Events</span><br>
         <span>Live Sports</span><br>
-        <span>& Games</span><br>
-        <!-- &#8226; -->
-        <!-- &#8226; -->
+        <span>& Games</span>
       </h1>
     </div>
-    <!-- <div class="contact-rounded-top">
-      <div></div><div></div><div></div>
-    </div> -->
-    <div class="contact-container">
-      <div class="contact-content">
-        <app-icon-card class="address"
-          [config]="contactCardConfig[0]"
-        ></app-icon-card>
-        {{ contactCardConfig[0]}}
-        <app-icon-card class="hours"
-          [config]="contactCardConfig[1]"
-        ></app-icon-card>
-        <app-icon-card class="contact"
-          [config]="contactCardConfig[2]"
-        ></app-icon-card>
-      </div>        
+    <div class="contact-container">      
+      <app-icon-card *ngFor="let card of contactCardConfig"          
+        [config]="card">
+      </app-icon-card>      
     </div>
     <div class="waves-separator">
       <!-- <div *ngFor="let wave of numWaves"></div> -->

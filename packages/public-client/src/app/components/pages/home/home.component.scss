@@ -149,142 +149,31 @@ $verticalGap: 0.75rem;
             }
           }          
         } // end intro
-
-        // .contact-rounded-top {
-        //   height: 6rem;
-        //   width: 100%;
-        //   display: flex;
-        //   margin-top: -1rem;
-        //   > div {
-        //     flex: 1;
-        //     border-top-left-radius: 50%;
-        //     border-top-right-radius: 50%;
-        //     background-color: utility.$dive-red;
-        //   }
-        // }
+        
         .contact-container {
           z-index: 1;
-          // display: flex;
-          // align-items: center;
-          // justify-content: space-around;
+          position: relative;
           width: 100%;
-          // height: 20vw;
-          padding: 2vw 5vw 2vw;
-          @include utility.media-breakpoint-gte(md) {
-            padding: 4vw 10vw 10vw;            
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 4vw 10vw 10vw;            
+          $bgColor: transparent;//rgba(0, 0, 255, 0.51);
+          $bgColor2: utility.$dive-red;
+          background-color: darken($bgColor2, 17%);
+          background-image:             
+            radial-gradient(circle at 50% 50%, $bgColor2 20%, $bgColor 40%),
+            radial-gradient(circle at 20% 50%, $bgColor2 15%, $bgColor 30%),
+            radial-gradient(circle at 80% 50%, $bgColor2 15%, $bgColor 30%),
+            linear-gradient(0deg, transparent 0%, transparent 99.5%, utility.$dive-black 100%);
+
+          app-icon-card {
+            flex: 0 22vw;
+            display: inline-block;
+            background-color: utility.$dive-red;
           }
-          background-color: utility.$dive-red;
-          background-image: linear-gradient(0deg, utility.$dive-red 0%, utility.$dive-red 99%, utility.$dive-black 100%);
-
-          .contact-content {
-            //margin: -3vw;
-            $headerFontSize: 2.2vw;
-            $largeInfoFontSize: 2.2vw;
-            $smallInfoFontSize: 1.5vw;
-
-            top: 50vw;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            flex-flow: wrap;
-            padding-top: 1vw;
-            color: utility.$dive-white;
-            //border-bottom-left-radius: 50%;
-            //border-bottom-right-radius: 50%;
-            //border-radius: 50%;
-            text-align: center;
-            text-shadow: 2px 2px 2px utility.$dive-black;
-
-            $contactOffset: 8vw;
-            > div {
-              position: relative;
-              flex: 1;
-              display: flex;
-              flex-direction: column;
-              justify-content: flex-start;
-              align-items: center;
-              padding: calc($contactOffset - 0.75vw) 1rem 0;
-              cursor: pointer;
-
-              > div {
-                height: 20vw;
-                box-shadow: 1px 1px 4px 0px #000;
-                padding: 7.5vw 1.5rem 1.5rem;
-                margin-top: -$contactOffset;
-                border-radius: 1rem;
-                transition: box-shadow 0.2s ease;
-                &:hover {
-                  box-shadow: 2px 2px 8px 0px #000;
-                }
-              }
-
-              $imgSize: 5vw;
-              img, svg {
-                z-index: 0;
-                position: absolute;
-                //bottom: -3rem;
-                left: 50%;
-                transform: translateX(-50%);
-                //left: 4.5vw;
-                top: 0.7vw;
-                width: $imgSize;
-                height: $imgSize;
-
-                path {
-                  //fill: utility.$dive-red-dk;
-                  fill: utility.$dive-black;
-                }
-              }
-              h2 {
-                position: relative;
-                z-index: 1;
-                margin: 0;
-                padding-top: 0.5rem;
-                font-size: 1rem;
-                font-weight: normal;
-                @include utility.media-breakpoint-gte(sm) {
-                  font-size: $headerFontSize;
-                }
-                //text-transform: uppercase;              
-              }
-              p {
-                position: relative;
-                z-index: 1;
-                margin: 0;
-                font-size: $smallInfoFontSize;
-                &:last-child {
-                  font-size: $smallInfoFontSize;
-                  @include utility.media-breakpoint-gte(sm) {
-                    font-size: $largeInfoFontSize;
-                  }
-                //font-weight: bold;
-                }
-              }
-              &.address {
-                p {
-                  font-size: $largeInfoFontSize;
-                  //font-weight: bold;
-                }
-                p:last-child {
-                  font-size: $smallInfoFontSize;
-                  font-weight: normal;
-                }
-              }
-              &.hours {
-                //padding-bottom: 1rem;
-              }
-              &.phone {
-                p {
-                  font-size: $largeInfoFontSize;
-                }
-                p:last-child {
-                  font-size: 1.3vw;
-                }
-              }
-              
-            }            
-          } // end contact-content          
-        } // end contact
+        } // end contact-container
 
         .blurb {
           position: relative;
