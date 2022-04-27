@@ -13,7 +13,7 @@ import { Apollo, QueryRef } from 'apollo-angular';
 import { FlickrApiService } from 'src/app/services/flickr/flickr.api.service';
 import { FlickrApiServiceMock } from 'src/app/services/flickr/flickr.api.service.mock';
 
-import { AlbumAssignerComponent, AlbumByLocationResponse, AlbumByLocationVariables } from './album-assigner.component';
+import { AlbumAssignerComponent } from './album-assigner.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 

@@ -1,0 +1,105 @@
+@use '../../scss/utility';
+
+.mouse-facer-container {
+  position: relative;
+  text-shadow: 2px 2px 5px #000;
+  .info {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    > div {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background-color: rgba(0,0,0, 0.75);
+      //border-radius: 50%;
+      transform: skew(-10deg) rotateZ(-5deg);
+      position: relative;
+      top: 6vw;
+      left: 15vw;
+      padding: 1.5vw 2vw;
+      max-width: 35vw;          
+
+      // > * {
+      //   display: inline-block;
+      //   transform: skew(10deg) rotateZ(5deg);
+      // }
+    }
+    h2 {                    
+      font-size: 3vw;
+      margin: 1rem 1rem 0.5rem; //0.5rem;
+      //right: -16vw;
+      position: relative;
+
+      line-height: 1;
+    }
+    p {
+      font-size: 2vw;
+      margin: 0;
+      padding: 0 1rem 1rem;
+      line-height: 1.25;
+      text-align: left;
+    }
+    $overrideStroke: 0.8vw;
+    &.shop {
+
+      > div {
+        left: 10vw;            
+        transform: skew(30deg) rotateZ(5deg);
+        > * {
+          transform: skew(-30deg) rotateZ(-5deg);
+        }
+      }
+      h2 {
+        @include utility.text-double-outline('Dive Shop');
+        //left: 4vw;
+        right: unset;
+        &::after {
+          -webkit-text-stroke: $overrideStroke utility.$dive-white;
+        }
+      }
+      p {
+        position: relative;
+        text-align: right;
+        //left: 2vw;
+        //top: 0.25vw
+      }
+    }
+    &.main {
+      h2 {
+        @include utility.text-double-outline('Charters');
+        &::after {
+          -webkit-text-stroke: $overrideStroke utility.$dive-white;
+        }
+      }
+    }
+    &.patios {
+      > div {
+        display: inline-flex;
+        flex-direction: column;
+        left: 15vw;
+        top: 20vw;
+        transform: skew(30deg) rotateZ(5deg);
+        > * {
+          transform: skew(-30deg) rotateZ(-5deg);
+        }
+      }
+      h2 {
+        left: 0;
+        @include utility.text-double-outline('Wide Open');
+        &::after {
+          -webkit-text-stroke: $overrideStroke utility.$dive-white;
+        }
+      }
+      p {
+        position: relative;
+        text-align: right;
+        //left: 6vw;
+        top: 0.5vw;
+      }
+    }
+  } // end info            
+} // end mouse facer container
