@@ -22,7 +22,7 @@ export default {
         }
       ],
     },
-    iconCardImage: IconCardImages.AT_SIGN,
+    iconCardImage: IconCardImages.CLOCK,
 
   },
   decorators: [
@@ -39,6 +39,24 @@ const Template: Story<IconCardComponent> = (args: IconCardComponent) => ({
   props: args,
 });
 
-export const DefaultState = Template.bind({});
-DefaultState.args = {
+export const TopLineLarge = Template.bind({});
+TopLineLarge.args = {
+  iconCardImage: IconCardImages.MAP_MARKER,
+  config: {
+    iconCardImage: IconCardImages.MAP_MARKER,
+    textLines: [
+      {
+        uiLabel: 'Test Line 1',
+        size: IconCardTextSizes.LARGE
+      },
+      {
+        uiLabel: 'Test Line 2',
+        size: IconCardTextSizes.SMALL
+      }
+    ]
+  }
+};
+
+export const BottomLineLarge = Template.bind({});
+BottomLineLarge.args = {
 };
