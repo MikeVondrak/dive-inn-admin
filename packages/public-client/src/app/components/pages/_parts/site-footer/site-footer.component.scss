@@ -1,6 +1,22 @@
 @use 'sass:math';
 @use '../../../scss/utility';
 
+
+$waveSize: 2vw;
+
+.waves-separator {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+
+  &.footer {
+    height: $waveSize;
+    top: 1px;
+    background-image: url('/assets/images/wave-red.svg');
+  }
+}
+
 footer {
   z-index: 1;
   display: flex;
@@ -12,11 +28,13 @@ footer {
 
   color: utility.$dive-white;
   text-shadow: 1px 1px 3px #000;
+
   p {
     padding: 0 0 0.5rem;
-    margin: 0;    
-    font-size: 1.75rem;    
+    margin: 0;
+    font-size: 1.75rem;
   }
+
   ul.navigation {
     display: flex;
     flex-direction: row;
@@ -30,12 +48,14 @@ footer {
       margin: 0 0 1.5vw;
     }
   }
+
   .spacer {
     padding: 0 0.5rem;
     color: utility.$dive-black;
   }
 
   $iconSize: 32px;
+
   .social-icons {
     display: flex;
     justify-content: center;
@@ -45,7 +65,7 @@ footer {
     background-color: utility.$dive-black;
     border-radius: 2rem;
 
-    > div {
+    >div {
       width: $iconSize;
       height: $iconSize;
       margin: 0 0.5rem;
@@ -54,21 +74,27 @@ footer {
 
     // don't name like ".facebook" as it can be filtered by ad blockers
     .gurgleplus {}
+
     .faceburk {
       background-position: -($iconSize * 1) 0;
     }
+
     .instakilo {
       background-position: -($iconSize * 6) 0;
     }
+
     .twatter {
       background-position: -($iconSize * 4) 0;
     }
+
     .needletrest {
       background-position: -($iconSize * 5) 0;
     }
+
     .tripsitter {
       background-position: -($iconSize * 7) 0;
     }
+
     .yalp {
       background-position: -($iconSize * 2) 0;
     }

@@ -92,7 +92,7 @@ $verticalGap: 0.75rem;
   }
 
   // end header
-
+  $mainBackgroundHeight: 50vw;
   main {
     flex: 1;
 
@@ -105,7 +105,7 @@ $verticalGap: 0.75rem;
         bottom: 0;
         left: 0;
         right: 0;
-        height: 50vw;
+        height: $mainBackgroundHeight;
 
         ::ng-deep {
           .mouse-facer-container {
@@ -124,7 +124,7 @@ $verticalGap: 0.75rem;
         align-items: center;
 
         .intro {
-          height: 50vw;
+          height: $mainBackgroundHeight;
 
           h1.title {
             z-index: 0;
@@ -275,7 +275,7 @@ $verticalGap: 0.75rem;
       }
     }
     .sections-container {
-      margin: $verticalGap auto 6vw;
+      margin: $verticalGap auto 3vw;
       padding: $verticalGap 0;
       border-top: 1px solid utility.$line-colors;
       //border-bottom: 1px solid utility.$line-colors;

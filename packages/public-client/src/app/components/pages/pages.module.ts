@@ -1,22 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SiteFooterComponent } from './_parts/site-footer/site-footer.component';
-import { SiteHeaderComponent } from './_parts/site-header/site-header.component';
-import { SiteNavComponent } from './_parts/site-nav/site-nav.component';
+
+import { InsideRoutingModule } from './inside/inside.routing.module';
+import { SitePartsModule } from './_parts/site-parts.module';
+import { HomeComponent } from './home/home.component';
+import { SharedComponentsModule } from '../shared/shared-components.module';
+import { FeatureComponentsModule } from '../features/feature-components.module';
 
 @NgModule({
   declarations: [
-    SiteHeaderComponent,
-    SiteNavComponent,
-    SiteFooterComponent,
+    HomeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, 
+    InsideRoutingModule, 
+    SharedComponentsModule,
+    SitePartsModule,
+    FeatureComponentsModule,
   ],
   exports: [
-    SiteHeaderComponent,
-    SiteNavComponent,
-    SiteFooterComponent,
+    SitePartsModule,
+    SharedComponentsModule,
+    FeatureComponentsModule,
   ]
 })
 export class PagesModule { }

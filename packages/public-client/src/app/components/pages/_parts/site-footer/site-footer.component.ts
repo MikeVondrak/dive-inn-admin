@@ -7,8 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SiteFooterComponent implements OnInit {
 
-  @Input() address: string = '';
-  @Input() phone: string = '';
+  @Input() address: string = '1380 S Broadway'; // @TODO - get these defaults from GQL
+  @Input() phone: string = '720-242-6157';
 
   constructor() { }
 
