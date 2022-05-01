@@ -3,4 +3,5 @@ export enum MouseFacerTextPositions {
   TOP_RIGHT,
   BOTTOM_LEFT,
   BOTTOM_RIGHT,
+  PAGE_TITLE,
 }

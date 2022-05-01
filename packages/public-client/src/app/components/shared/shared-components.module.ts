@@ -8,6 +8,7 @@ import { ImageDisplayComponent } from './image-display/image-display.component';
 import { MouseFacerComponent } from './mouse-facer/mouse-facer.component';
 import { IconCardComponent } from './icon-card/icon-card.component';
 import { MouseFacerCardComponent } from './mouse-facer-card/mouse-facer-card.component';
+import { MouseFacerTitleCardComponent } from './mouse-facer-title-card/mouse-facer-title-card.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { MouseFacerCardComponent } from './mouse-facer-card/mouse-facer-card.com
     MouseFacerComponent,
     IconCardComponent,
     MouseFacerCardComponent,
+    MouseFacerTitleCardComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { MouseFacerCardComponent } from './mouse-facer-card/mouse-facer-card.com
     ImageDisplayComponent,
     MouseFacerComponent,
     IconCardComponent,
-    MouseFacerCardComponent
+    MouseFacerCardComponent,
+    MouseFacerTitleCardComponent,
   ]  
 })
 export class SharedComponentsModule { }

@@ -1,0 +1,7 @@
+<app-mouse-facer [imgSrc]="imgUrl"></app-mouse-facer>
+<div class="title-container">
+  <h1 *ngFor="let line of titleLines" 
+    [attr.card-title]="line"
+    class="title"
+  >{{ line }}</h1>
+</div>

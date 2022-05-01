@@ -15,9 +15,6 @@ export class MouseFacerCardComponent implements OnInit {
   @HostBinding('style.--mouseFacerCardHeight') 
   @Input() height: string = '40vw';
   
-  @HostBinding('style.--mouseFacerCardText') 
-  @Input() text: string = 'Undefined';
-
   public MouseFacerTextPositionsEnum = MouseFacerTextPositions;
 
   constructor() { }

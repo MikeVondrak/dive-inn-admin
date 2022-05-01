@@ -1,0 +1,61 @@
+// @TODO - clean up repeat styles between this and mouse-facer-card
+
+@use 'sass:meta';
+@use '../../scss/utility';
+
+@mixin coverAbsolute() {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+$textMaxWidth: 30vw;
+
+$imageHeight: var(--mouseFacerCardHeight);
+$overrideStroke: 0.7vw;
+
+:host {
+  position: relative;
+
+  app-mouse-facer {
+    height: $imageHeight;
+  }
+
+  .title-container {
+    position: absolute;
+    width: $textMaxWidth;
+    top: 10vw;
+    left: 50vw;
+    transform: translateX(-42%);
+    text-align: right;
+  
+    h1.title {
+      z-index: 0;
+      display: inline-block;
+      position: relative;
+      top: -1vw;
+      transform: translate(-50%) skew(350deg, 346deg) rotate(0deg);;
+      margin: 0;
+      text-align: right;
+      font-size: 4vw;
+      line-height: 1.4;
+
+      @include utility.media-breakpoint-gte(sm) {
+        font-size: 3.5vw;
+      }            
+      
+      display: inline-block;
+      @include utility.text-double-outline('Local Events');
+      &:nth-of-type(2) {
+        @include utility.text-double-outline('Live Sports');
+        margin: 0 1.60vw 0 0;
+      }
+      &:nth-of-type(3) {
+        @include utility.text-double-outline('& Games');
+        margin: 0 4vw 0 0;                
+      }      
+    }
+  }
+}

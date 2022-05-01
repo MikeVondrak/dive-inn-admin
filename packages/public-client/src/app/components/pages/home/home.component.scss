@@ -14,7 +14,7 @@ $verticalGap: 0.75rem;
     top: 0;
     left: 0rem;
     width: 100%;
-    box-shadow: 0px 4px 4px utility.$dive-black;    
+    box-shadow: 0px 4px 4px utility.$dive-black;
 
     img {
       z-index: 2;
@@ -31,13 +31,15 @@ $verticalGap: 0.75rem;
 
       transition: all 0.65s ease;
 
-      @media screen and (max-width: 1500px){
+      @media screen and (max-width: 1500px) {
         width: 18vw;
       }
-      @media screen and (max-width: 900px){
+
+      @media screen and (max-width: 900px) {
         width: 22vw;
       }
-      @media screen and (max-width: 500px){
+
+      @media screen and (max-width: 500px) {
         width: 28vw;
       }
 
@@ -49,8 +51,8 @@ $verticalGap: 0.75rem;
         background: none;
 
         &.showLogo {
-          top: 6vw;
-          left: 8.5vw;
+          top: 5.5vw;
+          left: 7.75vw;
         }
       }
 
@@ -59,7 +61,7 @@ $verticalGap: 0.75rem;
         //display: inline-flex;
         // transform: display(inline-flex);
         // transition: all 1s;
-      }      
+      }
     }
 
     nav {
@@ -67,7 +69,7 @@ $verticalGap: 0.75rem;
       background-color: $headerColor; //rgba(0,0,0,0.75);
       color: utility.$dive-white;
       font-family: 'Righteous', cursive;
-      
+
       ul {
         display: flex;
         justify-content: center;
@@ -106,210 +108,217 @@ $verticalGap: 0.75rem;
 
   // end header
   $mainBackgroundHeight: 50vw;
+
   main {
+    //position: relative;
     flex: 1;
 
-    .intro-section {
+    .page-title-section {
       position: relative;
 
       .anniversary-callout {
+        z-index: 1;
         position: absolute;
         top: 2rem;
         left: 2rem;
+
+        &::after {
+          content: '';
+          width: 0;
+          height: 0;
+        }
+
         img {
           border-radius: 2rem;
           width: 16vw;
         }
       }
 
-      app-mouse-facer {
+      .westword-award {
+        z-index: 1;
         position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: $mainBackgroundHeight;
+        bottom: 13.7vw;
+        right: 13.7vw;
+        $deg: 18deg;
+        transform: skew(24deg) rotateZ(23deg);
+        background-color: rgba(0, 0, 0, 0.5);        
 
-        ::ng-deep {
-          .mouse-facer-container {
-            .mouse-facer-content {
-              background-image: url("/assets/images/home/dive-inn-exterior.jpg");
-            }
+        &::after { // remove underline dots - TODO refactor to not need this
+
+          @keyframes glowAnimation {
+            0% { opacity: 1; }
+            15% { opacity: 0; }
+            50% { opacity: 0; }
+            85% { opacity: 0; }
+            100% { opacity: 1; }
           }
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          opacity: 1;
+          box-shadow: 0px 0px 24px -10px #fff;
+          animation: glowAnimation 4s ease-in-out infinite;
+          background: none;
+        }
+
+        img {
+          width: 16vw;
+          padding-right: 0.5rem;
         }
       }
+    }
 
-      &-content {
+    .contact-container {
+      z-index: 1;
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4vw 10vw 10vw;
+      $bgColor: transparent; //rgba(0, 0, 255, 0.51);
+      $bgColor2: utility.$dive-red;
+      background-color: darken($bgColor2, 17%);
+      background-image:
+        radial-gradient(circle at 50% 50%, $bgColor2 20%, $bgColor 40%),
+        radial-gradient(circle at 20% 50%, $bgColor2 15%, $bgColor 30%),
+        radial-gradient(circle at 80% 50%, $bgColor2 15%, $bgColor 30%),
+        linear-gradient(0deg, transparent 0%, transparent 99.5%, utility.$dive-black 100%);
+
+      app-icon-card {
+        flex: 0 22vw;
+        display: inline-block;
+        background-color: utility.$dive-red;
+      }
+    }
+
+    // end contact-container
+
+    .intro-section {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .blurb-separator-top {
+        width: 5vw;
+
+        @include utility.media-breakpoint-gte(sm) {
+          width: 4.5vw;
+        }
+
+        margin-top: 5vw;
+        //transform: rotateZ(10deg);
+      }
+
+      .blurb {
         position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        padding: 2vw 0.5vw;
+        text-align: center;
 
-        .intro {
-          height: $mainBackgroundHeight;
+        @include utility.media-breakpoint-gte(sm) {
+          padding: 4vw 1vw;
+        }
 
-          h1.title {
-            z-index: 0;
-            display: inline-block;
-            position: relative;
-            top: 9vw;
-            right: -3vw;
-            transform: translate(-50%) skew(350deg, 346deg) rotate(0deg);;
-            //max-width: 40vw;
-            margin: 0;
-            //padding: 0 0 0 4vw;
-            text-align: right;
-            
-            font-size: 4vw;
-            @include utility.media-breakpoint-gte(sm) {
-              font-size: 3.5vw;
-            }            
-            span {              
-              display: inline-block;
-              @include utility.text-double-outline('Local Events');
-              &:nth-of-type(2) {
-                @include utility.text-double-outline('Live Sports');
-                margin: 0 -1.35rem 0 0;
-              }
-              &:nth-of-type(3) {
-                @include utility.text-double-outline('& Games');
-                margin: 0 -2.65rem 0 0;                
-              }
-            }
-          }          
-        } // end intro
-        
-        .contact-container {
-          z-index: 1;
-          position: relative;
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          padding: 4vw 10vw 10vw;            
-          $bgColor: transparent;//rgba(0, 0, 255, 0.51);
-          $bgColor2: utility.$dive-red;
-          background-color: darken($bgColor2, 17%);
-          background-image:             
-            radial-gradient(circle at 50% 50%, $bgColor2 20%, $bgColor 40%),
-            radial-gradient(circle at 20% 50%, $bgColor2 15%, $bgColor 30%),
-            radial-gradient(circle at 80% 50%, $bgColor2 15%, $bgColor 30%),
-            linear-gradient(0deg, transparent 0%, transparent 99.5%, utility.$dive-black 100%);
-
-          app-icon-card {
-            flex: 0 22vw;
-            display: inline-block;
-            background-color: utility.$dive-red;
-          }
-        } // end contact-container
-
-        .blurb-separator-top {
+        svg {
+          display: block;
           width: 5vw;
+          margin-top: 2vw;
+
           @include utility.media-breakpoint-gte(sm) {
             width: 4.5vw;
           }
-          margin-top: 5vw;
-          //transform: rotateZ(10deg);
+
+          g path {
+            fill: utility.$dive-red;
+          }
         }
 
-        .blurb {
-          position: relative;
+        .diver {
+          z-index: 0;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
           display: flex;
-          flex-direction: column;
+          justify-content: center;
           align-items: center;
-          padding: 2vw 0.5vw;
-          text-align: center;
-          @include utility.media-breakpoint-gte(sm) {
-            padding: 4vw 1vw;
+          padding-bottom: 4vw;
+
+          svg {
+            width: 90vw;
+
+            g path {
+              fill: utility.$dive-gray-dk3;
+            }
           }
-          svg { 
-            display: block;
-            width: 5vw;
-            margin-top: 2vw;
-            @include utility.media-breakpoint-gte(sm) {
-              width: 4.5vw;
-            }
-            g path {              
-              fill: utility.$dive-red;
-            }            
-          }  
-          .diver {
-            z-index: 0;
-            position: absolute;
-            top: 0; bottom: 0; left: 0; right: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-bottom: 4vw;
-            //top: 10vw;
-            //left: 10vw;
-            svg {
-              width: 90vw;
-              g path {
-                fill: utility.$dive-gray-dk3;
-              }
-            }
-          }        
-          // img, span {
-          //   display: block;
-          //   width: 5vw;
-          //   margin-top: 2vw;
-          //   @include utility.media-breakpoint-gte(sm) {
-          //     width: 4.5vw;
-          //   }            
-          // }
-          p {
-            z-index: 1;
-            max-width: 80vw;
-            font-size: 3vw;
-            @include utility.media-breakpoint-gte(sm) {
-              max-width: 64vw;
-              font-size: 2.75vw;
-            }
-            line-height: 1.75;
+        }
 
-            &:first-of-type {
-              margin: 4vw 0 0;
-            }
+        p {
+          z-index: 1;
+          max-width: 80vw;
+          font-size: 3vw;
 
-            span {
-              color: utility.$dive-yellow;
-              //text-decoration: underline;
-              //font-style: italic;
+          @include utility.media-breakpoint-gte(sm) {
+            max-width: 64vw;
+            font-size: 2.75vw;
+          }
 
-              &.titleFont {
-                color: utility.$dive-black;
-                display: block;
-                font-family: 'Bevan', serif;
-                @include utility.text-double-outline('Dive Inn');
-                font-size: 3.8vw;
-                line-height: 1.6;
-              }
+          line-height: 1.75;
+
+          &:first-of-type {
+            margin: 4vw 0 0;
+          }
+
+          span {
+            color: utility.$dive-yellow;
+
+            &.titleFont {
+              color: utility.$dive-black;
+              display: block;
+              font-family: 'Bevan', serif;
+              @include utility.text-double-outline('Dive Inn');
+              font-size: 3.8vw;
+              line-height: 1.6;
             }
           }
         }
       }
     }
-    .blurb-separator-bottom {      
+
+    .sections-container-top {
       svg {
         display: block;
         max-width: 80vw;
+
         @include utility.media-breakpoint-gte(md) {
           max-width: 44rem;
         }
+
         margin: 0 auto 0vw;
-        path, circle, rect, ellipse {
+
+        path,
+        circle,
+        rect,
+        ellipse {
           fill: utility.$line-colors;
           //stroke: utility.$line-colors;
         }
       }
     }
+
     .sections-container {
       margin: $verticalGap auto 0vw;
       padding: $verticalGap 0;
       border-top: 1px solid utility.$line-colors;
+
       //border-bottom: 1px solid utility.$line-colors;
       @include utility.media-breakpoint-gte(sm) {
         width: 80vw;
@@ -329,44 +338,51 @@ $verticalGap: 0.75rem;
         border-top: 1px solid utility.$line-colors;
         border-bottom: 1px solid utility.$line-colors;
       }
+
       $w1: 26vw;
       $w2: 10vw;
       $w3: 3vw;
+
       .sections-separator-bottom {
         display: flex;
         margin: $verticalGap 0 4vw;
         border-top: 1px solid utility.$line-colors;
 
         > :last-child {
-          align-items: flex-start;         
+          align-items: flex-start;
+
           div {
-            width: 100%;            
+            width: 100%;
+
             &:nth-of-type(1) {
               margin: 0 0 0 0.5rem;
               max-width: $w1;
             }
+
             &:nth-of-type(2) {
               margin: 0 0 0 1rem;
               max-width: $w2;
             }
+
             &:nth-of-type(3) {
               margin: 0 0 0 0.5rem;
               max-width: $w3;
             }
+
             &::after {
               left: 0;
             }
           }
         }
 
-        > * {
+        >* {
           display: flex;
           flex-direction: column;
           align-items: flex-end;
           flex: 1;
         }
 
-        div {                    
+        div {
 
           div {
             position: relative;
@@ -390,15 +406,17 @@ $verticalGap: 0.75rem;
               margin: 0 0.5rem 0 0;
               max-width: $w1;
             }
+
             &:nth-of-type(2) {
               margin: 0 1rem 0 0;
               max-width: $w2;
             }
+
             &:nth-of-type(3) {
               margin: 0 0.5rem 0 0;
               max-width: $w3;
             }
-          }          
+          }
         }
 
         svg {
@@ -409,6 +427,7 @@ $verticalGap: 0.75rem;
           max-width: 3rem;
           max-height: 3rem;
           margin-top: 0.25rem;
+
           path {
             fill: utility.$line-colors;
           }
@@ -426,11 +445,14 @@ $verticalGap: 0.75rem;
         margin: $verticalGap auto;
         border-top: 1px solid utility.$line-colors;
       }
-    } // end sections-container
+    }
+
+    // end sections-container
 
     .sections-bottom-separator {
       width: 5vw;
       margin: 2vw auto 8vw;
+
       svg {
         path {
           fill: utility.$dive-red;
@@ -442,12 +464,14 @@ $verticalGap: 0.75rem;
       display: block;
       width: 25vw;
       margin: 6vw auto;
+
       @include utility.media-breakpoint-gte(sm) {
         width: 45vw;
-      }            
-      g path {              
+      }
+
+      g path {
         fill: utility.$dive-red;
-      }      
+      }
     }
 
     app-mouse-facer-card {
@@ -459,13 +483,17 @@ $verticalGap: 0.75rem;
       &:first-of-type {
         margin-top: 0;
       }
-    }    
+    }
 
     .sextant-separator {
       width: 8vw;
-      margin: 4vw auto;      
+      margin: 4vw auto;
+
       svg {
-        path, circle, rect {
+
+        path,
+        circle,
+        rect {
           stroke: utility.$dive-red;
           fill: utility.$dive-red;
         }
@@ -477,17 +505,22 @@ $verticalGap: 0.75rem;
         display: block;
         width: 10vw;
         margin: 2vw auto 4vw;
+
         path {
           fill: utility.$dive-black;
+
           &.highlight-color {
             fill: utility.$dive-red;
           }
         }
       }
     }
-  } // end main
+  }
+
+  // end main
 
   $waveSize: 3vw;
+
   .waves-separator {
     position: relative;
     z-index: 1;
@@ -496,11 +529,12 @@ $verticalGap: 0.75rem;
     width: 100%;
     top: -($waveSize - 0.15vw);
     background-image: url('/assets/images/wave.svg');
+
     &.footer {
       height: 2vw;
       top: 1px;
       background-image: url('/assets/images/wave-red.svg');
     }
   }
-  
+
 }

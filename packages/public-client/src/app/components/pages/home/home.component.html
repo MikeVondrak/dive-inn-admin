@@ -14,62 +14,60 @@
 </header>
 
 <main>
+  <!-- Landing title card with callouts -->
+  <div class="page-title-section">
+    <a routerLink="/inside" class="anniversary-callout">
+      <img src="assets/images/Dive_Inn_10th_Anniversary.png" />
+    </a>
+    <app-mouse-facer-title-card [titleLines]="siteTitleLines" imgUrl="url(assets/images/home/dive-inn-exterior.jpg)"
+      [height]="'50vw'">
+    </app-mouse-facer-title-card>
+    <a class="westword-award" href="https://www.westword.com/best-of/2022/readers-choice/best-dive-bar-13820484"
+      target="_blank">
+      <img src="assets/images/westword_best_dive_bar.png" />
+    </a>
+  </div>
+  <!-- Contact section -->
+  <div class="contact-container">
+    <app-icon-card *ngFor="let card of contactCardConfig" [config]="card">
+    </app-icon-card>
+  </div>
+  <!-- Waves separator -->
+  <div class="waves-separator"></div>  
+  <!-- Intro blurb -->
   <div class="intro-section">
-
-    <app-mouse-facer imgSrc="../../../../assets/images/home/dive-inn-exterior.jpg"></app-mouse-facer>
-
-    <div class="intro-section-content">
-      <div class="anniversary-callout">
-        <img src="assets/images/Dive_Inn_10th_Anniversary.png" />
-      </div>
-      <div class="intro">
-        <h1 class="title">
-          <span>Local Events</span><br>
-          <span>Live Sports</span><br>
-          <span>& Games</span>
-        </h1>
-      </div>
-      <div class="contact-container">
-        <app-icon-card *ngFor="let card of contactCardConfig" [config]="card">
-        </app-icon-card>
-      </div>
-      <div class="waves-separator">
-        <!-- <div *ngFor="let wave of numWaves"></div> -->
-      </div>
-      <div class="blurb-separator-top">
-        <ng-container *ngTemplateOutlet="DiverDownBuoySvg"></ng-container>
-      </div>
-      <div class="blurb">
-        <p>
-          <!-- unique local events? -->
-          <!-- Denver's favorite dive bar since... -->
-          <!-- Denver's <span>#1 neighborhood bar</span> since 2012, with specials <span>every day</span>, three patios & <span>exclusive events</span>. -->
-          Denver's
-          <a href="javascript:void(0)">#1 neighborhood bar</a>
-          since 2012, with
-          <a href="javascript:void(0)">specials</a>
-          every day, all your favorite
-          <a href="javascript:void(0)">games</a>,
-          exclusive
-          <a href="javascript:void(0)">events</a>
-          & private
-          <a href="javascript:void(0)">parties</a>.
-        </p>
-        <p>Grab your
-          <a href="javascript:void(0)">friends</a>
-          and...
-          <span class="titleFont">Dive Inn</span>
-        </p>
-        <div class="diver">
-          <ng-container *ngTemplateOutlet="DiverSvg"></ng-container>
-        </div>
+    <!-- Dive buoy separator -->
+    <div class="blurb-separator-top">
+      <ng-container *ngTemplateOutlet="DiverDownBuoySvg"></ng-container>
+    </div>
+    <div class="blurb">
+      <p>
+        Denver's
+        <a href="javascript:void(0)">#1 neighborhood bar</a>
+        since 2012, with
+        <a href="javascript:void(0)">specials</a>
+        every day, all your favorite
+        <a href="javascript:void(0)">games</a>,
+        exclusive
+        <a href="javascript:void(0)">events</a>
+        & private
+        <a href="javascript:void(0)">parties</a>.
+      </p>
+      <p>Grab your
+        <a href="javascript:void(0)">friends</a>
+        and...
+        <span class="titleFont">Dive Inn</span>
+      </p>
+      <div class="diver">
+        <ng-container *ngTemplateOutlet="DiverSvg"></ng-container>
       </div>
     </div>
   </div>
-  <div class="blurb-separator-bottom">
+  <!-- Top of sections frame -->
+  <div class="sections-container-top">
     <ng-container *ngTemplateOutlet="FilligreeSeparator3"></ng-container>
   </div>
-
+  <!-- -->
   <div class="sections-container">
     <app-topic-section sectionName="MENU"></app-topic-section>
     <div class="divider"></div>
@@ -95,7 +93,7 @@
 
   <app-mouse-facer-card title="Charters" description="Reserve the boat or a room for your private party"
     imgUrl="url(assets/images/inside/Interiors_251.jpg)" [textPosition]="MouseFacerTextPostionsEnum.TOP_LEFT"
-    [text]="mouseFacerCardTitle_Charters" [height]="'40vw'">
+    [title]="mouseFacerCardTitle_Charters" [height]="'40vw'">
   </app-mouse-facer-card>
 
   <div class="compass-separator">
@@ -104,7 +102,7 @@
 
   <app-mouse-facer-card title="Dive Shop" description="Exclusive shirts, hats, hoodies & more"
     imgUrl="url(assets/images/inside/Interiors_290.jpg)" [textPosition]="MouseFacerTextPostionsEnum.TOP_LEFT"
-    [text]="mouseFacerCardTitle_DiveShop" [height]="'40vw'">
+    [title]="mouseFacerCardTitle_DiveShop" [height]="'40vw'">
   </app-mouse-facer-card>
 
   <div class="sextant-separator">
@@ -113,7 +111,7 @@
 
   <app-mouse-facer-card title="Wide Open" description="3 garage doors that open onto 3 patios"
     imgUrl="url(assets/images/inside/Interiors_163.jpg)" [textPosition]="MouseFacerTextPostionsEnum.BOTTOM_LEFT"
-    [text]="mouseFacerCardTitle_WideOpen" [height]="'40vw'">
+    [title]="mouseFacerCardTitle_WideOpen" [height]="'40vw'">
   </app-mouse-facer-card>
 
   <div class="anchor-separator-bottom">
