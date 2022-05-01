@@ -29,7 +29,7 @@ $verticalGap: 0.75rem;
       background-image: linear-gradient(163deg, utility.$dive-black 0%, utility.$dive-black $t1, $headerColor ($t1 + 0.5%), $headerColor $t2, transparent $t2 + 1.2%);
       border-bottom-right-radius: 50%;
 
-      transition: top 0.65s ease;
+      transition: all 0.65s ease;
 
       @media screen and (max-width: 1500px){
         width: 18vw;
@@ -41,12 +41,25 @@ $verticalGap: 0.75rem;
         width: 28vw;
       }
 
+      &.anniversary {
+        position: absolute;
+        top: -16vw;
+        left: 0vw;
+        width: 8vw;
+        background: none;
+
+        &.showLogo {
+          top: 6vw;
+          left: 8.5vw;
+        }
+      }
+
       &.showLogo {
         top: 0rem;
         //display: inline-flex;
         // transform: display(inline-flex);
         // transition: all 1s;
-      }
+      }      
     }
 
     nav {
@@ -98,6 +111,16 @@ $verticalGap: 0.75rem;
 
     .intro-section {
       position: relative;
+
+      .anniversary-callout {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        img {
+          border-radius: 2rem;
+          width: 16vw;
+        }
+      }
 
       app-mouse-facer {
         position: absolute;
@@ -182,6 +205,15 @@ $verticalGap: 0.75rem;
           }
         } // end contact-container
 
+        .blurb-separator-top {
+          width: 5vw;
+          @include utility.media-breakpoint-gte(sm) {
+            width: 4.5vw;
+          }
+          margin-top: 5vw;
+          //transform: rotateZ(10deg);
+        }
+
         .blurb {
           position: relative;
           display: flex;
@@ -198,7 +230,7 @@ $verticalGap: 0.75rem;
             margin-top: 2vw;
             @include utility.media-breakpoint-gte(sm) {
               width: 4.5vw;
-            }            
+            }
             g path {              
               fill: utility.$dive-red;
             }            
@@ -275,7 +307,7 @@ $verticalGap: 0.75rem;
       }
     }
     .sections-container {
-      margin: $verticalGap auto 3vw;
+      margin: $verticalGap auto 0vw;
       padding: $verticalGap 0;
       border-top: 1px solid utility.$line-colors;
       //border-bottom: 1px solid utility.$line-colors;
@@ -302,10 +334,8 @@ $verticalGap: 0.75rem;
       $w3: 3vw;
       .sections-separator-bottom {
         display: flex;
-        // height: $verticalGap + 0.1rem;
-        margin: $verticalGap 0 6vw;
+        margin: $verticalGap 0 4vw;
         border-top: 1px solid utility.$line-colors;
-        //border-bottom: 1px solid utility.$line-colors;        
 
         > :last-child {
           align-items: flex-start;         
@@ -389,31 +419,24 @@ $verticalGap: 0.75rem;
         z-index: 0;
         position: relative;
         display: block;
-        //width: 100vw;
-
-        // @include utility.media-breakpoint-gte(sm) {
-        //   width: 80vw;
-        // }
-
-        // @include utility.media-breakpoint-gte(lg) {
-        //   width: 75vw;
-        // }
-
-        // @include utility.media-breakpoint-gte(ws) {
-        //   width: 70vw;
-        // }
       }
 
       .divider {
         position: relative;
-        //width: 80%;
         margin: $verticalGap auto;
-        //top: -1rem;
-        //height: $verticalGap;
         border-top: 1px solid utility.$line-colors;
-        //border-bottom: 1px solid utility.$line-colors;
       }
     } // end sections-container
+
+    .sections-bottom-separator {
+      width: 5vw;
+      margin: 2vw auto 8vw;
+      svg {
+        path {
+          fill: utility.$dive-red;
+        }
+      }
+    }
 
     .anchor-separator-bottom {
       display: block;
@@ -443,19 +466,22 @@ $verticalGap: 0.75rem;
       margin: 4vw auto;      
       svg {
         path, circle, rect {
-          stroke: utility.$dive-white;
-          fill: utility.$dive-white;
+          stroke: utility.$dive-red;
+          fill: utility.$dive-red;
         }
       }
     }
 
-    .bottom-separator {
+    .compass-separator {
       svg {
         display: block;
         width: 10vw;
         margin: 2vw auto 4vw;
         path {
-          fill: utility.$dive-gray-dk2;
+          fill: utility.$dive-black;
+          &.highlight-color {
+            fill: utility.$dive-red;
+          }
         }
       }
     }
