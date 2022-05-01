@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostBinding, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-mouse-facer',
@@ -7,20 +7,21 @@ import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@
 })
 export class MouseFacerComponent implements OnInit {
   @ViewChild('MouseFacer') mouseFacer?: ElementRef; // optional property to avoid having to initialize
-
-  @Input() imgSrc: string = '';
-
-  //@HostListener('mousemove', ['$event']) mouseTracker(event: MouseEvent): void { this.trackMouse(event); }
-
+ 
+  /**
+   * CSS bg position value
+   */
+  @HostBinding('style.--bgPositionVertical') 
+  @Input() bgPositionVertical: string = '40%';
   
-  
+  @HostBinding('style.--imgSrc') 
+  @Input() imgSrc: string = 'url()';
+
+  /**
+   * constructor
+   */
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  private trackMouse(event: MouseEvent) {
-    //this.mouseFacer?.nativeElement.
-  }
-
 }

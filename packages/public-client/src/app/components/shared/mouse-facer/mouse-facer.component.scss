@@ -12,23 +12,13 @@
     perspective: 2000px;    
 
     .mouse-facer-content {
-      //position: absolute;
+      //$temp: url(var(--img-src));
       height: 100%;
+      background-image: var(--imgSrc);
       background-size: cover;
-      background-position: 0% 40%;
-      // top: 0;
-      // bottom: 0;
-      // left: 0;
-      // right: 0;
+      background-position: 0% var(--bgPositionVertical);
       transform: scale(1.15) translateZ(100px);
       transition: all 0.1s linear;
-
-      // &::after {
-      //   content: '';
-      //   position: absolute;
-      //   top: 0; bottom: 0; left: 0; right: 0;
-      //   box-shadow: 0px 0px 50px #fff inset;
-      // }
     }
     .mouse-facer-shadow {
       position: absolute;

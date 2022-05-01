@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { IconCardConfig, IconCardImages, IconCardTextSizes } from '../../shared/models/icon-card.model';
+import { MouseFacerTextPositions } from '../../shared/models/mouse-facer-card.model';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,20 @@ import { IconCardConfig, IconCardImages, IconCardTextSizes } from '../../shared/
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  // template access
+  public MouseFacerTextPostionsEnum = MouseFacerTextPositions;
 
+  // @TODO - where should this data live?
   public showLogo: boolean = false;
   public footerAddress: string[] = ['1380 S Broadway', 'Denver 80210'];
   public footerPhone: string = '720-242-6157';
   public contactHours: string[] = ['Open EVERY Day', '11AM - 2AM'];
   public navMenuItems: string[] = ['Home', 'Menu', 'Events', 'Bookings', 'About Us', 'Work With Us', 'Dive Shop'];
+
+  public mouseFacerCardTitle_Charters: string = 'Charters';
+  public mouseFacerCardTitle_DiveShop: string = 'Dive Shop';
+  public mouseFacerCardTitle_WideOpen: string = 'Wide Open';
+
   public contactCardConfig: IconCardConfig[] = [
     {
       iconCardImage: IconCardImages.MAP_MARKER,

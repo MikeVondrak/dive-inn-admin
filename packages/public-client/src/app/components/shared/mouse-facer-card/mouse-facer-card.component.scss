@@ -1,105 +1,70 @@
+@use 'sass:meta';
 @use '../../scss/utility';
 
-.mouse-facer-container {
+@mixin coverAbsolute() {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+$textMaxWidth: 30vw;
+
+$imageHeight: var(--mouseFacerCardHeight);
+$overrideStroke: 0.7vw;
+
+:host {
   position: relative;
-  text-shadow: 2px 2px 5px #000;
-  .info {
+
+  app-mouse-facer {
+    height: $imageHeight;
+  }
+
+  .text-container {
     position: absolute;
-    top: 0; bottom: 0; left: 0; right: 0;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    > div {
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      background-color: rgba(0,0,0, 0.75);
-      //border-radius: 50%;
-      transform: skew(-10deg) rotateZ(-5deg);
-      position: relative;
-      top: 6vw;
-      left: 15vw;
-      padding: 1.5vw 2vw;
-      max-width: 35vw;          
+    width: $textMaxWidth;
+    transform: skew(-10deg) rotateZ(-5deg);
+    background-color: rgba(0, 0, 0, 0.75);
 
-      // > * {
-      //   display: inline-block;
-      //   transform: skew(10deg) rotateZ(5deg);
-      // }
-    }
-    h2 {                    
-      font-size: 3vw;
-      margin: 1rem 1rem 0.5rem; //0.5rem;
-      //right: -16vw;
-      position: relative;
+    &.top-left { top: 5vw; left: 17vw; }
+    &.top-right { top: 5vw; right: 17vw; }
+    &.bottom-left { bottom: 8vw; left: 17vw; }
+    &.bottom-right { bottom: 5vw; right: 17vw; }
 
-      line-height: 1;
-    }
-    p {
-      font-size: 2vw;
-      margin: 0;
-      padding: 0 1rem 1rem;
-      line-height: 1.25;
-      text-align: left;
-    }
-    $overrideStroke: 0.8vw;
-    &.shop {
+    .text-content {
+      padding: 2rem;
+      //transform: skew(10deg) rotateZ(5deg);
+      text-shadow: 2px 2px 5px #000;
 
-      > div {
-        left: 10vw;            
-        transform: skew(30deg) rotateZ(5deg);
-        > * {
-          transform: skew(-30deg) rotateZ(-5deg);
-        }
-      }
       h2 {
-        @include utility.text-double-outline('Dive Shop');
-        //left: 4vw;
-        right: unset;
-        &::after {
-          -webkit-text-stroke: $overrideStroke utility.$dive-white;
-        }
-      }
-      p {
         position: relative;
-        text-align: right;
-        //left: 2vw;
-        //top: 0.25vw
-      }
-    }
-    &.main {
-      h2 {
-        @include utility.text-double-outline('Charters');
+        z-index: 0;
+        margin: 0 0 0.75vw;
+        font-size: 3vw;
+        line-height: 1;
+        color: utility.$dive-black;
+        -webkit-text-stroke: 0.05em utility.$dive-red;
+
         &::after {
-          -webkit-text-stroke: $overrideStroke utility.$dive-white;
+          content: attr(card-title);
+          z-index: -1;
+          @include coverAbsolute();
+          // @TODO - how to use CSS variable w/SCSS mixin?
+          //@include utility.text-double-outline($textTitle);
+          -webkit-text-stroke: 0.2em utility.$dive-white;
         }
       }
-    }
-    &.patios {
-      > div {
-        display: inline-flex;
-        flex-direction: column;
-        left: 15vw;
-        top: 20vw;
-        transform: skew(30deg) rotateZ(5deg);
-        > * {
-          transform: skew(-30deg) rotateZ(-5deg);
-        }
-      }
-      h2 {
-        left: 0;
-        @include utility.text-double-outline('Wide Open');
-        &::after {
-          -webkit-text-stroke: $overrideStroke utility.$dive-white;
-        }
-      }
+
       p {
-        position: relative;
-        text-align: right;
-        //left: 6vw;
-        top: 0.5vw;
+        margin: 0;
+        padding: 0 1rem;
+        font-size: 2vw;
+        line-height: 1.25;
+        text-align: center;
       }
     }
-  } // end info            
-} // end mouse facer container
+  }
+}
+
+// end mouse facer container

@@ -21,6 +21,7 @@ Target date: 5/4/2020
 Public-Client:
 4/14/2022
 0. Custom directive that checks screen width against breakpoints
+0. Connection between SCSS and ts using CSS vars
 
 1. Header nav - style it and remove whichever items to make the menu smaller for mobile sizes
   - selected state / how to indicate which page we're on?
@@ -62,6 +63,7 @@ Public-Client:
 
 7. Topic section - polish and decide on final styles
   - refactor code / css to be able to experiment w/styles easier
+  - filigree 
 
 8. Footer - polish and decide on final styles
   - social media sprite
