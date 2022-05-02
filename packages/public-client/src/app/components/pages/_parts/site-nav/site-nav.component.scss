@@ -1,0 +1,18 @@
+@use 'sass:math';
+@use '../../../scss/utility';
+
+:host {
+  width: 100%;
+  margin-bottom: 5vw;
+  padding: 0.7vw;
+  font-size: 1.2vw;
+  font-family: 'Righteous', cursive;
+  @include utility.media-breakpoint-gte(sm) {
+    margin-bottom: 2vw;
+  }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: utility.$dive-gray-dk2;
+}

@@ -1,2 +1,32 @@
 @use 'sass:math';
 @use '../../../scss/utility';
+
+:host {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      display: block;
+      width: 96%;
+      
+      //transition: all 0.2s ease;
+
+      @include utility.media-breakpoint-gte(xs) {
+        width: 80vw;
+      }
+      @include utility.media-breakpoint-gte(sm) {
+        width: 60vw;
+        justify-content: flex-start;
+      }
+      @include utility.media-breakpoint-gte(md) {
+        width: 40vw;
+      }
+      @include utility.media-breakpoint-gte(lg) {
+        width: 30vw;
+      }
+    }
+  }
+}

@@ -1,8 +1,200 @@
 @use '../../scss/utility';
 
 :host {
-  app-album-display {
-    width: 800px;
-    height: 600px;
+  a.no-underline {
+    &::after {
+      content: none; // remove dotted underline
+    }
+  }
+
+  .text-content {
+    margin: 0 5vw;
+    text-align: right;
+
+    h1 {
+      margin-bottom: 0vw;
+      font-size: 12vw;
+      text-align: center;
+      @include utility.media-breakpoint-gte(sm) {
+        font-size: 9vw;
+      }
+      @include utility.media-breakpoint-gte(md) {
+        font-size: 6vw;
+      }
+      // @include utility.media-breakpoint-gte(lg) {
+      //   font-size: 7vw;
+      // }
+      @include utility.media-breakpoint-gte(xl) {
+        font-size: 4vw;
+      }
+      // @include utility.media-breakpoint-gte(ws) {
+      //   font-size: 5vw;
+      // }
+
+      span {
+        color: utility.$dive-red;
+      }
+    }
+  }
+  .subtitle {
+    //max-width: 50vw;
+    width: 100%;
+    max-width: 50vw;
+    margin: 0 auto;
+    font-size: 4vw;
+    font-style: italic;
+    line-height: 1.5;
+    text-align: center;
+    color: utility.$dive-gray-md;
+    @include utility.media-breakpoint-gte(sm) {
+      font-size: 3vw;
+    }
+    @include utility.media-breakpoint-gte(lg) {
+      max-width: 60%;
+      font-size: 2vw;
+      margin: 0 6vw 0 auto;
+      text-align: right;
+    }
+  }
+  .blurb {
+    font-size: 6vw;
+    @include utility.media-breakpoint-gte(sm) {
+      font-size: 4vw;
+    }
+    @include utility.media-breakpoint-gte(lg) {
+      max-width: 80vw;
+      margin: 2vw auto 2vw;
+      font-size: 3vw;      
+    }
+    @include utility.media-breakpoint-gte(xl) {
+      font-size: 2vw;
+    }
+    text-align: center;
+  }
+  .links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10vw;
+    margin: 3vw 0 5vw;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 22vw;
+      @include utility.media-breakpoint-gte(sm) {
+        width: 20vw;
+      }
+      @include utility.media-breakpoint-gte(md) {
+        width: 17vw;
+      }
+      @include utility.media-breakpoint-gte(lg) {
+        width: 14vw;
+      }
+      @include utility.media-breakpoint-gte(xl) {
+        width: 11vw;
+      }
+      @include utility.media-breakpoint-gte(ws) {
+        width: 10vw;
+      }
+
+      &.dive-home {
+        padding: 1vw;
+        //border-radius: 50%;
+        //border: 0.25vw solid utility.$dive-gray-dk2;
+        //background-color: utility.$dive-gray-dk;
+        //background-image: radial-gradient(utility.$dive-white, transparent 80%);
+      }
+      &.facebook {
+        //margin-left: 25vw;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+
+
+
+  img {
+    
+    &.specials {
+      width: 90vw;
+      max-width: 800px;
+      margin-top: 10vw;  
+    }
+    &.menu {
+      width: 90vw;
+      max-width: 800px;      
+      margin-top: 6vw;
+    }
+    @include utility.media-breakpoint-gte(md) {
+      &.specials {
+        width: 80vw;
+      }
+      &.menu {
+        width: 80vw;
+      }
+    }
+    @include utility.media-breakpoint-gte(lg) {
+      &.specials {
+        width: 70vw;
+        margin-top: 0;
+      }
+      &.menu {
+        width: 70vw;
+      }
+    }
+    @include utility.media-breakpoint-gte(xl) {
+      &.specials {
+        width: 44vw;
+      }
+      &.menu {
+        width: 44vw;
+        margin-top: 10.5vw;
+      }
+    }
+    @include utility.media-breakpoint-gte(ws) {
+      &.specials {
+        width: 37vw;
+      }
+      &.menu {
+        width: 37vw;
+        margin-top: 9vw;
+      }
+    }
+    @include utility.media-breakpoint-gte(hd) {
+      &.specials {
+        width: 30vw;
+      }
+      &.menu {
+        width: 30vw;
+        margin-top: 7.1vw;
+      }
+    }
+  }
+
+  .flyers {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4vw;
+    margin-bottom: 10vw;
+
+    @include utility.media-breakpoint-gte(xl) {      
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 6vw;
+    }
+
+    img {
+      display: block;
+      border-radius: 1rem;
+    }
   }
 }
