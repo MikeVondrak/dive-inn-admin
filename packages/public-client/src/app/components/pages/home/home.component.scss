@@ -203,15 +203,19 @@ $verticalGap: 0.75rem;
       justify-content: center;
       align-items: center;
 
-      .blurb-separator-top {
-        width: 5vw;
+      .blurb-separator-top, .blurb-separator-bottom {
+        width: 6vw;
 
-        @include utility.media-breakpoint-gte(sm) {
-          width: 4.5vw;
-        }
+        // @include utility.media-breakpoint-gte(sm) {
+        //   width: 4.5vw;
+        // }
 
         margin-top: 5vw;
         //transform: rotateZ(10deg);
+      }
+      .blurb-separator-bottom {
+        margin-top: 0;
+        margin-bottom: 5vw;
       }
 
       .blurb {
@@ -223,7 +227,7 @@ $verticalGap: 0.75rem;
         text-align: center;
 
         @include utility.media-breakpoint-gte(sm) {
-          padding: 4vw 1vw;
+          padding: 4vw 1vw 0vw;
         }
 
         svg {
@@ -293,31 +297,10 @@ $verticalGap: 0.75rem;
       }
     }
 
-    .sections-container-top {
-      svg {
-        display: block;
-        max-width: 80vw;
-
-        @include utility.media-breakpoint-gte(md) {
-          max-width: 44rem;
-        }
-
-        margin: 0 auto 0vw;
-
-        path,
-        circle,
-        rect,
-        ellipse {
-          fill: utility.$line-colors;
-          //stroke: utility.$line-colors;
-        }
-      }
-    }
-
     .sections-container {
-      margin: $verticalGap auto 0vw;
-      padding: $verticalGap 0;
-      border-top: 1px solid utility.$line-colors;
+      margin: 0 auto;
+      // padding: $verticalGap 0;
+      //border-top: 1px solid utility.$line-colors;
 
       //border-bottom: 1px solid utility.$line-colors;
       @include utility.media-breakpoint-gte(sm) {
@@ -332,58 +315,135 @@ $verticalGap: 0.75rem;
         width: 70vw;
       }
 
-      .sections-separator-top {
-        height: $verticalGap + 0.1rem;
-        margin: 0 0 $verticalGap;
-        border-top: 1px solid utility.$line-colors;
-        border-bottom: 1px solid utility.$line-colors;
-      }
-
       $w1: 26vw;
       $w2: 10vw;
       $w3: 3vw;
+      > div {
+        svg {
+          display: block;
+          flex: 0 auto;
+          height: 3rem; //4vw;
+          width: 3rem; //4vw;
+          max-width: 3rem;
+          max-height: 3rem;        
 
+          path {
+            fill: utility.$line-colors;
+          }
+        }
+      }
+      .sections-separator-top {
+        display: flex;
+        border-bottom: 1px solid utility.$line-colors;
+        margin: 4vw 0 $verticalGap;
+        svg {
+          width: 5rem;
+          height: 5rem;
+          max-width: 5rem;
+          max-height: 5rem;
+        }        
+        .lines {
+          flex: 1;          
+          position: relative;
+          margin: 0 0 $verticalGap;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: flex-end;
+          //border-top: 1px solid utility.$line-colors;
+          border-bottom: 1px solid utility.$line-colors;
+          &::after {
+            content: '';
+              position: absolute;
+              right: 0;
+              bottom: -0.125rem;
+              width: 0.25rem;
+              height: 0.25rem;
+              background-color: utility.$line-colors;
+              border-radius: 50%;
+          }
+          > div {
+            position: relative;
+            width: 100%;
+            height: $verticalGap + 0.1rem;
+            margin-top: 0;
+            border-bottom: 1px solid utility.$line-colors;
+
+            &::after {
+              content: '';
+              position: absolute;
+              right: 0;
+              bottom: -0.125rem;
+              width: 0.25rem;
+              height: 0.25rem;
+              background-color: utility.$line-colors;
+              border-radius: 50%;
+            }
+
+            &:last-child {
+              margin-bottom: $verticalGap;
+            }
+          }
+
+          &.left {
+            > div {
+              &:nth-of-type(1) {
+                max-width: 12vw;
+              }
+              &:nth-of-type(2) {
+                max-width: 20vw;
+                margin-right: 0.75rem;
+                
+              }
+              &:nth-of-type(3) {
+                max-width: 30vw;
+                margin-right: 0.6rem;
+              }
+            }
+          }
+          &.right {
+            align-items: flex-start;
+            &::after {
+              left: 0;
+              right: unset;
+            }
+            > div {
+              &::after {
+                left: 0;
+                right: unset;
+              }
+              &:nth-of-type(1) {
+                max-width: 12vw;
+              }
+              &:nth-of-type(2) {
+                max-width: 20vw;
+                margin-left: 0.75rem;
+                
+              }
+              &:nth-of-type(3) {
+                max-width: 30vw;
+                margin-left: 0.6rem;
+              }
+            }
+          }
+        }
+      }      
       .sections-separator-bottom {
         display: flex;
         margin: $verticalGap 0 4vw;
         border-top: 1px solid utility.$line-colors;
 
-        > :last-child {
-          align-items: flex-start;
-
-          div {
-            width: 100%;
-
-            &:nth-of-type(1) {
-              margin: 0 0 0 0.5rem;
-              max-width: $w1;
-            }
-
-            &:nth-of-type(2) {
-              margin: 0 0 0 1rem;
-              max-width: $w2;
-            }
-
-            &:nth-of-type(3) {
-              margin: 0 0 0 0.5rem;
-              max-width: $w3;
-            }
-
-            &::after {
-              left: 0;
-            }
-          }
-        }
-
-        >* {
+        > * {
           display: flex;
           flex-direction: column;
           align-items: flex-end;
           flex: 1;
         }
+        svg {
+          margin-top: 0.25rem;
+        }
 
         div {
-
           div {
             position: relative;
             width: 100%;
@@ -418,18 +478,30 @@ $verticalGap: 0.75rem;
             }
           }
         }
+        > :last-child {
+          align-items: flex-start;
 
-        svg {
-          display: block;
-          flex: 0 auto;
-          height: 3rem; //4vw;
-          width: 3rem; //4vw;
-          max-width: 3rem;
-          max-height: 3rem;
-          margin-top: 0.25rem;
+          div {
+            width: 100%;
 
-          path {
-            fill: utility.$line-colors;
+            &:nth-of-type(1) {
+              margin: 0 0 0 0.5rem;
+              max-width: $w1;
+            }
+
+            &:nth-of-type(2) {
+              margin: 0 0 0 1rem;
+              max-width: $w2;
+            }
+
+            &:nth-of-type(3) {
+              margin: 0 0 0 0.5rem;
+              max-width: $w3;
+            }
+
+            &::after {
+              left: 0;
+            }
           }
         }
       }
@@ -450,7 +522,7 @@ $verticalGap: 0.75rem;
     // end sections-container
 
     .sections-bottom-separator {
-      width: 5vw;
+      width: 4vw;
       margin: 2vw auto 8vw;
 
       svg {
@@ -462,11 +534,12 @@ $verticalGap: 0.75rem;
 
     .anchor-separator-bottom {
       display: block;
-      width: 25vw;
+      width: 6vw;
+      //width: 25vw;
       margin: 6vw auto;
 
       @include utility.media-breakpoint-gte(sm) {
-        width: 45vw;
+        //width: 45vw;
       }
 
       g path {
