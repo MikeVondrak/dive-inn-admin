@@ -28,12 +28,9 @@
       target="_blank">
       <img src="assets/images/westword_best_dive_bar.png" />
     </a>
-  </div>
+  </div>  
   <!-- Contact section -->
-  <div class="contact-container">
-    <app-icon-card *ngFor="let card of contactCardConfig" [config]="card">
-    </app-icon-card>
-  </div>
+  <app-contact-section [config]="contactSectionConfig"></app-contact-section>
   <!-- Waves separator -->
   <div class="waves-separator"></div>  
   <!-- Intro blurb -->

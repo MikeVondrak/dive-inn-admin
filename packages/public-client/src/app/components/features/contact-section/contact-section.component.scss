@@ -1,0 +1,61 @@
+@use 'sass:math';
+@use '../../scss/utility';
+
+.contact-container {
+  z-index: 1;
+  position: relative;
+  width: 100%;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4vw;
+  padding: 4vw 4vw 10vw;
+  $bgColor: transparent; //rgba(0, 0, 255, 0.51);
+  $bgColor2: utility.$dive-red;
+  background-color: darken($bgColor2, 17%);
+  background-image:
+    radial-gradient(circle at 50% 50%, $bgColor2 20%, $bgColor 40%),
+    radial-gradient(circle at 20% 50%, $bgColor2 15%, $bgColor 30%),
+    radial-gradient(circle at 80% 50%, $bgColor2 15%, $bgColor 30%),
+    linear-gradient(0deg, transparent 0%, transparent 99.5%, utility.$dive-black 100%);
+
+  app-icon-card {
+    //flex: 0 30vw;
+    //display: inline-block;
+    width: 90vw;    
+    flex: 1 20vw;    
+    background-color: utility.$dive-red;
+  }
+
+  @include utility.media-breakpoint-gte(xs) {
+    flex-direction: row;
+    padding: 4vw 2vw 10vw;
+    gap: 2vw;
+
+    app-icon-card {
+      
+    }
+  }
+  @include utility.media-breakpoint-gte(sm) {
+    padding: 4vw 2vw 10vw;
+    app-icon-card {
+      flex: 1 26vw;
+    }
+  }
+  @include utility.media-breakpoint-gte(md) {
+    padding: 4vw 2vw 10vw;
+    app-icon-card {
+      flex: 1 22vw;
+    }
+  }
+  @include utility.media-breakpoint-gte(lg) {
+    //flex: 0 10vw;
+    padding: 4vw 2vw 10vw;
+    // justify-content: space-between;
+    gap: 2vw;
+    app-icon-card {
+      flex: 0 23vw;
+    }
+  }
+}

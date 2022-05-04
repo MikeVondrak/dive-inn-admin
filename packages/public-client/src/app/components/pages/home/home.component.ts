@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public mouseFacerCardTitle_DiveShop: string = 'Dive Shop';
   public mouseFacerCardTitle_WideOpen: string = 'Wide Open';
 
-  public contactCardConfig: IconCardConfig[] = [
+  public contactSectionConfig: IconCardConfig[] = [
     {
       iconCardImage: IconCardImages.MAP_MARKER,
       textLines: [
