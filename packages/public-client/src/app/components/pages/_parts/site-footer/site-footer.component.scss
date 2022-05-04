@@ -22,7 +22,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1vw;
   padding: 1.5vw 0 2vw;
   background-color: utility.$dive-red;
 
@@ -30,9 +30,9 @@ footer {
   text-shadow: 1px 1px 3px #000;
 
   p {
-    padding: 0 0 0.5rem;
+    padding: 0 0 0.5vw;
     margin: 0;
-    font-size: 1.75rem;
+    font-size: 1.75vw;
   }
 
   ul.navigation {
@@ -46,11 +46,12 @@ footer {
 
     li {
       margin: 0 0 1.5vw;
+      font-size: 1.25vw;
     }
   }
 
   .spacer {
-    padding: 0 0.5rem;
+    padding: 0 0.5vw;
     color: utility.$dive-black;
   }
 
@@ -61,14 +62,14 @@ footer {
     justify-content: center;
     align-items: center;
     //margin-bottom: 1rem;
-    padding: 0.65rem 0.5rem;
+    padding: 0.65rem 0.5vw;
     background-color: utility.$dive-black;
     border-radius: 2rem;
 
     > a {
       width: $iconSize;
       height: $iconSize;
-      margin: 0 0.5rem;
+      margin: 0 0.5vw;
       //background-image: url('/assets/images/social-sprite.png');
       &::after {
         content: none;
