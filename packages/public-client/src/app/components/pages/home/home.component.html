@@ -1,6 +1,8 @@
 <header>
-  <img [ngClass]="{'showLogo': showLogo}" src="../../../../assets/images/logoLg.png">
-  <img class="anniversary" [ngClass]="{'showLogo': showLogo}" src="assets/images/10th_Anniversary.png" />
+  <div class="logo-container">
+    <img [ngClass]="{'showLogo': showLogo}" src="../../../../assets/images/logoLg.png">
+    <img class="anniversary" [ngClass]="{'showLogo': showLogo}" src="assets/images/10th_Anniversary.png" />
+  </div>
   <nav>
     <ul>
       <li *ngFor="let item of navMenuItems">

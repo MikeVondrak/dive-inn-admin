@@ -8,8 +8,16 @@ Next Steps:
     - Specials / Events
     - Charters or other banner sections?
     - About Us / Contact Us / Work With Us
+    - Find Us / Map
     - Footer
   3. Mobile views
+    - Fix main nav - text gets too small / want to hide some menu items in hamburger
+    - Fix logo 10th anniversary badge - overlaps at smaller sizes - DONE
+      - Fix 320 - 600px as single column w/large logo
+    - 10th anniversary callout too small to read (get rid of?) - DONEish, fixed position
+    - Contact section - stack vertically
+    - Mouse-facer cards - title wrapping and size / spacing
+    - Footer - wrap / hide nav items? stack?
   4. Script for deploying (server) - DONE
   5. Fix flashing pink bg on mouse-facer using OS X, iOS, Linux
   6. Final design polishing
