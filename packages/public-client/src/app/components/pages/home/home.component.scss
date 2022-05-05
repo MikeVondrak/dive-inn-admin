@@ -125,7 +125,7 @@ $verticalGap: 0.75rem;
       position: relative;
 
       .anniversary-callout {
-        z-index: 1;
+        z-index: 4; // TODO: why do we need 4 to be above slide-out logo?
         position: absolute;
         top: 2vw;
         left: 2vw;
