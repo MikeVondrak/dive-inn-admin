@@ -1,3 +1,4 @@
+<span id="pageTop"></span>
 <header>
   <div class="logo-container">
     <img [ngClass]="{'showLogo': showLogo}" src="../../../../assets/images/logoLg.png">
@@ -5,10 +6,20 @@
   </div>
   <nav>
     <ul>
-      <li *ngFor="let item of navMenuItems">
+      <!-- <li *ngFor="let item of navMenuItems">
         <a routerLink="/inside">
           {{item}}
         </a>
+      </li> -->
+      <li class="current-page">Home</li>
+      <li>
+        <a routerLink="/inside" fragment="menu">Menu</a>
+      </li>
+      <li>
+        <a routerLink="/inside" fragment="construction">Events</a>
+      </li>
+      <li>
+        <a routerLink="/home" fragment="contact">Find Us</a>
       </li>
     </ul>
   </nav>
@@ -18,7 +29,7 @@
 <main>
   <!-- Landing title card with callouts -->
   <div class="page-title-section">
-    <a routerLink="/inside" class="anniversary-callout">
+    <a routerLink="/inside" fragment="anniversary" class="anniversary-callout">
       <img src="assets/images/Dive_Inn_10th_Anniversary.png" />
     </a>
     <app-mouse-facer-title-card [titleLines]="siteTitleLines" imgUrl="url(assets/images/home/dive-inn-exterior.jpg)"
@@ -30,7 +41,7 @@
     </a>
   </div>  
   <!-- Contact section -->
-  <app-contact-section [config]="contactSectionConfig"></app-contact-section>
+  <app-contact-section id="contact" [config]="contactSectionConfig"></app-contact-section>
   <!-- Waves separator -->
   <div class="waves-separator"></div>  
   <!-- Intro blurb -->

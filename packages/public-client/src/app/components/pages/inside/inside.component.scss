@@ -117,8 +117,6 @@
   }
 
 
-
-
   img {
     
     &.specials {
@@ -130,6 +128,9 @@
       width: 90vw;
       max-width: 800px;      
       margin-top: 6vw;
+    }
+    &.cluck {
+      max-width: 8vw;
     }
     @include utility.media-breakpoint-gte(md) {
       &.specials {
@@ -195,6 +196,10 @@
     img {
       display: block;
       border-radius: 1rem;
+    }
+
+    .cluck {
+      max-width: 10vw;
     }
   }
 }

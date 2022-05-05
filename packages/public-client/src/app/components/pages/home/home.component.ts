@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public footerAddress: string[] = ['1380 S Broadway', 'Denver 80210'];
   public footerPhone: string = '720-242-6157';
   public contactHours: string[] = ['Open EVERY Day', '11AM - 2AM'];
-  public navMenuItems: string[] = ['Home', 'Menu', 'Events', 'Bookings', 'About Us', 'Work With Us', 'Dive Shop'];
+  public navMenuItems: string[] = ['Home', 'Menu', 'Find Us', 'Other Stuff']; // 'Events', 'Bookings', 'About Us', 'Work With Us', 'Dive Shop'];
 
   public mouseFacerCardTitle_Charters: string = 'Charters';
   public mouseFacerCardTitle_DiveShop: string = 'Dive Shop';

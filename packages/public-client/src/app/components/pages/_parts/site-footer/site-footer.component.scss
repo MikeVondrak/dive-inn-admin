@@ -47,6 +47,16 @@ footer {
     li {
       margin: 0 0 1.5vw;
       font-size: 1.25vw;
+
+      a {
+        color: utility.$dive-white;
+        &::after {
+          content: none;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 
@@ -62,15 +72,14 @@ footer {
     justify-content: center;
     align-items: center;
     //margin-bottom: 1rem;
-    padding: 0.65rem 0.5vw;
+    padding: 0.5rem 0vw;
     background-color: utility.$dive-black;
     border-radius: 2rem;
 
     > a {
       width: $iconSize;
       height: $iconSize;
-      margin: 0 0.5vw;
-      //background-image: url('/assets/images/social-sprite.png');
+      margin: 0 0.5vw;      
       &::after {
         content: none;
       }

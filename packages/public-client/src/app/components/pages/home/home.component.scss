@@ -86,6 +86,9 @@ $verticalGap: 0.75rem;
         li {
           padding: 0.5vw 1vw;
 
+          &.current-page {
+            color: utility.$dive-gray-md;
+          }
         }
       }
     }
@@ -128,9 +131,7 @@ $verticalGap: 0.75rem;
         left: 2vw;
 
         &::after {
-          content: '';
-          width: 0;
-          height: 0;
+          content: none;
         }
 
         img {

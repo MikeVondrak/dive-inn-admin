@@ -13,26 +13,11 @@
   <p>{{address}}<span class="spacer">|</span>{{phone}}</p>
   
   <ul class="navigation">
-    <li>Home</li>
-    <li class="spacer">|</li>
-    <li>Specials</li>
-    <li class="spacer">|</li>
-    <li>Events</li>
-    <li class="spacer">|</li>
-    <li>Private Parties</li>
-    <li class="spacer">|</li>
-    <li>About Us</li>
-    <li class="spacer">|</li>
-    <li>Partnerships</li>
-    <li class="spacer">|</li>
-    <li>Jobs</li>
-    <li class="spacer">|</li>
-    <li>Dive Shop</li>
-    <li class="spacer">|</li>
-    <li>News</li>
-    <li class="spacer">|</li>
-    <li>PADI Club</li>
-    <li class="spacer">|</li>
-    <li>Sightings</li>
+    <ng-container *ngFor="let link of links; let first = first; let last = last">
+      <li>
+        <a [routerLink]="link.linkUrl" [fragment]="link.fragment">{{link.uiLabel}}</a>
+      </li>
+      <li *ngIf="!last" class="spacer">|</li>
+    </ng-container>
   </ul>
 </footer>
