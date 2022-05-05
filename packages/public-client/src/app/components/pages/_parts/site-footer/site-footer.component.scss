@@ -9,6 +9,7 @@ $waveSize: 2vw;
   z-index: 1;
   display: flex;
   width: 100%;
+  top: 2px;
 
   &.footer {
     height: $waveSize;
@@ -71,15 +72,14 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    //margin-bottom: 1rem;
-    padding: 0.5rem 0vw;
+    padding: 0.5rem;
     background-color: utility.$dive-black;
     border-radius: 2rem;
 
     > a {
       width: $iconSize;
       height: $iconSize;
-      margin: 0 0.5vw;      
+      margin: 0 0.25rem;      
       &::after {
         content: none;
       }
