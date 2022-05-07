@@ -72,6 +72,9 @@ $verticalGap: 0.75rem;
     nav {
       font-size: 1.25vw;
       background-color: $headerColor; //rgba(0,0,0,0.75);
+      background-image: 
+        linear-gradient(90deg, transparent 15%, rgba(0,0,0,0.5) 50%),
+        linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.25) 50%, utility.$dive-gray-dk3 100%);
       color: utility.$dive-white;
       font-family: 'Righteous', cursive;
 

@@ -17,18 +17,23 @@
 //   100% { transform: scale(1) rotateY(0) rotateZ(0); }
 // }
 
+$cardWidthSm: 90vw;
 $cardWidth: 28vw;
 $cardWidthLg: 24vw;
+$cardHeightSm: 25vw;
 $cardHeight: 19.5vw;
 $cardHeightLg: 17vw;
 $imgSize: 7.5vw;
 $imgSizeLg: 6.5vw;
 $cardMargin: 1vw;
 $cornerButtonSize: 1vw;
+$fontSizeSm: 4vw;
+$fontSizeSm2: 6vw;
 $fontSize: 2.0vw;
 $fontSize2: 2.75vw;
 $fontSizeLg: 1.5vw;
 $fontSize2Lg: 2.25vw;
+$iconWidthSm: 18vw;
 
 :host {
   display: block;
@@ -44,8 +49,8 @@ $fontSize2Lg: 2.25vw;
     
     .card-content {
       position: relative;
-      width: $cardWidth;
-      height: $cardHeight;
+      width: $cardWidthSm;
+      height: $cardHeightSm;
       max-width: 30rem;
       transform-style: preserve-3d;
       transform: rotateY(0deg);
@@ -81,7 +86,9 @@ $fontSize2Lg: 2.25vw;
         border-radius: 1rem;
 
         &.card-face {
-
+          display: flex;
+          flex-direction: row;
+          // margin: 0 8vw;
         }
         &.card-back {
           transform: rotateY(180deg);
@@ -128,7 +135,9 @@ $fontSize2Lg: 2.25vw;
 
       .icon-container {
         //flex: 0 18vw;
-        margin-left: 1vw;
+        margin-left: 7vw;
+        width: $iconWidthSm;
+
         @include FlexCenter();
 
         > div {
@@ -142,11 +151,11 @@ $fontSize2Lg: 2.25vw;
         text-shadow: 1px 1px 2px utility.$dive-black;
         @include FlexCenter();
 
-        font-size: $fontSize;
+        font-size: $fontSizeSm;
         white-space: nowrap;
 
         .large {
-          font-size: $fontSize2;
+          font-size: $fontSizeSm2;
         }
 
         .center {
@@ -161,11 +170,13 @@ $fontSize2Lg: 2.25vw;
       .card-content {
         .icon-container {          
           @include FlexCenter;
-          margin: 0 0 1vw;         
+          // margin: 0 0 1vw;   
+          margin-left: 7vw;
+          width: $iconWidthSm;      
 
           svg {
-            max-width: $imgSize;
-            max-height: $imgSize;
+            // max-width: $imgSize;
+            // max-height: $imgSize;
           }
         }
 
@@ -185,6 +196,8 @@ $fontSize2Lg: 2.25vw;
     @include utility.media-breakpoint-gte(md) {
       display: block;
       .card-content {
+          width: $cardWidth;
+          height: $cardHeight;
         .icon-container {
           
         }
@@ -192,8 +205,9 @@ $fontSize2Lg: 2.25vw;
           @include FlexCenter;
           margin: 0;
           flex-direction: column;
-
+          font-size: $fontSize;
           .large {
+            font-size: $fontSize2;
           }
         }
       }

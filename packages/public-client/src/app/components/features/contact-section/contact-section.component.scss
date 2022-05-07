@@ -76,7 +76,6 @@
     }
 
     @include utility.media-breakpoint-gte(xs) {
-      flex-direction: row;
       padding: 4vw 1vw 10vw;
       gap: 3vw;
     }
@@ -87,6 +86,7 @@
       }
     }
     @include utility.media-breakpoint-gte(md) {
+      flex-direction: row;
       padding: 4vw 2vw 10vw;
       app-icon-card {
         flex: 0 26vw;

@@ -25,6 +25,7 @@ export class ContactSectionComponent implements OnInit {
   public cardDimensions$ = this.viewportService.viewportState$.pipe(
     map(viewportState => {      
       switch(viewportState.currentBreakpoint) {
+        case 'zero':
         case 'min':
         case 'xs':
         case 'sm':
