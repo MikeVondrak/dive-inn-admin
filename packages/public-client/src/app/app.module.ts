@@ -6,10 +6,10 @@ import { GraphQLModule } from './graphql.module';
 import { FeatureComponentsModule } from './components/features/feature-components.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/pages/home/home.component';
 import { SharedComponentsModule } from './components/shared/shared-components.module';
 import { DirectivesModule } from './directives/directives.module';
 import { PagesModule } from './components/pages/pages.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,6 +17,7 @@ import { PagesModule } from './components/pages/pages.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     GraphQLModule,
     DirectivesModule,

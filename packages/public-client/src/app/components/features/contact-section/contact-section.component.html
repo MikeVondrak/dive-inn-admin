@@ -1,4 +1,18 @@
 <div class="contact-container">
-  <app-icon-card *ngFor="let card of config" [config]="card">
+ <app-icon-card [config]="config[0]">    
+    <google-map (click)="mapClick($event)" [width]="(cardDimensions$ | async)?.width || 0" [height]="(cardDimensions$ | async)?.height || 0" [zoom]="13" [center]="mapCenter" [options]="mapOptions">
+      <map-marker [position]="mapMarkerPosition" [title]="mapMarkerTitle" [options]="mapMarkerOptions"></map-marker>
+    </google-map>
+  </app-icon-card>
+  <app-icon-card [config]="config[1]">
+    <div class="open-hours-card">
+      <h3>Is it a day today?<br>Then we're open!</h3>
+    </div>
+  </app-icon-card>
+  <app-icon-card [config]="config[2]">
+    <div class="contact-methods-card">
+      <a href="tel:7202426157"><span>720 &#8226; 242 &#8226; 6157</span></a>
+      <a href="mailto:contact@diveinndenver.com" target="_blank"><span>contact@diveinndenver.com</span></a>
+    </div>
   </app-icon-card>
 </div>

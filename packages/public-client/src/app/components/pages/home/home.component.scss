@@ -320,10 +320,10 @@ $verticalGap: 0.75rem;
         border-bottom: 1px solid utility.$line-colors;
         margin: 4vw 0 $verticalGap;
         svg {
-          width: 5rem;
-          height: 5rem;
-          max-width: 5rem;
-          max-height: 5rem;
+          width: 4rem;
+          height: 4rem;
+          max-width: 4rem;
+          max-height: 4rem;
         }        
         .lines {
           flex: 1;          
@@ -583,12 +583,12 @@ $verticalGap: 0.75rem;
     display: flex;
     height: $waveSize;
     width: 100%;
-    top: -($waveSize - 0.15vw);
+    top: -($waveSize - 0.2vw);
     background-image: url('/assets/images/wave.svg');
 
     &.footer {
       height: 2vw;
-      top: 1px;
+      top: 2px;
       background-image: url('/assets/images/wave-red.svg');
     }
   }
