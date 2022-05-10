@@ -155,7 +155,7 @@
       }
       &.menu {
         width: 44vw;
-        margin-top: 10.5vw;
+        margin-top: 0vw;
       }
     }
     @include utility.media-breakpoint-gte(ws) {
@@ -164,7 +164,7 @@
       }
       &.menu {
         width: 37vw;
-        margin-top: 9vw;
+        //margin-top: 9vw;
       }
     }
     @include utility.media-breakpoint-gte(hd) {
@@ -173,7 +173,7 @@
       }
       &.menu {
         width: 30vw;
-        margin-top: 7.1vw;
+        //margin-top: 7.1vw;
       }
     }
   }
