@@ -124,20 +124,78 @@ $verticalGap: 0.75rem;
     .page-title-section {
       position: relative;
 
-      .anniversary-callout {
+      .title-callout {
         z-index: 4; // TODO: why do we need 4 to be above slide-out logo?
         position: absolute;
-        top: 2vw;
-        left: 2vw;
-
-        &::after {
-          content: none;
+        bottom: 3vw;
+        left: 50vw;
+        transform: translateX(-50%);
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+        &:hover {
+          opacity: 1;
         }
 
-        img {
-          width: 16vw;
+        .title-callout-title {
+          position: absolute;
+          left: 11.3vw;
+          margin: 0;
+          padding: 0;
+          text-align: center;
+          transform: rotate(-25deg);
+          font-size: 1.2vw;
+
+          div {
+            margin: 0;
+            padding: 0;
+            line-height: 0.9;
+            transform: rotate(25deg);
+          }
         }
-      }
+        .title-callout-content {
+          display: flex;
+
+          a {
+            display: block;
+            &::after {
+              content: none;
+            }
+            &:hover, &:active {
+              opacity: 1;
+            }
+          }
+
+          .takis {       
+            h2 {
+              margin: -1vw 0 0;
+            }
+            img {
+              width: 12vw;
+            }
+          }
+  
+          .cluck {
+            position: relative;
+            left: 0.5vw;
+            img {
+              width: 9vw;
+            }
+            h2 {
+              position: absolute;
+              top: 64%;
+              left: 55%;
+              transform: translate(-50%, -50%);
+              margin: 0;
+              padding: 0;
+              line-height: 1;
+              font-size: 1.75vw;
+              font-family: 'Anton', sans-serif;
+              text-align: center;
+              text-shadow: 1px 1px 1px utility.$dive-black;
+            }
+          }
+        }        
+      }      
 
       .westword-award {
         z-index: 1;

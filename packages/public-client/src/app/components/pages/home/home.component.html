@@ -2,7 +2,7 @@
 <header>
   <div class="logo-container">
     <img [ngClass]="{'showLogo': showLogo}" src="../../../../assets/images/logoLg.png">
-    <img class="anniversary" [ngClass]="{'showLogo': showLogo}" src="assets/images/10th_Anniversary.png" />
+    <!-- <img class="anniversary" [ngClass]="{'showLogo': showLogo}" src="assets/images/10th_Anniversary.png" /> -->
   </div>
   <nav>
     <ul>
@@ -29,9 +29,29 @@
 <main>
   <!-- Landing title card with callouts -->
   <div class="page-title-section">
-    <a routerLink="/inside" fragment="anniversary" class="anniversary-callout">
-      <img src="assets/images/Dive_Inn_10th_Anniversary.png" />
-    </a>
+    <div class="title-callout">
+      <h2 class="title-callout-title">
+        <div>F</div>
+        <div>e</div>
+        <div>a</div>
+        <div>t</div>
+        <div>u</div>
+        <div>r</div>
+        <div>i</div>
+        <div>n</div>
+        <div>g</div>
+      </h2>
+      <div class="title-callout-content">
+        <a routerLink="/inside" fragment="menu" class="takis">
+          <img src="assets/images/Taki Takos Logo Transparent.png" />      
+        </a>
+        <a routerLink="/inside" fragment="cluck" class="cluck">
+          <img src="assets/images/Cluck_Chicken.svg" />
+          <h2>Cluck<br>Chicken</h2>
+        </a>
+      </div>
+    </div>
+
     <app-mouse-facer-title-card [titleLines]="siteTitleLines" imgUrl="url(assets/images/home/dive-inn-exterior.jpg)"
       [height]="'50vw'">
     </app-mouse-facer-title-card>
