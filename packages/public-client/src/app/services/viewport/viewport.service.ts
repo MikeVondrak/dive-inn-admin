@@ -41,11 +41,13 @@ export class ViewportService {
   constructor(@Inject(DOCUMENT) private document: Document) {    
     this.window = this.document.defaultView;
     this._viewportState = { previousBreakpoint: this.getCurrentBreakpoint(), currentBreakpoint: this.getCurrentBreakpoint() };
+
     this.viewportState$ = fromEvent(window, 'resize').pipe(
       debounceTime(100),
       map((event: Event) => {        
         return this.getUpdatedViewportState();
       }),
+      startWith(this.getUpdatedViewportState()),
       distinctUntilChanged(),
       shareReplay(1)
     );

@@ -13,20 +13,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4vw;
+    //gap: 4vw;
     padding: 4vw 4vw 8vw;
     $bgColor: transparent; //rgba(0, 0, 255, 0.51);
     $bgColor2: utility.$dive-red;
     background-color: darken($bgColor2, 17%);
+
     background-image:
-      radial-gradient(circle at 50% 50%, $bgColor2 20%, $bgColor 40%),
-      radial-gradient(circle at 20% 50%, $bgColor2 15%, $bgColor 30%),
-      radial-gradient(circle at 80% 50%, $bgColor2 15%, $bgColor 30%),
+      radial-gradient(circle at 50% 20%, $bgColor2 20%, $bgColor 60%),
+      radial-gradient(circle at 50% 50%, $bgColor2 15%, $bgColor 60%),
+      radial-gradient(circle at 50% 80%, $bgColor2 15%, $bgColor 60%),
       linear-gradient(0deg, transparent 0%, transparent 99.5%, utility.$dive-black 100%);
+    @include utility.media-breakpoint-gte(sm) {
+      background-image:
+        radial-gradient(circle at 50% 50%, $bgColor2 20%, $bgColor 40%),
+        radial-gradient(circle at 20% 50%, $bgColor2 15%, $bgColor 30%),
+        radial-gradient(circle at 80% 50%, $bgColor2 15%, $bgColor 30%),
+        linear-gradient(0deg, transparent 0%, transparent 99.5%, utility.$dive-black 100%);
+    }
 
     app-icon-card {
-      width: 90vw;
-      flex: 1 20vw;
+      //width: 90vw;
+      flex: 1 16vw; // vertical space between cards
       // background-color: utility.$dive-red;
       google-map {
         overflow: hidden;
@@ -44,8 +52,12 @@
         height: 100%;
         a {
           display: flex;
+          flex-direction: row;
+          @include utility.media-breakpoint-gte(sm) {
+            flex-direction: column;
+          }
           justify-content: center;
-          align-items: center;        
+          align-items: center;
           width: 100%;
           &::after {
             content: none;
@@ -57,7 +69,10 @@
             height: 50%;
             background-color: utility.$dive-yellow;
             color: utility.$dive-black;
-            font-size: 2.9vw;
+            font-size: 4.5vw;
+            @include utility.media-breakpoint-gte(sm) {
+              font-size: 3.2vw;
+            }
             @include utility.media-breakpoint-gte(lg) {
               font-size: 2.5vw;
             }
@@ -65,9 +80,13 @@
           &:last-child {
             height: 50%;
             background-color: utility.$dive-black;
-            font-size: 1.6vw;
+            font-size: 3vw;
+            text-align: center;
+            @include utility.media-breakpoint-gte(sm) {
+              font-size: 1.9vw;
+            }
             @include utility.media-breakpoint-gte(lg) {
-              font-size: 1.4vw;
+              font-size: 1.6vw;
             }
           }
         }
@@ -76,13 +95,17 @@
     }
 
     @include utility.media-breakpoint-gte(xs) {
-      flex-direction: row;
       padding: 4vw 1vw 10vw;
-      gap: 3vw;
+      app-icon-card {
+        //width: 70vw;
+      }
     }
     @include utility.media-breakpoint-gte(sm) {
+      flex-direction: row;
       padding: 4vw 0vw 10vw;
+      gap: 3vw;
       app-icon-card {
+        //width: unset;
         flex: 0 28.5vw;
       }
     }

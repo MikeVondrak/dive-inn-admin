@@ -4,7 +4,6 @@
       <ng-container *ngTemplateOutlet="CardFace"></ng-container>
     </div>
     <div class="card-back">
-      <!-- <ng-container *ngTemplateOutlet="CardBack"></ng-container> -->
       <ng-content></ng-content>
       <div class="corner-button">
         <div></div>
@@ -37,11 +36,6 @@
     </div>
   </div>
 </ng-template>
-
-<ng-template #CardBack>
-  <google-map height="13vw" width="20vw" [zoom]="12"></google-map>
-</ng-template>
-
 
 <!-------------------------------------- SVGs --------------------------------------->
 
