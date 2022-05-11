@@ -85,7 +85,6 @@
 
     @include utility.media-breakpoint-gte(xs) {
       padding: 4vw 1vw 10vw;
-      //gap: 3vw;
       app-icon-card {
         //width: 70vw;
       }
@@ -93,6 +92,7 @@
     @include utility.media-breakpoint-gte(sm) {
       flex-direction: row;
       padding: 4vw 0vw 10vw;
+      gap: 3vw;
       app-icon-card {
         //width: unset;
         flex: 0 28.5vw;

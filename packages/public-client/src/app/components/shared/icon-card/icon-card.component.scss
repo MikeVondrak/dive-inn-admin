@@ -21,10 +21,10 @@
 
 $cardWidths: ('zero': 90vw, 'xs': 70vw, 'sm': 28vw, 'md': 28vw, 'lg': 24vw);
 $cardMaxWidth: 30rem;
-$cardHeights: ('zero': 14vw, 'md': 19.5vw, 'lg': 17vw);
+$cardHeights: ('zero': 14vw, 'sm': 21vw, 'md': 19.5vw, 'lg': 17vw);
 $imgSizes: ('zero': 8.5vw, 'md': 7.5vw, 'lg': 6.5vw);
-$fontPrimarySizes: ('zero': 4.5vw, 'md': 2.75vw, 'lg': 2.25vw);
-$fontSecondarySizes: ('zero': 3.5vw, 'md': 2vw, 'lg': 1.5vw);
+$fontPrimarySizes: ('zero': 4.5vw, 'sm': 3vw, 'md': 2.75vw, 'lg': 2.25vw);
+$fontSecondarySizes: ('zero': 3.5vw, 'sm': 2vw, 'md': 2vw, 'lg': 1.5vw);
 
 // $cardWidth: 28vw;
 // $cardWidthLg: 24vw;
@@ -107,7 +107,7 @@ $backBtnSize: 0.35vw;
 
       .icon-container {
         position: absolute;
-        left: 2vw;
+        left: 2vw;        
         @include FlexCenter();
         height: 100%;
 
@@ -125,10 +125,9 @@ $backBtnSize: 0.35vw;
         width: 100%;
         margin-right: 1vw;
         text-shadow: 1px 1px 2px utility.$dive-black;
-
-        font-size: map.get($fontSecondarySizes, 'zero');
         white-space: nowrap;
-
+        
+        font-size: map.get($fontSecondarySizes, 'zero');
         .large {
           font-size: map.get($fontPrimarySizes, 'zero');
         }
@@ -142,14 +141,31 @@ $backBtnSize: 0.35vw;
     }
     @include utility.media-breakpoint-gte(xs) {
       .card-content {
-        width: 70vw;
+        width: map-get($cardWidths, 'xs');
+        height: map-get($cardHeights, 'xs');
       }
     }
 
-    @include utility.media-breakpoint-gte(sm) {
+    @include utility.media-breakpoint-gte(sm) {      
       .card-content {
+        width: map-get($cardWidths, 'sm');
+        height: map-get($cardHeights, 'sm');
         > div {
           flex-direction: column;
+        }
+        .icon-container {
+          position: relative;
+          width: 100%;
+          height: unset;
+          left: 0;
+          margin-bottom: 1.5vw;
+        }
+        .text-container {
+          margin: 0;
+          font-size: map.get($fontSecondarySizes, 'sm');
+          .large {
+            font-size: map.get($fontPrimarySizes, 'sm');
+          }
         }
       }
     }
@@ -157,6 +173,8 @@ $backBtnSize: 0.35vw;
     @include utility.media-breakpoint-gte(md) {
       display: block;
       .card-content {
+        width: map-get($cardWidths, 'md');
+        height: map-get($cardHeights, 'md');
         .icon-container {
           
         }

@@ -22,11 +22,13 @@ export class ContactSectionComponent implements OnInit {
   public mapMarkerTitle = 'South Broadway and Arkansas Ave';
   public mapMarkerOptions = {}
 
+  // @TODO how to tie this to CSS dimensions?
   public cardDimensions$ = this.viewportService.viewportState$.pipe(
     map(viewportState => {      
       switch(viewportState.currentBreakpoint) {
-        case 'min':
-        case 'xs':
+        case 'zero': // fall through 
+        case 'min': this.cardWidth = '86vw'; this.cardHeight = '11vw'; break;
+        case 'xs':  this.cardWidth = '66vw'; this.cardHeight = '11vw'; break;
         case 'sm':
         case 'md': this.cardWidth = '25.5vw'; this.cardHeight = '17vw'; break;
         case 'lg':
@@ -40,8 +42,8 @@ export class ContactSectionComponent implements OnInit {
     })
   );
 
-  public cardWidth = '22vw';
-  public cardHeight = '15vw';
+  private cardWidth = '22vw';
+  private cardHeight = '15vw';
 
   constructor(public viewportService: ViewportService) { }
 
