@@ -44,7 +44,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         console.error(err);
       }
     }
-    }, 50); // wait 50ms to allow document to finish loading, scroll won't do anything if dom is not ready
+    }, 100); // wait to allow document to finish loading, scroll won't do anything if dom is not ready
     // @TODO - better way to do this?
     
   }
