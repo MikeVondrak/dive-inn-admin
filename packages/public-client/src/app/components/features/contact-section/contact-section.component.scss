@@ -52,8 +52,12 @@
         height: 100%;
         a {
           display: flex;
+          flex-direction: row;
+          @include utility.media-breakpoint-gte(sm) {
+            flex-direction: column;
+          }
           justify-content: center;
-          align-items: center;        
+          align-items: center;
           width: 100%;
           &::after {
             content: none;
@@ -65,7 +69,10 @@
             height: 50%;
             background-color: utility.$dive-yellow;
             color: utility.$dive-black;
-            font-size: 2.9vw;
+            font-size: 4.5vw;
+            @include utility.media-breakpoint-gte(sm) {
+              font-size: 3.2vw;
+            }
             @include utility.media-breakpoint-gte(lg) {
               font-size: 2.5vw;
             }
@@ -73,9 +80,13 @@
           &:last-child {
             height: 50%;
             background-color: utility.$dive-black;
-            font-size: 1.6vw;
+            font-size: 3vw;
+            text-align: center;
+            @include utility.media-breakpoint-gte(sm) {
+              font-size: 1.9vw;
+            }
             @include utility.media-breakpoint-gte(lg) {
-              font-size: 1.4vw;
+              font-size: 1.6vw;
             }
           }
         }

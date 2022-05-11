@@ -237,6 +237,7 @@ $verticalGap: 0.75rem;
     }
     // end contact-container
 
+    $separatorSizes: ('zero': 10vw, 'sm': 4.5vw);
     .intro-section {
       position: relative;
       display: flex;
@@ -245,14 +246,12 @@ $verticalGap: 0.75rem;
       align-items: center;
 
       .blurb-separator-top, .blurb-separator-bottom {
-        width: 6vw;
+        width: map-get($separatorSizes, 'zero');
+        margin: 6vw 0 2vw;
 
-        // @include utility.media-breakpoint-gte(sm) {
-        //   width: 4.5vw;
-        // }
-
-        margin-top: 5vw;
-        //transform: rotateZ(10deg);
+        @include utility.media-breakpoint-gte(sm) {
+          width: map-get($separatorSizes, 'sm');
+        }
       }
       .blurb-separator-bottom {
         margin-top: 0;
@@ -308,9 +307,12 @@ $verticalGap: 0.75rem;
 
         p {
           z-index: 1;
-          max-width: 80vw;
-          font-size: 3vw;
-
+          max-width: 90vw;
+          font-size: 5vw;
+          @include utility.media-breakpoint-gte(xs) {
+            max-width: 80vw;
+            font-size: 4vw;
+          }
           @include utility.media-breakpoint-gte(sm) {
             max-width: 64vw;
             font-size: 2.75vw;
@@ -330,8 +332,14 @@ $verticalGap: 0.75rem;
               display: block;
               font-family: 'Bevan', serif;
               @include utility.text-double-outline('Dive Inn');
-              font-size: 3.8vw;
+              font-size: 6vw;
               line-height: 1.6;
+              @include utility.media-breakpoint-gte(xs) {
+                font-size: 5vw;
+              }
+              @include utility.media-breakpoint-gte(sm) {
+                font-size: 4vw;
+              }
             }
           }
         }
@@ -339,7 +347,7 @@ $verticalGap: 0.75rem;
     }
 
     .sections-container {
-      margin: 0 auto;
+      margin: 10vw auto;
       // padding: $verticalGap 0;
       //border-top: 1px solid utility.$line-colors;
 
@@ -563,8 +571,11 @@ $verticalGap: 0.75rem;
     // end sections-container
 
     .sections-bottom-separator {
-      width: 4vw;
+      width: map-get($separatorSizes, 'zero') * 0.7;
       margin: 2vw auto 8vw;
+      @include utility.media-breakpoint-gte(sm) {
+        width: map-get($separatorSizes, 'sm') * 0.7;
+      }
 
       svg {
         path {
@@ -575,12 +586,10 @@ $verticalGap: 0.75rem;
 
     .anchor-separator-bottom {
       display: block;
-      width: 6vw;
-      //width: 25vw;
+      width: map-get($map: $separatorSizes, $key: 'zero');
       margin: 6vw auto;
-
       @include utility.media-breakpoint-gte(sm) {
-        //width: 45vw;
+        width: map-get($map: $separatorSizes, $key: 'sm');
       }
 
       g path {
@@ -600,7 +609,10 @@ $verticalGap: 0.75rem;
     }
 
     .sextant-separator {
-      width: 8vw;
+      width: map-get($map: $separatorSizes, $key: 'zero');
+      @include utility.media-breakpoint-gte(sm) {
+        width: map-get($map: $separatorSizes, $key: 'sm');
+      }
       margin: 4vw auto;
 
       svg {
@@ -617,7 +629,10 @@ $verticalGap: 0.75rem;
     .compass-separator {
       svg {
         display: block;
-        width: 10vw;
+        width: map-get($map: $separatorSizes, $key: 'zero') * 1.5;
+        @include utility.media-breakpoint-gte(sm) {
+          width: map-get($map: $separatorSizes, $key: 'sm') * 1.5;
+        }
         margin: 2vw auto 4vw;
 
         path {

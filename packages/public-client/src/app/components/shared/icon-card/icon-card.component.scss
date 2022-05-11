@@ -6,25 +6,32 @@
   justify-content: center;
   align-items: center;
 }
-@mixin DiagonalCorner {
+@mixin DiagonalCorner($size) {
   background: transparent;
-  border-top: $cornerButtonSize solid transparent;
-  border-right: $cornerButtonSize solid transparent;
-  border-bottom: $cornerButtonSize solid utility.$dive-black;
-  border-left: $cornerButtonSize solid utility.$dive-black;
+  border-top: $size solid transparent;
+  border-right: $size solid transparent;
+  border-bottom: $size solid rgba(0,0,0,0.75);//utility.$dive-black;
+  border-left: $size solid rgba(0,0,0,0.75);//utility.$dive-black;
 }
 @mixin ArrowLeft {
-  border-top: $backBtnSize solid transparent;
-  border-bottom: $backBtnSize solid transparent;
-  border-right: $backBtnSize + 0.35vw solid utility.$dive-red;
+  border-top: map-get($backButtonSizes, 'zero') * 2 solid transparent;
+  border-bottom: map-get($backButtonSizes, 'zero') * 2 solid transparent;
+  border-right: map-get($backButtonSizes, 'zero') * 2 solid utility.$dive-red;
+
+  @include utility.media-breakpoint-gte('sm') {
+    border-top: map-get($backButtonSizes, 'sm') * 2 solid transparent;
+    border-bottom: map-get($backButtonSizes, 'sm') * 2 solid transparent;
+    border-right: map-get($backButtonSizes, 'sm') * 2 solid utility.$dive-red;
+  }
 }
 
 $cardWidths: ('zero': 90vw, 'xs': 70vw, 'sm': 28vw, 'md': 28vw, 'lg': 24vw);
 $cardMaxWidth: 30rem;
-$cardHeights: ('zero': 14vw, 'sm': 21vw, 'md': 19.5vw, 'lg': 17vw);
+$cardHeights: ('zero': 14vw, 'sm': 21vw, 'md': 19.5vw, 'lg': 18vw);
 $imgSizes: ('zero': 8.5vw, 'md': 7.5vw, 'lg': 6.5vw);
 $fontPrimarySizes: ('zero': 4.5vw, 'sm': 3vw, 'md': 2.75vw, 'lg': 2.25vw);
 $fontSecondarySizes: ('zero': 3.5vw, 'sm': 2vw, 'md': 2vw, 'lg': 1.5vw);
+$backButtonSizes: ('zero': 1vw, 'sm': 0.65vw, 'md': 0.35vw);
 
 // $cardWidth: 28vw;
 // $cardWidthLg: 24vw;
@@ -33,7 +40,7 @@ $fontSecondarySizes: ('zero': 3.5vw, 'sm': 2vw, 'md': 2vw, 'lg': 1.5vw);
 // $imgSize: 7.5vw;
 // $imgSizeLg: 6.5vw;
 
-$cornerButtonSize: 1vw;
+$cornerButtonSize: 7vw;
 // $fontSize: 2.0vw;
 // $fontSize2: 2.75vw;
 // $fontSizeLg: 1.5vw;
@@ -61,7 +68,7 @@ $backBtnSize: 0.35vw;
       transform: rotateY(0deg);      
       border-radius: 1rem;
       background-color: utility.$dive-red;
-      transition: box-shadow 0.25s ease;
+      //transition: box-shadow 0.25s ease;
       
       box-shadow: 1px 1px 4px 0px utility.$dive-black;
       &:hover {
@@ -89,15 +96,17 @@ $backBtnSize: 0.35vw;
           .corner-button {
             z-index: 1;
             position: absolute;
-            bottom: -0.1vw;
-            left: -0.1vw;
-            @include DiagonalCorner();
+            //width: 8vw;
+            //height: 8vw;
+            bottom: 0vw;
+            left: 0vw;
+            @include DiagonalCorner($cornerButtonSize);
             cursor: pointer;
             > div {
               z-index: 2;
               position: absolute;
-              top: 0.5vw;
-              left: -1.25vw;
+              top: $cornerButtonSize * 0.15;
+              left: -$cornerButtonSize * 0.6;
               
               @include ArrowLeft();
             }
@@ -157,6 +166,16 @@ $backBtnSize: 0.35vw;
         height: map-get($cardHeights, 'sm');
         > div {
           flex-direction: column;
+
+          &.card-back {
+            .corner-button {
+              @include DiagonalCorner($cornerButtonSize * 0.5);
+              > div {
+                top: $cornerButtonSize * 0;
+                left: -$cornerButtonSize * 0.35;
+              }
+            }
+          }
         }
         .icon-container {
           position: relative;
@@ -180,9 +199,7 @@ $backBtnSize: 0.35vw;
       .card-content {
         width: map-get($cardWidths, 'md');
         height: map-get($cardHeights, 'md');
-        .icon-container {
-          
-        }
+        .icon-container {}
         .text-container {
           @include FlexCenter;
           margin: 0;

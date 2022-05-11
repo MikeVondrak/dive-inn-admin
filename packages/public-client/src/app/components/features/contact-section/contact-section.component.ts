@@ -27,14 +27,14 @@ export class ContactSectionComponent implements OnInit {
     map(viewportState => {      
       switch(viewportState.currentBreakpoint) {
         case 'zero': // fall through 
-        case 'min': this.cardWidth = '86vw'; this.cardHeight = '11vw'; break;
-        case 'xs':  this.cardWidth = '66vw'; this.cardHeight = '11vw'; break;
+        case 'min': this.cardWidth = '90vw'; this.cardHeight = '14vw'; break;//this.cardWidth = '86vw'; this.cardHeight = '11vw'; break;
+        case 'xs':  this.cardWidth = '70vw'; this.cardHeight = '16vw'; break;//this.cardWidth = '66vw'; this.cardHeight = '11vw'; break;
         case 'sm':
-        case 'md': this.cardWidth = '25.5vw'; this.cardHeight = '17vw'; break;
+        case 'md': this.cardWidth = '28vw'; this.cardHeight = '21vw'; break;//this.cardWidth = '25.5vw'; this.cardHeight = '17vw'; break;
         case 'lg':
         case 'xl':
         case 'ws':
-        case 'hd': this.cardWidth = '22vw'; this.cardHeight = '15vw'; break;
+        case 'hd': this.cardWidth = '24vw'; this.cardHeight = '18vw'; break;
         default: this.cardWidth = '24vw'; this.cardHeight = '17vw';
       };
       console.log('+++++ ', this.cardWidth, this.cardHeight);
