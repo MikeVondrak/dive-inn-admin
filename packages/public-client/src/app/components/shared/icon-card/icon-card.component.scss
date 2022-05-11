@@ -51,7 +51,7 @@ $iconWidthSm: 18vw;
       position: relative;
       width: $cardWidthSm;
       height: $cardHeightSm;
-      max-width: 30rem;
+      // max-width: 30rem;
       transform-style: preserve-3d;
       transform: rotateY(0deg);
       animation: unflipCard 0.6s ease 0 forwards;
