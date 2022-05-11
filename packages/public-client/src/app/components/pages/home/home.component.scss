@@ -128,10 +128,18 @@ $verticalGap: 0.75rem;
         z-index: 4; // TODO: why do we need 4 to be above slide-out logo?
         position: absolute;
         bottom: 3vw;
-        left: 50vw;
-        transform: translateX(-50%);        
+        right: 3vw;
+        @include utility.media-breakpoint-gte(md) {
+          left: 50vw;
+          right: unset;
+          transform: translateX(-50%);        
+        }
         
         .title-callout-title {
+          display: none;
+          @include utility.media-breakpoint-gte(md) {
+            display: block;
+          }
           position: absolute;
           left: 11.3vw;
           margin: 0;
@@ -152,11 +160,13 @@ $verticalGap: 0.75rem;
             }
             @keyframes attentionBlink2 {
               0% { opacity: 0; text-shadow: none; color: $textColor; }
-              2.5% { opacity: 1; text-shadow: 0px 0px 3px $textColorLt; color: $textColorLt; transform: scale(1); }
-              5% { opacity: 0; text-shadow: none; color: $textColor; }
-              7.5% { opacity: 0; text-shadow: none; color: $textColor; }
-              10% { opacity: 1; text-shadow: 0px 0px 3px $textColorLt; color: $textColorLt; }
-              12.5% { opacity: 0; text-shadow: none; color: $textColor; }
+              2.5% { opacity: 1; color: $textColorLt; transform: scale(1); text-shadow: 0px 0px 3px $textColorLt; }
+              17.5% { opacity: 1; color: $textColorLt; transform: scale(1); text-shadow: 0px 0px 3px $textColorLt; }
+              29% { opacity: 0; text-shadow: none; color: $textColor; }
+              30% { opacity: 0; text-shadow: none; color: $textColor; }
+              32.5% { opacity: 1; color: $textColorLt; text-shadow: 0px 0px 3px $textColorLt; }
+              47.5% { opacity: 1; color: $textColorLt; text-shadow: 0px 0px 3px $textColorLt; }
+              54% { opacity: 0; text-shadow: none; color: $textColor; }
             }
             position: relative;
             margin: 0;
@@ -164,6 +174,7 @@ $verticalGap: 0.75rem;
             line-height: 0.9;
             transform: rotate(25deg);
             color: utility.$dive-gray-dk2;
+            text-shadow: 2px 2px 2px #000;
             opacity: 1;//0.5;
             animation: attentionBlink $animationTime linear infinite;
             animation-delay: calc(var(--animation-order) * 200ms);
@@ -175,7 +186,7 @@ $verticalGap: 0.75rem;
               opacity: 0;
               animation: attentionBlink2 $animationTime linear infinite;
               animation-delay: 2.2s;
-            }
+            }            
           }
         }
         .title-callout-content {
@@ -186,7 +197,10 @@ $verticalGap: 0.75rem;
             &::after {
               content: none;
             }
-            opacity: 0.5;
+            opacity: 0.75;
+            @include utility.media-breakpoint-gte(md) {
+              opacity: 0.5;
+            }
             transition: opacity 0.2s ease;
           }
 
@@ -199,19 +213,28 @@ $verticalGap: 0.75rem;
               margin: -1vw 0 0;
             }
             img {
-              width: 12vw;
+              width: 18vw;
+              @include utility.media-breakpoint-gte(md) {                
+                width: 12vw;
+              }
             }
           }
   
           .cluck {
             position: relative;
-            left: 0.5vw;
+            right: 1vw;
+            @include utility.media-breakpoint-gte(md) {
+              right: -0.75vw;
+            }
             &:hover, &:active {
               opacity: 1;
             }
             
             img {
-              width: 9vw;
+              width: 12vw;
+              @include utility.media-breakpoint-gte(sm) {
+                width: 9vw;
+              }
             }
             h2 {
               position: absolute;
@@ -221,7 +244,10 @@ $verticalGap: 0.75rem;
               margin: 0;
               padding: 0;
               line-height: 1;
-              font-size: 1.75vw;
+              font-size: 2.75vw;
+              @include utility.media-breakpoint-gte(md) {
+                font-size: 1.75vw;
+              }
               font-family: 'Anton', sans-serif;
               text-align: center;
               text-shadow: 1px 1px 1px utility.$dive-black;
@@ -231,6 +257,10 @@ $verticalGap: 0.75rem;
       }      
 
       .westword-award {
+        display: none;
+        @include utility.media-breakpoint-gte(md) {
+          display: block;
+        }
         z-index: 1;
         position: absolute;
         bottom: 13.7vw;

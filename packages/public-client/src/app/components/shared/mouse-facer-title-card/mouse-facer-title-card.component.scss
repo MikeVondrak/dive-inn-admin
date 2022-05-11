@@ -26,36 +26,84 @@ $overrideStroke: 0.7vw;
   .title-container {
     position: absolute;
     width: $textMaxWidth;
-    top: 10vw;
+    top: 20vw;
     left: 50vw;
     transform: translateX(-42%);
     text-align: right;
   
     h1.title {
       z-index: 0;
-      display: inline-block;
+      display: block;
       position: relative;
-      top: -1vw;
+      top: -4vw;
+      left: -4vw;
       transform: translate(-50%) skew(350deg, 346deg) rotate(0deg);;
       margin: 0;
       text-align: right;
-      font-size: 4vw;
+      font-size: 6vw;
       line-height: 1.4;
-
-      @include utility.media-breakpoint-gte(sm) {
-        font-size: 3.5vw;
-      }            
+      white-space: nowrap;
       
       display: inline-block;
       @include utility.text-double-outline('Local Events');
       &:nth-of-type(2) {
         @include utility.text-double-outline('Live Sports');
-        margin: 0 1.60vw 0 0;
+        margin: 0 -11.0vw 0 0;
       }
       &:nth-of-type(3) {
         @include utility.text-double-outline('& Games');
-        margin: 0 4vw 0 0;                
-      }      
+        margin: 0 -7vw 0 0;                
+      }
+    }
+
+    @include utility.media-breakpoint-gte(xs) {
+      //top: 10vw;
+      h1.title {
+        font-size: 5.25vw;
+        left: 0;
+
+        &:nth-of-type(2) {
+          @include utility.text-double-outline('Live Sports');
+          margin: 0 -5.5vw 0 0;
+        }
+        &:nth-of-type(3) {
+          @include utility.text-double-outline('& Games');
+          margin: 0 -2vw 0 0;                
+        }
+      }
+    }
+
+    @include utility.media-breakpoint-gte(sm) {
+      //top: 10vw;
+      h1.title {
+        //font-size: 5vw;
+        // left: 0;
+
+        // &:nth-of-type(2) {
+        //   @include utility.text-double-outline('Live Sports');
+        //   margin: 0 -0vw 0 0;
+        // }
+        // &:nth-of-type(3) {
+        //   @include utility.text-double-outline('& Games');
+        //   margin: 0 0vw 0 0;                
+        // }
+      }
+    }
+
+    @include utility.media-breakpoint-gte(md) {
+      top: 14vw;
+      h1.title {
+        font-size: 4vw;
+
+        &:nth-of-type(2) {
+          @include utility.text-double-outline('Live Sports');
+          margin: 0 1.60vw 0 0;
+        }
+        &:nth-of-type(3) {
+          @include utility.text-double-outline('& Games');
+          margin: 0 4vw 0 0;                
+        }
+      }
     }
   }
 }

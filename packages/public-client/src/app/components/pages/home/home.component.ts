@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Breakpoints, ViewportService } from 'src/app/services/viewport/viewport.service';
 import { IconCardConfig, IconCardImages, IconCardTextSizes } from '../../shared/models/icon-card.model';
 import { MouseFacerTextPositions } from '../../shared/models/mouse-facer-card.model';
 
@@ -25,6 +26,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   public mouseFacerCardTitle_Charters: string = 'Charters';
   public mouseFacerCardTitle_DiveShop: string = 'Dive Shop';
   public mouseFacerCardTitle_WideOpen: string = 'Wide Open';
+
+  public bgPosition: string = '50% 30%';
+  public bgSize: string = '150%';
 
   public contactSectionConfig: IconCardConfig[] = [
     {
@@ -77,7 +81,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
 
-  constructor() { 
+  constructor(private viewport: ViewportService) { 
+    // set title bg props based on breakpoint - TODO FIX THIS UGLINESS
+    this.viewport.viewportState$.pipe(takeUntil(this.destroy$)).subscribe(state => {
+      this.setPropsForBreakpoints(state.currentBreakpoint);
+      // this.bgSize = state.currentBreakpoint === 'zero' ? '150%'
+      // : state.currentBreakpoint === 'min' ? '185%'
+      // : state.currentBreakpoint === 'xs' ? '150%'
+      // : state.currentBreakpoint === 'sm' ? '125%'
+      // : state.currentBreakpoint === 'md' ? 'cover' : 'cover';
+    });
+
+    // Watch scrollTop to show/hide header logo
     fromEvent(window, 'scroll').pipe(takeUntil(this.destroy$)).subscribe((event: Event) => {      
       if (document?.scrollingElement?.scrollTop) {
         if (document?.scrollingElement?.scrollTop > 250) {
@@ -97,4 +112,19 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
+  // TODO - FIX THIS UGLINESS
+  private setPropsForBreakpoints(currentBreakpoint: Breakpoints) {
+    switch(currentBreakpoint) {
+      case 'zero': this.bgSize = '200%'; this.bgPosition = '57% 24%'; break;
+      case 'min': this.bgSize = '180%'; this.bgPosition = '54% 25%'; break;
+      case 'xs': this.bgSize = '150%'; this.bgPosition = '50% 24%'; break;
+      case 'sm': this.bgSize = '150%'; this.bgPosition = '50% 24%'; break;
+      case 'md': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
+      case 'lg': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
+      case 'xl': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
+      case 'ws': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
+      case 'hd': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
+    }
+  }
 }
+

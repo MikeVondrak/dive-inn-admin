@@ -16,6 +16,12 @@ export class MouseFacerTitleCardComponent implements OnInit {
   @HostBinding('style.--mouseFacerCardText') 
   @Input() text: string = 'Undefined';
 
+  @HostBinding('style.--bgPosition') 
+  @Input() bgPosition: string = '50% 50%';
+
+  @HostBinding('style.--bgSize')
+  @Input() bgSize: string = 'cover';
+
   public MouseFacerTextPositionsEnum = MouseFacerTextPositions;
 
   constructor() { }

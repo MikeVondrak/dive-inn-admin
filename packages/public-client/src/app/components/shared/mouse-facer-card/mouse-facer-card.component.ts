@@ -11,6 +11,7 @@ export class MouseFacerCardComponent implements OnInit {
   @Input() title: string = 'title';
   @Input() description: string = '';
   @Input() textPosition: MouseFacerTextPositions = MouseFacerTextPositions.TOP_LEFT;
+  @Input() backgroundPosition: string = '50% 50%';
 
   @HostBinding('style.--mouseFacerCardHeight') 
   @Input() height: string = '40vw';

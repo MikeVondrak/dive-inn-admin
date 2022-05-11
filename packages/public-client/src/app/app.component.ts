@@ -35,16 +35,17 @@ export class AppComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       // try to scroll element into view if fragment exists
     if (this.routeFragment) {
-      console.log('+++++++++++', selector);
+      console.log('+++++++++ SCROLL', selector);
       try {
         const el = this.renderer.selectRootElement(selector, true); // preserve contents when selecting
-        console.log('+++++++++', {el});
+        console.log('+++++++++ SCROLL', {el});
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } catch(err) {
         console.error(err);
       }
     }
-    });
+    }, 50); // wait 50ms to allow document to finish loading, scroll won't do anything if dom is not ready
+    // @TODO - better way to do this?
     
   }
 }

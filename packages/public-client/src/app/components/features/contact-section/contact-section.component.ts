@@ -37,7 +37,6 @@ export class ContactSectionComponent implements OnInit {
         case 'hd': this.cardWidth = '24vw'; this.cardHeight = '18vw'; break;
         default: this.cardWidth = '24vw'; this.cardHeight = '17vw';
       };
-      console.log('+++++ ', this.cardWidth, this.cardHeight);
       return { width: this.cardWidth, height: this.cardHeight };
     })
   );
