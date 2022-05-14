@@ -18,6 +18,8 @@
     $bgColor: transparent; //rgba(0, 0, 255, 0.51);
     $bgColor2: utility.$dive-red;
     background-color: darken($bgColor2, 17%);
+    //font-family: 'Righteous', sans-serif;
+    //letter-spacing: 0.1vw;
 
     background-image:
       radial-gradient(circle at 50% 20%, $bgColor2 20%, $bgColor 60%),
@@ -50,43 +52,129 @@
       .contact-methods-card {
         width: 100%;
         height: 100%;
+        display: flex;
+        flex-direction: row;
+        @include utility.media-breakpoint-gte(sm) {
+          flex-direction: column;
+        }
+
         a {
           display: flex;
           flex-direction: row;
           @include utility.media-breakpoint-gte(sm) {
-            flex-direction: column;
+            gap: 0;
+            //font-size: 4vw;
+            font-size: 2.5vw;
+          }
+          @include utility.media-breakpoint-gte(md) {
+            gap: 2vw;
+            > div {
+              flex: 1;              
+            }
           }
           justify-content: center;
           align-items: center;
+          //gap: 1vw;
           width: 100%;
+          padding: 1vw;
+          .contact-title {
+            flex: 0;
+            @include utility.media-breakpoint-gte(md) {
+              flex: 1;
+            }                
+          }
           &::after {
             content: none;
           }
           &:hover {
             text-decoration: underline;
           }
-          &:first-child {
-            height: 50%;
+          &.phone {
             background-color: utility.$dive-yellow;
             color: utility.$dive-black;
-            font-size: 4.5vw;
+            //sfont-size: 4vw;
+            > div {
+              span {
+                text-align: right;
+              }
+            }
+
             @include utility.media-breakpoint-gte(sm) {
-              font-size: 3.2vw;
+              height: 50%; 
+              //font-size: 3.2vw;
+            }
+            @include utility.media-breakpoint-gte(md) {
+              > div {
+                flex: 1;
+              }
             }
             @include utility.media-breakpoint-gte(lg) {
-              font-size: 2.5vw;
+              //font-size: 2.5vw;
+            }            
+          }
+          &.email {    
+            padding: 3vw;
+            //font-size: 3vw; // not displayed at mobile sizes
+            text-align: center;
+            background-color: utility.$dive-black;      
+            @include utility.media-breakpoint-gte(sm) {
+              height: 50%; 
+              padding: 1vw;              
+            }
+            @include utility.media-breakpoint-gte(lg) {
+              //font-size: 2.5vw;
             }
           }
-          &:last-child {
-            height: 50%;
-            background-color: utility.$dive-black;
-            font-size: 3vw;
-            text-align: center;
+          > div {
             @include utility.media-breakpoint-gte(sm) {
-              font-size: 1.9vw;
+              flex: 1;
+            }
+
+            &.contact-icon {
+              flex: 1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+          span {
+            display: none;
+            @include utility.media-breakpoint-gte(md) {
+              display: block;
+              text-align: right;
+            }
+          }
+          svg {
+            display: block;
+            width: 8vw;
+            //padding-right: 1.5vw; // flex-center doesn't look centered?
+            path {
+              stroke: utility.$dive-black;
+            }
+            &.mail-svg {
+              width: 10vw;
+              //padding: 0 0 0 1.5vw;
+              path, rect {
+                stroke: utility.$dive-yellow;
+              }
+            }
+
+            @include utility.media-breakpoint-gte(sm) {
+              max-width: 5vw;
+              padding: 0;              
+              &.mail-svg {
+                padding: 0;
+                //max-width: 6vw;
+                width: 6vw;
+              }
+              &.phone-svg {
+                //max-width: 3.7vw;
+              }
             }
             @include utility.media-breakpoint-gte(lg) {
-              font-size: 1.6vw;
+              flex: 1;
+              max-width: 3.5vw;
+              
             }
           }
         }

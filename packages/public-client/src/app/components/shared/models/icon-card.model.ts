@@ -2,6 +2,7 @@ export enum IconCardImages {
   MAP_MARKER,
   CLOCK,
   AT_SIGN,
+  BOTTLE,
 }
 
 export enum IconCardTextSizes {
