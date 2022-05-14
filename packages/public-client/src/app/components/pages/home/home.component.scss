@@ -8,110 +8,11 @@ $verticalGap: 0.75rem;
   display: flex;
   flex-direction: column;
 
-  header {
-    z-index: 4;
+  app-site-header {
+    display: block;
     position: sticky;
     top: 0;
-    left: 0rem;
-    width: 100%;
-    box-shadow: 0px 4px 4px utility.$dive-black;
-
-    .logo-container {
-      position: absolute;
-
-    img {
-      z-index: 2;
-      width: 24vw;
-      position: relative;
-      top: -22vw;
-      left: 0rem;
-      padding: 1vw;
-      $t1: 20%;
-      $t2: 38%;
-      //background-image: linear-gradient(163deg, utility.$dive-black 0%, utility.$dive-black $t1, $headerColor ($t1 + 0.5%), $headerColor $t2, utility.$dive-black $t2 + 0.3%, utility.$dive-black $t2 + 0.8%, transparent $t2 + 1.2%);
-      background-image: linear-gradient(163deg, utility.$dive-black 0%, utility.$dive-black $t1, $headerColor ($t1 + 0.5%), $headerColor $t2, transparent $t2 + 1.2%);
-      border-bottom-right-radius: 50%;
-
-      transition: all 0.65s ease;
-
-      @include utility.media-breakpoint-gte(sm) {
-        width: 22vw;
-      }
-      @include utility.media-breakpoint-gte(md) {
-        width: 20vw;
-      }
-      @include utility.media-breakpoint-gte(ws) {
-        width: 18vw;
-      }
-
-      &.anniversary {
-        position: relative;
-        top: -18vw;
-        left: -16vw;
-        width: 8vw;
-        background: none;
-
-        &.showLogo {
-          // position: relative;
-          top: 0.25vw; //5.5vw;
-          // top: 20%;
-          left: -8.25vw; //7.75vw;
-        }
-      }
-
-      &.showLogo {
-        // position: relative;
-        top: 0rem;
-        //display: inline-flex;
-        // transform: display(inline-flex);
-        // transition: all 1s;
-      }
-    }
-  }
-
-    nav {
-      font-size: 1.25vw;
-      background-color: $headerColor; //rgba(0,0,0,0.75);
-      color: utility.$dive-white;
-      font-family: 'Righteous', cursive;
-
-      ul {
-        display: flex;
-        justify-content: center;
-        gap: 1vw;
-        padding: 0.25vw 0;
-        margin: 0;
-        list-style-type: none;
-
-        li {
-          padding: 0.5vw 1vw;
-
-          &.current-page {
-            color: utility.$dive-gray-md;
-          }
-        }
-      }
-    }
-
-    $boat-cam-size: 15vw;
-
-    .boat-cam {
-      z-index: 5;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      right: 1vw;
-      top: 1vw;
-      background-color: utility.$dive-black;
-      color: utility.$dive-white;
-      width: $boat-cam-size;
-      height: $boat-cam-size;
-      border-radius: math.div($boat-cam-size, 2);
-      font-size: math.div($boat-cam-size, 4);
-      text-align: center;
-    }
+    z-index: 9;
   }
 
   // end header

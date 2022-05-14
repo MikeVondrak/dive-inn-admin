@@ -5,27 +5,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedComponentsModule } from '../../shared/shared-components.module';
 import { SitePartsModule } from '../_parts/site-parts.module';
 
-import { InsideComponent } from './inside.component';
-
+import { FindUsComponent } from './find-us.component';
 
 const routes: Routes = [
-  { path: '', component: InsideComponent },
+  { path: '', component: FindUsComponent },
   { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
-  declarations: [
-    InsideComponent,
-  ],
+  declarations: [FindUsComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     SharedComponentsModule,
     SitePartsModule,
   ],
-  exports: [
-    InsideComponent,
-    RouterModule,
-  ]
+  exports: [FindUsComponent]
 })
-export class InsideModule { }
+export class FindUsModule { }

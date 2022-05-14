@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   // @TODO - where should this data live?
   public siteTitleLines = ['Local Events','Live Sports','& Games']
 
-  public showLogo: boolean = false;
+  // public showLogo: boolean = false;
   public footerAddress: string[] = ['1380 S Broadway', 'Denver 80210'];
   public footerPhone: string = '720-242-6157';
   public contactHours: string[] = ['Open EVERY Day', '11AM - 2AM'];
@@ -92,16 +92,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       // : state.currentBreakpoint === 'md' ? 'cover' : 'cover';
     });
 
-    // Watch scrollTop to show/hide header logo
-    fromEvent(window, 'scroll').pipe(takeUntil(this.destroy$)).subscribe((event: Event) => {      
-      if (document?.scrollingElement?.scrollTop) {
-        if (document?.scrollingElement?.scrollTop > 250) {
-          this.showLogo = true;
-        } else {
-          this.showLogo = false;
-        }
-      }
-    })
   }
 
   ngOnInit(): void {

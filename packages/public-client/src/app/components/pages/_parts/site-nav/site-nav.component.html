@@ -1,1 +1,6 @@
-<a routerLink="/home" fragment="pageTop">&#9664; Home</a>
+<!-- <a routerLink="/home" fragment="pageTop">&#9664; Home</a> -->
+<ul *ngFor="let link of navItems">
+  <li>
+    <a [routerLink]="link.url"  [routerLinkActive]="'current-page'">{{ link.title }}</a>
+  </li>
+</ul>

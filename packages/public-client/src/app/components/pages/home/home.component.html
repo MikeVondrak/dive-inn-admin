@@ -1,30 +1,5 @@
 <span id="pageTop"></span>
-<header>
-  <div class="logo-container">
-    <img [ngClass]="{'showLogo': showLogo}" src="../../../../assets/images/logoLg.png">
-    <!-- <img class="anniversary" [ngClass]="{'showLogo': showLogo}" src="assets/images/10th_Anniversary.png" /> -->
-  </div>
-  <nav>
-    <ul>
-      <!-- <li *ngFor="let item of navMenuItems">
-        <a routerLink="/inside">
-          {{item}}
-        </a>
-      </li> -->
-      <li class="current-page">Home</li>
-      <li>
-        <a routerLink="/inside" fragment="menu">Menu</a>
-      </li>
-      <li>
-        <a routerLink="/inside" fragment="construction">Events</a>
-      </li>
-      <li>
-        <a routerLink="/home" fragment="contact">Find Us</a>
-      </li>
-    </ul>
-  </nav>
-  <!-- <div class="boat-cam"><span>boat cam</span></div> -->
-</header>
+<app-site-header></app-site-header>
 
 <main>
   <!-- Landing title card with callouts -->

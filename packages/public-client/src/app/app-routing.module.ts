@@ -8,6 +8,14 @@ const routes: Routes = [
     path: 'inside',     
     loadChildren: () => import('./components/pages/inside/inside.module').then((module) => module.InsideModule)
   },
+  { 
+    path: 'menu',
+    loadChildren: () => import('./components/pages/menu/menu.module').then((module) => module.MenuModule)
+  },
+  { 
+    path: 'find-us',
+    loadChildren: () => import('./components/pages/find-us/find-us.module').then((module) => module.FindUsModule)
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }
 ];

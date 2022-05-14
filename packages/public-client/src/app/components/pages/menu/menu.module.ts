@@ -5,27 +5,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedComponentsModule } from '../../shared/shared-components.module';
 import { SitePartsModule } from '../_parts/site-parts.module';
 
-import { InsideComponent } from './inside.component';
-
+import { MenuComponent } from './menu.component';
 
 const routes: Routes = [
-  { path: '', component: InsideComponent },
+  { path: '', component: MenuComponent },
   { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
-  declarations: [
-    InsideComponent,
-  ],
+  declarations: [MenuComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     SharedComponentsModule,
     SitePartsModule,
   ],
-  exports: [
-    InsideComponent,
-    RouterModule,
-  ]
+  exports: [MenuComponent]
 })
-export class InsideModule { }
+export class MenuModule { }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { navItem } from '../site-header/site-header.component';
 
 @Component({
   selector: 'app-site-nav',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./site-nav.component.scss']
 })
 export class SiteNavComponent implements OnInit {
+
+  @Input() navItems: navItem[] = [];
 
   constructor() { }
 
