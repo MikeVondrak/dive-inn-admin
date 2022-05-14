@@ -68,6 +68,7 @@
           }
           @include utility.media-breakpoint-gte(md) {
             gap: 2vw;
+            font-size: 2vw;
             > div {
               flex: 1;              
             }
@@ -135,6 +136,10 @@
               display: flex;
               justify-content: center;
               align-items: center;
+
+              @include utility.media-breakpoint-gte(md) {
+                justify-content: flex-start;
+              }
             }
           }
           span {
