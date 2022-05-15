@@ -14,14 +14,35 @@
   border-left: $size solid rgba(0,0,0,0.75);//utility.$dive-black;
 }
 @mixin ArrowLeft {
+  position: relative;
   border-top: map-get($backButtonSizes, 'zero') * 2 solid transparent;
   border-bottom: map-get($backButtonSizes, 'zero') * 2 solid transparent;
-  border-right: map-get($backButtonSizes, 'zero') * 2 solid utility.$dive-red;
+  border-right: map-get($backButtonSizes, 'zero') * 2 solid utility.$dive-black;
+  //background-color: aqua;
+  &::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: -(map-get($backButtonSizes, 'zero') * 2) - 0.5;
+    left: -1px;
+    bottom: 0;
+    right: 0;
+    border-top: map-get($backButtonSizes, 'zero') * 2 solid transparent;
+    border-bottom: map-get($backButtonSizes, 'zero') * 2 solid transparent;
+    border-right: map-get($backButtonSizes, 'zero') * 2 solid utility.$dive-red;
+    //background-color: magenta;
+  }
 
   @include utility.media-breakpoint-gte('sm') {
     border-top: map-get($backButtonSizes, 'sm') * 2 solid transparent;
     border-bottom: map-get($backButtonSizes, 'sm') * 2 solid transparent;
-    border-right: map-get($backButtonSizes, 'sm') * 2 solid utility.$dive-red;
+    border-right: map-get($backButtonSizes, 'sm') * 2 solid utility.$dive-black;
+    &::after {
+      top: -(map-get($backButtonSizes, 'sm') * 2) - 0.25;
+      border-top: map-get($backButtonSizes, 'sm') * 2 solid transparent;
+      border-bottom: map-get($backButtonSizes, 'sm') * 2 solid transparent;
+      border-right: map-get($backButtonSizes, 'sm') * 2 solid utility.$dive-red;
+    }
   }
 }
 
@@ -100,15 +121,36 @@ $backBtnSize: 0.35vw;
             //height: 8vw;
             bottom: 0vw;
             left: 0vw;
-            @include DiagonalCorner($cornerButtonSize);
+            width: $cornerButtonSize;
+            height: $cornerButtonSize;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0,0,0,0.5);
+            border-top-right-radius: 1rem;            
             cursor: pointer;
+
+            @include utility.media-breakpoint-gte(sm) {
+              width: $cornerButtonSize * 0.6;
+              height: $cornerButtonSize * 0.6;
+            }
             > div {
-              z-index: 2;
-              position: absolute;
-              top: $cornerButtonSize * 0.15;
-              left: -$cornerButtonSize * 0.6;
+              z-index: 1;
+              width: 0;
+              height: 0;
+              //position: absolute;
+              top: 0.7vw;
+              left: -0.7vw;
+              //top: $cornerButtonSize * 0.55;
+              //left: $cornerButtonSize * 0;
+              //transform: translate(-50%, -50%);
               
               @include ArrowLeft();
+
+              @include utility.media-breakpoint-gte(sm) {
+                top: 0.275vw;
+                left: -0.25vw;
+              }
             }
           }
         }
@@ -169,11 +211,11 @@ $backBtnSize: 0.35vw;
 
           &.card-back {
             .corner-button {
-              @include DiagonalCorner($cornerButtonSize * 0.5);
-              > div {
-                top: $cornerButtonSize * 0;
-                left: -$cornerButtonSize * 0.35;
-              }
+              //@include DiagonalCorner($cornerButtonSize * 0.5);
+              // > div {
+              //   top: $cornerButtonSize * 0.1;
+              //   left: -($cornerButtonSize * 0.1);
+              // }
             }
           }
         }

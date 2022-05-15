@@ -55,7 +55,10 @@
         display: flex;
         flex-direction: row;
         @include utility.media-breakpoint-gte(sm) {
-          flex-direction: column;
+          flex-direction: column-reverse;
+        }
+        @include utility.media-breakpoint-gte(md) {
+          
         }
 
         a {
@@ -91,9 +94,9 @@
             text-decoration: underline;
           }
           &.phone {
-            background-color: utility.$dive-yellow;
-            color: utility.$dive-black;
-            //sfont-size: 4vw;
+            background-color: utility.$dive-black;//utility.$dive-yellow;
+            color: utility.$dive-yellow;//utility.$dive-black;            
+            //font-size: 4vw;
             > div {
               span {
                 text-align: right;
@@ -114,10 +117,11 @@
             }            
           }
           &.email {    
-            padding: 3vw;
+            //padding: 3vw;
             //font-size: 3vw; // not displayed at mobile sizes
             text-align: center;
-            background-color: utility.$dive-black;      
+            color: utility.$dive-black;
+            background-color: utility.$dive-yellow;//utility.$dive-black;      
             @include utility.media-breakpoint-gte(sm) {
               height: 50%; 
               padding: 1vw;              
@@ -150,18 +154,22 @@
             }
           }
           svg {
-            display: block;
-            width: 8vw;
+            display: block;            
             //padding-right: 1.5vw; // flex-center doesn't look centered?
             path {
-              stroke: utility.$dive-black;
+              stroke: utility.$dive-yellow;//utility.$dive-black;
+              fill: utility.$dive-yellow;//utility.$dive-black;
             }
-            &.mail-svg {
+            &.mail-svg {              
               width: 10vw;
               //padding: 0 0 0 1.5vw;
               path, rect {
-                stroke: utility.$dive-yellow;
+                fill: utility.$dive-black;
+                stroke: utility.$dive-black;//utility.$dive-yellow;
               }
+            }
+            &.phone-svg {
+              width: 6vw;
             }
 
             @include utility.media-breakpoint-gte(sm) {
@@ -173,13 +181,20 @@
                 width: 6vw;
               }
               &.phone-svg {
-                //max-width: 3.7vw;
+                max-width: 4.25vw;
               }
             }
             @include utility.media-breakpoint-gte(lg) {
               flex: 1;
               max-width: 3.5vw;
-              
+              &.mail-svg {
+                padding: 0;
+                //max-width: 6vw;
+                width: 4vw;
+              }
+              &.phone-svg {
+                max-width: 3.25vw;
+              }
             }
           }
         }

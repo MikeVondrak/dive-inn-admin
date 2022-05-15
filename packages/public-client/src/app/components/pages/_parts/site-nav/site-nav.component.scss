@@ -11,6 +11,7 @@ $verticalGap: 0.75rem;
   // @include utility.media-breakpoint-gte(sm) {
   //   margin-bottom: 2vw;
   // }
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -23,7 +24,10 @@ $verticalGap: 0.75rem;
   font-family: 'Righteous', cursive;
 
   ul {
-    display: flex;
+    display: none;
+    @include utility.media-breakpoint-gte(sm) {
+      display: flex;
+    }
     justify-content: center;
     gap: 1vw;
     padding: 0.25vw 0;
@@ -37,6 +41,33 @@ $verticalGap: 0.75rem;
         &.current-page {
           color: utility.$dive-gray-md;
         }
+      }
+    }
+  }
+
+  img {
+    position: absolute;
+    width: 14vw;    
+  }
+  svg {    
+    position: absolute;
+    left: -6vw;
+    top: -6vw;
+    width: 15vw;
+    height: 15vw;
+    padding: 1vw;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    .outline {
+      path {
+        fill: transparent; //utility.$dive-black;
+        //stroke: utility.$dive-red;
+      }
+    }
+    .fill {
+      path {
+        fill: utility.$dive-red;
+        //stroke: utility.$dive-black;
       }
     }
   }

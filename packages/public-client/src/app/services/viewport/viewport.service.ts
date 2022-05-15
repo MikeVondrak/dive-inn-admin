@@ -70,7 +70,7 @@ export class ViewportService {
     // return newSize;
 
     const bpMatches = Array.from(this.breakpoints.entries())
-      .filter(bp => { const match = this.window?.matchMedia(bp[1]); console.log(bp[1], match); return match?.matches; })
+      .filter(bp => { const match = this.window?.matchMedia(bp[1]); /*console.log(bp[1], match);*/ return match?.matches; })
       .map(bpQuery => bpQuery[0]);
     const bpMax = bpMatches[bpMatches.length - 1];
     return bpMax;
