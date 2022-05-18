@@ -2,9 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-export interface navItem {
+export interface NavItem {
   url: string,
-  title: string
+  title: string,
+  filledState: boolean,
 }
 @Component({
   selector: 'app-site-header',
@@ -13,11 +14,11 @@ export interface navItem {
 })
 export class SiteHeaderComponent implements OnInit, OnDestroy {
   public showLogo: boolean = false;
-  public navItems: navItem[] = [
-    {url: '/home', title: 'Home'},
-    {url: '/inside', title: 'Menu'},
-    {url: '/inside', title: 'Events'},
-    {url: '/find-us', title: 'Find Us'},
+  public navItems: NavItem[] = [
+    {url: '/home', title: 'Home', filledState: false},
+    {url: '/menu', title: 'Menu', filledState: false},
+    {url: '/inside', title: 'Events', filledState: false},
+    {url: '/find-us', title: 'Find Us', filledState: false},
   ]
 
   private destroy$ = new Subject<void>();

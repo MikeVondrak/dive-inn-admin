@@ -1,7 +1,8 @@
 <!-- <a routerLink="/home" fragment="pageTop">&#9664; Home</a> -->
-<ul *ngFor="let link of navItems">
-  <li>
-    <a [routerLink]="link.url"  [routerLinkActive]="'current-page'">{{ link.title }}</a>
+<ul>
+  <li *ngFor="let link of navItems; trackBy:navTrackBy">
+    <div class="selected-bg" [@fillVerticalTransition]="link.filledState ? 'filled' : 'unfilled'"></div>
+    <a (click)="selectPage(link)" [routerLink]="link.url">{{ link.title }}</a>
   </li>
 </ul>
 
