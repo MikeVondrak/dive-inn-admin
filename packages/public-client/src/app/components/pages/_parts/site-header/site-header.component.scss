@@ -25,7 +25,6 @@ $verticalGap: 0.75rem;
         padding: 1vw;
         $t1: 20%;
         $t2: 38%;
-        //background-image: linear-gradient(163deg, utility.$dive-black 0%, utility.$dive-black $t1, $headerColor ($t1 + 0.5%), $headerColor $t2, utility.$dive-black $t2 + 0.3%, utility.$dive-black $t2 + 0.8%, transparent $t2 + 1.2%);
         background-image: linear-gradient(163deg, utility.$dive-black 0%, utility.$dive-black $t1, $headerColor ($t1 + 0.5%), $headerColor $t2, transparent $t2 + 1.2%);
         border-bottom-right-radius: 50%;
 
