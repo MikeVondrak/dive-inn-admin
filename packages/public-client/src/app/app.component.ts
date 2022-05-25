@@ -43,10 +43,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       // try to scroll element into view if fragment exists
     if (this.routeFragment) {
-      console.log('+++++++++ SCROLL', selector);
       try {
         const el = this.renderer.selectRootElement(selector, true); // preserve contents when selecting
-        console.log('+++++++++ SCROLL', {el});
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } catch(err) {
         console.error(err);
@@ -64,14 +62,20 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   public routeAnimationStart(event: AnimationEvent) {
-    
+    // avoid expression changed after checked error
+    setTimeout(() => {
+      this.footerAnimationTag = 'animating';
+    });
   }
 
   public routeAnimationDone(event: AnimationEvent) {
-    this.footerAnimationTag = 'animating';
+    // avoid expression changed after checked error
+    setTimeout(() => {
+      this.footerAnimationTag = 'stopped';
+    });
   }
 
   public footerAnimationDone(event: AnimationEvent) {
-    this.footerAnimationTag = 'stopped';
+    
   }
 }

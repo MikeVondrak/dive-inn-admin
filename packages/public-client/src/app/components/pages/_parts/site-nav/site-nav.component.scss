@@ -51,23 +51,28 @@ $verticalGap: 0.75rem;
     list-style-type: none;
 
     li {
-      position: relative;
-      padding: 0.5vw 1vw;
+      position: relative;      
       overflow: hidden;
+      transform: skewX(-22deg);
       .selected-bg {
+        //transform: skewX(-22%);
         position: absolute;
         top: 0; bottom: 0; left: 0; right: 0;
         background: utility.$dive-red;
       }
       a {
-        position: relative;        
+        display: inline-block;
+        position: relative;
+        padding: 0.5vw 1vw;
         transition: all 0.5s ease;
         color: utility.$dive-yellow;
+        transform: skewX(22deg);
         &::after {
           content: none;
         }
         &.active {
           color: utility.$dive-white;
+          text-shadow: 1px 1px 2px #000;
         }
       }
     }

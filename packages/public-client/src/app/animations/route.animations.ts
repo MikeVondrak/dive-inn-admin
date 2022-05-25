@@ -13,26 +13,30 @@ import {
 
 // https://www.techiediaries.com/angular-router-animations/
 
-const routeAnimationTime = '0.25s';
+const routeAnimationTime = '0.5s';
+const routeAnimationDelay = '0.20s';
+const routeAnimationDelay2 = '0.70s';
+const scaleDownVal = 0.99;
+
 export const routeAnimations = [
   trigger('routeAnimationTrigger', [
     transition('* => *', [
-      query(':enter, :leave', [style({ position: 'absolute', width: '100vw' })], { optional: true }),
-      query(':enter', [style({ opacity: 0 })], { optional: true }),
+      query(':enter, :leave', [style({positon: 'absolute', overflow: 'hidden'})], { optional: true }),
+      query(':enter', [style({ position: 'relative', opacity: 0 })], { optional: true }),
       group([
         query(
           ':leave',
           [
-            style({ opacity: 1, transform: 'scale(1)' }),
-            animate(`${routeAnimationTime} ease-in-out`, style({ opacity: 0, transform: 'scale(0.85)' })),
+            style({ opacity: 1, transform: 'scale(1)', height: '*' }),
+            animate(`${routeAnimationTime} ${routeAnimationDelay} ease-in-out`, style({ opacity: 1, transform: `scale(${scaleDownVal})`, height: '0' })),
           ],
           { optional: true }
         ),
         query(
           ':enter',
           [
-            style({ opacity: 0, transform: 'scale(0.85)' }),
-            animate(`${routeAnimationTime} ${routeAnimationTime} ease-in-out`, style({ opacity: 1, transform: 'scale(1)' })),
+            style({ opacity: 1, transform: `scale(${scaleDownVal})`, height: '0' }),
+            animate(`${routeAnimationTime} ${routeAnimationDelay2} ease-in-out`, style({ opacity: 1, transform: 'scale(1)', height: '*' })),
           ],
           { optional: true }
         ),

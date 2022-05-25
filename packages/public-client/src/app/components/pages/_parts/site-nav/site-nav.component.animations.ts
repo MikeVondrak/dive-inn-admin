@@ -1,23 +1,27 @@
 import { animate, keyframes, state, style, transition, trigger } from "@angular/animations";
 
+const skewVal = '0deg';
+const animationTime = '0.2s';
+const animationDelay = '0.0s';
+
 const fillUpKeyframes = [
   style({
     offset: 0,
-    transform: 'translateY(100%)',
+    transform: `translateY(100%) skewX(${skewVal})`,
   }),
   style({
     offset: 1,
-    transform: 'translateY(0%)',
+    transform: `translateY(0%) skewX(${skewVal})`,
   })
 ];
 const fillDownKeyframes = [
   style({
     offset: 0,
-    transform: 'translateY(0%)',
+    transform: `translateY(0%) skewX(${skewVal})`,
   }),
   style({
     offset: 1,
-    transform: 'translateY(100%)',
+    transform: `translateY(100%) skewX(${skewVal})`,
   })
 ];
 
@@ -36,10 +40,10 @@ const fillHorizontalKeyframes = [
 
 export const PageSelectAnimation = [
   trigger('fillVerticalTransition', [
-    state('unfilled', style({ transform: 'translateY(100%)' })),
-    state('filled', style({ transform: 'translateY(0%)' })),
-    transition('filled => unfilled', animate('0.5s ease-in-out', keyframes(fillDownKeyframes))),
-    transition('unfilled => filled', animate('0.5s 0.05s ease-in-out', keyframes(fillUpKeyframes))),
+    state('unfilled', style({ transform: `translateY(100%) skewX(${skewVal})` })),
+    state('filled', style({ transform: `translateY(0%) skewX(${skewVal})` })),
+    transition('filled => unfilled', animate(`${animationTime} ease-in-out`, keyframes(fillDownKeyframes))),
+    transition('unfilled => filled', animate(`${animationTime} ${animationDelay} ease-in-out`, keyframes(fillUpKeyframes))),
   ]),
 ]
 
