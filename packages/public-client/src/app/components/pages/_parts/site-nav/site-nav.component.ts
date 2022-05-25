@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, Renderer2, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { NavItem } from '../site-header/site-header.component';
 import { PageSelectAnimation } from './site-nav.component.animations';
 
@@ -13,19 +14,37 @@ export class SiteNavComponent implements OnInit {
 
   @Input() navItems: NavItem[] = [];
 
-  constructor(private renderer: Renderer2, private el: ElementRef, private cdr: ChangeDetectorRef) { }
+  constructor(    
+    private router: Router,
+    private renderer: Renderer2, 
+    private el: ElementRef, 
+    private cdr: ChangeDetectorRef) { }
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {    
+    this.router.events.subscribe(val => {
+      if (val instanceof NavigationEnd) {
+        let currentRoute = val.url;
+        if (currentRoute === '/') {
+          currentRoute = '/home';
+        }
+        const initialSelection = this.navItems.find(navItem => navItem.url === currentRoute);
+        this.selectPage(initialSelection);
+      }
+    });
+  }
+  
   public navTrackBy(index: number, item: NavItem) {    
     return item.title;
   }
-
-  public selectPage(navItem: NavItem) {
+  
+  public selectPage(navItem: NavItem | undefined) {
+    if (!navItem) {
+      return;
+    }
     this.navItems.forEach(nav => {
       nav.filledState = false;
     });
-    navItem.filledState = true;
+    navItem.filledState = true;    
     this.cdr.detectChanges();
   }
 }
