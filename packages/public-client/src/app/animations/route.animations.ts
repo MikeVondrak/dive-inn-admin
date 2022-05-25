@@ -16,31 +16,30 @@ import {
 const routeAnimationTime = '0.5s';
 const routeAnimationDelay = '0.20s';
 const routeAnimationDelay2 = '0.70s';
-const scaleDownVal = 0.99;
+const scaleDownVal = 1.00;
 
 export const routeAnimations = [
   trigger('routeAnimationTrigger', [
     transition('* => *', [
-      query(':enter, :leave', [style({positon: 'absolute', overflow: 'hidden'})], { optional: true }),
-      query(':enter', [style({ position: 'relative', opacity: 0 })], { optional: true }),
-      group([
+      query('.site-page:enter, .site-page:leave', [style({positon: 'absolute', overflow: 'hidden'})], { optional: true }),
+      query('.site-page:enter', [style({ position: 'absolute', opacity: 0 })], { optional: true }),
+      //group([
         query(
-          ':leave',
+          '.site-page:leave',
           [
-            style({ opacity: 1, transform: 'scale(1)', height: '*' }),
-            animate(`${routeAnimationTime} ${routeAnimationDelay} ease-in-out`, style({ opacity: 1, transform: `scale(${scaleDownVal})`, height: '0' })),
+            style({ opacity: 1, transform: 'scale(1)' }),
+            animate(`${routeAnimationTime} ${routeAnimationDelay} ease-in-out`, style({ opacity: 0, transform: `scale(${scaleDownVal})` })),
           ],
           { optional: true }
         ),
         query(
-          ':enter',
+          '.site-page:enter',
           [
-            style({ opacity: 1, transform: `scale(${scaleDownVal})`, height: '0' }),
-            animate(`${routeAnimationTime} ${routeAnimationDelay2} ease-in-out`, style({ opacity: 1, transform: 'scale(1)', height: '*' })),
+            style({ opacity: 0, transform: `scale(${scaleDownVal})` }),
+            animate(`${routeAnimationTime} ${routeAnimationDelay2} ease-in-out`, style({ opacity: 1, transform: 'scale(1)' })),
           ],
           { optional: true }
         ),
       ]),
     ]),
-  ]),
-];
+  ];
