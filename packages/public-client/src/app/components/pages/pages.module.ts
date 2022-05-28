@@ -15,7 +15,7 @@ import { FindUsModule } from './find-us/find-us.module';
     HomeComponent,
   ],
   imports: [
-    CommonModule, 
+    CommonModule,
     SitePartsModule,
     SharedComponentsModule,
     FeatureComponentsModule,
