@@ -18,13 +18,13 @@ export class SiteFooterComponent implements OnInit {
     },
     {
       uiLabel: 'Menu',
-      linkUrl: '/inside',
-      fragment: 'menu'
+      linkUrl: '/menu',
+      fragment: ''
     },
     {
       uiLabel: 'Specials',
-      linkUrl: '/inside',
-      fragment: 'anniversary',
+      linkUrl: '/menu',
+      fragment: '',
     },
     {
       uiLabel: 'Events',

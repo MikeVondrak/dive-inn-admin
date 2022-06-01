@@ -1,0 +1,135 @@
+@use '../../scss/utility';
+
+:host {
+
+  img {
+      
+    &.specials {
+      width: 90vw;
+      max-width: 800px;
+      margin-top: 10vw;  
+    }
+    &.menu {
+      width: 90vw;
+      max-width: 800px;      
+      margin-top: 6vw;
+    }
+    &#taco {
+      width: 65vw;
+      margin-top: 6vw;
+    }
+    &.cluck {
+      max-width: 8vw;
+    }
+    @include utility.media-breakpoint-gte(md) {
+      &.specials {
+        width: 80vw;
+      }
+      &.menu {
+        width: 80vw;
+      }
+    }
+    @include utility.media-breakpoint-gte(lg) {
+      &.specials {
+        width: 70vw;
+        margin-top: 0;
+      }
+      &.menu {
+        width: 70vw;
+      }
+    }
+    @include utility.media-breakpoint-gte(xl) {
+      &.specials {
+        width: 44vw;
+      }
+      &.menu {
+        width: 44vw;
+        margin-top: 0vw;
+      }
+    }
+    @include utility.media-breakpoint-gte(ws) {
+      &.specials {
+        width: 37vw;
+      }
+      &.menu {
+        width: 37vw;
+        //margin-top: 9vw;
+      }
+    }
+    @include utility.media-breakpoint-gte(hd) {
+      &.specials {
+        width: 30vw;
+      }
+      &.menu {
+        width: 30vw;
+        //margin-top: 7.1vw;
+      }
+    }
+  }
+
+  .flyers {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4vw;
+    margin-bottom: 10vw;
+
+    @include utility.media-breakpoint-gte(xl) {      
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 6vw;
+    }
+
+    img {
+      display: block;
+      border-radius: 1rem;
+    }
+  }
+
+  .cluck-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6vw;
+    .cluck {      
+      position: relative;
+      text-align: center;
+      text-shadow: 2px 2px 2px #000;
+
+      &::after {
+        content: none;
+      }
+      
+      > * {
+        width: 30vw;
+      }
+
+      img {
+        display: block;
+      }
+
+      > div {
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;      
+        h2 {        
+          margin: 0;
+          padding-bottom: 3vw;
+          font-size: 5vw;
+          font-family: 'Anton', sans-serif;
+        }
+      }
+      p {
+        width: 24vw;
+        margin: 0 auto;
+        font-size: 1.75vw;
+      }
+    }
+  }
+}
