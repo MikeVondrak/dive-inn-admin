@@ -1,20 +1,19 @@
 <app-site-page>
-  <h1>Food Menu & Drink Specials</h1>
-  <div class="flyers">
-    <img id="specials" class="specials" src="assets/images/specials/Taki Takos TNT $8.50.jpg" />
-    <a href="https://takitakos.com/" target="_blank"><img id="menu" class="menu"
-        src="assets/images/menu/Dive_Inn_Menu.jpg" /></a>
-
-    <app-mouse-facer-title-card imgUrl="url(assets/images/menu/tacos_stock_img.jpg)" [height]="'50vw'"
-      [bgPosition]="bgPosition" [bgSize]="bgSize" [titleLines]="titleLines">
-    </app-mouse-facer-title-card>
+  <!-- <h1>Food Menu & Drink Specials</h1> -->
+  <div class="taki-tacos">
+    <app-mouse-facer-title-card [titleLines]="titleLines" imgUrl="url(assets/images/menu/tacos_stock_img.jpg)"
+    [height]="'40vw'"
+    [bgPosition]="bgPosition"
+    [bgSize]="bgSize"
+  >
+  </app-mouse-facer-title-card>
+    <div class="flyers">
+      <img id="specials" class="specials" src="assets/images/specials/Taki Takos TNT $8.50.jpg" />
+      <a href="https://takitakos.com/" target="_blank"><img id="menu" class="menu"
+          src="assets/images/menu/Dive_Inn_Menu.jpg" /></a>
+    </div>
   </div>
 
-  <app-mouse-facer-card 
-    title="Find Us" 
-    description="<ul><li>1380 South Broadway<br>at Arkansas Ave</li><li>West off I-25 exits<br>Broadway or Emerson</li><li>One block south<br>of Lousianna Ave</li><li>39.69146843042679, -104.98709686471264</li>"
-    imgUrl="url(assets/images/home/Dive_On_Inn_Tom_Boyer.jpg)">
-  </app-mouse-facer-card>
 
   <div class="cluck-container">
     <a class="cluck" href="http://cluckchickenden.com/" target="_blank">

@@ -67,26 +67,29 @@
     }
   }
 
-  .flyers {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 4vw;
-    margin-bottom: 10vw;
+    .flyers {
+      bottom: -10vw;
+      top: 2vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 4vw;
+      // margin-bottom: 10vw;
 
-    @include utility.media-breakpoint-gte(xl) {      
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
-      margin-bottom: 6vw;
+      @include utility.media-breakpoint-gte(xl) {      
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        margin-bottom: 6vw;
+      }
+
+      img {
+        display: block;
+        border-radius: 1rem;
+      }
     }
 
-    img {
-      display: block;
-      border-radius: 1rem;
-    }
-  }
 
   .cluck-container {
     width: 100%;
