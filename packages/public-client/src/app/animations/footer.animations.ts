@@ -27,14 +27,14 @@ const footerTransitioningStyle = style({
 
 const footerTransitionKeyframes = [
   style({ offset: 0.00, width: '100%', opacity: 0, transform: 'translateY(0%)' }),
-  style({ offset: 0.01, width: '100%', opacity: 1, transform: 'translateY(0%)' }),
-  style({ offset: 0.20, width: '100%', opacity: 1, transform: 'translateY(0%)' }),
-  style({ offset: 1.00, width: '100%', opacity: 1, transform: 'translateY(0%)' }),
+  //style({ offset: 0.01, width: '100%', opacity: 1, transform: 'translateY(0%)' }),
+  //style({ offset: 0.20, width: '100%', opacity: 1, transform: 'translateY(0%)' }),
+  style({ offset: 1.00, width: '100%', opacity: 1, transform: 'translateY(0%)' })
 ];
 const footerTransitionKeyframes2 = [
   style({ offset: 0.00, width: '100%', opacity: 0, transform: 'translateY(0%)' }),
-  style({ offset: 0.20, width: '100%', opacity: 1, transform: 'translateY(0%)' }),
-  style({ offset: 1.00, width: '100%', opacity: 1, transform: 'translateY(0%)' }),  
+  //style({ offset: 0.20, width: '100%', opacity: 1, transform: 'translateY(0%)' }),
+  style({ offset: 1.00, width: '100%', opacity: 1, transform: 'translateY(0%)' })
 ];
 
 export const footerAnimations = [
