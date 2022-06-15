@@ -17,6 +17,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   
   private appReadyEvent: AppReadyEvent;
   private routeFragment: string | null = null;
+
+  private lastRoute: string = '';
   
 
   constructor(
@@ -56,26 +58,33 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   public animateRouteTransition(outlet: RouterOutlet): string {
     if (outlet.isActivated) {
-      return outlet.activatedRoute.toString();
+      const rt = outlet.activatedRoute?.snapshot?.url?.toString();
+      console.log('ANIMATE ROUTE TRANSITION', {rt}, outlet.isActivated ? rt : '');
+      if (rt !== this.lastRoute) {
+        this.lastRoute = rt;
+        return rt;
+      }
     }
-    return '';
+    return this.lastRoute;
   }
 
   public routeAnimationStart(event: AnimationEvent) {
+    console.log('ROUTE ANIMATION START');
     // avoid expression changed after checked error
-    setTimeout(() => {
-      this.footerAnimationTag = 'animating';
-    });
+    // setTimeout(() => {
+    //   this.footerAnimationTag = 'animating';
+    // });
   }
 
   public routeAnimationDone(event: AnimationEvent) {
+    console.log('ROUTE ANIMATION DONE');
     // avoid expression changed after checked error
-    setTimeout(() => {
-      this.footerAnimationTag = 'stopped';
-    });
+    // setTimeout(() => {
+    //   this.footerAnimationTag = 'stopped';
+    // });
   }
 
   public footerAnimationDone(event: AnimationEvent) {
-    
+    console.log('FOOTER ANIMATION DONE');
   }
 }

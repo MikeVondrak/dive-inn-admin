@@ -71,3 +71,17 @@ select {
   option {
   }
 }
+
+ul.compass {
+  list-style-type: none;
+  li::before {
+      content: '';
+      position: absolute;
+      display: block;
+      background-image: url('../../public-client/src/assets/images/Compass_Red.svg'); // @TODO - how to use image from root level shared assets?
+      background-size: cover;
+      width: 3.5vw;
+      height: 3.5vw;
+      left: 1vw;
+    }
+}

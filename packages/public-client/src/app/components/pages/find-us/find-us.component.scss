@@ -1,0 +1,14 @@
+@use 'sass:math';
+@use '../../scss/utility';
+
+:host {
+  ::ng-deep {
+    ul {
+      li {
+        font-size: 1.5vw;
+        margin-bottom: 1vw;
+        text-align: left;
+      }
+    }
+  }
+}

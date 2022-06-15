@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  public bgPosition: string = '50% 30%';
+  public bgSize: string = '85%';
+  public titleLines: string[] = ['Menu', '&', 'Specials'];
+  
   constructor() { }
 
   ngOnInit(): void {

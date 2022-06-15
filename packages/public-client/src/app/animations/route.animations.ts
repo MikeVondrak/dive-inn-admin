@@ -9,38 +9,71 @@ import {
   query,
   stagger,
   group,
+  sequence,
+  animateChild,
 } from '@angular/animations';
 
 // https://www.techiediaries.com/angular-router-animations/
 
-const routeAnimationTime = '1.5s';
-const routeAnimationDelay = '0.50s';
-const routeAnimationDelay2 = '0.70s';
-const scaleDownVal = 1.00;
+// const routeAnimationTime = '1.5s';
+// const routeAnimationDelay = '.20s';
+// const routeAnimationDelay2 = '.70s';
+// const scaleDownVal = 0.90;
+
+// const baseRouteStyles = { position: 'absolute' };
+
+// export const routeAnimations = [
+//   trigger('routeAnimationTrigger', [
+//     transition('* => *', [
+//       query('.site-page', [style(baseRouteStyles)], { optional: true }),
+//       //query('.site-page:enter', [style(baseRouteStyles)], { optional: true }),
+//       group([
+//         query(
+//           '.site-page:leave',
+//           [
+//             style({ opacity: 1, transform: 'scale(1)' }),
+//             animate(`${routeAnimationTime} ${routeAnimationDelay} ease-in-out`, 
+//               style({ ...baseRouteStyles, transform: `scale(${scaleDownVal})` })),
+//           ],
+//           { optional: true }
+//         ),
+//         query(
+//           '.site-page:enter',
+//           [
+//             style({ opacity: 0, transform: `scale(${scaleDownVal})` }),
+//             animate(`${routeAnimationTime} ${routeAnimationDelay2} ease-in-out`, 
+//               style({ ...baseRouteStyles, transform: 'scale(1)' })),
+//           ],
+//           { optional: true }
+//         ),
+//       ]),      
+//     ]),
+//   ])
+//   ];
 
 export const routeAnimations = [
   trigger('routeAnimationTrigger', [
     transition('* => *', [
-      query('.site-page:enter, .site-page:leave', [style({positon: 'absolute', overflow: 'hidden'})], { optional: true }),
-      query('.site-page:enter', [style({ position: 'absolute', opacity: 0 })], { optional: true }),
+      query(':enter, :leave', [style({ position: 'absolute', width: '100vw' })], { optional: true }),
+      query(':enter', [style({ opacity: 0 })], { optional: true }),
       group([
         query(
-          '.site-page:leave',
+          ':leave',
           [
-            style({ position: 'absolute', opacity: 1, transform: 'scale(1)' }),
-            animate(`${routeAnimationTime} ${routeAnimationDelay} ease-in-out`, style({ position: 'absolute', opacity: 0, transform: `scale(${scaleDownVal})` })),
+            style({ opacity: 1, transform: 'scale(1)' }),
+            animate('1s ease-in-out', style({ opacity: 0, transform: 'scale(0.85)' })),
           ],
           { optional: true }
         ),
         query(
-          '.site-page:enter',
+          ':enter',
           [
-            style({ position: 'absolute', opacity: 0, transform: `scale(${scaleDownVal})` }),
-            animate(`${routeAnimationTime} ${routeAnimationDelay2} ease-in-out`, style({ position: 'absolute', opacity: 1, transform: 'scale(1)' })),
+            style({ opacity: 0, transform: 'scale(0.85)' }),
+            animate('1s 2s ease-in-out', style({ opacity: 1, transform: 'scale(1)' })),
           ],
           { optional: true }
         ),
       ]),
     ]),
-  ])
+  ]),
 ];

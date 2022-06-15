@@ -1,3 +1,27 @@
-<!-- <app-site-page> -->
-  <h1>Menu</h1>
-<!-- </app-site-page> -->
+<app-site-page>
+  <!-- <h1>Food Menu & Drink Specials</h1> -->
+  <div class="taki-tacos">
+    <app-mouse-facer-title-card [titleLines]="titleLines" imgUrl="url(assets/images/menu/tacos_stock_img.jpg)"
+    [height]="'40vw'"
+    [bgPosition]="bgPosition"
+    [bgSize]="bgSize"
+  >
+  </app-mouse-facer-title-card>
+    <div class="flyers">
+      <img id="specials" class="specials" src="assets/images/specials/Taki Takos TNT $8.50.jpg" />
+      <a href="https://takitakos.com/" target="_blank"><img id="menu" class="menu"
+          src="assets/images/menu/Dive_Inn_Menu.jpg" /></a>
+    </div>
+  </div>
+
+
+  <div class="cluck-container">
+    <a class="cluck" href="http://cluckchickenden.com/" target="_blank">
+      <img id="cluck" src="assets/images/Cluck_Chicken.svg" />
+      <div>
+        <h2>Cluck Chicken</h2>
+      </div>
+      <p>Taste some of Denver's best fried chicken at our friends next door!</p>
+    </a>
+  </div>
+</app-site-page>

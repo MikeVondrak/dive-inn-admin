@@ -1,11 +1,13 @@
 <app-site-header></app-site-header>
 
-<main 
+<main
   [@routeAnimationTrigger]="animateRouteTransition(outlet)" 
   (@routeAnimationTrigger.start)="routeAnimationStart($event)"
   (@routeAnimationTrigger.done)="routeAnimationDone($event)"
 >
-  <router-outlet #outlet="outlet"></router-outlet>
+  <!-- <div class="main-outlet"> -->
+    <router-outlet #outlet="outlet"></router-outlet>
+  <!-- </div> -->
 </main>
 
 <app-site-footer [@footerAnimationTrigger]="footerAnimationTag" (@footerAnimationTrigger.done)="footerAnimationDone($event)"></app-site-footer>

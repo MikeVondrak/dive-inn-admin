@@ -11,9 +11,16 @@ import { DirectivesModule } from './directives/directives.module';
 import { PagesModule } from './components/pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { InsideComponent } from './components/pages/inside/inside.component';
+import { FindUsComponent } from './components/pages/find-us/find-us.component';
+import { MenuComponent } from './components/pages/menu/menu.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    InsideComponent,
+    FindUsComponent, 
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

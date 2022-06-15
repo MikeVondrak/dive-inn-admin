@@ -8,13 +8,13 @@ import { MouseFacerTextPositions } from '../models/mouse-facer-card.model';
 })
 export class MouseFacerTitleCardComponent implements OnInit {
   @Input() imgUrl: string = '';
-  @Input() titleLines: string[] = [];  
-
+  
   @HostBinding('style.--mouseFacerCardHeight') 
   @Input() height: string = '50vw';
   
   @HostBinding('style.--mouseFacerCardText') 
-  @Input() text: string = 'Undefined';
+  @Input() titleLines: string[] = [];  
+  // @Input() text: string = 'Undefined';
 
   @HostBinding('style.--bgPosition') 
   @Input() bgPosition: string = '50% 50%';

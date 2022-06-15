@@ -37,22 +37,36 @@ $overrideStroke: 0.7vw;
       position: relative;
       top: -7vw;
       left: -4vw;
-      transform: translate(-50%) skew(350deg, 346deg) rotate(0deg);;
+      transform: translate(-50%) skew(350deg, 346deg) rotate(-0deg);;
       margin: 0;
       text-align: right;
       font-size: 6vw;
       line-height: 1.4;
       white-space: nowrap;
+
+      color: utility.$dive-black;
+      -webkit-text-stroke: 0.05em utility.$dive-red;
       
-      display: inline-block;
-      @include utility.text-double-outline('Local Events');
+      //display: inline-block;
+      
+      //@include utility.text-double-outline(var(--mouseFacerCardText));
+      &::after {
+        content: attr(card-title);
+        z-index: -1;
+        @include coverAbsolute();
+        -webkit-text-stroke: 0.2em utility.$dive-white;
+      }
+
       &:nth-of-type(2) {
-        @include utility.text-double-outline('Live Sports');
-        margin: 0 -11.0vw 0 0;
+        //@include utility.text-double-outline('Live Sports');
+        // &::after {
+        //   content: attr(card-title);
+        // }
+        //margin: 0 -11.0vw 0 0;
       }
       &:nth-of-type(3) {
-        @include utility.text-double-outline('& Games');
-        margin: 0 -7vw 0 0;                
+        //@include utility.text-double-outline('& Games');
+        //margin: 0 -7vw 0 0;                
       }
     }
 
@@ -63,12 +77,12 @@ $overrideStroke: 0.7vw;
         left: 0;
 
         &:nth-of-type(2) {
-          @include utility.text-double-outline('Live Sports');
-          margin: 0 -5.5vw 0 0;
+          //@include utility.text-double-outline('Live Sports');
+          //margin: 0 -5.5vw 0 0;
         }
         &:nth-of-type(3) {
-          @include utility.text-double-outline('& Games');
-          margin: 0 -2vw 0 0;                
+          //@include utility.text-double-outline('& Games');
+          //margin: 0 -2vw 0 0;                
         }
       }
     }
@@ -96,12 +110,12 @@ $overrideStroke: 0.7vw;
         font-size: 4vw;
 
         &:nth-of-type(2) {
-          @include utility.text-double-outline('Live Sports');
-          margin: 0 1.60vw 0 0;
+          //@include utility.text-double-outline('Live Sports');
+          //margin: 0 1.60vw 0 0;
         }
         &:nth-of-type(3) {
-          @include utility.text-double-outline('& Games');
-          margin: 0 4vw 0 0;                
+          //@include utility.text-double-outline('& Games');
+          //margin: 0 4vw 0 0;                
         }
       }
     }
