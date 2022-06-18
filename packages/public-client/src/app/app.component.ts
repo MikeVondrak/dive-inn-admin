@@ -59,7 +59,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   public animateRouteTransition(outlet: RouterOutlet): string {
     if (outlet.isActivated) {
       const rt = outlet.activatedRoute?.snapshot?.url?.toString();
-      console.log('ANIMATE ROUTE TRANSITION', {rt}, outlet.isActivated ? rt : '');
+      // console.log('ANIMATE ROUTE TRANSITION', {rt}, outlet.isActivated ? rt : '');
       if (rt !== this.lastRoute) {
         this.lastRoute = rt;
         return rt;
