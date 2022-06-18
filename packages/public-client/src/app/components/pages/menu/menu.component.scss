@@ -1,9 +1,27 @@
 @use '../../scss/utility';
 
 :host {
+  
+  .taki-tacos {
+    position: relative;
+    margin-bottom: 3vw;
+
+    app-mouse-facer-title-card {
+    }
+    .gradient-overlay {
+      position: absolute;
+      top: 0; bottom: 0; left: 0; right: 0;
+      background-image: linear-gradient(105deg, utility.$dive-black 0%, utility.$dive-black 10%, transparent 30%, transparent 70%, utility.$dive-black 95%, utility.$dive-black 100%);
+    }
+    img {
+      position: absolute;
+      top: 1vw;
+      left: 2vw;
+      width: 30vw;
+    }
+  }
 
   img {
-      
     &.specials {
       width: 90vw;
       max-width: 800px;
@@ -12,10 +30,6 @@
     &.menu {
       width: 90vw;
       max-width: 800px;      
-      margin-top: 6vw;
-    }
-    &#taco {
-      width: 65vw;
       margin-top: 6vw;
     }
     &.cluck {
@@ -92,13 +106,16 @@
 
 
   .cluck-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    // width: 100%;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     margin-bottom: 6vw;
     .cluck {      
-      position: relative;
+      position: absolute;
+      bottom: 1vw;
+      left: 2vw;
       text-align: center;
       text-shadow: 2px 2px 2px #000;
 
