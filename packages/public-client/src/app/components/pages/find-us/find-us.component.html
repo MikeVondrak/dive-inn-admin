@@ -6,13 +6,15 @@
         <li>1380 South Broadway<br>at Arkansas Ave</li>
         <li>West off I-25 exits<br>Broadway or Emerson</li>
         <li>One block south<br>of Lousianna Ave</li>
-        <li>Lat: 39.69146843042679, Lng: -104.98709686471264</li>
+        <li>Lat: 39.69146843042679,<br>Lng: -104.98709686471264</li>
+        <li><a href='tel:7202426157'>(720) 242-6157</a></li>
       </ul>
     "
     imgUrl="url(assets/images/home/Dive_On_Inn_Tom_Boyer.jpg)">
   </app-mouse-facer-card>
-  <p>TODO: phone number - <a href="tel:7202426157">720-242-6157</a></p>
-  <p>TODO: add large Google Map</p>
   
+  <google-map [width]="'100%'" [height]="'80vh'" [zoom]="13" [center]="mapCenter" [options]="mapOptions">
+    <map-marker [position]="mapMarkerPosition" [title]="mapMarkerTitle" [options]="mapMarkerOptions"></map-marker>
+  </google-map>
 
 </app-site-page>

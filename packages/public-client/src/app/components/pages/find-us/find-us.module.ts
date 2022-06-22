@@ -1,25 +1,28 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+// import { NgModule } from '@angular/core';
+// import { CommonModule } from '@angular/common';
+// import { RouterModule, Routes } from '@angular/router';
 
-import { SharedComponentsModule } from '../../shared/shared-components.module';
-import { SitePartsModule } from '../_parts/site-parts.module';
+// import { GoogleMapsModule } from '@angular/google-maps';
 
-import { FindUsComponent } from './find-us.component';
+// import { SharedComponentsModule } from '../../shared/shared-components.module';
+// import { SitePartsModule } from '../_parts/site-parts.module';
 
-const routes: Routes = [
-  { path: '', component: FindUsComponent },
-  { path: '**', redirectTo: '' },
-];
+// import { FindUsComponent } from './find-us.component';
 
-@NgModule({
-  declarations: [FindUsComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    SharedComponentsModule,
-    SitePartsModule,
-  ],
-  exports: [FindUsComponent]
-})
-export class FindUsModule { }
+// const routes: Routes = [
+//   { path: '', component: FindUsComponent },
+//   { path: '**', redirectTo: '' },
+// ];
+
+// @NgModule({
+//   declarations: [FindUsComponent],
+//   imports: [
+//     CommonModule,
+//     RouterModule.forChild(routes),
+//     SharedComponentsModule,
+//     SitePartsModule,
+//     GoogleMapsModule
+//   ],
+//   exports: [FindUsComponent]
+// })
+// export class FindUsModule { }

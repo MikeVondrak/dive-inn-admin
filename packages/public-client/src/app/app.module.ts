@@ -14,13 +14,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InsideComponent } from './components/pages/inside/inside.component';
 import { FindUsComponent } from './components/pages/find-us/find-us.component';
 import { MenuComponent } from './components/pages/menu/menu.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InsideComponent,
-    FindUsComponent, 
-    MenuComponent,
+    // InsideComponent,
+    // FindUsComponent, 
+    // MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,7 @@ import { MenuComponent } from './components/pages/menu/menu.component';
     DirectivesModule,
     FeatureComponentsModule,
     SharedComponentsModule,
-    PagesModule,
+    PagesModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

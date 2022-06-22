@@ -13,7 +13,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
     ContactSectionComponent
   ],
   imports: [
-    CommonModule, SharedComponentsModule, GoogleMapsModule
+    CommonModule, 
+    SharedComponentsModule, 
+    GoogleMapsModule
   ],
   exports: [
     TopicSectionComponent,
