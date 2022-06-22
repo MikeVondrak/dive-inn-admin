@@ -1,3 +1,16 @@
+6/21/22
+  1. Either use public-client album-display component to show Specials and Menu on Menu page
+  1a. OR create a new component if necessary
+  - positon-fixed component hidden/shown via button in mouse-facer
+  - X button to close
+  - mobile sizes swipe to nav through
+    - not needed for MVP (single image for menu / specials)
+  2. Dive Logo in mobile view in e.g. Menu page
+  3. Move Taki / Cluck logo to right side and have Dive logo upper-left always (for e.g. Menu page, to match home page)??
+
+-------------------------------
+
+
 Next Steps:
   1. Host somewhere - use fishbone sub-domain? - DONE test.fishbonedigital.io
   2. Refactor into components and do cleanup

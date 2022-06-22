@@ -14,19 +14,21 @@
       background-image: linear-gradient(105deg, utility.$dive-black 0%, utility.$dive-black 10%, transparent 30%, transparent 70%, utility.$dive-black 95%, utility.$dive-black 100%);
     }
     img {
-      position: absolute;
-      top: 1vw;
-      left: 2vw;
-      width: 30vw;
+      &.logo {
+        position: absolute;
+        top: 1vw;
+        left: 2vw;
+        width: 30vw;
+      }
+
+      &.specials {
+        position: relative;
+        width: 100vw;
+      }
     }
   }
 
-  img {
-    &.specials {
-      width: 90vw;
-      max-width: 800px;
-      margin-top: 10vw;  
-    }
+  img {  
     &.menu {
       width: 90vw;
       max-width: 800px;      
@@ -114,8 +116,9 @@
     margin-bottom: 6vw;
     .cluck {      
       position: absolute;
-      bottom: 1vw;
-      left: 2vw;
+      top: 5vw;
+      max-width: 22vw;
+      left: 35vw;
       text-align: center;
       text-shadow: 2px 2px 2px #000;
 
@@ -130,19 +133,22 @@
       img {
         display: block;
       }
-
-      > div {
-        position: absolute;
-        top: 0; bottom: 0; left: 0; right: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;      
-        h2 {        
-          margin: 0;
-          padding-bottom: 3vw;
-          font-size: 5vw;
-          font-family: 'Anton', sans-serif;
+      
+      a {
+        position: relative;
+        > div {
+          position: absolute;
+          top: 4vw; left: 0; right: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;      
+          h2 {        
+            margin: 0;
+            padding-bottom: 3vw;
+            font-size: 3.5vw;
+            font-family: 'Anton', sans-serif;
+          }
         }
       }
       p {
