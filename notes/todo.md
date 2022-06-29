@@ -1,3 +1,18 @@
+6/28/22
+  Major fixes:
+  - Page transition animations
+    - partially working somehow now, need to get triggering correctly all the time and adjust timing values
+  - Mobile design
+    - Header? Either fix the logo or the header concept, the header bar disappears at 599 but the logo still drops down with the black bar behind it
+    - Basic layouts - rough box / content models
+    - Increase height of main image on /home (make it taller than the contact section, should take ~the entire phone screen?)
+    - What do we do with Specials and Menu images?
+      - Double Taki logos
+      - Double Dive logos
+    - Footer gets too small to read
+    - waves too small? (minor polishing fix)
+
+
 6/21/22
   1. Either use public-client album-display component to show Specials and Menu on Menu page
   1a. OR create a new component if necessary

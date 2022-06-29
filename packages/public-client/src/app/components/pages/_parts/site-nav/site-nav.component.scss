@@ -18,8 +18,11 @@ $verticalGap: 0.75rem;
   align-items: center;
   //padding: 0.5vw 0;
   background-color: utility.$dive-gray-dk3;
-
-  font-size: 2.5vw;
+  
+  font-size: 4.5vw;
+  @include utility.media-breakpoint-gte(sm) {
+    font-size: 3vw;
+  }
   @include utility.media-breakpoint-gte(md) {
     font-size: 2vw;
   }
@@ -40,11 +43,12 @@ $verticalGap: 0.75rem;
   font-family: 'Righteous', cursive;
 
   ul {
-    display: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
     @include utility.media-breakpoint-gte(sm) {
-      display: flex;
+      justify-content: center;
     }
-    justify-content: center;
     gap: 0vw;
     padding: 0;
     margin: 0;
