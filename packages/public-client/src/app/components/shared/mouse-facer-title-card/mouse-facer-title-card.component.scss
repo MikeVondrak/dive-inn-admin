@@ -20,7 +20,12 @@ $overrideStroke: 0.7vw;
   position: relative;
 
   app-mouse-facer {
-    height: $imageHeight;
+    height: 90vh;
+
+    // If we passed in an array of 
+    // @media (min-width: 840px) {
+    //     height: $imageHeight;
+    // }
   }
 
   .title-container {
@@ -33,7 +38,7 @@ $overrideStroke: 0.7vw;
   
     h1.title {
       z-index: 0;
-      display: block;
+      display: none; // don't display title until >= 840px screen width
       position: relative;
       top: -7vw;
       left: -4vw;
@@ -69,11 +74,21 @@ $overrideStroke: 0.7vw;
         //margin: 0 -7vw 0 0;                
       }
     }
+    
+    @include utility.media-breakpoint-gte(min) {
+      // top: 100vw;
+      // left: 50vw;
+      h1.title {
+        font-size: 9vw;
+        left: 0;
+      }
+    }
 
     @include utility.media-breakpoint-gte(xs) {
-      //top: 10vw;
+      // top: 100vw;
+      // left: 50vw;
       h1.title {
-        font-size: 5.25vw;
+        font-size: 9vw;
         left: 0;
 
         &:nth-of-type(2) {
@@ -88,7 +103,8 @@ $overrideStroke: 0.7vw;
     }
 
     @include utility.media-breakpoint-gte(sm) {
-      //top: 10vw;
+      // top: 100vw;
+      // left: 50vw;
       h1.title {
         //font-size: 5vw;
         // left: 0;
@@ -106,6 +122,7 @@ $overrideStroke: 0.7vw;
 
     @include utility.media-breakpoint-gte(md) {
       top: 14vw;
+      display: block;
       h1.title {
         font-size: 4vw;
 

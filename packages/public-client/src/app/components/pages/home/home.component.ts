@@ -105,9 +105,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   // TODO - FIX THIS UGLINESS
   private setPropsForBreakpoints(currentBreakpoint: Breakpoints) {
     switch(currentBreakpoint) {
-      case 'zero': this.bgSize = '200%'; this.bgPosition = '57% 24%'; break;
-      case 'min': this.bgSize = '180%'; this.bgPosition = '54% 25%'; break;
-      case 'xs': this.bgSize = '150%'; this.bgPosition = '50% 24%'; break;
+      case 'zero': this.bgSize = '300%'; this.bgPosition = '68% 22%'; break;
+      case 'min': this.bgSize = '350%'; this.bgPosition = '69% 35%'; break;
+      case 'xs': this.bgSize = '250%'; this.bgPosition = '73% 66%'; break;
       case 'sm': this.bgSize = '150%'; this.bgPosition = '50% 24%'; break;
       case 'md': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
       case 'lg': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
