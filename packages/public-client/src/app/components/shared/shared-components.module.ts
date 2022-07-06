@@ -10,6 +10,7 @@ import { MouseFacerCardComponent } from './mouse-facer-card/mouse-facer-card.com
 import { MouseFacerTitleCardComponent } from './mouse-facer-title-card/mouse-facer-title-card.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MovingBackgroundComponent } from './moving-background/moving-background.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     IconCardComponent,
     MouseFacerCardComponent,
     MouseFacerTitleCardComponent,
+    MovingBackgroundComponent,
   ],
   imports: [
     CommonModule,

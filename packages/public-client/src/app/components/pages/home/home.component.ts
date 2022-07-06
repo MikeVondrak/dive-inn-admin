@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public MouseFacerTextPostionsEnum = MouseFacerTextPositions;
 
   // @TODO - where should this data live?
-  public siteTitleLines = ['Local Events','Live Sports','& Games']
+  public siteTitleLines = ['Local Events','Live Sports','& Games'];
 
   // public showLogo: boolean = false;
   public footerAddress: string[] = ['1380 S Broadway', 'Denver 80210'];
