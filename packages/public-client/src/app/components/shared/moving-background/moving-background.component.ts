@@ -1,15 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Coord, CssProp } from 'src/app/models/moving-background-item.model';
+import { Breakpoints, ViewportService } from 'src/app/services/viewport/viewport.service';
 
 @Component({
   selector: 'app-moving-background',
   templateUrl: './moving-background.component.html',
   styleUrls: ['./moving-background.component.scss']
 })
-export class MovingBackgroundComponent implements OnInit {
+export class MovingBackgroundComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  @Input() coords: Map<Breakpoints, Coord> = new Map();
+  @Input() bgSizes: Map<Breakpoints, string> = new Map();
+  @Input() bgPositions: Map<Breakpoints, string> = new Map();
+  @Input() styles: Map<Breakpoints, CssProp[]> = new Map();
+  @Input() imgSrc: string = '';
+  @Input() siteTitleLines: string[] = [];
+
+  private destroy$ = new Subject<void>();
+  public bgSize: string | undefined = '';
+  public bgPosition: string | undefined = '';
+
+  constructor(private viewport: ViewportService) {
+    this.viewport.viewportState$.pipe(takeUntil(this.destroy$)).subscribe(state => {
+      this.setPropsForBreakpoints(state.currentBreakpoint);
+    });
+   }
 
   ngOnInit(): void {
   }
 
+  private setPropsForBreakpoints(currentBreakpoint: Breakpoints) {
+    switch(currentBreakpoint) {
+      case 'zero': this.bgSize = this.bgSizes.get('zero'); this.bgPosition = this.bgPositions.get('zero'); break;
+      case 'min': this.bgSize = this.bgSizes.get('min'); this.bgPosition = this.bgPositions.get('min'); break;
+      case 'xs': this.bgSize = this.bgSizes.get('xs'); this.bgPosition = this.bgPositions.get('xs'); break;
+      case 'sm': this.bgSize = this.bgSizes.get('sm'); this.bgPosition = this.bgPositions.get('sm'); break;
+      case 'md': this.bgSize = this.bgSizes.get('md'); this.bgPosition = this.bgPositions.get('md'); break;
+      case 'lg': this.bgSize = this.bgSizes.get('lg'); this.bgPosition = this.bgPositions.get('lg'); break;
+      case 'xl': this.bgSize = this.bgSizes.get('xl'); this.bgPosition = this.bgPositions.get('xl'); break;
+      case 'ws': this.bgSize = this.bgSizes.get('ws'); this.bgPosition = this.bgPositions.get('ws'); break;
+      case 'hd': this.bgSize = this.bgSizes.get('hd'); this.bgPosition = this.bgPositions.get('hd'); break;
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }

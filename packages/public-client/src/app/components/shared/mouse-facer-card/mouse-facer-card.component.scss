@@ -11,14 +11,14 @@
 
 $textMaxWidth: 30vw;
 
-$imageHeight: var(--mouseFacerCardHeight);
+//$imageHeight: var(--mouseFacerCardHeight);
 $overrideStroke: 0.7vw;
 
 :host {
   position: relative;
 
   app-mouse-facer {
-    height: $imageHeight;
+    height: var(--mouseFacerCardHeight);//$imageHeight;
   }
 
   .text-container {

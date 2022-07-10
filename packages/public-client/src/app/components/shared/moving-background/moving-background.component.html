@@ -1,4 +1,25 @@
-<p>moving-background works!</p>
-<p>
-  TODO: use moving-background-item.model and wire in Maps as inputs for bg positions and sizes
-</p>
+<div>
+  <!-- <app-mouse-facer
+    [bgPosition]="bgPosition"
+    [bgSize]="bgSize"
+    [imgSrc]="imgSrc"
+  ></app-mouse-facer> -->
+      <app-mouse-facer-title-card [titleLines]="siteTitleLines" imgUrl="url(assets/images/home/dive-inn-exterior.jpg)"
+      [height]="'9vh'"
+      [bgPosition]="bgPosition"
+      [bgSize]="bgSize"
+    >
+    </app-mouse-facer-title-card>
+</div>
+
+size: {{bgSize}}
+* Inputs for moving-background
+  - url
+  - coords
+  - width
+  - height
+  - styles
+
+* Viewport service in moving-background to switch what's displayed where at different breakpoints
+* Base off of mouse-facer or use mouse-facer
+* Config for sizes/positions for e.g. homepage image in home component

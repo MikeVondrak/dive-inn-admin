@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { min, takeUntil } from 'rxjs/operators';
 import { Breakpoints, ViewportService } from 'src/app/services/viewport/viewport.service';
 import { IconCardConfig, IconCardImages, IconCardTextSizes } from '../../shared/models/icon-card.model';
 import { MouseFacerTextPositions } from '../../shared/models/mouse-facer-card.model';
@@ -27,8 +27,30 @@ export class HomeComponent implements OnInit, OnDestroy {
   public mouseFacerCardTitle_DiveShop: string = 'Dive Shop';
   public mouseFacerCardTitle_WideOpen: string = 'Wide Open';
 
-  public bgPosition: string = '50% 30%';
-  public bgSize: string = '150%';
+  // public bgPosition: string = '50% 30%';
+  // public bgSize: string = '150%';
+  public bgPositions: Map<Breakpoints, string> = new Map([
+    ['zero', '68% 22%'],
+    ['min', '69% 35%'],
+    ['xs', '73% 66%'],
+    ['sm', '50% 24%'],
+    ['md', '50% 41.7%'],
+    ['lg', '50% 41.7%'],
+    ['xl', '50% 41.7%'],
+    ['ws', '50% 41.7%'],
+    ['hd', '50% 41.7%'],
+  ]);
+  public bgSizes: Map<Breakpoints, string> = new Map([
+    ['zero', '300%'],
+    ['min', '350%'],
+    ['xs', '250%'],
+    ['sm', '150%'],
+    ['md', 'cover'],
+    ['lg', 'cover'],
+    ['xl', 'cover'],
+    ['ws', 'cover'],
+    ['hd', 'cover']
+  ]);
 
   public contactSectionConfig: IconCardConfig[] = [
     {
@@ -83,14 +105,14 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(private viewport: ViewportService) { 
     // set title bg props based on breakpoint - TODO FIX THIS UGLINESS
-    this.viewport.viewportState$.pipe(takeUntil(this.destroy$)).subscribe(state => {
-      this.setPropsForBreakpoints(state.currentBreakpoint);
+    // this.viewport.viewportState$.pipe(takeUntil(this.destroy$)).subscribe(state => {
+    //   this.setPropsForBreakpoints(state.currentBreakpoint);
       // this.bgSize = state.currentBreakpoint === 'zero' ? '150%'
       // : state.currentBreakpoint === 'min' ? '185%'
       // : state.currentBreakpoint === 'xs' ? '150%'
       // : state.currentBreakpoint === 'sm' ? '125%'
       // : state.currentBreakpoint === 'md' ? 'cover' : 'cover';
-    });
+    // });
 
   }
 
@@ -105,15 +127,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   // TODO - FIX THIS UGLINESS
   private setPropsForBreakpoints(currentBreakpoint: Breakpoints) {
     switch(currentBreakpoint) {
-      case 'zero': this.bgSize = '300%'; this.bgPosition = '68% 22%'; break;
-      case 'min': this.bgSize = '350%'; this.bgPosition = '69% 35%'; break;
-      case 'xs': this.bgSize = '250%'; this.bgPosition = '73% 66%'; break;
-      case 'sm': this.bgSize = '150%'; this.bgPosition = '50% 24%'; break;
-      case 'md': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
-      case 'lg': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
-      case 'xl': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
-      case 'ws': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
-      case 'hd': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
+      // case 'zero': this.bgSize = '300%'; this.bgPosition = '68% 22%'; break;
+      // case 'min': this.bgSize = '350%'; this.bgPosition = '69% 35%'; break;
+      // case 'xs': this.bgSize = '250%'; this.bgPosition = '73% 66%'; break;
+      // case 'sm': this.bgSize = '150%'; this.bgPosition = '50% 24%'; break;
+      // case 'md': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
+      // case 'lg': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
+      // case 'xl': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
+      // case 'ws': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
+      // case 'hd': this.bgSize = 'cover'; this.bgPosition = '50% 41.7%'; break;
     }
   }
 }

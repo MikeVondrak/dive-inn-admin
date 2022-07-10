@@ -35,6 +35,7 @@ import { MovingBackgroundComponent } from './moving-background/moving-background
     IconCardComponent,
     MouseFacerCardComponent,
     MouseFacerTitleCardComponent,
+    MovingBackgroundComponent,
   ]  
 })
 export class SharedComponentsModule { }

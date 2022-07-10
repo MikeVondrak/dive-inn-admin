@@ -12,10 +12,10 @@ export class MouseFacerComponent implements OnInit {
    * CSS bg position value
    */
   @HostBinding('style.--bgPosition') 
-  @Input() bgPosition: string = '0% 0%';
+  @Input() bgPosition: string | undefined = '0% 0%';
 
   @HostBinding('style.--bgSize')
-  @Input() bgSize: string = '100% 100%';
+  @Input() bgSize: string | undefined = '100% 100%';
 
   @HostBinding('style.--imgSrc') 
   @Input() imgSrc: string = 'url()';
