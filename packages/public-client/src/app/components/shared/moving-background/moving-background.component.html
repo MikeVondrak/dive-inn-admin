@@ -1,18 +1,23 @@
 <div>
-  <!-- <app-mouse-facer
+  <app-mouse-facer
     [bgPosition]="bgPosition"
     [bgSize]="bgSize"
     [imgSrc]="imgSrc"
-  ></app-mouse-facer> -->
-      <app-mouse-facer-title-card [titleLines]="siteTitleLines" imgUrl="url(assets/images/home/dive-inn-exterior.jpg)"
+  ></app-mouse-facer>
+      <!-- <app-mouse-facer-title-card [titleLines]="siteTitleLines" imgUrl="url(assets/images/home/dive-inn-exterior.jpg)"
       [height]="'9vh'"
       [bgPosition]="bgPosition"
       [bgSize]="bgSize"
     >
-    </app-mouse-facer-title-card>
+    </app-mouse-facer-title-card> -->
+</div>
+<div style="border: 5px solid green; position: relative; margin-top: 5rem;">
+<div>size: {{bgSize}}</div>
+<div>position: {{bgPosition}}</div>
 </div>
 
-size: {{bgSize}}
+
+<div style="display: none">
 * Inputs for moving-background
   - url
   - coords
@@ -23,3 +28,13 @@ size: {{bgSize}}
 * Viewport service in moving-background to switch what's displayed where at different breakpoints
 * Base off of mouse-facer or use mouse-facer
 * Config for sizes/positions for e.g. homepage image in home component
+
+
+1. Height in portrait at breakpoints
+2. Height in landscape at breakpoints
+3. Coords / sizes / positions would all need landscape/portrait
+
+
+
+
+</div>

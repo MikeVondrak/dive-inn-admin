@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
 import { min, takeUntil } from 'rxjs/operators';
+import { Coord, MovingBackgroundConfig, Orientations } from 'src/app/models/moving-background-item.model';
 import { Breakpoints, ViewportService } from 'src/app/services/viewport/viewport.service';
 import { IconCardConfig, IconCardImages, IconCardTextSizes } from '../../shared/models/icon-card.model';
 import { MouseFacerTextPositions } from '../../shared/models/mouse-facer-card.model';
@@ -17,6 +18,63 @@ export class HomeComponent implements OnInit, OnDestroy {
   // @TODO - where should this data live?
   public siteTitleLines = ['Local Events','Live Sports','& Games'];
 
+
+  private readonly bgPositions: Map<Breakpoints, string> = new Map([
+    ['zero', '68% 22%'],
+    ['min', '69% 35%'],
+    ['xs', '73% 66%'],
+    ['sm', '50% 24%'],
+    ['md', '50% 41.7%'],
+    // ['lg', '50% 41.7%'],
+    // ['xl', '50% 41.7%'],
+    // ['ws', '50% 41.7%'],
+    // ['hd', '50% 41.7%'],
+  ]);
+  private readonly bgSizes: Map<Breakpoints, string> = new Map([
+    ['zero', '300%'],
+    ['min', '350%'],
+    ['xs', '250%'],
+    ['sm', '150%'],
+    ['md', 'cover'],
+    // ['lg', 'cover'],
+    // ['xl', 'cover'],
+    // ['ws', 'cover'],
+    // ['hd', 'cover']
+  ]);
+  private readonly cssClasses: string[] = [];
+  private readonly textCoords: Coord = [0, 0];
+
+
+  private readonly siteTitleBgPositionsPortrait: Map<Breakpoints, MovingBackgroundConfig> = new Map([
+    [
+      'zero',
+      {
+        bgPosition: this.bgPositions.get('zero') || '',
+        bgSize: this.bgSizes.get('zero') || '',
+        textCoord: this.textCoords,
+        cssClasses: [],
+      }
+    ],
+    [
+      'sm',
+      {
+        bgPosition: this.bgPositions.get('sm') || '',
+        bgSize: this.bgSizes.get('sm') || '',
+        textCoord: this.textCoords,
+        cssClasses: [],
+      }
+    ]
+  ]);
+
+
+  public readonly siteTitleBgConfigs: Map<Orientations, Map<Breakpoints, MovingBackgroundConfig>> = new Map([
+    [
+      Orientations.PORTRAIT, 
+      this.siteTitleBgPositionsPortrait
+    ]
+  ]);
+
+
   // public showLogo: boolean = false;
   public footerAddress: string[] = ['1380 S Broadway', 'Denver 80210'];
   public footerPhone: string = '720-242-6157';
@@ -26,31 +84,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   public mouseFacerCardTitle_Charters: string = 'Charters';
   public mouseFacerCardTitle_DiveShop: string = 'Dive Shop';
   public mouseFacerCardTitle_WideOpen: string = 'Wide Open';
-
-  // public bgPosition: string = '50% 30%';
-  // public bgSize: string = '150%';
-  public bgPositions: Map<Breakpoints, string> = new Map([
-    ['zero', '68% 22%'],
-    ['min', '69% 35%'],
-    ['xs', '73% 66%'],
-    ['sm', '50% 24%'],
-    ['md', '50% 41.7%'],
-    ['lg', '50% 41.7%'],
-    ['xl', '50% 41.7%'],
-    ['ws', '50% 41.7%'],
-    ['hd', '50% 41.7%'],
-  ]);
-  public bgSizes: Map<Breakpoints, string> = new Map([
-    ['zero', '300%'],
-    ['min', '350%'],
-    ['xs', '250%'],
-    ['sm', '150%'],
-    ['md', 'cover'],
-    ['lg', 'cover'],
-    ['xl', 'cover'],
-    ['ws', 'cover'],
-    ['hd', 'cover']
-  ]);
 
   public contactSectionConfig: IconCardConfig[] = [
     {

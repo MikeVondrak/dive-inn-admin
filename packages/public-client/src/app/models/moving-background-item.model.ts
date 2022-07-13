@@ -3,9 +3,22 @@ import { Breakpoints } from "../services/viewport/viewport.service";
 export type CssProp = [prop: string, value: string];
 export type Coord = [x: number, y: number];
 
-// export interface MovingBackgroundInstance {
-//   coords: Map<Breakpoints, Coord>,
-//   width: Map<Breakpoints, number>,
-//   height: Map<Breakpoints, number>,
-//   styles: Map<Breakpoints, CssProp[]>,
-// }
+export enum Orientations {
+  LANDSCAPE,
+  PORTRAIT,
+}
+
+export interface MovingBackgroundConfigs {
+  bgSizes: Map<Breakpoints, string>,
+  bgPositions: Map<Breakpoints, string>,
+  textCoords?: Map<Breakpoints, Coord>,
+  cssClasses?: Map<Breakpoints, string[]>,
+}
+
+
+export interface MovingBackgroundConfig {
+  bgSize: string,
+  bgPosition: string,
+  textCoord?: Coord,
+  cssClasses?: string[],
+}
