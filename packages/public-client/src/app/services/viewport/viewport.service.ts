@@ -9,10 +9,16 @@ import { debounceTime, distinctUntilChanged, map, min, shareReplay, startWith } 
 export type Breakpoints = 'zero' | 'min' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'ws' | 'hd';
 export enum BreakpointsEnum {
   zero, min, xs, sm, md, lg, xl, ws, hd
-}
+};
+export enum Orientations {
+  LANDSCAPE,
+  PORTRAIT,
+};
+
 export interface ViewportState {
   previousBreakpoint: Breakpoints,
   currentBreakpoint: Breakpoints,
+  orientation: Orientations,
 }
 
 @Injectable({
@@ -32,19 +38,28 @@ export class ViewportService {
     ['hd', '(min-width: 1920px)'],
   ]);
 
-  private _viewportState$: BehaviorSubject<ViewportState> = new BehaviorSubject<ViewportState>({ previousBreakpoint: 'min', currentBreakpoint: 'min' });
+  private _viewportState$: BehaviorSubject<ViewportState> = new BehaviorSubject<ViewportState>(
+    { 
+      previousBreakpoint: 'zero', 
+      currentBreakpoint: 'zero',
+      orientation: Orientations.LANDSCAPE,
+    });
   private _viewportState: ViewportState;
-  
+
   public window: Window | null;
   public viewportState$: Observable<ViewportState>;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {    
+  constructor(@Inject(DOCUMENT) private document: Document) {
     this.window = this.document.defaultView;
-    this._viewportState = { previousBreakpoint: this.getCurrentBreakpoint(), currentBreakpoint: this.getCurrentBreakpoint() };
+    this._viewportState = {
+      previousBreakpoint: this.getCurrentBreakpoint(),
+      currentBreakpoint: this.getCurrentBreakpoint(),
+      orientation: this.getOrientation(),
+    };
 
     this.viewportState$ = fromEvent(window, 'resize').pipe(
       debounceTime(100),
-      map((event: Event) => {        
+      map((event: Event) => {
         return this.getUpdatedViewportState();
       }),
       startWith(this.getUpdatedViewportState()),
@@ -57,12 +72,13 @@ export class ViewportService {
     const currentState: ViewportState = {
       previousBreakpoint: this._viewportState.currentBreakpoint,
       currentBreakpoint: this.getCurrentBreakpoint(),
+      orientation: this.getOrientation(),
     };
     this._viewportState = currentState;
     return currentState;
   }
 
-  private getCurrentBreakpoint(): Breakpoints {
+  public getCurrentBreakpoint(): Breakpoints {
     // @TODO - what is / how does this syntax work?
     // const [[newSize = 'zero']] = Array.from(this.breakpoints.entries())
     //   .filter(([size, mediaQuery]) => window.matchMedia(mediaQuery).matches);
@@ -76,4 +92,21 @@ export class ViewportService {
     return bpMax;
   }
 
+  public getOrientation(): Orientations {
+    return (this.window?.innerHeight || 0) < (this.window?.innerWidth || 0) ? Orientations.LANDSCAPE : Orientations.PORTRAIT;
+  }
+
+  public getBpDown(bp: Breakpoints) {
+    switch(bp) {
+      case 'zero': return 'zero'; break;
+      case 'min': return 'zero'; break;
+      case 'xs': return 'min'; break;
+      case 'sm': return 'xs'; break;
+      case 'md': return 'sm'; break;
+      case 'lg': return 'md'; break;
+      case 'xl': return 'lg'; break;
+      case 'ws': return 'xl'; break;
+      case 'hd': return 'ws'; break;
+    }
+  }
 }

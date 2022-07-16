@@ -25,7 +25,9 @@ $headerColor: utility.$dive-gray-dk3;
       position: relative;
 
       app-food-logos {
-        // position: absolute;        
+        bottom: 2rem;
+        //right: 0rem;
+        position: absolute;
       }
 
       // @TODO - move into homepage mouse-facer bg

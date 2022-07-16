@@ -1,3 +1,8 @@
-app-mouse-facer {
-  height: 90vh;
+@use '../../scss/utility';
+
+:host {
+
+  app-mouse-facer {
+    height: var(--height);
+  }
 }

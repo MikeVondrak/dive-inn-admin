@@ -20,7 +20,7 @@ $overrideStroke: 0.7vw;
   position: relative;
 
   app-mouse-facer {
-    height: 90vh;
+    height: $imageHeight;
 
     // If we passed in an array of 
     // @media (min-width: 840px) {

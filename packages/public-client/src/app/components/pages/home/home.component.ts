@@ -1,8 +1,8 @@
 import { Component, HostListener, OnInit, OnDestroy } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
 import { min, takeUntil } from 'rxjs/operators';
-import { Coord, MovingBackgroundConfig, Orientations } from 'src/app/models/moving-background-item.model';
-import { Breakpoints, ViewportService } from 'src/app/services/viewport/viewport.service';
+import { Coord, MovingBackgroundConfig } from 'src/app/models/moving-background-item.model';
+import { Breakpoints, Orientations, ViewportService } from 'src/app/services/viewport/viewport.service';
 import { IconCardConfig, IconCardImages, IconCardTextSizes } from '../../shared/models/icon-card.model';
 import { MouseFacerTextPositions } from '../../shared/models/mouse-facer-card.model';
 
@@ -49,6 +49,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     [
       'zero',
       {
+        height: '90vh',
+        width: '100vw',
         bgPosition: this.bgPositions.get('zero') || '',
         bgSize: this.bgSizes.get('zero') || '',
         textCoord: this.textCoords,
@@ -58,6 +60,33 @@ export class HomeComponent implements OnInit, OnDestroy {
     [
       'sm',
       {
+        height: '90vh',
+        width: '100vw',
+        bgPosition: this.bgPositions.get('sm') || '',
+        bgSize: this.bgSizes.get('sm') || '',
+        textCoord: this.textCoords,
+        cssClasses: [],
+      }
+    ]
+  ]);
+
+  private readonly siteTitleBgPositionsLandscape: Map<Breakpoints, MovingBackgroundConfig> = new Map([
+    [
+      'zero',
+      {
+        height: 'unset',
+        width: '100vw',
+        bgPosition: this.bgPositions.get('zero') || '',
+        bgSize: this.bgSizes.get('zero') || '',
+        textCoord: this.textCoords,
+        cssClasses: [],
+      }
+    ],
+    [
+      'sm',
+      {
+        height: 'unset',
+        width: '100vw',
         bgPosition: this.bgPositions.get('sm') || '',
         bgSize: this.bgSizes.get('sm') || '',
         textCoord: this.textCoords,
@@ -71,7 +100,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     [
       Orientations.PORTRAIT, 
       this.siteTitleBgPositionsPortrait
-    ]
+    ],
+    [
+      Orientations.LANDSCAPE, 
+      this.siteTitleBgPositionsLandscape
+    ],
   ]);
 
 
@@ -150,6 +183,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    console.log('@@@@@@@@', this.siteTitleBgConfigs);
   }
 
   ngOnDestroy(): void {
