@@ -1,5 +1,5 @@
 @use 'sass:math';
-@use '../../scss/utility';
+@use '../../../scss/utility';
 
 $horizontalGap: 0.75rem;
 $sectionHeight: 24vw;
@@ -60,7 +60,7 @@ $randomNum: 6; // $min + floor($rand * (($max - $min) + 1));
       }
     }
     .section-img {
-        background-image: url('../../../../assets/images/home/DiveInnDraft.jpg');
+        background-image: url('/assets/images/home/DiveInnDraft.jpg');
         background-size: cover;
         background-position: center right;
         border-top: 1px solid utility.$line-colors;
@@ -106,7 +106,7 @@ $randomNum: 6; // $min + floor($rand * (($max - $min) + 1));
       }
     }
     .section-img {
-      background-image: url('../../../../assets/images/inside/Interiors_233.jpg');
+      background-image: url('/assets/images/inside/Interiors_233.jpg');
       background-size: cover;
       background-position: 0% 40%;
       border-top: 1px solid utility.$line-colors;

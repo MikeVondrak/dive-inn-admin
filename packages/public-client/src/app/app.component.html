@@ -5,9 +5,10 @@
   (@routeAnimationTrigger.start)="routeAnimationStart($event)"
   (@routeAnimationTrigger.done)="routeAnimationDone($event)"
 >
-  <!-- <div class="main-outlet"> -->
-    <router-outlet #outlet="outlet"></router-outlet>
-  <!-- </div> -->
+  <router-outlet #outlet="outlet"></router-outlet>
 </main>
 
-<app-site-footer [@footerAnimationTrigger]="footerAnimationTag" (@footerAnimationTrigger.done)="footerAnimationDone($event)"></app-site-footer>
+<app-site-footer 
+  [@footerAnimationTrigger]="footerAnimationTag" 
+  (@footerAnimationTrigger.done)="footerAnimationDone($event)">
+</app-site-footer>

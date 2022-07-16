@@ -18,6 +18,7 @@ export class TopicSectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // @TODO - move these to Inputs
     switch (this.sectionName) {
       case 'MENU':
         this.sectionTitle = 'Specials';

@@ -45,7 +45,6 @@ export class MovingBackgroundComponent implements OnInit, OnDestroy {
 
   private setPropsForBreakpoints(currentBreakpoint: Breakpoints) {
 
-    debugger;
     const bpConfig = this.orientationConfigs.get(Orientations.PORTRAIT)?.get(currentBreakpoint);
 
     // @TODO portrait vs landscape

@@ -20,9 +20,9 @@ import { MenuComponent } from './menu/menu.component';
 @NgModule({
   declarations: [
     HomeComponent,
-    FindUsComponent,
-    InsideComponent,
-    MenuComponent,
+    // FindUsComponent,
+    // InsideComponent,
+    // MenuComponent,
   ],
   imports: [
     CommonModule,

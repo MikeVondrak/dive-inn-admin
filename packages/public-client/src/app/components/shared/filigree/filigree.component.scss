@@ -1,0 +1,9 @@
+@use '../../../scss/utility';
+
+$verticalGap: 0.75rem;
+
+.divider {
+  position: relative;
+  margin: $verticalGap auto;
+  border-top: 1px solid utility.$line-colors;
+}

@@ -1,0 +1,117 @@
+@use '../../../scss/utility';
+
+$verticalGap: 0.75rem;
+
+.filigree-top {
+  display: flex;
+  border-bottom: 1px solid utility.$line-colors;
+  margin: 4vw 0 $verticalGap;
+
+  svg {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    max-width: 4rem;
+    max-height: 4rem;
+    padding-bottom: 0.4rem;
+    path {
+      fill: utility.$line-colors;
+    }
+  }
+
+  .lines {
+    flex: 1;
+    position: relative;
+    margin: 0 0 $verticalGap;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    //border-top: 1px solid utility.$line-colors;
+    border-bottom: 1px solid utility.$line-colors;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0rem;
+      bottom: -0.125rem;
+      width: 0.25rem;
+      height: 0.25rem;
+      background-color: utility.$line-colors;
+      border-radius: 50%;
+    }
+
+    > div {
+      position: relative;
+      width: 100%;
+      height: $verticalGap + 0.1rem;
+      margin-top: 0;
+      border-bottom: 1px solid utility.$line-colors;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -0.125rem;
+        width: 0.25rem;
+        height: 0.25rem;
+        background-color: utility.$line-colors;
+        border-radius: 50%;
+      }
+
+      &:last-child {
+        margin-bottom: $verticalGap;
+      }
+    }
+
+    &.left {
+      > div {
+        &:nth-of-type(1) {
+          max-width: 12vw;
+        }
+
+        &:nth-of-type(2) {
+          max-width: 20vw;
+          margin-right: 0.75rem;
+
+        }
+
+        &:nth-of-type(3) {
+          max-width: 30vw;
+          margin-right: 0.6rem;
+        }
+      }
+    }
+
+    &.right {
+      align-items: flex-start;
+
+      &::after {
+        left: 0;
+        right: unset;
+      }
+
+      > div {
+        &::after {
+          left: 0;
+          right: unset;
+        }
+
+        &:nth-of-type(1) {
+          max-width: 12vw;
+        }
+
+        &:nth-of-type(2) {
+          max-width: 20vw;
+          margin-left: 0.75rem;
+
+        }
+
+        &:nth-of-type(3) {
+          max-width: 30vw;
+          margin-left: 0.6rem;
+        }
+      }
+    }
+  }
+}

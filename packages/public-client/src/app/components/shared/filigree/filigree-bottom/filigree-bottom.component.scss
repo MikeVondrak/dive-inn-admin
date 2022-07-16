@@ -1,0 +1,91 @@
+@use '../../../scss/utility';
+
+$verticalGap: 0.75rem;
+$w1: 26vw;
+$w2: 10vw;
+$w3: 3vw;
+
+.sections-separator-bottom {
+  display: flex;
+  margin: $verticalGap 0 4vw;
+  border-top: 1px solid utility.$line-colors;
+
+  > * {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex: 1;
+  }
+
+  svg {
+    max-width: 4rem;
+    max-height: 4rem;
+    margin-top: 0.55rem;    
+    path {
+      fill: utility.$line-colors;
+    }
+  }
+
+  div {
+    div {
+      position: relative;
+      width: 100%;
+      height: $verticalGap + 0.1rem;
+      margin-top: 0;
+      border-bottom: 1px solid utility.$line-colors;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -0.125rem;
+        width: 0.25rem;
+        height: 0.25rem;
+        background-color: utility.$line-colors;
+        border-radius: 50%;
+      }
+
+      &:nth-of-type(1) {
+        margin: 0 0.5rem 0 0;
+        max-width: $w1;
+      }
+
+      &:nth-of-type(2) {
+        margin: 0 1rem 0 0;
+        max-width: $w2;
+      }
+
+      &:nth-of-type(3) {
+        margin: 0 0.5rem 0 0;
+        max-width: $w3;
+      }
+    }
+  }
+
+  > :last-child {
+    align-items: flex-start;
+
+    div {
+      width: 100%;
+
+      &:nth-of-type(1) {
+        margin: 0 0 0 0.5rem;
+        max-width: $w1;
+      }
+
+      &:nth-of-type(2) {
+        margin: 0 0 0 1rem;
+        max-width: $w2;
+      }
+
+      &:nth-of-type(3) {
+        margin: 0 0 0 0.5rem;
+        max-width: $w3;
+      }
+
+      &::after {
+        left: 0;
+      }
+    }
+  }
+}

@@ -9,18 +9,18 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { 
     path: 'inside',     
-    component: InsideComponent,
-    //loadChildren: () => import('./components/pages/inside/inside.module').then((module) => module.InsideModule)
+    //component: InsideComponent,
+    loadChildren: () => import('./components/pages/inside/inside.module').then((module) => module.InsideModule)
   },
   { 
     path: 'menu',
-    component: MenuComponent,
-    //loadChildren: () => import('./components/pages/menu/menu.module').then((module) => module.MenuModule)
+    //component: MenuComponent,
+    loadChildren: () => import('./components/pages/menu/menu.module').then((module) => module.MenuModule)
   },
   { 
     path: 'find-us',
-    component: FindUsComponent,
-    //loadChildren: () => import('./components/pages/find-us/find-us.module').then((module) => module.FindUsModule)
+    //component: FindUsComponent,
+    loadChildren: () => import('./components/pages/find-us/find-us.module').then((module) => module.FindUsModule)
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }

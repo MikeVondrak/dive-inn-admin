@@ -76,13 +76,7 @@ export type String_Comparison_Exp = {
   _similar?: InputMaybe<Scalars['String']>;
 };
 
-/**
- * Flickr photo set and Dive Inn public site location
- *
- *
- * columns and relationships of "album"
- *
- */
+/** Flickr photo set and Dive Inn public site location */
 export type Album = {
   __typename?: 'album';
   /** An array relationship */
@@ -98,13 +92,7 @@ export type Album = {
 };
 
 
-/**
- * Flickr photo set and Dive Inn public site location
- *
- *
- * columns and relationships of "album"
- *
- */
+/** Flickr photo set and Dive Inn public site location */
 export type AlbumAlbum_Location_AlbumArgs = {
   distinct_on?: InputMaybe<Array<Album_Location_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -114,13 +102,7 @@ export type AlbumAlbum_Location_AlbumArgs = {
 };
 
 
-/**
- * Flickr photo set and Dive Inn public site location
- *
- *
- * columns and relationships of "album"
- *
- */
+/** Flickr photo set and Dive Inn public site location */
 export type AlbumAlbum_Location_Album_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Album_Location_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -234,13 +216,7 @@ export type Album_Insert_Input = {
   title?: InputMaybe<Scalars['String']>;
 };
 
-/**
- * Locations albums can be located on the Dive Inn public site
- *
- *
- * columns and relationships of "album_location"
- *
- */
+/** Locations albums can be located on the Dive Inn public site */
 export type Album_Location = {
   __typename?: 'album_location';
   /** An array relationship */
@@ -254,13 +230,7 @@ export type Album_Location = {
 };
 
 
-/**
- * Locations albums can be located on the Dive Inn public site
- *
- *
- * columns and relationships of "album_location"
- *
- */
+/** Locations albums can be located on the Dive Inn public site */
 export type Album_LocationAlbumsArgs = {
   distinct_on?: InputMaybe<Array<Album_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -270,13 +240,7 @@ export type Album_LocationAlbumsArgs = {
 };
 
 
-/**
- * Locations albums can be located on the Dive Inn public site
- *
- *
- * columns and relationships of "album_location"
- *
- */
+/** Locations albums can be located on the Dive Inn public site */
 export type Album_LocationAlbums_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Album_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1066,13 +1030,7 @@ export enum Order_By {
   DescNullsLast = 'desc_nulls_last'
 }
 
-/**
- * Flickr Album Photo Data
- *
- *
- * columns and relationships of "photo_size"
- *
- */
+/** Flickr Album Photo Data */
 export type Photo_Size = {
   __typename?: 'photo_size';
   height?: Maybe<Scalars['String']>;
@@ -1292,13 +1250,7 @@ export type Photo_Size_Variance_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
-/**
- * Collection of PhotoSize
- *
- *
- * columns and relationships of "photo_sizes"
- *
- */
+/** Collection of PhotoSize */
 export type Photo_Sizes = {
   __typename?: 'photo_sizes';
   canblog: Scalars['Boolean'];
@@ -1417,13 +1369,7 @@ export type Photo_Sizes_Order_By = {
   photo_size_array_id?: InputMaybe<Order_By>;
 };
 
-/**
- * Array of photo_size for photo_sizes
- *
- *
- * columns and relationships of "photo_sizes_photo_size_array"
- *
- */
+/** Array of photo_size for photo_sizes */
 export type Photo_Sizes_Photo_Size_Array = {
   __typename?: 'photo_sizes_photo_size_array';
   id: Scalars['Int'];

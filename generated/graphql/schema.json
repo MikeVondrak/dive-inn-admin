@@ -568,7 +568,7 @@
       {
         "kind": "OBJECT",
         "name": "album",
-        "description": "Flickr photo set and Dive Inn public site location\n\n\ncolumns and relationships of \"album\"\n",
+        "description": "Flickr photo set and Dive Inn public site location",
         "fields": [
           {
             "name": "album_location_album",
@@ -1692,7 +1692,7 @@
       {
         "kind": "OBJECT",
         "name": "album_location",
-        "description": "Locations albums can be located on the Dive Inn public site\n\n\ncolumns and relationships of \"album_location\"\n",
+        "description": "Locations albums can be located on the Dive Inn public site",
         "fields": [
           {
             "name": "albums",
@@ -6321,7 +6321,7 @@
       {
         "kind": "OBJECT",
         "name": "photo_size",
-        "description": "Flickr Album Photo Data\n\n\ncolumns and relationships of \"photo_size\"\n",
+        "description": "Flickr Album Photo Data",
         "fields": [
           {
             "name": "height",
@@ -7658,7 +7658,7 @@
       {
         "kind": "OBJECT",
         "name": "photo_sizes",
-        "description": "Collection of PhotoSize\n\n\ncolumns and relationships of \"photo_sizes\"\n",
+        "description": "Collection of PhotoSize",
         "fields": [
           {
             "name": "canblog",
@@ -8512,7 +8512,7 @@
       {
         "kind": "OBJECT",
         "name": "photo_sizes_photo_size_array",
-        "description": "Array of photo_size for photo_sizes\n\n\ncolumns and relationships of \"photo_sizes_photo_size_array\"\n",
+        "description": "Array of photo_size for photo_sizes",
         "fields": [
           {
             "name": "id",
