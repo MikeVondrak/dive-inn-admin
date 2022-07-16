@@ -15,6 +15,7 @@ import { FiligreeComponent } from './filigree/filigree.component';
 import { FiligreeTopComponent } from './filigree/filigree-top/filigree-top.component';
 import { FiligreeBottomComponent } from './filigree/filigree-bottom/filigree-bottom.component';
 import { TopicSectionComponent } from './filigree/topic-section/topic-section.component';
+import { TextBlurbComponent } from './text-blurb/text-blurb.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TopicSectionComponent } from './filigree/topic-section/topic-section.co
     FiligreeTopComponent,
     FiligreeBottomComponent,
     TopicSectionComponent,
+    TextBlurbComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +52,7 @@ import { TopicSectionComponent } from './filigree/topic-section/topic-section.co
     // FiligreeTopComponent,
     // FiligreeBottomComponent,
     TopicSectionComponent,
+    TextBlurbComponent,
   ]  
 })
 export class SharedComponentsModule { }
