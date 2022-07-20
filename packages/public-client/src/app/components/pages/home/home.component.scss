@@ -26,13 +26,17 @@ $headerColor: utility.$dive-gray-dk3;
 
       app-food-logos {
         bottom: 2rem;
-        //right: 0rem;
+        // left: 3rem;
         position: absolute;
+      }
+
+      app-moving-background {
+        min-height: 400px;
       }
 
       // @TODO - move into homepage mouse-facer bg
       .westword-award {
-        display: none;
+        // display: none;
 
         @include utility.media-breakpoint-gte(md) {
           display: block;
@@ -40,11 +44,11 @@ $headerColor: utility.$dive-gray-dk3;
 
         z-index: 1;
         position: absolute;
-        bottom: 13.7vw;
-        right: 13.7vw;
-        $deg: 18deg;
-        transform: skew(24deg) rotateZ(23deg);
-        background-color: rgba(0, 0, 0, 0.5);
+        bottom: 1vw;
+        right: 1vw;
+        // $deg: 18deg;
+        // transform: skew(24deg) rotateZ(23deg);
+        background-color: rgba(0, 0, 0, 0.9);
 
         &::after {
           // remove underline dots - TODO refactor to not need this
@@ -82,7 +86,7 @@ $headerColor: utility.$dive-gray-dk3;
         }
 
         img {
-          width: 16vw;
+          width: clamp(260px, 18vw, 600px);
           padding-right: 0.5rem;
         }
       }

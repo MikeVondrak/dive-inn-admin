@@ -3,8 +3,9 @@
 .title-callout {
   z-index: 4; // @TODO: why do we need 4 to be above slide-out logo?
   position: relative;
-  bottom: 3vw;
-  right: 3vw;
+  // bottom: 3vw;
+  // right: 3vw;
+  left: 1vw;
 
   @include utility.media-breakpoint-gte(md) {
     left: 50vw;

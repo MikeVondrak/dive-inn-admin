@@ -23,18 +23,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     ['zero', '68% 22%'],
     ['min', '69% 35%'],
     ['xs', '73% 66%'],
-    ['sm', '50% 24%'],
-    ['md', '50% 41.7%'],
+    ['sm', '60% 24%'],
+    ['md', '50% 21.7%'],
     // ['lg', '50% 41.7%'],
     // ['xl', '50% 41.7%'],
     // ['ws', '50% 41.7%'],
     // ['hd', '50% 41.7%'],
   ]);
   private readonly bgSizes: Map<Breakpoints, string> = new Map([
-    ['zero', '300%'],
-    ['min', '350%'],
-    ['xs', '250%'],
-    ['sm', '150%'],
+    ['zero', 'cover'],
+    ['min', 'cover'],
+    ['xs', 'cover'],
+    ['sm', 'cover'],
     ['md', 'cover'],
     // ['lg', 'cover'],
     // ['xl', 'cover'],
@@ -67,6 +67,17 @@ export class HomeComponent implements OnInit, OnDestroy {
         textCoord: this.textCoords,
         cssClasses: [],
       }
+    ],
+    [
+      'md',
+      {
+        height: '90vh',
+        width: '100vw',
+        bgPosition: this.bgPositions.get('md') || '',
+        bgSize: this.bgSizes.get('md') || '',
+        textCoord: this.textCoords,
+        cssClasses: [],
+      }
     ]
   ]);
 
@@ -74,7 +85,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     [
       'zero',
       {
-        height: 'unset',
+        height: '62.5vw', // 16:10
         width: '100vw',
         bgPosition: this.bgPositions.get('zero') || '',
         bgSize: this.bgSizes.get('zero') || '',
@@ -85,10 +96,21 @@ export class HomeComponent implements OnInit, OnDestroy {
     [
       'sm',
       {
-        height: 'unset',
+        height: '62.5vw', // 16:10
         width: '100vw',
         bgPosition: this.bgPositions.get('sm') || '',
         bgSize: this.bgSizes.get('sm') || '',
+        textCoord: this.textCoords,
+        cssClasses: [],
+      }
+    ],
+    [
+      'md',
+      {
+        height: '90vh',
+        width: '100vw',
+        bgPosition: this.bgPositions.get('md') || '',
+        bgSize: this.bgSizes.get('md') || '',
         textCoord: this.textCoords,
         cssClasses: [],
       }
