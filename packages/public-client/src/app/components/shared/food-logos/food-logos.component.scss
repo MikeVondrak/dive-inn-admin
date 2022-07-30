@@ -3,30 +3,25 @@
 .title-callout {
   z-index: 4; // @TODO: why do we need 4 to be above slide-out logo?
   position: relative;
-  // bottom: 3vw;
-  // right: 3vw;
-  left: 1vw;
-
-  @include utility.media-breakpoint-gte(md) {
-    left: 50vw;
-    right: unset;
-    transform: translateX(-50%);
-  }
 
   .title-callout-title {
     display: none;
-
-    @include utility.media-breakpoint-gte(md) {
-      display: block;
-    }
-
     position: absolute;
-    left: 11.3vw;
     margin: 0;
     padding: 0;
     text-align: center;
     transform: rotate(-25deg);
-    font-size: 1.2vw;
+    font-size: 1.5vw;
+    
+    @include utility.media-breakpoint-gte(sm) {
+      display: block;
+      left: 15vw;
+    }
+    
+    @include utility.media-breakpoint-gte(md) {
+      left: 11.3vw;
+      font-size: 1.2vw;
+    }
 
     $textColor: utility.$dive-gray-dk2;
     $textColorLt: utility.$dive-yellow;
@@ -165,7 +160,11 @@
       }
 
       img {
-        width: 18vw;
+        width: clamp(120px, 25vw, 25vw);
+
+        @include utility.media-breakpoint-gte(sm) {
+          width: 16vw;
+        }
 
         @include utility.media-breakpoint-gte(md) {
           width: 12vw;
@@ -177,6 +176,10 @@
       position: relative;
       right: 1vw;
 
+      @include utility.media-breakpoint-gte(sm) {
+        right: -2.5vw;
+      }
+
       @include utility.media-breakpoint-gte(md) {
         right: -0.75vw;
       }
@@ -187,7 +190,7 @@
       }
 
       img {
-        width: 12vw;
+        width: clamp(90px, 18vw, 18vw);
 
         @include utility.media-breakpoint-gte(sm) {
           width: 9vw;
@@ -202,14 +205,13 @@
         margin: 0;
         padding: 0;
         line-height: 1;
-        font-size: 2.75vw;
+        font-size: clamp(1.1rem, 2.75vw, 2.75vw);
 
         @include utility.media-breakpoint-gte(md) {
           font-size: 1.75vw;
         }
 
-        font-family: 'Anton',
-        sans-serif;
+        font-family: 'Anton', sans-serif;
         text-align: center;
         text-shadow: 1px 1px 1px utility.$dive-black;
       }

@@ -25,9 +25,24 @@ $headerColor: utility.$dive-gray-dk3;
       position: relative;
 
       app-food-logos {
-        bottom: 2rem;
-        // left: 3rem;
+        bottom: 90px;
+        left: 50vw;
+        transform: translateX(-50%);
         position: absolute;
+        z-index: 1;
+
+        @include utility.media-breakpoint-gte(sm) {
+          bottom: 0;
+          left: 1vw;
+          transform: translateX(0%);
+      
+        }
+      
+        @include utility.media-breakpoint-gte(md) {
+          left: 50vw;
+          right: unset;
+          transform: translateX(-50%);
+        }
       }
 
       app-moving-background {
@@ -36,19 +51,18 @@ $headerColor: utility.$dive-gray-dk3;
 
       // @TODO - move into homepage mouse-facer bg
       .westword-award {
-        // display: none;
-
-        @include utility.media-breakpoint-gte(md) {
-          display: block;
-        }
-
         z-index: 1;
         position: absolute;
+        left: 50%;
         bottom: 1vw;
-        right: 1vw;
-        // $deg: 18deg;
-        // transform: skew(24deg) rotateZ(23deg);
+        transform: translateX(-50%);
         background-color: rgba(0, 0, 0, 0.9);
+
+        @include utility.media-breakpoint-gte(sm) {
+          left: unset;
+          right: 1vw;
+          transform: unset;
+        }
 
         &::after {
           // remove underline dots - TODO refactor to not need this
@@ -86,7 +100,7 @@ $headerColor: utility.$dive-gray-dk3;
         }
 
         img {
-          width: clamp(260px, 18vw, 600px);
+          width: clamp(200px, 16vw, 600px);
           padding-right: 0.5rem;
         }
       }
