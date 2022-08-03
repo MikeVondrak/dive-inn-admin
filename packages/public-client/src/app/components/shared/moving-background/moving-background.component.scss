@@ -1,8 +1,130 @@
 @use '../../scss/utility';
 
-:host {
+@mixin coverAbsolute() {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
+$textMaxWidth: 30vw;
+
+
+:host {
+  
   app-mouse-facer {
     height: var(--height);
+  }
+
+
+  .title-container {
+    position: absolute;
+    width: var(--textWidth);
+    top: 20vw;
+    left: 50vw;
+    transform: translateX(-42%);
+    text-align: right;
+  
+    h1.title {
+      z-index: 0;
+      //display: none; // don't display title until >= 840px screen width
+      position: relative;
+      top: -7vw;
+      left: -4vw;
+      transform: translate(-50%) skew(350deg, 346deg) rotate(-0deg);;
+      margin: 0;
+      text-align: right;
+      font-size: 6vw;
+      line-height: 1.4;
+      //white-space: nowrap;
+
+      color: utility.$dive-black;
+      -webkit-text-stroke: 0.05em utility.$dive-red;
+      
+      //display: inline-block;
+      
+      //@include utility.text-double-outline(var(--mouseFacerCardText));
+      &::after {
+        content: attr(card-title);
+        z-index: -1;
+        @include coverAbsolute();
+        -webkit-text-stroke: 0.2em utility.$dive-white;
+      }
+
+      &:nth-of-type(2) {
+        //@include utility.text-double-outline('Live Sports');
+        // &::after {
+        //   content: attr(card-title);
+        // }
+        //margin: 0 -11.0vw 0 0;
+      }
+      &:nth-of-type(3) {
+        //@include utility.text-double-outline('& Games');
+        //margin: 0 -7vw 0 0;                
+      }
+    }
+    
+    @include utility.media-breakpoint-gte(min) {
+      // top: 100vw;
+      // left: 50vw;
+      h1.title {
+        font-size: 9vw;
+        left: 0;
+      }
+    }
+
+    @include utility.media-breakpoint-gte(xs) {
+      // top: 100vw;
+      // left: 50vw;
+      h1.title {
+        font-size: 9vw;
+        left: 0;
+
+        &:nth-of-type(2) {
+          //@include utility.text-double-outline('Live Sports');
+          //margin: 0 -5.5vw 0 0;
+        }
+        &:nth-of-type(3) {
+          //@include utility.text-double-outline('& Games');
+          //margin: 0 -2vw 0 0;                
+        }
+      }
+    }
+
+    @include utility.media-breakpoint-gte(sm) {
+      // top: 100vw;
+      // left: 50vw;
+      h1.title {
+        //font-size: 5vw;
+        // left: 0;
+
+        // &:nth-of-type(2) {
+        //   @include utility.text-double-outline('Live Sports');
+        //   margin: 0 -0vw 0 0;
+        // }
+        // &:nth-of-type(3) {
+        //   @include utility.text-double-outline('& Games');
+        //   margin: 0 0vw 0 0;                
+        // }
+      }
+    }
+
+    @include utility.media-breakpoint-gte(md) {
+      top: 14vw;
+      display: block;
+      h1.title {
+        font-size: 4vw;
+
+        &:nth-of-type(2) {
+          //@include utility.text-double-outline('Live Sports');
+          //margin: 0 1.60vw 0 0;
+        }
+        &:nth-of-type(3) {
+          //@include utility.text-double-outline('& Games');
+          //margin: 0 4vw 0 0;                
+        }
+      }
+    }
   }
 }

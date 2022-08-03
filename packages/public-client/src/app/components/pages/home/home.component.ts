@@ -42,8 +42,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     // ['hd', 'cover']
   ]);
   private readonly cssClasses: string[] = [];
-  private readonly textCoords: Coord = [0, 0];
-
+  private readonly textCoords: Map<Breakpoints, Coord> = new Map([
+    ['zero', ['-7vw', '-4vw']],    
+  ]);
 
   private readonly siteTitleBgPositionsPortrait: Map<Breakpoints, MovingBackgroundConfig> = new Map([
     [
@@ -53,29 +54,25 @@ export class HomeComponent implements OnInit, OnDestroy {
         width: '100vw',
         bgPosition: this.bgPositions.get('zero') || '',
         bgSize: this.bgSizes.get('zero') || '',
-        textCoord: this.textCoords,
+        textCoord: this.textCoords.get('zero'),
         cssClasses: [],
       }
     ],
     [
       'sm',
       {
-        height: '90vh',
-        width: '100vw',
         bgPosition: this.bgPositions.get('sm') || '',
         bgSize: this.bgSizes.get('sm') || '',
-        textCoord: this.textCoords,
+        textCoord: this.textCoords.get('sm'),
         cssClasses: [],
       }
     ],
     [
       'md',
       {
-        height: '90vh',
-        width: '100vw',
         bgPosition: this.bgPositions.get('md') || '',
         bgSize: this.bgSizes.get('md') || '',
-        textCoord: this.textCoords,
+        textCoord: this.textCoords.get('md'),
         cssClasses: [],
       }
     ]
@@ -89,18 +86,16 @@ export class HomeComponent implements OnInit, OnDestroy {
         width: '100vw',
         bgPosition: this.bgPositions.get('zero') || '',
         bgSize: this.bgSizes.get('zero') || '',
-        textCoord: this.textCoords,
+        textCoord: this.textCoords.get('zero'),
         cssClasses: [],
       }
     ],
     [
       'sm',
       {
-        height: '62.5vw', // 16:10
-        width: '100vw',
         bgPosition: this.bgPositions.get('sm') || '',
         bgSize: this.bgSizes.get('sm') || '',
-        textCoord: this.textCoords,
+        textCoord: this.textCoords.get('sm'),
         cssClasses: [],
       }
     ],
@@ -111,7 +106,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         width: '100vw',
         bgPosition: this.bgPositions.get('md') || '',
         bgSize: this.bgSizes.get('md') || '',
-        textCoord: this.textCoords,
+        textCoord: this.textCoords.get('md'),
         cssClasses: [],
       }
     ]

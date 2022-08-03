@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Coord, CssProp, MovingBackgroundConfig } from 'src/app/models/moving-background-item.model';
+import { Coord, MovingBackgroundConfig } from 'src/app/models/moving-background-item.model';
 import { Breakpoints, Orientations, ViewportService, ViewportState } from 'src/app/services/viewport/viewport.service';
 
 @Component({
@@ -21,6 +21,7 @@ export class MovingBackgroundComponent implements OnInit, OnDestroy {
   @Input() imgSrc: string = '';
   @Input() textLines: string[] = [];
 
+  @HostBinding('style.--textWidth') textWidth: string = '';;
   @HostBinding('style.--width') width: string = '';
   @HostBinding('style.--height') height: string = '';
 
@@ -45,22 +46,24 @@ export class MovingBackgroundComponent implements OnInit, OnDestroy {
       
       
       console.log('2!!!!!', this.bgSize, this.bgPosition, state, this.orientationConfigs);
-      this.getConfigForBreakpoint(state.currentBreakpoint, state.orientation);
-      // this.setPropsForBreakpoints(state);
+      const cfg = this.getConfigForBreakpoint(state.currentBreakpoint, state.orientation);
+      this.setPropsForBreakpoints(cfg);
     });
   }
 
-  private getConfigForBreakpoint(bp: Breakpoints, or: Orientations) { //(state: ViewportState) {
-    let checkBp: Breakpoints = bp;
-    let matchBp: MovingBackgroundConfig | undefined;
-    while (!matchBp) {
-      if (this.orientationConfigs.get(or)?.get(checkBp)) {
-        matchBp = this.orientationConfigs.get(or)?.get(checkBp);
-      } else {
-        checkBp = this.viewport.getBpDown(checkBp);
-      }
-    }
-    this.setPropsForBreakpoints(matchBp);
+  private getConfigForBreakpoint(bp: Breakpoints, or: Orientations): MovingBackgroundConfig | undefined {
+    let checkBp: Breakpoints = 'zero';
+    // get the config for 'zero' bp which should always have every prop with a value (by convention)
+    let config: MovingBackgroundConfig | undefined = this.orientationConfigs.get(or)?.get(checkBp);
+    
+    do {
+      checkBp = this.viewport.getBpUp(checkBp);
+      const configForBp = this.orientationConfigs.get(or)?.get(checkBp);
+      if (!!configForBp) {
+        config = { ...config, ...configForBp };
+      }            
+    } while (checkBp !== bp);
+    return config;
   }
 
   private setPropsForBreakpoints(bpConfig: MovingBackgroundConfig | undefined) {
@@ -70,12 +73,14 @@ export class MovingBackgroundComponent implements OnInit, OnDestroy {
     this.width = bpConfig?.width || '';
     this.bgSize = bpConfig?.bgSize;
     this.bgPosition = bpConfig?.bgPosition;
+    this.textWidth = bpConfig?.textWidth || '';
 
 
     console.log('+++++', {bpConfig});
 
 
   }
+  
 
   ngOnDestroy(): void {
     this.destroy$.next();

@@ -109,4 +109,18 @@ export class ViewportService {
       case 'hd': return 'ws'; break;
     }
   }
+
+  public getBpUp(bp: Breakpoints) {
+    switch(bp) {
+      case 'zero': return 'min'; break;
+      case 'min': return 'xs'; break;
+      case 'xs': return 'sm'; break;
+      case 'sm': return 'md'; break;
+      case 'md': return 'lg'; break;
+      case 'lg': return 'xl'; break;
+      case 'xl': return 'ws'; break;
+      case 'ws': return 'hd'; break;
+      case 'hd': return 'hd'; break;
+    }
+  }
 }
